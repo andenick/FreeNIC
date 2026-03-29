@@ -1,0 +1,11 @@
+Product Type,Bank ($ millions),Sovereign ($ millions),Corporate and Other ($ millions),Retail ($ millions),Netting ($ millions),Total ($ millions)
+Cash,18710,59047,25977,0,0,103734
+Derivative and other contracts,54499,8565,286936,0,-312559,37441
+Investment securities,0,159910,3622,0,0,163532
+Securities financing transactions,28883,20696,630952,0,-439684,240847
+Loans,30,22,170666,176699,0,347417
+Other,957,2102,65754,0,0,68813
+Total on-balance sheet,103079,250342,1183907,176699,-752243,961784
+Commitments,72992,1047,275364,12287,0,361690
+Guarantees,0,0,11342,0,0,11342
+Total off-balance sheet,72992,1047,286706,12287,0,373032

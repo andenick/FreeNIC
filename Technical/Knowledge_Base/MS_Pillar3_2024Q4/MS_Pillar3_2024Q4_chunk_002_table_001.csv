@@ -1,0 +1,19 @@
+Components of measure for market risk and market risk RWA,,,,
+,At December 31 2024,,,
+$ in millions,Measure for Market Risk,,RWA (note 1),
+Regulatory VaR (note 2),$,519,$,"6,484"
+Regulatory stressed VaR (note 3),,926,,"11,573"
+Incremental risk charge (note 3),,372,,"4,651"
+Comprehensive risk measure (notes 3 4),,123,,"1,534"
+Specific risk:,,,,,
+"  Non-securitizations (note 5)",,,"1,328",,"16,604"
+"  Securitizations (note 6)",,,"1,078",,"13,476"
+Total market risk,$,"4,346",$,"54,322"
+,,,,,
+Notes:,,,,,
+"1. For information on the Firm's market risk RWA roll-forward from December 31, 2023 to December 31, 2024, see the 2024 Form 10-K.",,,,,
+"2. Per regulatory requirements, the daily average of the previous 60 business days from the period-end date is utilized in the regulatory capital calculation.",,,,,
+"3. Per regulatory requirements, the weekly average of the previous 12 weeks from the period-end date is utilized in the regulatory capital calculation.",,,,,
+"4. Amount represents the greater of the modeled component and the 8% surcharge computed under the Standardized approach. RWA from CRM modeled charge was $1,063 million and the surcharge was $1,534 million.",,,,,
+"5. Non-securitization specific risk charges calculated using regulatory-prescribed risk-weighting factors for certain debt and equity positions.",,,,,
+"6. For information on market risk related to securitizations, see Section 7.3.",,,,,

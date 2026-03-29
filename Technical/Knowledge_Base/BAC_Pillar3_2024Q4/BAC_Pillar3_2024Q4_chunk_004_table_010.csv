@@ -1,0 +1,14 @@
+Table,Table 19 - Equity Exposures In Banking Book - Carrying Value and Fair Value by Risk Weight Approach,,,,,December 31 2024
+(Dollars in millions),Carrying Value,Fair Value,Exposure (3),Risk-Weighted Assets,Risk Weight %
+Simple Risk Weight Approach:,,,,,,
+0% Risk Weight (1),5398,5398,10796,0,0%
+20% Risk Weight,668,668,668,133,20%
+Community Development Equity Exposures,15809,15809,15830,15830,100%
+Publicly Traded Equity Exposures (2),1361,1523,5095,5095,100%
+Non-publicly Traded Equity Exposures (2),30495,31369,33077,33077,100%
+Significant Investments in Unconsolidated Financial Institutions,279,279,279,697,250%
+Total Simple Risk Weight Approach,54010,55046,65745,54832,83%
+Equity Exposures to Investment Funds:,,,,,,
+Full Look-through Approach,27117,27117,27209,8597,32%
+Total Equity Exposures to Investment Funds,27117,27117,27209,8597,32%
+Total Equity Exposures,81127,82163,92954,63429,68%

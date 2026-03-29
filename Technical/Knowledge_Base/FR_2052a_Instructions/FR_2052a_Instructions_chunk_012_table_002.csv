@@ -1,0 +1,20 @@
+Table Number,Table Title,LCR Rule Section,Reporting Entity,PID,Product,Sub-Product,Key LCR Field,Key LCR Value,Collateral Class,Treasury Control,Key Conditions
+1,High-Quality Liquid Assets,Subpart C S.20-.22,LCR Firm,"I.A.1, 2, 3",Matches PID,Not Currency and Coin,Market Value,*,HQLA (except A-0-Q for I.A.2),Y,Open for I.A.3
+2,Rehypothecatable Collateral (I.S),Subpart C S.20-.22,LCR Firm,"I.S.1, 2, 3, 4, 5, 6",Matches PID,#,Collateral Value,*,HQLA securities (not A-0-Q),Y,Unencumbered=Y
+3,Rehypothecatable Collateral (S.DC),Subpart C S.20-.22,LCR Firm,"S.DC. 7, 10",Matches PID,Rehypothecatable - Unencumbered,Market Value,*,HQLA securities (not A-0-Q),Y,
+4,Excluded Sub HQLA,S.22(b)(3) and (4),LCR Firm,S.L.1,Matches PID,,Market Value,*,HQLA,,Subtractive
+5,Early Hedge Termination Outflows,S.22(a)(3),LCR Firm,S.L.3,Matches PID,,Market Value,*,HQLA,,Subtractive
+6,Excess Collateral,S.22(b)(5),LCR Firm,S.DC.15,Matches PID,,Market Value,*,HQLA,Y,Subtractive
+7,Secured Lending Unwind,Subpart C S.21,LCR Firm,"I.S.1, 2, 3, 5, 6",Matches PID,#,Maturity Amount / Collateral Value,*,HQLA,Y,MB <= 30 days; Unencumbered conditional
+8,Secured Funding Unwind,Subpart C S.21,LCR Firm,"O.S.1, 2, 3, 5, 6, 7, 11",Matches PID,O.S.7 not Unsettled,Maturity Amount / Collateral Value,*,HQLA,Y,MB <= 30 days
+9,Asset Exchange Unwind,Subpart C S.21,LCR Firm,I.S.4,#,"Level 1/2A/2B HQLA",Maturity Amount / Collateral Value,*,HQLA,Y,MB <= 30 days; Unencumbered conditional
+10,Stable Retail Deposits,S.32(a)(1),LCR Firm,"O.D.1, 2",Matches PID,,Maturity Amount,*,#,,Counterparty=Retail/Small Business; Insured=FDIC
+11,Other Retail Deposits,S.32(a)(2),LCR Firm,"O.D.1, 2, 3",Matches PID,,Maturity Amount,*,#,,Counterparty=Retail/Small Business; Insured=Not FDIC (PID 1-2) or # (PID 3)
+12,Insured Placed Retail Deposits,S.32(a)(3),LCR Firm,O.D.14,Matches PID,,Maturity Amount,*,#,,Counterparty=Retail/Small Business; Insured=FDIC
+13,Non-Insured Placed Retail Deposits,S.32(a)(4),LCR Firm,O.D.14,Matches PID,,Maturity Amount,*,#,,Counterparty=Retail/Small Business; Insured=Not FDIC
+14,Other Retail Funding (Deposits),S.32(a)(5),LCR Firm,O.D.15,Matches PID,,Maturity Amount,*,#,,Counterparty=Retail/Small Business
+15,Other Retail Funding (Other Cash),S.32(a)(5),LCR Firm,O.O.22,Matches PID,,Maturity Amount,*,#,,Counterparty=Retail/Small Business
+16,Other Retail Funding (Secured),S.32(a)(5),LCR Firm,"O.S.1, 2, 7, 11",Matches PID,O.S.7 not Unsettled,Maturity Amount,*,#,,Counterparty=Retail/Small Business
+17,Other Retail Funding (Wholesale),S.32(a)(5),LCR Firm,O.W.18,Matches PID,,Maturity Amount,*,#,,Counterparty=Retail/Small Business; MB <= 30 days
+18,Structured Transaction Outflow Amount,S.32(b),LCR Firm,O.O.21,Matches PID,,Maturity Amount,*,#,,MB <= 30 days; incremental amount
+19,Net Derivatives Cash Outflow Amount,S.32(c),LCR Firm,O.O.20,Matches PID,,Maturity Amount,*,#,,MB <= 30 days

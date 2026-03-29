@@ -1,0 +1,16 @@
+Schedule,Item,Description,MDRM_TotalFV,MDRM_Netted,MDRM_Level1,MDRM_Level2,MDRM_Level3
+HC-Q-Memo,M.1.a.,All other assets: Mortgage servicing assets,BHCK G536,BHCK G537,BHCK G538,BHCK G539,BHCK G540
+HC-Q-Memo,M.1.b.,All other assets: Nontrading derivative assets,BHCK G541,BHCK G542,BHCK G543,BHCK G544,BHCK G545
+HC-Q-Memo,M.2.a.,All other liabilities: Loan commitments (not accounted for as derivatives),BHCK F261,BHCK F689,BHCK F697,BHCK F262,BHCK F263
+HC-Q-Memo,M.2.b.,All other liabilities: Nontrading derivative liabilities,BHCK G566,BHCK G567,BHCK G568,BHCK G569,BHCK G570
+Schedule,Item,Description,MDRM
+HC-Q-Memo,M.3.a.(1),Loans measured at fair value: Secured by 1-4 family residential properties,BHCK HT87
+HC-Q-Memo,M.3.a.(2),Loans measured at fair value: All other loans secured by real estate,BHCK HT88
+HC-Q-Memo,M.3.b.,Loans measured at fair value: Commercial and industrial loans,BHCK F585
+HC-Q-Memo,M.3.c.,Loans measured at fair value: Consumer loans,BHCK HT89
+HC-Q-Memo,M.3.d.,Loans measured at fair value: Other loans,BHCK F589
+HC-Q-Memo,M.4.a.(1),UPB of loans at fair value: Secured by 1-4 family residential properties,BHCK HT91
+HC-Q-Memo,M.4.a.(2),UPB of loans at fair value: All other loans secured by real estate,BHCK HT92
+HC-Q-Memo,M.4.b.,UPB of loans at fair value: Commercial and industrial loans,BHCK F597
+HC-Q-Memo,M.4.c.,UPB of loans at fair value: Consumer loans,BHCK HT93
+HC-Q-Memo,M.4.d.,UPB of loans at fair value: Other loans,BHCK F601

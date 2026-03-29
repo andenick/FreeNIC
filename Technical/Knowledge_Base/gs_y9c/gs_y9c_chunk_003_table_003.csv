@@ -1,0 +1,35 @@
+Schedule,Item,Description,MDRM_Consolidated,MDRM_DomesticOffices
+HC-C,1.,Loans secured by real estate,BHCK 1410,
+HC-C,1.a.(1),1-4 family residential construction loans,BHCK F158,
+HC-C,1.a.(2),Other construction loans and all land development and other land loans,BHCK F159,
+HC-C,1.b.,Secured by farmland,BHDM 1420,
+HC-C,1.c.(1),Revolving open-end loans secured by 1-4 family residential properties,BHDM 1797,
+HC-C,1.c.(2)(a),Closed-end loans: Secured by first liens,BHDM 5367,
+HC-C,1.c.(2)(b),Closed-end loans: Secured by junior liens,BHDM 5368,
+HC-C,1.d.,Secured by multifamily (5 or more) residential properties,BHDM 1460,
+HC-C,1.e.(1),Loans secured by owner-occupied nonfarm nonresidential properties,BHCK F160,
+HC-C,1.e.(2),Loans secured by other nonfarm nonresidential properties,BHCK F161,
+HC-C,2.,Loans to depository institutions and acceptances of other banks,BHDM 1288,
+HC-C,2.a.,To U.S. banks and other U.S. depository institutions,BHDM 1292,
+HC-C,2.b.,To foreign banks,BHDM 1296,
+HC-C,3.,Loans to finance agricultural production,BHCK 1590,BHDM 1590
+HC-C,4.,Commercial and industrial loans,BHCK 1766,
+HC-C,4.a.,To U.S. addressees (domicile),BHCK 1763,
+HC-C,4.b.,To non-U.S. addressees (domicile),BHCK 1764,
+HC-C,4.c.,To U.S. and non-U.S. addressees,BHCK KX56,
+HC-C,6.,Consumer loans (includes purchased paper),BHCK 1975,
+HC-C,6.a.,Credit cards,BHCK B538,
+HC-C,6.b.,Other revolving credit plans,BHCK B539,
+HC-C,6.c.,Automobile loans,BHCK K137,
+HC-C,6.d.,Other consumer loans,BHCK K207,
+HC-C,7.,Loans to foreign governments and official institutions,BHCK 2081,BHDM 2081
+HC-C,9.a.,Loans to nondepository financial institutions,BHCK J454,BHDM J454
+HC-C,9.b.(1),Loans for purchasing or carrying securities,BHCK 1545,BHDM 1545
+HC-C,9.b.(2),All other loans (exclude consumer loans),BHCK J451,BHDM J451
+HC-C,9.b.(3),Loans for purchasing or carrying securities and all other loans,BHCK KX57,BHDM KX57
+HC-C,10.,Lease financing receivables,BHCK 2165,
+HC-C,10.a.,Leases to individuals (consumer leases),BHCK F162,
+HC-C,10.b.,All other leases,BHCK F163,
+HC-C,10.c.,Lease finance receivables,BHCK KX58,
+HC-C,11.,LESS: Unearned income on loans,BHCK 2123,BHDM 2123
+HC-C,12.,Total loans and leases held for investment and held for sale,BHCK 2122,BHDM 2122

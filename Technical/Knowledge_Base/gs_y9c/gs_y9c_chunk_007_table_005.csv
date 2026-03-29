@@ -1,0 +1,21 @@
+Schedule,Item,Description,MDRM_ColA_1yr_or_less,MDRM_ColB_1to5yr,MDRM_ColC_over5yr
+HC-R-II-Memo,M.1.,Current credit exposure across all derivative contracts,BHCK G642,,
+HC-R-II-Memo,M.2.a.,OTC notional: Interest rate,BHCK S582,BHCK S583,BHCK S584
+HC-R-II-Memo,M.2.b.,OTC notional: Foreign exchange rate and gold,BHCK S585,BHCK S586,BHCK S587
+HC-R-II-Memo,M.2.c.,OTC notional: Credit (investment grade),BHCK S588,BHCK S589,BHCK S590
+HC-R-II-Memo,M.2.d.,OTC notional: Credit (non-investment grade),BHCK S591,BHCK S592,BHCK S593
+HC-R-II-Memo,M.2.e.,OTC notional: Equity,BHCK S594,BHCK S595,BHCK S596
+HC-R-II-Memo,M.2.f.,OTC notional: Precious metals (except gold),BHCK S597,BHCK S598,BHCK S599
+HC-R-II-Memo,M.2.g.,OTC notional: Other,BHCK S600,BHCK S601,BHCK S602
+HC-R-II-Memo,M.3.a.,Centrally cleared notional: Interest rate,BHCK S603,BHCK S604,BHCK S605
+HC-R-II-Memo,M.3.b.,Centrally cleared notional: Foreign exchange rate and gold,BHCK S606,BHCK S607,BHCK S608
+HC-R-II-Memo,M.3.c.,Centrally cleared notional: Credit (investment grade),BHCK S609,BHCK S610,BHCK S611
+HC-R-II-Memo,M.3.d.,Centrally cleared notional: Credit (non-investment grade),BHCK S612,BHCK S613,BHCK S614
+HC-R-II-Memo,M.3.e.,Centrally cleared notional: Equity,BHCK S615,BHCK S616,BHCK S617
+HC-R-II-Memo,M.3.f.,Centrally cleared notional: Precious metals (except gold),BHCK S618,BHCK S619,BHCK S620
+HC-R-II-Memo,M.3.g.,Centrally cleared notional: Other,BHCK S621,BHCK S622,BHCK S623
+Schedule,Item,Description,MDRM
+HC-R-II-Memo,M.4.,Standardized market risk-weighted assets attributable to specific risk,BHCK S624
+HC-R-II-Memo,M.5.a.,Allowances for credit losses on purchased credit-deteriorated assets: Loans and leases,BHCK JJ30
+HC-R-II-Memo,M.5.b.,Allowances for credit losses on purchased credit-deteriorated assets: HTM debt securities,BHCK JJ31
+HC-R-II-Memo,M.5.c.,Allowances for credit losses on purchased credit-deteriorated assets: Other financial assets,BHCK JJ32

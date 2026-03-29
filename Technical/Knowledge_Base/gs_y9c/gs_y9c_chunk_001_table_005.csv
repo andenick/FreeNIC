@@ -1,0 +1,18 @@
+Schedule,Item,Description,MDRM,Amount_Thousands
+HI-A,1.,Total holding company equity capital most recently reported for end of previous calendar year,BHCK 3217,121996000
+HI-A,2.,Cumulative effect of changes in accounting principles and corrections of material accounting errors,BHCK B507,0
+HI-A,3.,Balance end of previous calendar year as restated (sum of items 1 and 2),BHCK B508,121996000
+HI-A,4.,Net income (loss) attributable to holding company (must equal Schedule HI item 14),BHCT 4340,12559000
+HI-A,5.a.,Sale of perpetual preferred stock gross,BHCK 3577,1895000
+HI-A,5.b.,Conversion or retirement of perpetual preferred stock,BHCK 3578,0
+HI-A,6.a.,Sale of common stock gross,BHCK 3579,0
+HI-A,6.b.,Conversion or retirement of common stock,BHCK 3580,941000
+HI-A,7.,Sale of treasury stock,BHCK 4782,39000
+HI-A,8.,LESS: Purchase of treasury stock,BHCK 4783,9360000
+HI-A,9.,Changes incident to business combinations net,BHCK 4356,0
+HI-A,10.,LESS: Cash dividends declared on preferred stock,BHCK 4598,643000
+HI-A,11.,LESS: Cash dividends declared on common stock,BHCK 4460,3185000
+HI-A,12.,Other comprehensive income,BHCK B511,226000
+HI-A,13.,Change in the offsetting debit to the liability for ESOP debt guaranteed by the holding company,BHCK 4591,0
+HI-A,14.,Other adjustments to equity capital (not included above),BHCK 3581,-66000
+HI-A,15.,Total holding company equity capital end of current period,BHCT 3210,124402000

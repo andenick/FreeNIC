@@ -1,0 +1,8 @@
+Counterparty Credit Exposures by PD Range - June 30 2025 (in millions except ratios),EAD,RWA,Exposure-weighted avg PD,Exposure-weighted avg LGD,Exposure-weighted avg Risk weight
+0.00 to <0.15,164947,25111,0.07,38.49,15.22
+0.15 to <0.50,96475,41262,0.28,40.62,42.77
+0.50 to <1.35,58369,39578,0.75,40.75,67.81
+1.35 to <10.00,20183,25418,3.75,41.27,125.94
+10.00 to <100,3088,6592,16.96,40.92,213.48
+100 (default),705,744,100.00,N/A,105.55
+Total,343767,138705,0.83%,39.65%,40.35%

@@ -1,0 +1,10 @@
+NSFR Table,Table Name,NSFR Section,ASF/RSF Factor,PID,Product Type,Counterparty Filter,Key Fields
+1,NSFR regulatory capital element,Section 104(a)(1),100% ASF,S.B.1,Supplemental-Balance Sheet,#,Maturity Amount=*
+2,Subordinated debt (NSFR capital),Section 104(a)(1),100% ASF,"O.W.11,12",Outflows-Wholesale,#,"Loss Absorbency=Capital, Maturity Amount=*"
+3,Wholesale debt >= 1 year (excl deposits/SFT),Section 104(a)(2),100% ASF,"O.W.1-13,16,17,19",Outflows-Wholesale,Not Retail or Small Business,"Maturity Bucket>=1 Year, Loss Absorbency=Not Capital"
+4,Wholesale deposits >= 1 year,Section 104(a)(2),100% ASF,"O.D.5,6,8,10,11,13,14,15",Outflows-Deposits,Not Retail or Small Business,Maturity Bucket>=1 Year
+5,Wholesale SFT >= 1 year,Section 104(a)(2),100% ASF,"O.S.1,2,3,5,6,11",Outflows-Secured,Not Retail or Small Business,"Maturity Bucket>=1 Year, Sub-Product=Not FRFF"
+6,Wholesale interest payable >= 1 year,Section 104(a)(2),100% ASF,O.O.19,Outflows-Other,Not Retail or Small Business,"Maturity Bucket>=1 Year, Forward Start=NULL"
+7,Other liabilities >= 1 year,Section 104(a)(2),100% ASF,S.B.2,Supplemental-Balance Sheet,Not Retail or Small Business,Maturity Bucket>=1 Year
+8,Stable retail deposits excl sweeps,Section 104(b)(1),95% ASF,"O.D.1,2",Outflows-Deposits,"Retail, Small Business",Insured=FDIC
+9,Insured stable affiliated retail sweeps,Section 104(b)(2),95% ASF,O.D.9,Outflows-Deposits,"Retail, Small Business",Continues in chunk 021

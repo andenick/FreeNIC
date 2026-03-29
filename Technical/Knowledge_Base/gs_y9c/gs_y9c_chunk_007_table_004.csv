@@ -1,0 +1,11 @@
+Schedule,Item,Description,MDRM_ColC_0pct,MDRM_ColD_2pct,MDRM_ColE_4pct,MDRM_ColF_10pct,MDRM_ColG_20pct,MDRM_ColH_50pct,MDRM_ColI_100pct,MDRM_ColJ_150pct,MDRM_ColK_250pct,MDRM_ColL_300pct,MDRM_ColM_400pct,MDRM_ColN_600pct,MDRM_ColO_625pct,MDRM_ColP_937pct,MDRM_ColQ_1250pct
+HC-R-II,23.,Total assets and derivatives by risk-weight category,BHCK G630,BHCK S558,BHCK S559,BHCK S560,BHCK G631,BHCK G632,BHCK G633,BHCK S561,BHCK S562,BHCK S563,BHCK S564,BHCK S565,BHCK S566,BHCK S567,BHCK S568
+HC-R-II,24.,Risk weight factor,0%,2%,4%,10%,20%,50%,100%,150%,250%,300%,400%,600%,625%,937.5%,1250%
+HC-R-II,25.,Risk-weighted assets by risk-weight category,BHCK G634,BHCK S569,BHCK S570,BHCK S571,BHCK G635,BHCK G636,BHCK G637,BHCK S572,BHCK S573,BHCK S574,BHCK S575,BHCK S576,BHCK S577,BHCK S578,BHCK S579
+Schedule,Item,Description,MDRM
+HC-R-II,26.,RWA for AACL 1.25 percent threshold,BHCK S580
+HC-R-II,27.,Standardized market-risk weighted assets,BHCK S581
+HC-R-II,28.,RWA before deductions for excess AACL and allocated risk transfer reserve,BHCK B704
+HC-R-II,29.,LESS: Excess AACL,BHCK A222
+HC-R-II,30.,LESS: Allocated transfer risk reserve,BHCK 3128
+HC-R-II,31.,Total risk-weighted assets (item 28 minus items 29 and 30),BHCK G641

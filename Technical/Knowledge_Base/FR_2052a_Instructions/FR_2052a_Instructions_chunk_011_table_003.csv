@@ -1,0 +1,8 @@
+Category,Applicable Firms,Product Scope,Maturity Granularity,Beyond 1 Year Treatment
+"(1) Cat I / Cat II",U.S. Cat I or Cat II banking orgs; FBOs identified as Cat II,All products,76 maturity buckets (Open + Day 1-60 daily + 4 weekly + 3 30-day + 2 90-day + 4 yearly + >5 Yr + Perpetual),Full yearly buckets through Year 5
+"(2a) Cat III/IV wSTWF>$50B - Outflows/Supplemental","U.S. Cat III or Cat IV with wSTWF>$50B; FBOs Cat III or Cat IV with wSTWF>$50B",Outflow and supplemental products within 1 year,70 applicable maturity buckets,"Aggregate in >= 1 Year and <= 2 Year bucket"
+"(2b) Cat III/IV wSTWF>$50B - Inflows","U.S. Cat III or Cat IV with wSTWF>$50B; FBOs Cat III or Cat IV with wSTWF>$50B",Inflow products within 1 year,70 applicable maturity buckets,Aggregate in > 5 Year bucket
+"(3a) Cat IV wSTWF<$50B - I.A.1/I.A.2/I.A.7","U.S. Cat IV with wSTWF<$50B; FBOs Cat IV with wSTWF<$50B","I.A.1, I.A.2, I.A.7","3 buckets: Open (<6 months), 271-364 Days (>=6mo <1yr), >5 Years (>=1yr) + Perpetual",> 5 Years bucket
+"(3b) Cat IV wSTWF<$50B - I.U.6/I.S.7","U.S. Cat IV with wSTWF<$50B; FBOs Cat IV with wSTWF<$50B","I.U.6, I.S.7","2 buckets: Day 30 (<=30 days), > 5 Years (>30 days)",> 5 Years bucket
+"(3c) Cat IV wSTWF<$50B - Other Inflows","U.S. Cat IV with wSTWF<$50B; FBOs Cat IV with wSTWF<$50B",All other inflow products within 1 year,70 applicable maturity buckets,Aggregate in > 5 Year bucket
+"(3d) Cat IV wSTWF<$50B - Outflows/Supplemental","U.S. Cat IV with wSTWF<$50B; FBOs Cat IV with wSTWF<$50B",Outflow and supplemental products within 1 year,70 applicable maturity buckets,"Aggregate in >= 1 Year and <= 2 Year bucket"

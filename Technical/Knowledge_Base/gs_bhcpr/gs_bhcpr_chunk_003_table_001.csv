@@ -1,0 +1,39 @@
+Derivatives Analysis,09/30/2025,09/30/2024,12/31/2024,12/31/2023,12/31/2022
+Percent of Notional Amount,,,,,,
+Interest rate contracts,71.76,74.42,72.18,77,78.11
+Foreign exchange contracts,17.95,15.95,17.60,15.22,14.44
+"Equity, commodity, and other contracts",10.29,9.63,10.22,7.78,7.44
+Futures and forwards,19.25,17.59,18.12,18.11,13.66
+Written options,14.65,16.47,16.68,16.82,18.30
+Exchange-traded,3.27,3.33,2.83,3.48,4.23
+Over-the-counter,11.38,13.14,13.85,13.34,14.07
+Purchased options,14.73,17.26,17.42,16.64,19.26
+Exchange-traded,3.64,4.98,4.14,4.48,6.73
+Over-the-counter,11.09,12.28,13.28,12.16,12.53
+Swaps,51.37,48.69,47.78,48.43,48.78
+Held for trading,99.29,99.35,99.25,99.39,99.25
+Interest rate contracts,71.11,73.81,71.48,76.42,77.39
+Foreign exchange contracts,17.90,15.91,17.56,15.20,14.42
+"Equity, commodity, and other contracts",10.29,9.63,10.22,7.78,7.44
+Non-traded,0.71,0.65,0.75,0.61,0.75
+Interest rate contracts,0.66,0.62,0.71,0.58,0.72
+Foreign exchange contracts,0.05,0.04,0.04,0.03,0.03
+"Equity, commodity, and other contracts",0,0,0,0,0
+Derivative contracts (excluding futures and forex 14 days or less),136.39,130.57,131.51,117,117.94
+One year or less,116.76,109.84,108.81,97.88,95.80
+Over 1 year to 5 years,12.15,12.27,13.27,11.97,14.12
+Over 5 years,7.48,8.47,9.43,7.14,8.02
+Gross negative fair value (absolute value),0.85,0.88,1.07,0.97,1.23
+Gross positive fair value,0.80,0.85,1.02,0.97,1.26
+Percent of Tier 1 Capital,,,,,,
+Gross negative fair value absolute value (X),3.22,3.22,3.31,3.72,4.16
+Gross positive fair value (X),3.03,3.12,3.16,3.71,4.28
+Held for trading (X),3.03,3.12,3.15,3.71,4.28
+Non-traded (X),0,0,0,0,0
+Current credit exposure (X),0.49,0.48,0.50,0.51,0.56
+Credit losses on derivative contracts,0,0,0,0.11,0.06
+Past Due Derivative Instruments Fair Value,,,,,,
+30-89 days past due,0.01,0.02,0.06,0.07,0.28
+90+ days past due,0.05,0,0,0.05,0.34
+Other Ratios,,,,,,
+Current credit exposure / Risk-weighted assets,8.04,7.98,8.36,8.12,9.37

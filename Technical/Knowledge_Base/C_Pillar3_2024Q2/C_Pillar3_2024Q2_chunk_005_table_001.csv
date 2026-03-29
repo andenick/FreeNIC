@@ -1,0 +1,11 @@
+"Table 21: Regulatory VaR Risk-Weighted Assets",,
+"June 30, 2024",,
+"In millions of dollars","As of June 30, 2024",
+,Regulatory VaR (1),Regulatory VaR-Based Capital (2),Regulatory VaR RWA (3)
+,210,629,10506
+,,
+Notes:,,
+"(1) 60-day average, for which each daily Regulatory VaR is based on a 10-day time horizon.",,
+"(2) Regulatory VaR times a capital multiplier of 3.",,
+"(3) Regulatory VaR-based Capital times 12.5, plus $2,642mm add-on for Risk not Captured in the Model (equivalent of $211mm Capital).",,
+"Immaterial differences in calculations above may exist due to rounding.",,

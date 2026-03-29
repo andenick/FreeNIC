@@ -1,0 +1,11 @@
+Item,Description,Col_A_leq1pct,Col_B_1.01-4pct,Col_C_4.01-7pct,Col_D_7.01-10pct,Col_E_10.01-14pct,Col_F_14.01-16pct,Col_G_16.01-18pct,Col_H_18.01-20pct,Col_I_20.01-22pct,Col_J_22.01-26pct,Col_K_26.01-30pct,Col_L_gt30pct,Col_M_Unscoreable,Col_N_Total,Col_O_PD_Method
+M.18.a,Nontraditional 1-4 family residential mortgage loans,M964,M965,M966,M967,M968,M969,M970,M971,M972,M973,M974,M975,M976,M977,M978
+M.18.b,Closed-end loans secured by first liens on 1-4 family residential properties,M979,M980,M981,M982,M983,M984,M985,M986,M987,M988,M989,M990,M991,M992,M993
+M.18.c,Closed-end loans secured by junior liens on 1-4 family residential properties,M994,M995,M996,M997,M998,M999,N001,N002,N003,N004,N005,N006,N007,N008,N009
+M.18.d,"Revolving, open-end loans secured by 1-4 family residential properties and extended under lines of credit",N010,N011,N012,N013,N014,N015,N016,N017,N018,N019,N020,N021,N022,N023,N024
+M.18.e,Credit cards,N040,N041,N042,N043,N044,N045,N046,N047,N048,N049,N050,N051,N052,N053,N054
+M.18.f,Automobile loans,N055,N056,N057,N058,N059,N060,N061,N062,N063,N064,N065,N066,N067,N068,N069
+M.18.g,Student loans,N070,N071,N072,N073,N074,N075,N076,N077,N078,N079,N080,N081,N082,N083,N084
+M.18.h,Other consumer loans and revolving credit plans other than credit cards,N085,N086,N087,N088,N089,N090,N091,N092,N093,N094,N095,N096,N097,N098,N099
+M.18.i,Consumer leases,N100,N101,N102,N103,N104,N105,N106,N107,N108,N109,N110,N111,N112,N113,N114
+M.18.j,Total,N115,N116,N117,N118,N119,N120,N121,N122,N123,N124,N125,N126,N127,N128,

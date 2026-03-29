@@ -1,0 +1,10 @@
+Schedule,Item,Description,MDRM_ColA_Total,MDRM_ColB_Adj,MDRM_ColQ_1250pct,MDRM_ColT_SSFA,MDRM_ColU_GrossUp
+HC-R-II,9.a.,On-balance sheet securitization: Held-to-maturity securities,BHCK S475,BHCK S476,BHCK S477,BHCK S478,BHCK S479
+HC-R-II,9.b.,On-balance sheet securitization: Available-for-sale securities,BHCK S480,BHCK S481,BHCK S482,BHCK S483,BHCK S484
+HC-R-II,9.c.,On-balance sheet securitization: Trading assets,BHCK S485,BHCK S486,BHCK S487,BHCK S488,BHCK S489
+HC-R-II,9.d.,On-balance sheet securitization: All other exposures,BHCK S490,BHCK S491,BHCK S492,BHCK S493,BHCK S494
+HC-R-II,10.,Off-balance sheet securitization exposures,BHCK S495,BHCK S496,BHCK S497,BHCK S498,BHCK S499
+Schedule,Item,Description,MDRM_ColA_Total,MDRM_ColB_Adj,MDRM_ColC_0pct,MDRM_ColD_2pct,MDRM_ColE_4pct,MDRM_ColF_10pct,MDRM_ColG_20pct,MDRM_ColH_50pct,MDRM_ColI_100pct,MDRM_ColJ_150pct
+HC-R-II,11.,Total balance sheet assets,BHCT 2170,BHCK S500,BHCK D987,BHCK HJ90,BHCK HJ91,,BHCK D988,BHCK D989,BHCK D990,BHCK S503
+Schedule,Item,Description,MDRM_ColK_250pct,MDRM_ColL_300pct,MDRM_ColM_400pct,MDRM_ColN_600pct,MDRM_ColO_625pct,MDRM_ColP_937pct,MDRM_ColQ_1250pct,MDRM_ColR_Exposure
+HC-R-II,11.,Total balance sheet assets (continued),BHCK S504,BHCK S505,BHCK S506,BHCK S507,,,BHCK S510,BHCK H300

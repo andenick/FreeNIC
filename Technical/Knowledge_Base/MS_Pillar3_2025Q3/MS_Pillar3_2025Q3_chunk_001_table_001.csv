@@ -1,0 +1,24 @@
+Category,Subcategory,Amount ($ millions)
+Credit risk RWA:,,
+,Wholesale exposures,208059
+,Retail exposures:,
+,"Residential mortgage",4009
+,"Revolving",314
+,"Other retail",5693
+,Securitization exposures,18967
+,Cleared transactions,5441
+,Equity exposures,29481
+,"Other assets (note 2)",41036
+,Credit valuation adjustment,39142
+Total credit risk RWA (note 3),,352142
+Market risk RWA:,,
+,Regulatory VaR,9385
+,Regulatory stressed VaR,14233
+,Incremental risk charge,2575
+,Comprehensive risk measure,579
+,Specific risk:,
+,"Non-securitizations",22651
+,"Securitizations",10745
+Total market risk RWA (note 4),,60168
+Total operational risk RWA,,105702
+Total RWA,,518012

@@ -1,0 +1,17 @@
+Table 13: Aggregate Amount of Securitized and Resecuritized Exposures by Risk Weights and Approach,,,,,,,,,June 30 2024
+(in millions),SFA EAD,SFA RWAs,SSFA EAD,SSFA RWAs,1250% EAD,1250% RWAs,Total EAD,Total RWAs
+Securitizations:,,,,,,,,,
+0% to <=20%,$90696,$19219,$42166,$9171,--,--,$132862,$28390
+>20% to <=50%,$1534,$526,$4295,$1453,--,--,$5829,$1979
+>50% to <=100%,$982,$695,$1726,$1079,--,--,$2708,$1774
+>100% to <1250%,$128,$179,$63,$97,--,--,$191,$276
+Equal to 1250%,--,--,--,--,--,--,--,--
+Total Securitizations,$93340,$20619,$48250,$11800,--,--,$141590,$32419
+Resecuritizations:,,,,,,,,,
+0% to <=20%,--,--,$390,$83,--,--,$390,$83
+>20% to <=50%,--,--,--,--,--,--,--,--
+>50% to <=100%,--,--,$8,$8,--,--,$8,$8
+>100% to <1250%,--,--,--,--,--,--,--,--
+Equal to 1250%,--,--,--,--,--,--,--,--
+Total Resecuritizations,--,--,$398,$91,--,--,$398,$91
+Total Securitizations and Resecuritizations,$93340,$20619,$48648,$11891,--,--,$141988,$32510

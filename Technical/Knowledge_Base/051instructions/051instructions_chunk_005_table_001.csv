@@ -1,0 +1,53 @@
+schedule,item,description,rcoa_code,data_type,notes
+RC-R Part I,1,"Common stock plus related surplus net of treasury stock and unearned ESOP shares",P742,Amount,CET1 component
+RC-R Part I,2,"Retained earnings",KW00,Amount,CET1 component; may include CECL transitional amount
+RC-R Part I,2.a.,"CECL transition election in effect",JJ29,Code,"0=No; 1=Yes 3-year; 2=Yes 5-year 2020"
+RC-R Part I,3,"Accumulated other comprehensive income (AOCI)",B530,Amount,
+RC-R Part I,3.a.,"AOCI opt-out election",P838,Code,"1=Yes; 0=No"
+RC-R Part I,4,"Common equity tier 1 minority interest",P839,Amount,
+RC-R Part I,5,"CET1 capital before adjustments and deductions",P840,Amount,Sum of items 1 through 4
+RC-R Part I,6,"LESS: Goodwill net of associated DTLs",P841,Amount,
+RC-R Part I,7,"LESS: Intangible assets (other than goodwill and MSAs) net of DTLs",P842,Amount,
+RC-R Part I,8,"LESS: DTAs from NOL and tax credit carryforwards net of valuation allowances and DTLs",P843,Amount,
+RC-R Part I,9.a.,"LESS: Net unrealized gains (losses) on AFS debt securities",P844,Amount,If AOCI opt-out=Yes
+RC-R Part I,9.c.,"LESS: Accumulated net gains (losses) on cash flow hedges",P846,Amount,If AOCI opt-out=Yes
+RC-R Part I,9.d.,"LESS: AOCI from defined benefit postretirement plans",P847,Amount,If AOCI opt-out=Yes
+RC-R Part I,9.e.,"LESS: Net unrealized gains (losses) on HTM securities in AOCI",P848,Amount,If AOCI opt-out=Yes
+RC-R Part I,9.f.,"LESS: Accumulated net gain (loss) on cash flow hedges for non-fair-value items",P849,Amount,If AOCI opt-out=No
+RC-R Part I,10.a.,"LESS: Unrealized net gain (loss) from changes in own credit risk",Q258,Amount,
+RC-R Part I,10.b.,"LESS: All other deductions from CET1 before threshold-based deductions",P850,Amount,
+RC-R Part I,12,"Subtotal (item 5 minus items 6 through 10.b)",P852,Amount,
+RC-R Part I,13,"LESS: Investments in unconsolidated financial institutions exceeding 25% of item 12",LB58,Amount,
+RC-R Part I,14,"LESS: MSAs exceeding 25% of item 12",LB59,Amount,
+RC-R Part I,15,"LESS: DTAs from temporary differences exceeding 25% of item 12",LB60,Amount,
+RC-R Part I,17,"LESS: Deductions applied to CET1 due to insufficient AT1 and T2 capital",P857,Amount,
+RC-R Part I,18,"Total adjustments and deductions for CET1",P858,Amount,Sum of items 13 through 17
+RC-R Part I,19,"Common equity tier 1 capital",P859,Amount,Item 12 minus item 18
+RC-R Part I,20,"Additional tier 1 capital instruments plus related surplus",P860,Amount,
+RC-R Part I,21,"Non-qualifying capital instruments subject to phase-out from AT1",P861,Amount,
+RC-R Part I,22,"Tier 1 minority interest not included in CET1",P862,Amount,
+RC-R Part I,23,"Additional tier 1 capital before deductions",P863,Amount,Sum of items 20-22
+RC-R Part I,24,"LESS: Additional tier 1 capital deductions",P864,Amount,
+RC-R Part I,25,"Additional tier 1 capital (greater of item 23 minus 24 or zero)",P865,Amount,
+RC-R Part I,26,"Tier 1 capital (sum of items 19 and 25)",8274,Amount,
+RC-R Part I,27,"Average total consolidated assets",KW03,Amount,
+RC-R Part I,28,"LESS: Deductions from CET1 and AT1 capital",P875,Amount,
+RC-R Part I,29,"LESS: Other deductions from assets for leverage ratio purposes",B596,Amount,
+RC-R Part I,30,"Total assets for the leverage ratio",A224,Amount,Item 27 minus items 28 and 29
+RC-R Part I,31,"Tier 1 leverage ratio",7204,Percentage,Item 26 / item 30
+RC-R Part I,31.a.,"CBLR framework election in effect",LE74,Code,"1=Yes; 0=No"
+RC-R Part I,39,"Tier 2 capital instruments plus related surplus",P866,Amount,Non-CBLR only
+RC-R Part I,40,"Non-qualifying capital instruments subject to phase-out from T2",P867,Amount,Non-CBLR only
+RC-R Part I,41,"Total capital minority interest not in Tier 1",P868,Amount,Non-CBLR only
+RC-R Part I,42,"AACL includable in tier 2 capital",5310,Amount,Non-CBLR only
+RC-R Part I,44,"Tier 2 capital before deductions",P870,Amount,Non-CBLR only
+RC-R Part I,45,"LESS: Tier 2 capital deductions",P872,Amount,Non-CBLR only
+RC-R Part I,46,"Tier 2 capital",5311,Amount,Non-CBLR only
+RC-R Part I,47,"Total capital (sum of items 26 and 46)",3792,Amount,Non-CBLR only
+RC-R Part I,48,"Total risk-weighted assets (from Part II item 31)",A223,Amount,Non-CBLR only
+RC-R Part I,49,"Common equity tier 1 capital ratio",P793,Percentage,Item 19 / item 48
+RC-R Part I,50,"Tier 1 capital ratio",7206,Percentage,Item 26 / item 48
+RC-R Part I,51,"Total capital ratio",7205,Percentage,Item 47 / item 48
+RC-R Part I,52,"Institution-specific capital conservation buffer",H311,Percentage,
+RC-R Part I,53,"Eligible retained income (if item 52 <= 2.5%)",H313,Amount,
+RC-R Part I,54,"Distributions and discretionary bonus payments during quarter",H314,Amount,Conditional on prior quarter

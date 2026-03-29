@@ -1,0 +1,8 @@
+Schedule P - Securitization Exposures,,,,,,,
+,Securitizations (excluding resecuritizations),,,Resecuritizations,,,
+Item,Col A: Exposure Amount,Col B: Risk-Weighted Assets,Col C: Deduction,Col D: Exposure Amount,Col E: Risk-Weighted Assets,Col F: Deduction,Line
+Exposures subject to the supervisory formula approach,AAPP P932,AAPP P933,,AAPP P934,AAPP P935,,1
+Exposures subject to the simplified supervisory formula approach,AAPP P936,AAPP P937,,AAPP P938,AAPP P939,,2
+Exposures subject to 1250 percent risk weight,AAPP P940,AAPP P941,,AAPP P942,AAPP P943,,3
+Exposures subject to deduction,,,AAPP P944,,,AAPP P945,4
+Total securitization exposures and risk-weighted assets,AAPP P946,AAPP P947,,AAPP P948,AAPP P949,,5

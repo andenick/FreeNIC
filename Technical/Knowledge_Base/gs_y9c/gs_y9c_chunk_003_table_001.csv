@@ -1,0 +1,15 @@
+Schedule,Item,Description,MDRM_HTM_AmortizedCost,MDRM_HTM_FairValue,MDRM_AFS_AmortizedCost,MDRM_AFS_FairValue
+HC-B,5.a.,Asset-backed Securities (ABS),BHCK C026,BHCK C988,BHCK C989,BHCK C027
+HC-B,5.b.,Structured financial products,BHCK HT58,BHCK HT59,BHCK HT60,BHCK HT61
+HC-B,6.a.,Other domestic debt securities,BHCK 1737,BHCK 1738,BHCK 1739,BHCK 1741
+HC-B,6.b.,Other foreign debt securities,BHCK 1742,BHCK 1743,BHCK 1744,BHCK 1746
+HC-B,7.,Unallocated portfolio layer fair value hedge basis adjustments,,,BHCK MG95,BHCT
+HC-B,8.,Total (sum of items 1 through 7),BHCK 1754,BHCK 1771,BHCK 1772,BHCT 1773
+Schedule,Item,Description,MDRM,Amount_Thousands
+HC-B-Memo,M.1.,Pledged securities,BHCK 0416,
+HC-B-Memo,M.2.a.,Remaining maturity or next repricing date: 1 year and less,BHCK 0383,
+HC-B-Memo,M.2.b.,Remaining maturity or next repricing date: Over 1 year to 5 years,BHCK 0384,
+HC-B-Memo,M.2.c.,Remaining maturity or next repricing date: Over 5 years,BHCK 0387,
+HC-B-Memo,M.3.,Amortized cost of HTM securities sold or transferred (semiannual),BHCK 1778,
+HC-B-Memo,M.4.a.,Structured notes: Amortized cost,BHCK 8782,
+HC-B-Memo,M.4.b.,Structured notes: Fair value,BHCK 8783,

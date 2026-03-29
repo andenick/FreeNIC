@@ -1,0 +1,49 @@
+Schedule S - Operational Risk,,,,
+Section,Item Description,MDRM,Data Type,Line
+PUBLIC ITEMS,,,,
+Operational Risk Capital,"Risk-based capital requirement for operational risk",AASA J079,Amount,1
+,"Is item 1 from alternative operational risk quantification system? (1=Yes 0=No)",AASA J080,0=No/1=Yes,2
+CONFIDENTIAL ITEMS,,,,
+Expected Operational Loss and Eligible Offsets,"Expected operational loss (EOL)",AASA J081,Amount,3
+,"Total eligible operational risk offsets: Eligible GAAP reserves",AASA J082,Amount,4.a
+,"Total eligible operational risk offsets: Other eligible offsets",AASA J083,Amount,4.b
+Capital Requirement without:,"Dependence assumptions",AASA J084,Amount,5
+,"Adjustments reflecting business environment and internal control factors",AASA J085,Amount,6
+,"Risk mitigants (e.g. insurance)",AASA J086,Amount,7
+Internal Loss Event Data,"Starting date for frequency distribution",AASA J087,Date (MMYYYY),8.a
+,"Ending date for frequency distribution",AASA J088,Date (MMYYYY),8.b
+,"Starting date for severity distribution",AASA J089,Date (MMYYYY),8.c
+,"Ending date for severity distribution",AASA J090,Date (MMYYYY),8.d
+,"Highest dollar threshold applied in modeling",AASA J091,Amount,9
+,"Does threshold change across units of measure? (1=Yes 0=No)",AASA J092,0=No/1=Yes,10
+,"Total number of loss events",AASA J093,Number,11
+,"Total dollar amount of loss events",AASA J094,Amount,12
+,"Dollar amount of largest loss event",AASA J095,Amount,13
+Number of loss events by range,"Less than $10,000",AASA J096,Number,14.a
+,"$10,000-$100,000",AASA J097,Number,14.b
+,"$100,000-$1 million",AASA J098,Number,14.c
+,"$1 million-$10 million",AASA J099,Number,14.d
+,"$10 million-$100 million",AASA J100,Number,14.e
+,"$100 million-$1 billion",AASA J101,Number,14.f
+,$1 billion +,AASA J102,Number,14.g
+Dollar amount of losses by range,"Less than $10,000",AASA J103,Amount,15.a
+,"$10,000-$100,000",AASA J104,Amount,15.b
+,"$100,000-$1 million",AASA J105,Amount,15.c
+,"$1 million-$10 million",AASA J106,Amount,15.d
+,"$10 million-$100 million",AASA J107,Amount,15.e
+,"$100 million-$1 billion",AASA J108,Amount,15.f
+,$1 billion +,AASA J109,Amount,15.g
+Scenario Analysis,"Number of individual scenarios used",AASA J110,Number,16
+,"Dollar value of largest individual scenario",AASA J111,Amount,17
+Number of scenarios by range,"Less than $1 million",AASA J112,Number,18.a
+,"$1 million-$10 million",AASA J113,Number,18.b
+,"$10 million-$100 million",AASA J114,Number,18.c
+,"$100 million-$500 million",AASA J115,Number,18.d
+,"$500 million-$1 billion",AASA J116,Number,18.e
+,$1 billion +,AASA J117,Number,18.f
+Distributional Assumptions,"Number of units of measure used",AASA J118,Number,19
+,"Frequency distribution changes since last period",AASA J119,Number,20
+,"Severity distribution changes since last period",AASA J120,Number,21
+Loss Caps,"Number of loss caps used",AASA J121,Number,22
+,"Dollar amount of smallest cap",AASA J122,Amount,23
+,"Dollar amount of largest cap",AASA J123,Amount,24

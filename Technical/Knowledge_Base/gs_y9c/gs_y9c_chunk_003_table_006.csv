@@ -1,0 +1,28 @@
+Schedule,Item,Description,MDRM
+HC-D-Memo,M.1.a.(1),UPB of loans at fair value: Secured by 1-4 family residential properties,BHCK HT66
+HC-D-Memo,M.1.a.(2),UPB of loans at fair value: All other loans secured by real estate,BHCK HT67
+HC-D-Memo,M.1.b.,UPB of loans at fair value: Commercial and industrial loans,BHCK F632
+HC-D-Memo,M.1.c.,UPB of loans at fair value: Consumer loans,BHCK HT68
+HC-D-Memo,M.1.d.,UPB of loans at fair value: Other loans,BHCK F636
+HC-D-Memo,M.2.a.,Loans at fair value past due 90+ days: Fair value,BHCK F639
+HC-D-Memo,M.2.b.,Loans at fair value past due 90+ days: Unpaid principal balance,BHCK F640
+HC-D-Memo,M.3.a.,Structured financial products: Trust preferred by financial institutions,BHCK G299
+HC-D-Memo,M.3.b.,Structured financial products: Trust preferred by REITs,BHCK G332
+HC-D-Memo,M.3.c.,Structured financial products: Corporate and similar loans,BHCK G333
+HC-D-Memo,M.3.d.,Structured financial products: 1-4 family residential MBS by GSEs,BHCK G334
+HC-D-Memo,M.3.e.,Structured financial products: 1-4 family residential MBS not by GSEs,BHCK G335
+HC-D-Memo,M.3.f.,Structured financial products: Diversified (mixed) pools,BHCK G651
+HC-D-Memo,M.3.g.,Structured financial products: Other collateral or reference assets,BHCK G652
+HC-D-Memo,M.4.a.,Pledged trading assets: Pledged securities,BHCK G387
+HC-D-Memo,M.4.b.,Pledged trading assets: Pledged loans,BHCK G388
+HC-D-Memo,M.5.a.,ABS: Credit card receivables,BHCK F643
+HC-D-Memo,M.5.b.,ABS: Home equity lines,BHCK F644
+HC-D-Memo,M.5.c.,ABS: Automobile loans,BHCK F645
+HC-D-Memo,M.5.d.,ABS: Other consumer loans,BHCK F646
+HC-D-Memo,M.5.e.,ABS: Commercial and industrial loans,BHCK F647
+HC-D-Memo,M.5.f.,ABS: Other,BHCK F648
+HC-D-Memo,M.7.a.,Equity securities: Readily determinable fair values,BHCK F652
+HC-D-Memo,M.7.b.,Equity securities: Other,BHCK F653
+HC-D-Memo,M.8.,Loans pending securitization,BHCK F654
+HC-D-Memo,M.9.a.(1),Gross fair value of commodity contracts,BHCK G212
+HC-D-Memo,M.9.a.(2),Gross fair value of physical commodities held in inventory,BHCK G213

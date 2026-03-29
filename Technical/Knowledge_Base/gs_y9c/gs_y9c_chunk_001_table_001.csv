@@ -1,0 +1,28 @@
+Schedule,Item,Description,MDRM,Amount_Thousands
+HI,1.a.(1)(a),Interest and fee income: Loans secured by 1-4 family residential properties (domestic),BHCK 4435,758000
+HI,1.a.(1)(b),Interest and fee income: All other loans secured by real estate (domestic),BHCK 4436,677000
+HI,1.a.(1)(c),Interest and fee income: All other loans (domestic),BHCK F821,16522000
+HI,1.a.(2),Interest and fee income: In foreign offices Edge and Agreement subsidiaries and IBFs,BHCK 4059,3504000
+HI,1.b.,Income from lease financing receivables,BHCK 4065,0
+HI,1.c.,Interest income on balances due from depository institutions,BHCK 4115,4576000
+HI,1.d.(1),Interest and dividend income: U.S. Treasury securities and U.S. government agency obligations (excl MBS),BHCK B488,4019000
+HI,1.d.(2),Interest and dividend income: Mortgage-backed securities,BHCK B489,959000
+HI,1.d.(3),Interest and dividend income: All other securities,BHCK 4060,117000
+HI,1.e.,Interest income from trading assets,BHCK 4069,12694000
+HI,1.f.,Interest income on federal funds sold and securities purchased under agreements to resell,BHCK 4020,14025000
+HI,1.g.,Other interest income,BHCK 4518,2143000
+HI,1.h.,Total interest income (sum of items 1.a through 1.g),BHCK 4107,59994000
+HI,2.a.(1)(a),Interest on deposits: Time deposits of $250000 or less (domestic),BHCK HK03,2767000
+HI,2.a.(1)(b),Interest on deposits: Time deposits of more than $250000 (domestic),BHCK HK04,651000
+HI,2.a.(1)(c),Interest on deposits: Other deposits (domestic),BHCK 6761,7288000
+HI,2.a.(2),Interest on deposits: In foreign offices Edge and Agreement subsidiaries and IBFs,BHCK 4172,3038000
+HI,2.b.,Expense on federal funds purchased and securities sold under agreements to repurchase,BHCK 4180,12674000
+HI,2.c.,Interest on trading liabilities and other borrowed money (excl subordinated notes),BHCK 4185,10986000
+HI,2.d.,Interest on subordinated notes and debentures and on mandatory convertible securities,BHCK 4397,632000
+HI,2.e.,Other interest expense,BHCK 4398,12107000
+HI,2.f.,Total interest expense (sum of items 2.a through 2.e),BHCK 4073,50143000
+HI,3.,Net interest income (item 1.h minus item 2.f),BHCK 4074,9851000
+HI,4.,Provision for credit losses,BHCK JJ33,1010000
+HI,5.a.,Income from fiduciary activities,BHCK 4070,110000
+HI,5.b.,Service charges on deposit accounts in domestic offices,BHCK 4483,0
+HI,5.c.,Trading revenue,BHCK A220,15350000

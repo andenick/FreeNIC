@@ -1,0 +1,50 @@
+Schedule,Item,Description,MDRM_Prefix,MDRM_Code,Item_Number
+RC-F,Accrued interest receivable,Accrued interest receivable on loans leases debt securities and other interest-bearing assets,RCFD,B556,1.
+RC-F,Net deferred tax assets,Net deferred tax assets,RCFD,2148,2.
+RC-F,Interest-only strips,Interest-only strips receivable (not in the form of a security),RCFD,HT80,3.
+RC-F,Equity investments w/o fair values,Equity investments without readily determinable fair values,RCFD,1752,4.
+RC-F,General account life insurance,General account life insurance assets,RCFD,K201,5.a.
+RC-F,Separate account life insurance,Separate account life insurance assets,RCFD,K202,5.b.
+RC-F,Hybrid account life insurance,Hybrid account life insurance assets,RCFD,K270,5.c.
+RC-F,All other assets,All other assets,RCFD,2168,6.
+RC-F,Prepaid expenses,Prepaid expenses,RCFD,2166,6.a.
+RC-F,Repossessed personal property,Repossessed personal property (including vehicles),RCFD,1578,6.b.
+RC-F,Derivatives positive fair value,Derivatives with a positive fair value held for purposes other than trading,RCFD,C010,6.c.
+RC-F,Computer software,Computer software,RCFD,FT33,6.e.
+RC-F,Accounts receivable,Accounts receivable,RCFD,FT34,6.f.
+RC-F,Foreclosed govt mortgage receivables,Receivables from foreclosed government-guaranteed mortgage loans,RCFD,FT35,6.g.
+RC-F,Total other assets,Total (must equal Schedule RC item 11),RCFD,2160,7.
+RC-G,Interest on deposits,Interest accrued and unpaid on deposits in domestic offices,RCON,3645,1.a.
+RC-G,Other accrued expenses,Other expenses accrued and unpaid (includes accrued income taxes payable),RCFD,3646,1.b.
+RC-G,Net deferred tax liabilities,Net deferred tax liabilities,RCFD,3049,2.
+RC-G,Off-BS credit loss allowance,Allowance for credit losses on off-balance-sheet credit exposures,RCFD,B557,3.
+RC-G,All other liabilities,All other liabilities,RCFD,2938,4.
+RC-G,Accounts payable,Accounts payable,RCFD,3066,4.a.
+RC-G,Deferred compensation,Deferred compensation liabilities,RCFD,C011,4.b.
+RC-G,Dividends payable,Dividends declared but not yet payable,RCFD,2932,4.c.
+RC-G,Derivatives negative fair value,Derivatives with a negative fair value held for purposes other than trading,RCFD,C012,4.d.
+RC-G,Operating lease liabilities,Operating lease liabilities,RCFD,LB56,4.e.
+RC-G,Total other liabilities,Total (must equal Schedule RC item 20),RCFD,2930,5.
+RC-K,Avg int-bearing balances,Interest-bearing balances due from depository institutions,RCFD,3381,1.
+RC-K,Avg Treasury and agency,U.S. Treasury and agency obligations (excluding MBS),RCFD,B558,2.
+RC-K,Avg MBS,Mortgage-backed securities,RCFD,B559,3.
+RC-K,Avg other debt and equity,All other debt securities and equity securities with readily determinable fair values,RCFD,B560,4.
+RC-K,Avg fed funds and repos,Federal funds sold and securities purchased under agreements to resell,RCFD,3365,5.
+RC-K,Avg total domestic loans,Total loans in domestic offices,RCON,3360,"6.a.(1)"
+RC-K,Avg 1-4 family RE loans,Loans secured by 1-4 family residential properties (domestic),RCON,3465,"6.a.(2)(a)"
+RC-K,Avg other RE loans,All other loans secured by real estate (domestic),RCON,3466,"6.a.(2)(b)"
+RC-K,Avg ag production loans,Agricultural production loans (domestic),RCON,3386,"6.a.(3)"
+RC-K,Avg C&I loans,Commercial and industrial loans (domestic),RCON,3387,"6.a.(4)"
+RC-K,Avg credit card loans,Credit cards (domestic),RCON,B561,"6.a.(5)(a)"
+RC-K,Avg other consumer loans,Other consumer loans (domestic),RCON,B562,"6.a.(5)(b)"
+RC-K,Avg foreign office loans,Total loans in foreign offices Edge and agreement subsidiaries and IBFs,RCFN,3360,6.b.
+RC-K,Avg trading assets,Trading assets,RCFD,3401,7.
+RC-K,Avg lease financing,Lease financing receivables (net of unearned income),RCFD,3484,8.
+RC-K,Avg total assets,Total assets,RCFD,3368,9.
+RC-K,Avg int-bearing transaction accts,Interest-bearing transaction accounts in domestic offices,RCON,3485,10.
+RC-K,Avg savings deposits,Savings deposits (includes MMDAs) in domestic offices,RCON,B563,11.a.
+RC-K,Avg time deposits <= $250K,Time deposits of $250000 or less in domestic offices,RCON,HK16,11.b.
+RC-K,Avg time deposits > $250K,Time deposits of more than $250000 in domestic offices,RCON,HK17,11.c.
+RC-K,Avg foreign office deposits,Interest-bearing deposits in foreign offices,RCFN,3404,12.
+RC-K,Avg fed funds and repos purchased,Federal funds purchased and securities sold under agreements to repurchase,RCFD,3353,13.
+RC-K,Avg other borrowed money,Other borrowed money (includes mortgage indebtedness),RCFD,3355,14.

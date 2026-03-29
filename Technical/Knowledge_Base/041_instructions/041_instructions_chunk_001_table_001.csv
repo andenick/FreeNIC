@@ -1,0 +1,20 @@
+Schedule,Item,Description,RCON,Column,Notes
+RC-B Memo,M.1.,Pledged securities,0416,,Includes HTM at amortized cost; AFS debt securities at fair value; equity securities with readily determinable fair values not held for trading at fair value
+RC-B Memo,M.2.a.(1),Securities (non-MBS pass-through) - Three months or less,A549,,Remaining maturity or next repricing date
+RC-B Memo,M.2.a.(2),Securities (non-MBS pass-through) - Over 3 months through 12 months,A550,,
+RC-B Memo,M.2.a.(3),Securities (non-MBS pass-through) - Over 1 year through 3 years,A551,,
+RC-B Memo,M.2.a.(4),Securities (non-MBS pass-through) - Over 3 years through 5 years,A552,,
+RC-B Memo,M.2.a.(5),Securities (non-MBS pass-through) - Over 5 years through 15 years,A553,,
+RC-B Memo,M.2.a.(6),Securities (non-MBS pass-through) - Over 15 years,A554,,
+RC-B Memo,M.2.b.(1),MBS pass-through (closed-end 1st lien 1-4 family) - Three months or less,A555,,
+RC-B Memo,M.2.b.(2),MBS pass-through (closed-end 1st lien 1-4 family) - Over 3 months through 12 months,A556,,
+RC-B Memo,M.2.b.(3),MBS pass-through (closed-end 1st lien 1-4 family) - Over 1 year through 3 years,A557,,
+RC-B Memo,M.2.b.(4),MBS pass-through (closed-end 1st lien 1-4 family) - Over 3 years through 5 years,A558,,
+RC-B Memo,M.2.b.(5),MBS pass-through (closed-end 1st lien 1-4 family) - Over 5 years through 15 years,A559,,
+RC-B Memo,M.2.b.(6),MBS pass-through (closed-end 1st lien 1-4 family) - Over 15 years,A560,,
+RC-B Memo,M.2.c.(1),Other MBS (CMOs REMICs stripped) - Expected avg life 3 years or less,A561,,
+RC-B Memo,M.2.c.(2),Other MBS (CMOs REMICs stripped) - Expected avg life over 3 years,A562,,
+RC-B Memo,M.2.d.,Debt securities with REMAINING MATURITY of 1 year or less,A248,,Included in M.2.a through M.2.c
+RC-B Memo,M.3.,Amortized cost of HTM securities sold or transferred to AFS or trading YTD,1778,,Semiannual - June and December only
+RC-B Memo,M.4.a.,Structured notes - Amortized cost,8782,,In HTM and AFS items 2 3 5 6
+RC-B Memo,M.4.b.,Structured notes - Fair value,8783,,

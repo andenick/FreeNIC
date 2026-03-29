@@ -1,0 +1,14 @@
+"Table 22.1: 10-Day Regulatory SVaR by Material Portfolios",,,,
+"June 30, 2024",,,,
+,,,"Three Months Ended",
+"In millions of dollars","As of June 30, 2024",High,Low,"Mean (1)"
+Material Portfolios,,,,,
+Markets,591,591,150,304
+Other,33,49,15,25
+"Diversification Benefit (2)",-32,NM,NM,-23
+Total Regulatory SVaR,592,592,150,306
+,,,,,
+Notes:,,,,,
+"NM: Not meaningful",,,,,
+"(1) 60-day average, for which each daily Regulatory SVaR is based on a 10-day time horizon.",,,,,
+"(2) Diversification benefit is the result of correlation between portfolios and, due to this benefit, the total Regulatory SVaR on a given day will be lower than the sum of the Regulatory SVaRs relating to each individual portfolio. No diversification benefit can be inferred for the high and low of respective portfolios as they may come from different close of business dates.",,,,,

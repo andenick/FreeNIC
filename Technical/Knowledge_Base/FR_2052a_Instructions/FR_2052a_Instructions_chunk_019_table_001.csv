@@ -1,0 +1,18 @@
+wSTWF Table,Table Name,Schedule G Item,PID,Product Type,Counterparty Filter,Collateral Class Filter,Key Notes
+1,O.D. PIDs for item 1.a,Item 1.a (L1 secured),"O.D.5,6,8,9,10,11,13,14,15",Outflows-Deposits,Not Retail or Small Business,Level 1 HQLA,4-column maturity buckets (A-D)
+2,O.S. PIDs for item 1.a,Item 1.a (L1 secured),"O.S.1,2,3,5,6,7,11",Outflows-Secured,Not Retail or Small Business,Level 1 HQLA,"O.S.7 excl Unsettled sub-products, Forward Start=NULL"
+3,O.W. PIDs for item 1.a,Item 1.a (L1 secured),"O.W.1-7,9-19",Outflows-Wholesale,#,Level 1 HQLA,"Currency=*, Forward Start=NULL"
+4,O.D. PIDs for item 1.b,Item 1.b (Retail brokered/sweeps),"O.D.8,9,10,11,13",Outflows-Deposits,Retail or Small Business,#,4-column maturity buckets
+5,O.D. PIDs for item 1.c,Item 1.c (Unsecured non-financial),"O.D.5,6,8,9,10,11,13,14,15",Outflows-Deposits,Non-Financial/Sovereign/CB/GSE/PSE/MDB/Other,NULL or Other,"CID matches Counterparty, Loss Absorbency=#"
+6,O.W. PIDs for item 1.c,Item 1.c (Unsecured non-financial),"O.W.9,10,17,18,19",Outflows-Wholesale,Non-Financial/Sovereign/CB/GSE/PSE/MDB/Other,NULL or Other,"Collateral Value=NULL, Forward Start=NULL"
+7,O.S. PIDs for item 1.c,Item 1.c (Unsecured non-financial),"O.S.1,2,3,5,6,7,11",Outflows-Secured,Non-Financial/Sovereign/CB/GSE/PSE/MDB/Other,Other,O.S.7 excl Unsettled sub-products
+8,I.S. PIDs for item 1.c,Item 1.c (Unsecured non-financial),I.S.4,Inflows-Secured,Non-Financial/Sovereign/CB/GSE/PSE/MDB/Other,#,"Sub-Product=No Collateral Pledged, Collateral Value=*"
+9,O.S. PIDs for item 1.d,Item 1.d (Firm shorts L2B/Non-HQLA),O.S.8,Outflows-Secured,#,Level 2B HQLA or Non-HQLA,"Sub-Product=External Cash/Non-Cash/Customer Longs, Currency=*"
+10,O.D. PIDs for item 2.a,Item 2.a (L2A secured),"O.D.5,6,8,9,10,11,13,14,15",Outflows-Deposits,Not Retail or Small Business,Level 2A HQLA,4-column maturity buckets
+11,O.S. PIDs for item 2.a,Item 2.a (L2A secured),"O.S.1,2,3,5,6,7,11",Outflows-Secured,Not Retail or Small Business,Level 2A HQLA,O.S.7 excl Unsettled sub-products
+12,O.W. PIDs for item 2.a,Item 2.a (L2A secured),"O.W.1-7,9-19",Outflows-Wholesale,#,Level 2A HQLA,Forward Start=NULL
+13,O.S. PIDs for item 2.b,Item 2.b (Covered asset exchange L1-L2A),O.S.4,Outflows-Secured,#,Level 2A HQLA,Sub-Product=Level 1 Received
+14,O.D. PIDs for item 3.a,Item 3.a (L2B secured),"O.D.5,6,8,9,10,11,13,14,15",Outflows-Deposits,Not Retail or Small Business,Level 2B HQLA,4-column maturity buckets
+15,O.S. PIDs for item 3.a,Item 3.a (L2B secured),"O.S.1,2,3,5,6,7,11",Outflows-Secured,Not Retail or Small Business,Level 2B HQLA,O.S.7 excl Unsettled sub-products
+16,O.W. PIDs for item 3.a,Item 3.a (L2B secured),"O.W.1-7,9-19",Outflows-Wholesale,#,Level 2B HQLA,Forward Start=NULL
+17,I.S. PIDs for item 3.b,Item 3.b (Other covered asset exchanges),I.S.4,Inflows-Secured,#,"L2b Pledged: L1/L2A HQLA; Non-HQLA Pledged: all HQLA","Sub-Product=Level 2b Pledged or Non-HQLA Pledged, Collateral Value=*"

@@ -1,0 +1,8 @@
+Table: Securitization RWA by Risk Weight Band - Securitization (excluding re-securitization)
+"March 31, 2024 (in millions)",SFA Exposure,SFA RWA,SSFA Exposure,SSFA RWA,1250% Exposure,1250% RWA,Total Exposure,Total RWA
+"Risk weight = 0% < 20%",111828,22888,135322,28277,0,0,247150,51165
+"Risk weight > 20% <= 50%",4417,1446,2851,934,0,0,7268,2380
+"Risk weight > 50% <= 100%",623,383,605,509,0,0,1228,892
+"Risk weight > 100% < 1250%",118,359,556,2343,0,0,674,2702
+"Risk weight = 1250%",3,42,12,152,296,3915,311,4109
+"Securitization, excluding re-securitization",116989,25118,139346,32215,296,3915,256631,61248

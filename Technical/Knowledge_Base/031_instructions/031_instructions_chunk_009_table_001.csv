@@ -1,0 +1,81 @@
+Schedule,Item,Description,MDRM_Prefix,MDRM_Code,Item_Number
+RC-S,Ownership interest 1-4 fam,Total ownership or sellers interest carried as securities or loans 1-4 family,RCFD,HU16,6. Col A
+RC-S,Ownership interest home equity,Total ownership interest home equity lines,RCFD,HU17,6. Col B
+RC-S,Ownership interest C&I,Total ownership interest C&I loans,RCFD,HU18,6. Col F
+RC-S,Max credit exposure other inst 1-4 fam,Max credit exposure to other institutions securitizations 1-4 family,RCFD,B776,9. Col A
+RC-S,Max credit exposure other inst auto,Max credit exposure to other institutions securitizations auto,RCFD,B779,9. Col D
+RC-S,Max credit exposure other inst other consumer,Max credit exposure to other institutions other consumer,RCFD,B780,9. Col E
+RC-S,Max credit exposure other inst C&I,Max credit exposure to other institutions C&I,RCFD,B781,9. Col F
+RC-S,Max credit exposure other inst all other,Max credit exposure to other institutions all other,RCFD,B782,9. Col G
+RC-S,Unused liquidity other inst 1-4 fam,Unused commitments to provide liquidity other institutions 1-4 family,RCFD,B783,10. Col A
+RC-S,Unused liquidity other inst auto,Unused commitments other institutions auto,RCFD,B786,10. Col D
+RC-S,Unused liquidity other inst other consumer,Unused commitments other institutions other consumer,RCFD,B787,10. Col E
+RC-S,Unused liquidity other inst C&I,Unused commitments other institutions C&I,RCFD,B788,10. Col F
+RC-S,Unused liquidity other inst all other,Unused commitments other institutions all other,RCFD,B789,10. Col G
+RC-S,Assets sold with recourse 1-4 fam,Assets sold with recourse not securitized 1-4 family,RCFD,B790,11. Col A
+RC-S,Assets sold with recourse all other,Assets sold with recourse not securitized all other,RCFD,B796,11. Col G
+RC-S,Max credit exposure sold 1-4 fam,Max credit exposure from recourse to assets sold 1-4 family,RCFD,B797,12. Col A
+RC-S,Max credit exposure sold all other,Max credit exposure from recourse to assets sold all other,RCFD,B803,12. Col G
+RC-S,Serviced with recourse,Closed-end 1-4 family residential mortgages serviced with recourse,RCFD,B804,M.2.a.
+RC-S,Serviced no recourse,Closed-end 1-4 family residential mortgages serviced without recourse,RCFD,B805,M.2.b.
+RC-S,Other assets serviced,Other financial assets serviced for others including home equity lines,RCFD,A591,M.2.c.
+RC-S,Mortgages in foreclosure,1-4 family residential mortgages serviced for others in process of foreclosure,RCFD,F699,M.2.d.
+RC-S,ABCP conduit credit bank sponsored,Max credit exposure ABCP conduits sponsored by bank affiliate or holding company,RCFD,B806,"M.3.a.(1)"
+RC-S,ABCP conduit credit other,Max credit exposure ABCP conduits sponsored by other unrelated institutions,RCFD,B807,"M.3.a.(2)"
+RC-S,ABCP conduit liquidity bank sponsored,Unused commitments ABCP conduits sponsored by bank affiliate or holding company,RCFD,B808,"M.3.b.(1)"
+RC-S,ABCP conduit liquidity other,Unused commitments ABCP conduits sponsored by other unrelated institutions,RCFD,B809,"M.3.b.(2)"
+RC-S,Credit card fees and finance charges,Outstanding credit card fees and finance charges in RC-S item 1 column C,RCFD,C407,M.4.
+RC-T,Fiduciary powers flag,Does institution have fiduciary powers,RCFD,A345,1.
+RC-T,Exercise fiduciary powers,Does institution exercise fiduciary powers,RCFD,A346,2.
+RC-T,Fiduciary activity flag,Does institution have fiduciary or related activity,RCFD,B867,3.
+RC-T,Personal trust managed assets,Personal trust and agency accounts managed assets,RCFD,B868,4. Col A
+RC-T,Personal trust non-managed assets,Personal trust and agency accounts non-managed assets,RCFD,B869,4. Col B
+RC-T,Employee benefit DC managed,Employee benefit defined contribution managed assets,RCFD,B872,5.a. Col A
+RC-T,Employee benefit DB managed,Employee benefit defined benefit managed assets,RCFD,B876,5.b. Col A
+RC-T,Other employee benefit managed,Other employee benefit and retirement-related managed assets,RCFD,B880,5.c. Col A
+RC-T,Corporate trust managed,Corporate trust and agency managed assets,RCFD,B884,6. Col A
+RC-T,Investment mgmt managed,Investment management and advisory managed assets,RCFD,B886,7. Col A
+RC-T,Foundation endowment managed,Foundation and endowment managed assets,RCFD,J255,8. Col A
+RC-T,Other fiduciary managed,Other fiduciary accounts managed assets,RCFD,B890,9. Col A
+RC-T,Total fiduciary managed,Total fiduciary accounts managed assets,RCFD,B894,10. Col A
+RC-T,Total fiduciary non-managed,Total fiduciary accounts non-managed assets,RCFD,B895,10. Col B
+RC-T,Custody and safekeeping assets,Custody and safekeeping accounts assets,RCFD,B898,11. Col A
+RC-T,IRAs HSAs managed,IRAs HSAs and similar accounts managed assets,RCFD,J259,13. Col A
+RC-T,Personal trust income,Personal trust and agency accounts income,RIAD,B904,14.
+RC-T,Employee benefit DC income,Employee benefit defined contribution income,RIAD,B905,15.a.
+RC-T,Employee benefit DB income,Employee benefit defined benefit income,RIAD,B906,15.b.
+RC-T,Other employee benefit income,Other employee benefit and retirement-related income,RIAD,B907,15.c.
+RC-T,Corporate trust income,Corporate trust and agency accounts income,RIAD,A479,16.
+RC-T,Investment mgmt income,Investment management and advisory income,RIAD,J315,17.
+RC-T,Foundation endowment income,Foundation and endowment income,RIAD,J316,18.
+RC-T,Other fiduciary income,Other fiduciary accounts income,RIAD,A480,19.
+RC-T,Custody income,Custody and safekeeping accounts income,RIAD,B909,20.
+RC-T,Other fiduciary services income,Other fiduciary and related services income,RIAD,B910,21.
+RC-T,Total gross fiduciary income,Total gross fiduciary and related services income,RIAD,4070,22.
+RC-T,Fiduciary income foreign,Fiduciary income from foreign offices,RIAD,B912,22.a.
+RC-T,Fiduciary expenses,Less expenses,RIAD,C058,23.
+RC-T,Net fiduciary losses,Less net losses from fiduciary and related services,RIAD,A488,24.
+RC-T,Intracompany income credits,Plus intracompany income credits,RIAD,B911,25.
+RC-T,Net fiduciary income,Net fiduciary and related services income,RIAD,A491,26.
+RC-V,VIE cash securitization,Assets of consolidated VIEs cash and balances securitization vehicles,RCFD,J981,1.a. Col A
+RC-V,VIE cash other,Assets of consolidated VIEs cash and balances other VIEs,RCFD,JF84,1.a. Col B
+RC-V,VIE securities securitization,VIE securities not held for trading securitization vehicles,RCFD,HU20,1.b. Col A
+RC-V,VIE securities other,VIE securities not held for trading other VIEs,RCFD,HU21,1.b. Col B
+RC-V,VIE loans securitization,VIE loans and leases net of allowance securitization vehicles,RCFD,HU22,1.c. Col A
+RC-V,VIE loans other,VIE loans and leases net of allowance other VIEs,RCFD,HU23,1.c. Col B
+RC-V,VIE OREO securitization,VIE other real estate owned securitization vehicles,RCFD,K009,1.d. Col A
+RC-V,VIE OREO other,VIE other real estate owned other VIEs,RCFD,JF89,1.d. Col B
+RC-V,VIE other assets securitization,VIE other assets securitization vehicles,RCFD,JF91,1.e. Col A
+RC-V,VIE other assets other,VIE other assets other VIEs,RCFD,JF90,1.e. Col B
+RC-V,VIE borrowed money securitization,VIE other borrowed money securitization vehicles,RCFD,JF92,2.a. Col A
+RC-V,VIE borrowed money other,VIE other borrowed money other VIEs,RCFD,JF85,2.a. Col B
+RC-V,VIE other liabilities securitization,VIE other liabilities securitization vehicles,RCFD,JF93,2.b. Col A
+RC-V,VIE other liabilities other,VIE other liabilities other VIEs,RCFD,JF86,2.b. Col B
+RC-V,All other VIE assets securitization,All other assets of consolidated VIEs securitization vehicles,RCFD,K030,3. Col A
+RC-V,All other VIE assets other,All other assets of consolidated VIEs other VIEs,RCFD,JF87,3. Col B
+RC-V,All other VIE liabilities securitization,All other liabilities of consolidated VIEs securitization vehicles,RCFD,K033,4. Col A
+RC-V,All other VIE liabilities other,All other liabilities of consolidated VIEs other VIEs,RCFD,JF88,4. Col B
+RC-V,ABCP conduit total assets,Total assets of ABCP conduit VIEs,RCFD,JF77,5.
+RC-V,ABCP conduit total liabilities,Total liabilities of ABCP conduit VIEs,RCFD,JF78,6.
+Narrative,Comments flag,Does bank wish to submit narrative statement,RCON,6979,Comments
+Narrative,Bank management statement,Bank management statement text,TEXT,6980,Statement

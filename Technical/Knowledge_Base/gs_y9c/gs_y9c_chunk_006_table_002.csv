@@ -1,0 +1,17 @@
+Schedule,Item,Description,MDRM_ColA_Total,MDRM_ColB_Adj,MDRM_ColC_0pct,MDRM_ColD_2pct,MDRM_ColE_4pct,MDRM_ColF_10pct,MDRM_ColG_20pct,MDRM_ColH_50pct,MDRM_ColI_100pct,MDRM_ColJ_150pct
+HC-R-II,1.,Cash and balances due from depository institutions,BHCK D957,BHCK S396,BHCK D958,,,BHCK D959,BHCK S397,BHCK D960,BHCK S398,
+HC-R-II,2.a.,Held-to-maturity securities,BHCK D961,BHCK S399,BHCK D962,BHCK HJ74,BHCK HJ75,,BHCK D963,BHCK D964,BHCK D965,BHCK S400
+HC-R-II,2.b.,Available-for-sale debt securities and equity securities with RDFV not held for trading,BHCK JA21,BHCK S402,BHCK D967,BHCK HJ76,BHCK HJ77,,BHCK D968,BHCK D969,BHCK D970,BHCK S403
+HC-R-II,3.a.,Federal funds sold (in domestic offices),BHCK D971,,BHCK D972,,,,BHCK D973,BHCK S410,BHCK D974,BHCK S411
+HC-R-II,3.b.,Securities purchased under agreements to resell,BHCK H171,BHCK H172,,,,,,,,
+HC-R-II,4.a.,Loans and leases held for sale: Residential mortgage exposures,BHCK S413,BHCK S414,BHCK H173,,,,BHCK S415,BHCK S416,BHCK S417,
+HC-R-II,4.b.,Loans and leases held for sale: High volatility CRE exposures,BHCK S419,BHCK S420,BHCK H174,,,,BHCK H175,BHCK H176,BHCK H177,BHCK S421
+HC-R-II,4.c.,Loans and leases held for sale: Exposures past due 90+ or nonaccrual,BHCK S423,BHCK S424,BHCK S425,BHCK HJ78,BHCK HJ79,,BHCK S426,BHCK S427,BHCK S428,BHCK S429
+HC-R-II,4.d.,Loans and leases held for sale: All other exposures,BHCK S431,BHCK S432,BHCK S433,BHCK HJ80,BHCK HJ81,,BHCK S434,BHCK S435,BHCK S436,BHCK S437
+HC-R-II,5.a.,Loans and leases held for investment: Residential mortgage exposures,BHCK S439,BHCK S440,BHCK H178,,,,BHCK S441,BHCK S442,BHCK S443,
+HC-R-II,5.b.,Loans and leases held for investment: High volatility CRE exposures,BHCK S445,BHCK S446,BHCK H179,,,,BHCK H180,BHCK H181,BHCK H182,BHCK S447
+HC-R-II,5.c.,Loans and leases held for investment: Exposures past due 90+ or nonaccrual,BHCK S449,BHCK S450,BHCK S451,BHCK HJ82,BHCK HJ83,,BHCK S452,BHCK S453,BHCK S454,BHCK S455
+HC-R-II,5.d.,Loans and leases held for investment: All other exposures,BHCK S457,BHCK S458,BHCK S459,BHCK HJ84,BHCK HJ85,,BHCK S460,BHCK S461,BHCK S462,BHCK S463
+HC-R-II,6.,LESS: Allowance for credit losses on loans and leases,BHCX 3123,BHCY 3123,,,,,,,,
+HC-R-II,7.,Trading assets,BHCK D976,BHCK S466,BHCK D977,BHCK HJ86,BHCK HJ87,,BHCK D978,BHCK D979,BHCK D980,BHCK S467
+HC-R-II,8.,All other assets,BHCK D981,BHCK S469,BHCK D982,BHCK HJ88,BHCK HJ89,,BHCK D983,BHCK D984,BHCK D985,BHCK H185

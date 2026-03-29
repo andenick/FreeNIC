@@ -1,0 +1,7 @@
+Risk Weight,SFA EAD ($ millions),SFA RWA ($ millions),SSFA EAD ($ millions),SSFA RWA ($ millions),1250% RW EAD ($ millions),1250% RW RWA ($ millions)
+0% to <=20%,1452,308,0,0,0,0
+>20% to <=100%,0,0,238,210,0,0
+>100% to <=500%,0,0,0,1,0,0
+>500% to <1250%,0,0,0,0,0,0
+1250%,0,0,0,0,0,2
+Total,1452,308,238,211,0,2

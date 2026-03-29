@@ -1,0 +1,10 @@
+Re-securitization Exposures by Risk Weight Band and Approach,,At December 31 2024,,,,,,,,,,
+,,Supervisory Formula Approach,,,,Simplified Supervisory Formula Approach,,,,1250% Risk Weight Category,,
+$ in millions,,EAD,,RWA,,EAD,,RWA,,EAD,,RWA
+Risk Weight,,,,,,,,,,,,,
+"0% to <=20%",,$,"1,644",$,"348",$,--,$,--,$,--,$,--
+">20% to <=100%",,,"--",,"--",,"238",,"162",,--,,--
+">100% to <=500%",,,"--",,"--",,"--",,"--",,--,,--
+">500% to <1250%",,,"--",,"--",,"--",,"--",,--,,--
+"1250%",,,"--",,"--",,"--",,"--",,--,,"2"
+Total,,$,"1,644",$,"348",$,"238",$,"162",$,--,$,"2"

@@ -1,0 +1,12 @@
+Item,Description,Col_A_Managed_Assets_RCON,Col_B_NonManaged_Assets_RCON,Col_C_Num_Managed_Accts_RCON,Col_D_Num_NonManaged_Accts_RCON
+4,Personal trust and agency accounts,B868,B869,B870,B871
+5.a,Employee benefit — defined contribution,B872,B873,B874,B875
+5.b,Employee benefit — defined benefit,B876,B877,B878,B879
+5.c,Other employee benefit and retirement-related accounts,B880,B881,B882,B883
+6,Corporate trust and agency accounts,B884,B885,C001,C002
+7,Investment management and investment advisory agency accounts,B886,J253,B888,J254
+8,Foundation and endowment trust and agency accounts,J255,J256,J257,J258
+9,Other fiduciary accounts,B890,B891,B892,B893
+10,Total fiduciary accounts (sum of items 4-9),B894,B895,B896,B897
+11,Custody and safekeeping accounts,,B898,,B899
+13,IRAs HSAs and other similar accounts (included in items 5.c and 11),J259,J260,J261,J262

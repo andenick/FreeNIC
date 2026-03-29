@@ -1,0 +1,22 @@
+Table Number,Description,Regulation Reference,ASF/RSF Factor,PID,Counterparty,Maturity Bucket,Key Conditions
+31,Other liabilities to retail customers,SS.104(d)(9),50% ASF,S.B.2,"Retail, Small Business",#,Balance Sheet table
+32,Interest payable to wholesale entities >= 6M < 1Y,SS.104(d)(10),50% ASF,O.O.19,Not Retail or Small Business,">= 6 Months, < 1 Year",Forward Start = NULL
+33,Other liabilities to wholesale entities >= 6M < 1Y,SS.104(d)(10),50% ASF,S.B.2,Not Retail or Small Business,">= 6 Months, < 1 Year",Balance Sheet table
+34,Trade date payables,SS.104(e)(1),0% ASF,I.A.5,N/A,#,Forward Start Amount = *
+35,Non-reciprocal brokered retail deposits < 6M,SS.104(e)(2),0% ASF,O.D.8,"Retail, Small Business","< 6 Months, but not Open",
+36,Securities issued < 6M,SS.104(e)(3),0% ASF,"O.W.1-8, 11-16",#,< 6 Months,Forward Start = NULL; Loss Absorbency = #
+37,Unsecured wholesale non-deposit funding from financials/CB < 6M,SS.104(e)(4),0% ASF,"O.W.9, 10, 17, 18, 19","Financial Sector Entity, Central Bank",< 6 Months,Forward Start = NULL; Loss Absorbency = #
+38,Unsecured wholesale deposit funding from financials/CB < 6M,SS.104(e)(4),0% ASF,"O.D.5, 6, 8, 10, 11, 13, 14, 15","Financial Sector Entity, Central Bank",< 6 Months,
+39,Securities financing transactions with financials/CB < 6M,SS.104(e)(4),0% ASF,"O.S.1, 2, 3, 6, 7, 11","Financial Sector Entity, Central Bank",< 6 Months,Sub-Product = Not FRFF; Forward Start = NULL
+40,Interest payable to financials/CB < 6M,SS.104(e)(4),0% ASF,O.O.19,"Financial Sector Entity, Central Bank",< 6 Months,Forward Start = NULL
+41,Other liabilities to financials/CB < 6M,SS.104(e)(4),0% ASF,S.B.2,"Financial Sector Entity, Central Bank",< 6 Months,Balance Sheet table
+42,Firm short positions,SS.104(e)(5),0% ASF,O.S.8,#,< 6 Months,Sub-Product = Not Unsettled (Forward); Forward Start = NULL
+43,Interest payable to non-financial wholesale entities < 6M,SS.104(e)(5),0% ASF,O.O.19,Non-Financial Wholesale Entity or NULL,< 6 Months,Forward Start = NULL
+44,Other liabilities < 6M,SS.104(e)(5),0% ASF,S.B.2,Non-Financial Wholesale Entity or NULL,< 6 Months,Balance Sheet table
+45,Currency and coin,SS.106(a)(1)(i),0% RSF,"I.A.3, 4",N/A,#,Sub-Product = Currency and Coin; Collateral Class = A-0-Q
+46,Cash items in process,SS.106(a)(1)(ii),0% RSF,I.U.7,#,#,Effective Maturity Bucket = < 6 Months or NULL; Encumbrance Type exclusions
+47,Central bank reserve balances,SS.106(a)(1)(iii)-(iv),0% RSF,"I.A.3, 4",N/A,< 6 Months,Sub-Product = Not Currency and Coin; Collateral Class = A-0-Q
+48,Central bank debt securities < 6M,SS.106(a)(1)(iii)-(iv),0% RSF,"I.A.1, 2, 3, 4, 5, 7",N/A,< 6 Months,"Collateral Class = CB-1-Q, CB-2-Q, CB-3-Q, CB-1, CB-2, CB-3, CB-4"
+49,Unsecured lending to central banks < 6M,SS.106(a)(1)(iii)-(iv),0% RSF,"I.U.1-6, 8",Central Bank,< 6 Months,Encumbrance Type exclusions
+50,Secured lending to central banks < 6M,SS.106(a)(1)(iii)-(iv),0% RSF,"I.S.1, 2, 3, 5-8",Central Bank,< 6 Months,Encumbrance Type exclusions
+51,Interest receivable from central banks < 6M,SS.106(a)(1)(iii)-(iv),0% RSF,I.O.6,Central Bank,< 6 Months,Forward Start = NULL

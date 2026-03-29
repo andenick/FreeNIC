@@ -1,0 +1,22 @@
+Level 1 Code,Level 1 Name,Level 2 Code,Level 2 Name,Activity Groups
+BL1,Corporate Finance,BL11,Corporate Finance,"Mergers and acquisitions, underwriting, privatizations, securitization, research, debt (government, high yield), equity, syndications, IPO, secondary private placements"
+BL1,Corporate Finance,BL12,Municipal/Government Finance,
+BL1,Corporate Finance,BL13,Merchant Banking,
+BL1,Corporate Finance,BL14,Advisory Services,
+BL2,Trading & Sales,BL21,Sales,"Fixed income, equity, foreign exchanges, commodities, credit, funding, own position securities, lending and repos, brokerage, debt, prime brokerage"
+BL2,Trading & Sales,BL22,Market Making,
+BL2,Trading & Sales,BL23,Proprietary Positions,
+BL2,Trading & Sales,BL24,Treasury,
+BL3,Retail Banking,BL31,Retail Banking,"Retail lending and deposits, banking services, trust and estates"
+BL3,Retail Banking,BL32,Private Banking,"Private lending and deposits, banking services, trust and estates, investment advice"
+BL3,Retail Banking,BL33,Card Services,"Merchant/commercial/corporate cards, private labels and retail"
+BL4,Commercial Banking,BL41,Commercial Banking,"Project finance, real estate, export finance, trade finance, factoring, leasing, lending, guarantees, bills of exchange"
+BL5,Payment and Settlement,BL51,External Clients,"Payments and collections, funds transfer, clearing and settlement"
+BL6,Agency Services,BL61,Custody,"Escrow, depository receipts, securities lending (customers), corporate actions"
+BL6,Agency Services,BL62,Corporate Agency,Issuer and paying agents
+BL6,Agency Services,BL63,Corporate Trust,
+BL7,Asset Management,BL71,Discretionary Fund Management,"Pooled, segregated, retail, institutional, closed, open, private equity"
+BL7,Asset Management,BL72,Non-Discretionary Fund Management,"Pooled, segregated, retail, institutional, closed, open"
+BL8,Retail Brokerage,BL81,Retail Brokerage,Execution and full service
+,,BL00,Not Applicable,
+BL9,Corporate Level - Non-Business Line Specific,,,Losses originating from a corporate/firm-wide function that cannot be linked to a specific business line

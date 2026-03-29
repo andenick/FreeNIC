@@ -1,0 +1,55 @@
+Schedule,Item,Description,MDRM_Prefix,MDRM_Code,Item_Number
+RI-A,Beginning equity capital,Total bank equity capital most recently reported for Dec 31 2024,RIAD,3217,1.
+RI-A,Accounting changes,Cumulative effect of changes in accounting principles and corrections of material accounting errors,RIAD,B507,2.
+RI-A,Restated beginning balance,Balance end of previous calendar year as restated,RIAD,B508,3.
+RI-A,Net income,Net income (loss) attributable to bank,RIAD,4340,4.
+RI-A,Capital stock transactions,Sale conversion acquisition or retirement of capital stock net,RIAD,B509,5.
+RI-A,Treasury stock transactions,Treasury stock transactions net,RIAD,B510,6.
+RI-A,Business combinations,Changes incident to business combinations net,RIAD,4356,7.
+RI-A,Preferred dividends,LESS: Cash dividends declared on preferred stock,RIAD,4470,8.
+RI-A,Common dividends,LESS: Cash dividends declared on common stock,RIAD,4460,9.
+RI-A,Other comprehensive income,Other comprehensive income,RIAD,B511,10.
+RI-A,Other stockholder transactions,Other transactions with stockholders,RIAD,4415,11.
+RI-A,Ending equity capital,Total bank equity capital end of current period,RIAD,3210,12.
+RI-B-I,RE construction 1-4 fam chargeoffs,1-4 family residential construction loans - Charge-offs,RIAD,C891,"1.a.(1) CO"
+RI-B-I,RE construction 1-4 fam recoveries,1-4 family residential construction loans - Recoveries,RIAD,C892,"1.a.(1) REC"
+RI-B-I,RE construction other chargeoffs,Other construction and land development - Charge-offs,RIAD,C893,"1.a.(2) CO"
+RI-B-I,RE construction other recoveries,Other construction and land development - Recoveries,RIAD,C894,"1.a.(2) REC"
+RI-B-I,Farmland chargeoffs,Secured by farmland - Charge-offs,RIAD,3584,"1.b. CO"
+RI-B-I,Farmland recoveries,Secured by farmland - Recoveries,RIAD,3585,"1.b. REC"
+RI-B-I,Revolving RE chargeoffs,Revolving open-end 1-4 family RE - Charge-offs,RIAD,5411,"1.c.(1) CO"
+RI-B-I,Revolving RE recoveries,Revolving open-end 1-4 family RE - Recoveries,RIAD,5412,"1.c.(1) REC"
+RI-B-I,First lien chargeoffs,Closed-end first liens - Charge-offs,RIAD,C234,"1.c.(2)(a) CO"
+RI-B-I,First lien recoveries,Closed-end first liens - Recoveries,RIAD,C217,"1.c.(2)(a) REC"
+RI-B-I,Junior lien chargeoffs,Closed-end junior liens - Charge-offs,RIAD,C235,"1.c.(2)(b) CO"
+RI-B-I,Junior lien recoveries,Closed-end junior liens - Recoveries,RIAD,C218,"1.c.(2)(b) REC"
+RI-B-I,Multifamily chargeoffs,Multifamily (5+) residential - Charge-offs,RIAD,3588,"1.d. CO"
+RI-B-I,Multifamily recoveries,Multifamily (5+) residential - Recoveries,RIAD,3589,"1.d. REC"
+RI-B-I,Owner-occupied CRE chargeoffs,Owner-occupied nonfarm nonresidential - Charge-offs,RIAD,C895,"1.e.(1) CO"
+RI-B-I,Owner-occupied CRE recoveries,Owner-occupied nonfarm nonresidential - Recoveries,RIAD,C896,"1.e.(1) REC"
+RI-B-I,Other CRE chargeoffs,Other nonfarm nonresidential - Charge-offs,RIAD,C897,"1.e.(2) CO"
+RI-B-I,Other CRE recoveries,Other nonfarm nonresidential - Recoveries,RIAD,C898,"1.e.(2) REC"
+RI-B-I,Foreign RE chargeoffs,In foreign offices - Charge-offs,RIAD,B512,"1.f. CO"
+RI-B-I,Foreign RE recoveries,In foreign offices - Recoveries,RIAD,B513,"1.f. REC"
+RI-B-I,Ag production chargeoffs,Agricultural production - Charge-offs,RIAD,4655,"3. CO"
+RI-B-I,Ag production recoveries,Agricultural production - Recoveries,RIAD,4665,"3. REC"
+RI-B-I,C&I US chargeoffs,Commercial and industrial US - Charge-offs,RIAD,4645,"4.a. CO"
+RI-B-I,C&I US recoveries,Commercial and industrial US - Recoveries,RIAD,4617,"4.a. REC"
+RI-B-I,C&I non-US chargeoffs,Commercial and industrial non-US - Charge-offs,RIAD,4646,"4.b. CO"
+RI-B-I,C&I non-US recoveries,Commercial and industrial non-US - Recoveries,RIAD,4618,"4.b. REC"
+RI-B-I,Credit card chargeoffs,Credit cards - Charge-offs,RIAD,B514,"5.a. CO"
+RI-B-I,Credit card recoveries,Credit cards - Recoveries,RIAD,B515,"5.a. REC"
+RI-B-I,Auto loan chargeoffs,Automobile loans - Charge-offs,RIAD,K129,"5.b. CO"
+RI-B-I,Auto loan recoveries,Automobile loans - Recoveries,RIAD,K133,"5.b. REC"
+RI-B-I,Other consumer chargeoffs,Other consumer loans - Charge-offs,RIAD,K205,"5.c. CO"
+RI-B-I,Other consumer recoveries,Other consumer loans - Recoveries,RIAD,K206,"5.c. REC"
+RI-B-I,Foreign govt chargeoffs,Foreign governments - Charge-offs,RIAD,4643,"6. CO"
+RI-B-I,Foreign govt recoveries,Foreign governments - Recoveries,RIAD,4627,"6. REC"
+RI-B-I,All other loan chargeoffs,All other loans - Charge-offs,RIAD,4644,"7. CO"
+RI-B-I,All other loan recoveries,All other loans - Recoveries,RIAD,4628,"7. REC"
+RI-B-I,Consumer lease chargeoffs,Consumer leases - Charge-offs,RIAD,F185,"8.a. CO"
+RI-B-I,Consumer lease recoveries,Consumer leases - Recoveries,RIAD,F187,"8.a. REC"
+RI-B-I,Other lease chargeoffs,All other leases - Charge-offs,RIAD,C880,"8.b. CO"
+RI-B-I,Other lease recoveries,All other leases - Recoveries,RIAD,F188,"8.b. REC"
+RI-B-I,Total chargeoffs,Total - Charge-offs,RIAD,4635,"9. CO"
+RI-B-I,Total recoveries,Total - Recoveries,RIAD,4605,"9. REC"

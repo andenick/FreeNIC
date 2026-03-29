@@ -1,0 +1,150 @@
+# FR Y-14Q Instructions -- Chunk 006
+
+## Schedule A -- Retail (Continued)
+
+### Summary Variables (Continued from Chunk 005)
+
+**20. $ Recoveries** -- (continued from previous chunk) the segment that were previously charged-off. The amount reported here should be consistent with the amount reported on Schedule HI-B, Part I, Column B of the FR Y-9C. For the Delinquency Status segment, categorize charged-off loans by their delinquency status at charge-off. Reversals of recoveries should be recorded as negative recoveries.
+
+**21. $ Net Charge-offs** -- The dollar amount of write-downs net on loans in the segment that were charged-off during the reporting month, net of any recoveries in the reporting month on loans in the segment that were previously charged-off. Generally, $ Net Charge-offs should equal [$ Gross Contractual Charge-offs + $ Bankruptcy Charge-offs -- $ Recoveries].
+
+**22. Adjustment factor to reconcile $ gross contractual charge-offs to $ net charge-offs** -- If it is not the case that $ Net Charge-offs equals [$ Gross Contractual Charge-offs + $ Bankruptcy Charge-offs -- $ Recoveries], provide the value of $ Net Charge-offs minus [$ Gross Contractual Charge-offs + $ Bankruptcy Charge-offs -- $ Recoveries] in this variable, and separately provide an explanation for the difference. As a separate document included in the submission, provide an explanation for such a difference (for example, fraud losses are also included in the Reporting Institution's $ Net Charge-offs variable). If the adjustment factor variable represents more than one factor leading to the difference, provide a separate breakout of the multiple factors.
+
+**23. Weighted Average Life of Loans** -- The Weighted Average Life of Loans should reflect the current position, the impact of new business activity, as well as the impact of behavioral assumptions such as prepayments or defaults, based on the expected remaining lives, inclusive of behavioral assumptions as of month-end. It should reflect the weighted average of time to principal actual repayment (as modeled) for all positions in the segment, rounded to the nearest monthly term.
+
+---
+
+## Schedule B -- Securities
+
+Each BHC or IHC or SLHC should submit the two schedules (B.1 and B.2) comprising the FR Y-14 Quarterly Securities data. The BHCs, IHCs and SLHCs should refer to the separate Technical Submission Instructions for details on the technical specifications of these schedules including the schedule naming convention, row headers, and value formats. The first schedule (B.1 - Securities 1) is the Main Schedule containing the individual security-level data. The second (B.2 - Securities 2) provides additional detail on securities in the Main Schedule that are part of designated hedge accounting relationships.
+
+Please refer to Accounting Standards Codification (ASC) Topic 320, Investments -- Debt Securities (formerly FASB Statement No. 115, Accounting for Certain Investments in Debt and Equity Securities) for additional guidance when preparing this schedule.
+
+If the instrument exists and is reported on the FR Y-9C as of quarter-end, then it should be included in this schedule. Institutions are encouraged to provide further details on its hedging practices in supplemental materials if the institution believes doing so will provide additional and relevant clarity.
+
+A unique identifier must be included to identify each unique record for each of the sub-schedules B.1 and B.2 as discussed below.
+
+**Exclude** from this schedule all securities held for trading and securities the holding company has elected to report at fair value under a fair value option even if holding company management did not acquire the securities principally for the purpose of selling them in the near term. Also exclude securities that have been sold, but not settled as of the quarter-end date.
+
+### B.1 -- Securities 1 ("Main Schedule")
+
+The Securities 1 schedule collects individual security-level details on positions, security type, allowance for credit losses by security, and accounting intent (AFS or HTM). Amounts should be reported in U.S. dollars (USD). The reporting of Securities should follow balance sheet classification of the FR Y-9C (e.g., Securities will correspond with Schedule HC-B breakdowns or be classified as Equity securities with readily determinable fair values not held for trading included in FR Y-9C, Schedule HC, item 2.c). Any securities not specifically excluded from this schedule should be reported. Additionally, the method of reporting individual security-level information should be consistent with the level of aggregation the company uses to assess allowances for credit losses on investment securities in accordance with ASC Topic 326.
+
+In circumstances whereby the BHC or IHC or SLHC holds securities in both AFS and HTM categories within a given asset class, separate each security into separate line items.
+
+The following information should be reported in this schedule.
+
+#### Unique ID
+
+A unique identifier must be included to identify each unique record. For a given security position, the same Unique ID should be used from one period to the next.
+
+#### Identifier Type and Identifier Value
+
+Report individual security-level data for all available-for-sale (AFS) and held-to-maturity (HTM) securities, adding new rows as necessary. Generally, securities should always be reported with a public identifier, if available, such as a valid CUSIP, ISIN, or SEDOL. If a valid CUSIP, ISIN or SEDOL identifier exists for the security, please report the value of the chosen identifier (the CUSIP, ISIN, or SEDOL code) and indicate the identifier type as "CUSIP", "ISIN", or "SEDOL". If a CUSIP, ISIN, or SEDOL identifier is not available for a given security, please report an alternative public identifier value, if available, and report the identifier type. If only an internal identifier is available and provided, please report the identifier type as "INTERNAL." Securities where an internal identifier is reported must have additional information reported in the Security Description 2 or Security Description 3 fields that clarifies the name of the security or issuer and the nature of the obligation (see the general requirement for securities in the "Other" Security Description 1 category), to the extent that the Security Description 2 and Security Description 3 fields are available after meeting any specific requirements in the instructions for these fields under "Security Description" below.
+
+For the purpose of this field, CUSIP means either a CUSIP or CINS (CUSIP International Numbering System) code.
+
+#### Private Placement
+
+Please enter "Y" if the security is a private placement security or other non-publicly offered security or "N" if it is a publicly offered security. For clarity, please enter "Y" for Rule 144A securities and direct purchase municipal securities (as defined in the Municipal Securities Rulemaking Board's Notice 2011-52).
+
+#### Security Description
+
+Report the security description as indicated below.
+
+- **Agency MBS**: Report mortgage-backed securities (MBS) issued or guaranteed by U.S. Government agencies.
+
+- **Auction Rate Securities**: Report auction rate securities. Auction-rate securities are variable rate securities with long-term maturities whose interest rates are periodically reset through auctions occurring at predetermined short-term intervals (generally 7, 14, 28, or 35 days).
+
+- **CDO**: Report collateralized debt obligations (CDOs). CDOs are asset-backed securities collateralized by a discrete portfolio of fixed income assets and that make payments based on the performance of those assets.
+
+- **CLO**: Report collateralized loan obligations (CLOs). CLOs are securitizations of portfolios of loans through a bankruptcy-remote special-purpose vehicle (SPV) that issues asset-backed securities in one or more classes (or tranches). In general, CLOs are backed by a variety of assets, including whole commercial loans, revolving credit facilities, letters of credit, and bankers' acceptances.
+
+- **CMBS**: Report commercial mortgage-backed securities (CMBS). Exclude securities that have been issued or guaranteed by the Federal National Mortgage Association (FNMA) or the Federal Home Loan Mortgage Corporation (FHLMC) or guaranteed by the Government National Mortgage Association (GNMA). Report these securities as "Agency MBS" (above).
+
+- **Common Stock (Equity)**: Report common stock (equity). Provide the name of the issuer in the Security Description 2 column.
+
+- **Auto ABS**: Report asset-backed securities (ABS) collateralized by auto loans.
+
+- **Credit Card ABS**: Report asset-backed securities (ABS) collateralized by credit card loans.
+
+- **Student Loan ABS**: Report asset-backed securities (ABS) collateralized by student loans.
+
+- **Other ABS (excl HEL ABS)**: Report all other ABS that cannot properly be reported as auto ABS, credit card ABS, student loan ABS or home equity loan ABS; such as, leasing, Small Business Association (SBA) and fleet (auto) and floor plan ABS.
+
+- **Corporate Bond**: Report corporate bonds. Corporate bonds are debt obligations issued by corporations and may be secured or unsecured.
+
+- **Covered Bond**: Report securities generally classified as "covered bonds" that feature recourse to cash flows of a pool of mortgages or public-sector loans on the balance sheet of an issuing financial institution.
+
+- **Domestic Non-Agency RMBS (incl HEL ABS)**: Report residential mortgage-backed securities (RMBS), including securities backed by home equity loans, that are issued by domestic non-government agency entities.
+
+- **Foreign RMBS**: Report residential mortgage-backed securities of foreign issuers. Provide the country in the Security Description 2 column.
+
+- **Municipal Bond**: Report bonds issued by U.S. states, cities, counties, and other governmental entities at or below the state level. For example, include bonds issued by Canadian provinces or other local government entities and bonds issued by other non-US local government entities. In the Description 2 column, report the sector from the list below that best describes the principal source of repayment and intended use of the capital raised by the offering.
+  - General Obligation - State
+  - General Obligation - Local
+  - Revenue - Single Family Housing
+  - Revenue - Multi-Family Housing
+  - Revenue - Hospitals and Health Care
+  - Revenue - Education
+  - Revenue - Industrial Development Revenue
+  - Revenue - Utilities
+  - Revenue - Transportation
+  - Revenue - Tax
+  - Revenue - Other
+  - Appropriation-Backed (footnote 6: For a definition of appropriation-backed debt, please refer to the Municipal Securities Rulemaking Board glossary definition for subject-to-appropriation-debt.)
+  - Other
+
+- **Mutual Fund**: Report investments in mutual funds, including money market mutual funds and mutual funds that invest solely in U.S. government securities. In the Description 2 column, enter either "Money Market Mutual Fund" for investments in money market mutual funds or similar cash reserve instruments or "Non-Money Market Mutual Fund" for all other categories of mutual funds. Provide the name of the fund in the Description 3 column.
+
+- **Preferred Stock (Equity)**: Refer to the FR Y-9C Glossary entry for "Preferred Stock." Provide the issuer name in the Security Description 2 column.
+
+- **Sovereign Bond**: Report bonds issued by the central governments of foreign countries. Provide the two-letter Country ISO code in the Security Description 2 column. Also, include in this category obligations of foreign country central banks, foreign central government units or agencies, fully government-guaranteed obligations of municipal or state-owned enterprises (e.g., non-central government(s)); and obligations of supranational organizations such as the International Bank for Reconstruction and Development (World Bank), Inter-American Development Bank, and Asian Development Bank. Sovereign Bonds that are issued by supranational entities should identify the issuer of the bond in the second or third security description column in place of a country code. Additionally, for non-guaranteed government securities, include additional information in the remaining description columns to explain the source of repayment (if not full faith and credit of the sovereign).
+
+- **US Treasuries & Agencies**: Exclude mortgage-backed securities. Report U.S. government agency obligations issued by U.S. government agencies and U.S. government-sponsored agencies, including but not limited to, Small Business Administration "Guaranteed Loan Pool Certificates," U.S. Maritime Administration obligations, and Export-Import Bank participation certificates. Include obligations (other than mortgage-backed securities) issued by the Farm Credit System, the Federal Home Loan Bank System, the Federal Home Loan Mortgage Corporation, the Federal National Mortgage Association, the Financing Corporation, Resolution Funding Corporation, and FDIC Structured Sale Guaranteed Notes and NCUA Guaranteed Notes.
+
+- **Other**: Report all securities that cannot properly be reported in the categories above. It is required to use the Security Description 2 and/or Security Description 3 columns to provide a description of the security that clarifies the name of the security or issuer, type or nature of obligation, and, if applicable, key terms such as the maturity date and stated interest rate.
+
+#### Exposure to Debt/Equity Security (USD Equivalent)
+
+Report exposure to the debt/equity security as indicated below.
+
+- **Amortized Cost (USD Equivalent)**: In general, amortized cost is the purchase price of a debt security adjusted for amortization of premium or accretion of discount if the debt security was purchased at other than par or face value (for more information, refer to the FR Y-9C Glossary entry for "premiums and discounts").
+
+- **Market Value (USD Equivalent)**: In general, market value is "the price that would be received to sell an asset or paid to transfer a liability in an orderly transaction between market participants at the measurement date." For further information, refer to ASC Topic 820, Fair Value Measurements and Disclosures (formerly FASB Statement No. 157, Fair Value Measurements) and the FR Y-9C glossary entry for "fair value."
+
+- **Current Face Value (USD Equivalent)**: The nominal dollar amount of the security as of the report date.
+
+- **Original Face Value (USD Equivalent)**: The nominal dollar amount originally assigned to the security by the issuer.
+
+#### Amount of Allowance for Credit Losses
+
+For AFS securities, report the allowance for credit losses by the BHC or IHC on the security. For HTM securities, report the allowance for credit losses on the security if such information is available at security level. If only pool level information is available, report this field as: pool-level amount of allowance for credit losses * (the security's amortized cost) / (total amortized cost in the pool). This value should be reported as a positive number.
+
+#### Writeoffs
+
+Report any writeoffs of this security during the quarter on a quarter-to-date basis.
+
+#### Accounting Intent
+
+Indicate whether the security is available-for-sale (AFS) or held-to-maturity (HTM). For equity securities with readily determinable fair values not held for trading included in FR Y-9C, Schedule HC, item 2.c, report "EQ" in this field.
+
+#### Price
+
+Report the price of the security associated with the reported market value in USD. In general, this is the value that, when multiplied by the current USD equivalent face value or nominal amount of the security, results in the USD equivalent amount that would be received (excluding accrued interest) if the security were sold at market value. A security whose market value is equal to its outstanding face value has a price of 100. For equity securities, report the price per share.
+
+#### Pricing Date
+
+Report the pricing date of the security.
+
+#### Book Yield
+
+Report the effective interest rate that would be used to determine the allowance for credit losses allocated to the respective security in Book Yield in accordance with ASC Topic 326. This item is not required for equity and mutual fund securities. For securitization debt, this relates to the yield implicit at the time of acquisition. This value should be the original unamortized yield, without subsequent adjustments for paydowns or accretion. However, if the reported book yield differs from the yield determined according to the methodology above, such as using the retrospective interest method for only structured notes outlined in ASC 320-10-35-40, document the reason for the use of the alternative in supplemental materials.
+
+#### Purchase Date
+
+Report the date on which the security was purchased or acquired in the case of credit sensitive securities that are evaluated for credit loss purposes in accordance with ASC Topic 326. The purchase date should be the date associated with the amortized cost and book yield of the security (exclude for equity and mutual fund securities). If current holdings of the same security were acquired in different periods, provide the amounts and respective purchase dates distinct trade lots in separate rows of the worksheets. The preferred method for reporting purchases and sales of securities is as of trade date. However, settlement date accounting is acceptable if the reported amounts would not be materially different. (See the Glossary entry for "trade date and settlement date accounting" in the FR Y-9C instructions).
+
+#### Currency
+
+Indicate the currency denomination of contractual payments on the security, or for an equity security, the currency in which it trades in its principal exchange, using the standard ISO 4217 three-letter currency code (e.g., USD, EUR, GBP, CAD, etc.). For the avoidance of doubt, whether or not the value of this field is USD (U.S. dollars), all amounts reported in this schedule must be in USD-equivalent terms as of the reporting date.

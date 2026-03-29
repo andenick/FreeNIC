@@ -1,0 +1,17 @@
+Schedule,Item,Description,Col_A_Chargeoffs_RIAD,Col_B_Recoveries_RIAD,Notes
+RI-B Part I,1.a.(1),1-4 family residential construction loans,C891,C892,
+RI-B Part I,1.a.(2),Other construction and land development loans,C893,C894,
+RI-B Part I,1.b.,Secured by farmland,3584,3585,
+RI-B Part I,1.c.(1),Revolving open-end loans secured by 1-4 family residential,5411,5412,
+RI-B Part I,1.c.(2)(a),Closed-end secured by first liens,C234,C217,
+RI-B Part I,1.c.(2)(b),Closed-end secured by junior liens,C235,C218,
+RI-B Part I,1.d.,Secured by multifamily (5+) residential,3588,3589,
+RI-B Part I,1.e.(1),Loans secured by owner-occupied nonfarm nonresidential,C895,C896,
+RI-B Part I,1.e.(2),Loans secured by other nonfarm nonresidential,C897,C898,
+RI-B Part I,4.,Commercial and industrial loans,4638,4608,
+RI-B Part I,5.a.,Credit cards,B514,B515,
+RI-B Part I,5.b.,Automobile loans,K129,K133,
+RI-B Part I,5.c.,Other consumer loans,K205,K206,
+RI-B Part I,7.,All other loans,4644,4628,Includes depository institution + ag + state/local + nondepository FI loans
+RI-B Part I,8.,Lease financing receivables,4266,4267,
+RI-B Part I,9.,Total (sum of items 1-8),4635,4605,

@@ -1,0 +1,19 @@
+Summary comparison of accounting assets and supplementary leverage ratio,,,
+$ in millions,,At December 31 2024,
+"Total consolidated assets as reported in published financial statements (note 1)",,$,"1,215,071"
+"Adjustment for investments in banking, financial, insurance or commercial entities consolidated for accounting purposes but outside the scope of regulatory consolidation",,,"--"
+"Adjustment for fiduciary assets recognized on balance sheet but excluded from total leverage exposure",,,"--"
+"Adjustment for derivative exposures (note 2)",,,"144,652"
+"Adjustment for repo-style transactions (note 2)",,,"16,246"
+"Adjustment for off-balance sheet exposures (note 2)",,,"108,348"
+Other adjustments,,,
+"  a. Adjustments for deductions from tier 1 capital (note 3)",,,"(22,459)"
+"  b. Adjustments for frequency calculations (note 4)",,,"55,829"
+"  c. Adjustments for deductions of qualifying central bank deposits for custodial banking organizations",,,"--"
+Supplementary leverage exposure,,$,"1,517,687"
+,,,
+Notes:,,,
+"1. Total consolidated on-balance sheet assets under U.S. GAAP at quarter end.",,,
+"2. Computed as the arithmetic mean of the month-end balances over the calendar quarter.",,,
+"3. Includes disallowed goodwill, intangible assets, investments in covered funds, defined benefit pension plan assets, after-tax gain on sale from assets sold into securitizations, investments in the Firm's own capital instruments, certain deferred tax assets, and other capital deductions.",,,
+"4. Reflects the difference between spot and average daily balance of consolidated total assets during the calendar quarter.",,,

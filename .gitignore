@@ -1,0 +1,47 @@
+# Raw data files (large, re-downloadable)
+Inputs/ffiec_bulk_bhcf/
+Inputs/bhcf_csv_pre2000/
+Inputs/NIC_Structure/
+Inputs/fdic_history/
+Inputs/fdic_sod/
+Inputs/fdic_financials/
+Inputs/fdic_failures_api.json
+Inputs/crsp_frb_link/
+Inputs/fred_h8/
+Inputs/dfast/
+Inputs/luck_database/
+Inputs/filing_instructions/
+Inputs/occ/
+
+# Keep Inputs/README.md
+!Inputs/README.md
+
+# Generated output data (large, regenerable from scripts)
+Outputs/parquet/
+Outputs/*.duckdb
+*.parquet
+*.duckdb
+
+# HDARP processing intermediates (large, regenerable)
+Technical/HDARP_Processing/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Environment
+.env
+*.env
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/

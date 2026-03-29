@@ -1,0 +1,37 @@
+Item,Description,RCON,Frequency
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (0%),G630,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (2%),S558,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (4%),S559,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (10%),S560,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (20%),G631,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (50%),G632,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (100%),G633,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (150%),S561,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (250%),S562,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (300%),S563,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (400%),S564,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (600%),S565,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (625%),S566,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (937.5%),S567,Quarterly
+23,Total assets/derivatives/off-balance-sheet items by risk-weight category (1250%),S568,Quarterly
+25,Risk-weighted assets by risk-weight category (0%),G634,Quarterly
+25,Risk-weighted assets by risk-weight category (2%),S569,Quarterly
+25,Risk-weighted assets by risk-weight category (4%),S570,Quarterly
+25,Risk-weighted assets by risk-weight category (10%),S571,Quarterly
+25,Risk-weighted assets by risk-weight category (20%),G635,Quarterly
+25,Risk-weighted assets by risk-weight category (50%),G636,Quarterly
+25,Risk-weighted assets by risk-weight category (100%),G637,Quarterly
+25,Risk-weighted assets by risk-weight category (150%),S572,Quarterly
+25,Risk-weighted assets by risk-weight category (250%),S573,Quarterly
+25,Risk-weighted assets by risk-weight category (300%),S574,Quarterly
+25,Risk-weighted assets by risk-weight category (400%),S575,Quarterly
+25,Risk-weighted assets by risk-weight category (600%),S576,Quarterly
+25,Risk-weighted assets by risk-weight category (625%),S577,Quarterly
+25,Risk-weighted assets by risk-weight category (937.5%),S578,Quarterly
+25,Risk-weighted assets by risk-weight category (1250%),S579,Quarterly
+26,Risk-weighted assets base for AACL 1.25% threshold,S580,Quarterly
+27,Standardized market-risk weighted assets,S581,Quarterly
+28,Risk-weighted assets before deductions for excess AACL and allocated transfer risk reserve,B704,Quarterly
+29,LESS: Excess AACL,A222,Quarterly
+30,LESS: Allocated transfer risk reserve,3128,Quarterly
+31,Total risk-weighted assets,G641,Quarterly

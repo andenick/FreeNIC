@@ -1,0 +1,33 @@
+Table 4: Risk-Weighted Assets by Risk Type - Advanced Approach,,June 30 2024
+(in millions),,Advanced Approach RWAs
+Credit Risk-Weighted Assets,,
+Wholesale exposures:,,
+Corporate,,$299674
+Bank,,$3781
+Sovereign,,$4917
+Income Producing Real Estate,,$105240
+High Volatility Commercial Real Estate,,$1044
+Total Wholesale exposures,,$414656
+Retail exposures:,,
+Residential mortgage - first lien,,$30989
+Residential mortgage - junior lien,,$484
+Residential mortgage - revolving,,$11189
+Qualifying revolving,,$54978
+Other retail,,$48775
+Total Retail exposures,,$146415
+Counterparty exposures:,,
+OTC derivatives,,$20723
+Margin loans and repo style transactions,,$8784
+Cleared transactions,,$1276
+Unsettled trades,,$628
+Total Counterparty exposures,,$31411
+Credit Valuation Adjustments (CVA),,$17510
+Securitization exposures,,$32510
+Equity exposures,,$50503
+Other exposures,,$59690
+Non-material portfolios of exposures,,$3399
+"Less: Excess eligible credit reserves not included in Tier 2 capital",,$2415
+Total Credit Risk-Weighted Assets,,$753679
+Market risk,,$44096
+Operational risk,,$295250
+Total Risk-Weighted Assets,,$1093025

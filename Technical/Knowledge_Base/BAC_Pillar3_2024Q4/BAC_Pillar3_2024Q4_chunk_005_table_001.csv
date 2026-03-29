@@ -1,0 +1,13 @@
+Table,Table 20 - Estimated Banking Book Net Interest Income Sensitivity to Curve Changes,,,,December 31 2024
+(Dollars in billions),Curve Change,Short Rate (bps),Long Rate (bps),Dynamic Deposits December 31 2024,Static Deposits December 31 2024
+Parallel shifts,,,,
++100 bps instantaneous shift,,+100,+100,1.1,3.1
+-100 bps instantaneous shift,,-100,-100,-2.3,-3.3
++200 bps instantaneous shift,,+200,+200,2.0,6.2
+-200 bps instantaneous shift,,-200,-200,-5.4,-6.9
+Flatteners,,,,
+Short-end instantaneous change,,+100,0,1.1,2.8
+Long-end instantaneous change,,0,-100,-0.1,-0.4
+Steepeners,,,,
+Short-end instantaneous change,,-100,0,-2.1,-2.9
+Long-end instantaneous change,,0,+100,0.1,0.3

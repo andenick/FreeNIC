@@ -1,0 +1,4 @@
+O.W fields,Reporting Entity,Currency,Converted,PID,Product,Maturity Amount,Maturity Bucket,Internal,Loss Absorbency,Business Line
+Example 1,PARENT,USD,N,11,Unstructured Long Term Debt,1500,>4 Yr <= 5 Yr,N,TLAC,Corporate Treasury
+Example 2,PARENT,GBP,N,11,Unstructured Long Term Debt,2000,>5 Yr,N,TLAC,Corporate Treasury
+Example 3,PARENT,GBP,N,11,Unstructured Long Term Debt,250,>1 Yr <= 2 Yr,N,TLAC,Corporate Treasury

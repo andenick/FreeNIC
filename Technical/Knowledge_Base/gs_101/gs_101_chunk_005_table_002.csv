@@ -1,0 +1,12 @@
+Schedule Q - Cleared Transactions,,,,,
+Item,Col A: Exposure with QCCP qualifying for 2% risk weight,Col B: Exposure not qualifying for 2% risk weight,Col C: Exposure for default fund contributions,Col D: Risk-Weighted Assets,Line
+Clearing Member Client Bank,,,,,
+Derivative contracts or netting sets of derivative contracts,AAQQ P950,AAQQ P951,,AAQQ P952,1
+Repo-style transactions,AAQQ P953,AAQQ P954,,AAQQ P955,2
+Clearing Member Bank,,,,,
+Derivative contracts or netting sets of derivative contracts,AAQQ P956,AAQQ P957,,AAQQ P958,3
+Repo-style transactions,AAQQ P959,AAQQ P960,,AAQQ P961,4
+Default fund contributions to non-QCCP,,,AAQQ P962,AAQQ P963,5
+Default fund contributions to QCCP,,,AAQQ P964,AAQQ P965,6
+Total,,,,,
+Total clearing member exposures and risk-weighted assets,AAQQ P966,AAQQ P967,AAQQ P968,AAQQ P969,7

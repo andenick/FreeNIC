@@ -1,0 +1,10 @@
+Table: Counterparty Credit Exposures by PD Range
+"March 31, 2024 (in millions, except ratios)",,,,,
+PD range (%),EAD,RWA,Exposure-weighted avg PD,Exposure-weighted avg LGD,Exposure-weighted avg Risk weight
+0.00 to <0.15,148734,23255,0.07,38.45,15.64
+0.15 to <0.50,74897,30318,0.27,40.55,40.48
+0.50 to <1.35,51123,36235,0.84,41.14,70.88
+1.35 to <10.00,17637,20075,3.58,39.97,113.83
+10.00 to <100,3380,6946,16.50,39.13,205.51
+100 (default),820,868,100.00,N/A,105.87
+Total,296591,117697,0.94%,39.56%,39.68%

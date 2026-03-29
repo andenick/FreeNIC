@@ -1,0 +1,28 @@
+Table 25b: Components of Total Leverage Exposure,,June 30 2024
+(in millions),,
+On-balance sheet exposures,,
+Total average assets as reported,,$1914708
+Less: amounts deducted from Tier 1 capital,,$27201
+Total on-balance sheet exposures,,$1887507
+Derivative exposures,,
+Replacement cost for derivative exposures (net of cash variation margin),,$27147
+Add-on amounts for potential future exposure (PFE) for derivative exposures,,$41214
+Gross-up for cash collateral posted if deducted from on-balance sheet assets except for cash variation margin,,$26255
+Less: Deductions of receivable assets for cash variation margin posted in derivative transactions,,$26255
+Less: Exempted CCP leg of client-cleared transactions,,--
+Effective notional principal amount of sold credit protection,,$13726
+Less: Effective notional principal amount offsets and PFE adjustments for sold credit protection,,$3184
+Less: on-balance sheet assets for derivative exposures,,$18971
+Total off-balance sheet derivative exposures,,$59932
+Repo-style transactions,,
+On-balance sheet assets for repo-style transactions including gross value of receivables for reverse repurchase transactions,,$93703
+Less: Reduction of gross value of receivables in reverse repurchase transactions by cash payables in repurchase transactions under netting agreements,,$24711
+Counterparty credit risk for all repo-style transactions,,$5632
+Exposure amount for repo-style transactions where a banking organization acts as an agent,,$79
+Less: on-balance sheet assets for repo-style transactions,,$68992
+Total off-balance sheet exposures for repo-style transactions,,$5711
+Other off-balance sheet exposures,,
+Off-balance sheet exposures at gross notional amounts,,$729049
+Less: Adjustments for conversion to credit equivalent amounts,,$423675
+Total Other off-balance sheet exposures,,$305374
+Total leverage exposure,,$2258524

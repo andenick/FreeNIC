@@ -1,0 +1,3 @@
+Field No,Field Name,Technical Field Name,Description,Allowable Values
+1,Line of Business,LineOfBusinessName,Provide the name of the internal line of business.,"Free text indicating the internal line of business. For example: Private Banking, Corporate Banking, Asset-Based Lending, etc. Collectively, Line of Business defines the set of allowable values for Field 27 on Schedule H.1 and Field 22 on Schedule H.2."
+2,Line of Business Description,LineOfBusinessDescription,Provide a brief description of the internal line of business.,Free text describing the internal line of business.

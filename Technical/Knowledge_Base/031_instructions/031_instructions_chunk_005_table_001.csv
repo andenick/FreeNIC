@@ -1,0 +1,198 @@
+Schedule,Item,Description,MDRM_Prefix,MDRM_Code,Item_Number
+RC-M,Insider credit extensions,Aggregate extensions of credit to insiders,RCFD,6164,1.a.
+RC-M,Number of insiders exceeding threshold,Number of insiders with credit >= lesser of $500K or 5% capital,RCFD,6165,1.b.
+RC-M,Mortgage servicing assets,Mortgage servicing assets,RCFD,3164,2.a.
+RC-M,Fair value mortgage servicing,Estimated fair value of mortgage servicing assets,RCFD,A590,"2.a.(1)"
+RC-M,Goodwill,Goodwill,RCFD,3163,2.b.
+RC-M,Other intangible assets,All other intangible assets,RCFD,JF76,2.c.
+RC-M,Total intangible assets,Total (must equal Schedule RC item 10),RCFD,2143,2.d.
+RC-M,OREO construction land,Construction land development and other land in domestic offices,RCON,5508,3.a.
+RC-M,OREO farmland,Farmland in domestic offices,RCON,5509,3.b.
+RC-M,OREO 1-4 family,1-4 family residential properties in domestic offices,RCON,5510,3.c.
+RC-M,OREO multifamily,Multifamily (5 or more) residential properties in domestic offices,RCON,5511,3.d.
+RC-M,OREO nonfarm nonresidential,Nonfarm nonresidential properties in domestic offices,RCON,5512,3.e.
+RC-M,OREO foreign offices,In foreign offices,RCFN,5513,3.f.
+RC-M,Total OREO,Total (must equal Schedule RC item 7),RCFD,2150,3.g.
+RC-M,Cost equity securities,Cost of equity securities with readily determinable fair values not held for trading,RCFD,JA29,4.
+RC-M,FHLB advances 1yr or less,FHLB advances by remaining maturity or repricing one year or less,RCFD,F055,"5.a.(1)(a)"
+RC-M,FHLB advances 1-3yr,FHLB advances over one year through three years,RCFD,F056,"5.a.(1)(b)"
+RC-M,FHLB advances 3-5yr,FHLB advances over three years through five years,RCFD,F057,"5.a.(1)(c)"
+RC-M,FHLB advances over 5yr,FHLB advances over five years,RCFD,F058,"5.a.(1)(d)"
+RC-M,FHLB advances remaining maturity 1yr,FHLB advances with remaining maturity of one year or less,RCFD,2651,"5.a.(2)"
+RC-M,FHLB structured advances,Structured FHLB advances,RCFD,F059,"5.a.(3)"
+RC-M,Other borrowings 1yr or less,Other borrowings by remaining maturity one year or less,RCFD,F060,"5.b.(1)(a)"
+RC-M,Other borrowings 1-3yr,Other borrowings over one year through three years,RCFD,F061,"5.b.(1)(b)"
+RC-M,Other borrowings 3-5yr,Other borrowings over three years through five years,RCFD,F062,"5.b.(1)(c)"
+RC-M,Other borrowings over 5yr,Other borrowings over five years,RCFD,F063,"5.b.(1)(d)"
+RC-M,Other borrowings remaining maturity 1yr,Other borrowings with remaining maturity of one year or less,RCFD,B571,"5.b.(2)"
+RC-M,Total other borrowed money,Total (must equal Schedule RC item 16),RCFD,3190,5.c.
+RC-M,Mutual funds and annuities flag,Does bank sell private label or third-party mutual funds and annuities,RCFD,B569,6.
+RC-M,Proprietary fund assets,Assets under management in proprietary mutual funds and annuities,RCFD,B570,7.
+RC-M,Primary website URL,Primary Internet website URL,TEXT,4087,8.a.
+RC-M,Other website URLs,URLs of other public-facing Internet websites,TEXT,N528,8.b.
+RC-M,Trade names,Trade names other than legal title for physical offices,TEXT,N529,8.c.
+RC-M,Internet transactional capability,Does any website have transactional capability (December only),RCFD,4088,9.
+RC-M,Secured fed funds purchased,Secured federal funds purchased in domestic offices,RCON,F064,10.a.
+RC-M,Secured other borrowings,Secured other borrowings,RCFD,F065,10.b.
+RC-M,Trustee or custodian flag,Does bank act as trustee or custodian for IRAs HSAs and similar,RCON,G463,11.
+RC-M,Custody and safekeeping flag,Does bank provide custody safekeeping or securities services,RCON,G464,12.
+RC-M,FDIC loss-sharing OREO,Portion of covered OREO protected by FDIC loss-sharing agreements,RCFD,K192,13.
+RC-M,Captive insurance assets,Total assets of captive insurance subsidiaries (December only),RCFD,K193,14.a.
+RC-M,Captive reinsurance assets,Total assets of captive reinsurance subsidiaries (December only),RCFD,K194,14.b.
+RC-M,QTL test type,HOLA QTL test or IRS DBLA test,RCON,L133,15.a.
+RC-M,QTL compliance flag,Has institution been in compliance with QTL test,RCON,L135,15.b.
+RC-M,Remittance transfer count,Estimated number of international remittance transfers (December only),RCON,N523,16.a.
+RC-M,Remittance transfer value,Estimated dollar value of remittance transfers,RCON,N524,"16.b.(1)"
+RC-M,Remittance exchange rate exception,Number using permanent exchange rate exception,RCON,MM07,"16.b.(2)"
+RC-M,Remittance third-party fee exception,Number using permanent covered third-party fee exception,RCON,MQ52,"16.b.(3)"
+RC-M,PPP loans count,Number of PPP loans outstanding,RCFD,LG26,17.a.
+RC-M,PPP loans balance,Outstanding balance of PPP loans,RCFD,LG27,17.b.
+RC-M,PPP loans pledged PPPLF,Outstanding balance of PPP loans pledged to the PPPLF,RCFD,LG28,17.c.
+RC-M,PPPLF borrowings 1yr or less,PPPLF borrowings remaining maturity one year or less,RCFD,LL59,"17.d.(1)"
+RC-M,PPPLF borrowings over 1yr,PPPLF borrowings remaining maturity more than one year,RCFD,LL60,"17.d.(2)"
+RC-M,PPP loans avg excluded leverage,Quarterly average PPP loans pledged to PPPLF excluded from leverage ratio,RCFD,LL57,17.e.
+RC-N,1-4 fam construction PD30,1-4 family residential construction past due 30-89 days (domestic),RCON,F172,"1.a.(1) Col A"
+RC-N,1-4 fam construction PD90,1-4 family residential construction past due 90+ days (domestic),RCON,F174,"1.a.(1) Col B"
+RC-N,1-4 fam construction nonaccrual,1-4 family residential construction nonaccrual (domestic),RCON,F176,"1.a.(1) Col C"
+RC-N,Other construction PD30,Other construction and land development past due 30-89 days (domestic),RCON,F173,"1.a.(2) Col A"
+RC-N,Other construction PD90,Other construction and land development past due 90+ days (domestic),RCON,F175,"1.a.(2) Col B"
+RC-N,Other construction nonaccrual,Other construction and land development nonaccrual (domestic),RCON,F177,"1.a.(2) Col C"
+RC-N,Farmland PD30,Secured by farmland past due 30-89 days (domestic),RCON,3493,1.b. Col A
+RC-N,Farmland PD90,Secured by farmland past due 90+ days (domestic),RCON,3494,1.b. Col B
+RC-N,Farmland nonaccrual,Secured by farmland nonaccrual (domestic),RCON,3495,1.b. Col C
+RC-N,Revolving 1-4 fam PD30,Revolving open-end 1-4 family past due 30-89 days (domestic),RCON,5398,"1.c.(1) Col A"
+RC-N,Revolving 1-4 fam PD90,Revolving open-end 1-4 family past due 90+ days (domestic),RCON,5399,"1.c.(1) Col B"
+RC-N,Revolving 1-4 fam nonaccrual,Revolving open-end 1-4 family nonaccrual (domestic),RCON,5400,"1.c.(1) Col C"
+RC-N,Closed-end first lien PD30,Closed-end first liens past due 30-89 days (domestic),RCON,C236,"1.c.(2)(a) Col A"
+RC-N,Closed-end first lien PD90,Closed-end first liens past due 90+ days (domestic),RCON,C237,"1.c.(2)(a) Col B"
+RC-N,Closed-end first lien nonaccrual,Closed-end first liens nonaccrual (domestic),RCON,C229,"1.c.(2)(a) Col C"
+RC-N,Closed-end junior lien PD30,Closed-end junior liens past due 30-89 days (domestic),RCON,C238,"1.c.(2)(b) Col A"
+RC-N,Closed-end junior lien PD90,Closed-end junior liens past due 90+ days (domestic),RCON,C239,"1.c.(2)(b) Col B"
+RC-N,Closed-end junior lien nonaccrual,Closed-end junior liens nonaccrual (domestic),RCON,C230,"1.c.(2)(b) Col C"
+RC-N,Multifamily PD30,Multifamily (5+) residential past due 30-89 days (domestic),RCON,3499,1.d. Col A
+RC-N,Multifamily PD90,Multifamily (5+) residential past due 90+ days (domestic),RCON,3500,1.d. Col B
+RC-N,Multifamily nonaccrual,Multifamily (5+) residential nonaccrual (domestic),RCON,3501,1.d. Col C
+RC-N,Owner-occ CRE PD30,Owner-occupied nonfarm nonresidential past due 30-89 days (domestic),RCON,F178,"1.e.(1) Col A"
+RC-N,Owner-occ CRE PD90,Owner-occupied nonfarm nonresidential past due 90+ days (domestic),RCON,F180,"1.e.(1) Col B"
+RC-N,Owner-occ CRE nonaccrual,Owner-occupied nonfarm nonresidential nonaccrual (domestic),RCON,F182,"1.e.(1) Col C"
+RC-N,Other CRE PD30,Other nonfarm nonresidential past due 30-89 days (domestic),RCON,F179,"1.e.(2) Col A"
+RC-N,Other CRE PD90,Other nonfarm nonresidential past due 90+ days (domestic),RCON,F181,"1.e.(2) Col B"
+RC-N,Other CRE nonaccrual,Other nonfarm nonresidential nonaccrual (domestic),RCON,F183,"1.e.(2) Col C"
+RC-N,Foreign RE PD30,Loans secured by real estate in foreign offices past due 30-89 days,RCFN,B572,1.f. Col A
+RC-N,Foreign RE PD90,Loans secured by real estate in foreign offices past due 90+ days,RCFN,B573,1.f. Col B
+RC-N,Foreign RE nonaccrual,Loans secured by real estate in foreign offices nonaccrual,RCFN,B574,1.f. Col C
+RC-N,US depository inst PD30,Loans to U.S. banks and depository institutions past due 30-89 days,RCFD,5377,2.a. Col A
+RC-N,US depository inst PD90,Loans to U.S. banks and depository institutions past due 90+ days,RCFD,5378,2.a. Col B
+RC-N,US depository inst nonaccrual,Loans to U.S. banks and depository institutions nonaccrual,RCFD,5379,2.a. Col C
+RC-N,Foreign banks PD30,Loans to foreign banks past due 30-89 days,RCFD,5380,2.b. Col A
+RC-N,Foreign banks PD90,Loans to foreign banks past due 90+ days,RCFD,5381,2.b. Col B
+RC-N,Foreign banks nonaccrual,Loans to foreign banks nonaccrual,RCFD,5382,2.b. Col C
+RC-N,Ag production PD30,Agricultural production loans past due 30-89 days,RCFD,1594,3. Col A
+RC-N,Ag production PD90,Agricultural production loans past due 90+ days,RCFD,1597,3. Col B
+RC-N,Ag production nonaccrual,Agricultural production loans nonaccrual,RCFD,1583,3. Col C
+RC-N,C&I US PD30,C&I loans U.S. addressees past due 30-89 days,RCFD,1251,4.a. Col A
+RC-N,C&I US PD90,C&I loans U.S. addressees past due 90+ days,RCFD,1252,4.a. Col B
+RC-N,C&I US nonaccrual,C&I loans U.S. addressees nonaccrual,RCFD,1253,4.a. Col C
+RC-N,C&I non-US PD30,C&I loans non-U.S. addressees past due 30-89 days,RCFD,1254,4.b. Col A
+RC-N,C&I non-US PD90,C&I loans non-U.S. addressees past due 90+ days,RCFD,1255,4.b. Col B
+RC-N,C&I non-US nonaccrual,C&I loans non-U.S. addressees nonaccrual,RCFD,1256,4.b. Col C
+RC-N,Credit cards PD30,Credit cards past due 30-89 days,RCFD,B575,5.a. Col A
+RC-N,Credit cards PD90,Credit cards past due 90+ days,RCFD,B576,5.a. Col B
+RC-N,Credit cards nonaccrual,Credit cards nonaccrual,RCFD,B577,5.a. Col C
+RC-N,Auto loans PD30,Automobile loans past due 30-89 days,RCFD,K213,5.b. Col A
+RC-N,Auto loans PD90,Automobile loans past due 90+ days,RCFD,K214,5.b. Col B
+RC-N,Auto loans nonaccrual,Automobile loans nonaccrual,RCFD,K215,5.b. Col C
+RC-N,Other consumer PD30,Other consumer loans past due 30-89 days,RCFD,K216,5.c. Col A
+RC-N,Other consumer PD90,Other consumer loans past due 90+ days,RCFD,K217,5.c. Col B
+RC-N,Other consumer nonaccrual,Other consumer loans nonaccrual,RCFD,K218,5.c. Col C
+RC-N,Foreign govt PD30,Loans to foreign governments past due 30-89 days,RCFD,5389,6. Col A
+RC-N,Foreign govt PD90,Loans to foreign governments past due 90+ days,RCFD,5390,6. Col B
+RC-N,Foreign govt nonaccrual,Loans to foreign governments nonaccrual,RCFD,5391,6. Col C
+RC-N,All other loans PD30,All other loans past due 30-89 days,RCFD,5459,7. Col A
+RC-N,All other loans PD90,All other loans past due 90+ days,RCFD,5460,7. Col B
+RC-N,All other loans nonaccrual,All other loans nonaccrual,RCFD,5461,7. Col C
+RC-N,Consumer leases PD30,Consumer leases past due 30-89 days,RCFD,F166,8.a. Col A
+RC-N,Consumer leases PD90,Consumer leases past due 90+ days,RCFD,F167,8.a. Col B
+RC-N,Consumer leases nonaccrual,Consumer leases nonaccrual,RCFD,F168,8.a. Col C
+RC-N,Other leases PD30,All other leases past due 30-89 days,RCFD,F169,8.b. Col A
+RC-N,Other leases PD90,All other leases past due 90+ days,RCFD,F170,8.b. Col B
+RC-N,Other leases nonaccrual,All other leases nonaccrual,RCFD,F171,8.b. Col C
+RC-N,Total loans PD30,Total loans and leases past due 30-89 days,RCFD,1406,9. Col A
+RC-N,Total loans PD90,Total loans and leases past due 90+ days,RCFD,1407,9. Col B
+RC-N,Total loans nonaccrual,Total loans and leases nonaccrual,RCFD,1403,9. Col C
+RC-N,Debt securities PD30,Debt securities and other assets past due 30-89 days,RCFD,3505,10. Col A
+RC-N,Debt securities PD90,Debt securities and other assets past due 90+ days,RCFD,3506,10. Col B
+RC-N,Debt securities nonaccrual,Debt securities and other assets nonaccrual,RCFD,3507,10. Col C
+RC-N,US govt guaranteed PD30,Loans guaranteed by U.S. Government past due 30-89 days,RCFD,K036,11. Col A
+RC-N,US govt guaranteed PD90,Loans guaranteed by U.S. Government past due 90+ days,RCFD,K037,11. Col B
+RC-N,US govt guaranteed nonaccrual,Loans guaranteed by U.S. Government nonaccrual,RCFD,K038,11. Col C
+RC-N,Guaranteed portion PD30,Guaranteed portion (excl rebooked GNMA) past due 30-89 days,RCFD,K039,11.a. Col A
+RC-N,Guaranteed portion PD90,Guaranteed portion (excl rebooked GNMA) past due 90+ days,RCFD,K040,11.a. Col B
+RC-N,Guaranteed portion nonaccrual,Guaranteed portion (excl rebooked GNMA) nonaccrual,RCFD,K041,11.a. Col C
+RC-N,Rebooked GNMA PD30,Rebooked GNMA loans past due 30-89 days,RCFD,K042,11.b. Col A
+RC-N,Rebooked GNMA PD90,Rebooked GNMA loans past due 90+ days,RCFD,K043,11.b. Col B
+RC-N,Rebooked GNMA nonaccrual,Rebooked GNMA loans nonaccrual,RCFD,K044,11.b. Col C
+RC-N,FDIC loss-sharing PD30,Portion covered by FDIC loss-sharing past due 30-89 days,RCFD,K102,12. Col A
+RC-N,FDIC loss-sharing PD90,Portion covered by FDIC loss-sharing past due 90+ days,RCFD,K103,12. Col B
+RC-N,FDIC loss-sharing nonaccrual,Portion covered by FDIC loss-sharing nonaccrual,RCFD,K104,12. Col C
+RC-N,Mod 1-4 fam construction PD30,Loan mods 1-4 family construction past due 30-89 days,RCON,K105,"M.1.a.(1) Col A"
+RC-N,Mod 1-4 fam construction PD90,Loan mods 1-4 family construction past due 90+ days,RCON,K106,"M.1.a.(1) Col B"
+RC-N,Mod 1-4 fam construction nonaccrual,Loan mods 1-4 family construction nonaccrual,RCON,K107,"M.1.a.(1) Col C"
+RC-N,Mod other construction PD30,Loan mods other construction past due 30-89 days,RCON,K108,"M.1.a.(2) Col A"
+RC-N,Mod other construction PD90,Loan mods other construction past due 90+ days,RCON,K109,"M.1.a.(2) Col B"
+RC-N,Mod other construction nonaccrual,Loan mods other construction nonaccrual,RCON,K110,"M.1.a.(2) Col C"
+RC-N,Mod 1-4 fam residential PD30,Loan mods 1-4 family residential past due 30-89 days,RCON,F661,M.1.b. Col A
+RC-N,Mod 1-4 fam residential PD90,Loan mods 1-4 family residential past due 90+ days,RCON,F662,M.1.b. Col B
+RC-N,Mod 1-4 fam residential nonaccrual,Loan mods 1-4 family residential nonaccrual,RCON,F663,M.1.b. Col C
+RC-N,Mod multifamily PD30,Loan mods multifamily (5+) past due 30-89 days,RCON,K111,M.1.c. Col A
+RC-N,Mod multifamily PD90,Loan mods multifamily (5+) past due 90+ days,RCON,K112,M.1.c. Col B
+RC-N,Mod multifamily nonaccrual,Loan mods multifamily (5+) nonaccrual,RCON,K113,M.1.c. Col C
+RC-N,Mod owner-occ CRE PD30,Loan mods owner-occupied nonfarm nonresidential past due 30-89 days,RCON,K114,"M.1.d.(1) Col A"
+RC-N,Mod owner-occ CRE PD90,Loan mods owner-occupied nonfarm nonresidential past due 90+ days,RCON,K115,"M.1.d.(1) Col B"
+RC-N,Mod owner-occ CRE nonaccrual,Loan mods owner-occupied nonfarm nonresidential nonaccrual,RCON,K116,"M.1.d.(1) Col C"
+RC-N,Mod other CRE PD30,Loan mods other nonfarm nonresidential past due 30-89 days,RCON,K117,"M.1.d.(2) Col A"
+RC-N,Mod other CRE PD90,Loan mods other nonfarm nonresidential past due 90+ days,RCON,K118,"M.1.d.(2) Col B"
+RC-N,Mod other CRE nonaccrual,Loan mods other nonfarm nonresidential nonaccrual,RCON,K119,"M.1.d.(2) Col C"
+RC-N,Mod C&I US PD30,Loan mods C&I U.S. addressees past due 30-89 days,RCFD,K120,"M.1.e.(1) Col A"
+RC-N,Mod C&I US PD90,Loan mods C&I U.S. addressees past due 90+ days,RCFD,K121,"M.1.e.(1) Col B"
+RC-N,Mod C&I US nonaccrual,Loan mods C&I U.S. addressees nonaccrual,RCFD,K122,"M.1.e.(1) Col C"
+RC-N,Mod C&I non-US PD30,Loan mods C&I non-U.S. addressees past due 30-89 days,RCFD,K123,"M.1.e.(2) Col A"
+RC-N,Mod C&I non-US PD90,Loan mods C&I non-U.S. addressees past due 90+ days,RCFD,K124,"M.1.e.(2) Col B"
+RC-N,Mod C&I non-US nonaccrual,Loan mods C&I non-U.S. addressees nonaccrual,RCFD,K125,"M.1.e.(2) Col C"
+RC-N,Mod all other loans PD30,Loan mods all other loans past due 30-89 days,RCFD,K126,M.1.f. Col A
+RC-N,Mod all other loans PD90,Loan mods all other loans past due 90+ days,RCFD,K127,M.1.f. Col B
+RC-N,Mod all other loans nonaccrual,Loan mods all other loans nonaccrual,RCFD,K128,M.1.f. Col C
+RC-N,Mod farmland PD30,Loan mods farmland past due 30-89 days,RCON,K130,"M.1.f.(1) Col A"
+RC-N,Mod farmland PD90,Loan mods farmland past due 90+ days,RCON,K131,"M.1.f.(1) Col B"
+RC-N,Mod farmland nonaccrual,Loan mods farmland nonaccrual,RCON,K132,"M.1.f.(1) Col C"
+RC-N,Mod ag production PD30,Loan mods agricultural production past due 30-89 days,RCFD,K138,"M.1.f.(3) Col A"
+RC-N,Mod ag production PD90,Loan mods agricultural production past due 90+ days,RCFD,K139,"M.1.f.(3) Col B"
+RC-N,Mod ag production nonaccrual,Loan mods agricultural production nonaccrual,RCFD,K140,"M.1.f.(3) Col C"
+RC-N,Mod credit cards PD30,Loan mods credit cards past due 30-89 days,RCFD,K274,"M.1.f.(4)(a) Col A"
+RC-N,Mod credit cards PD90,Loan mods credit cards past due 90+ days,RCFD,K275,"M.1.f.(4)(a) Col B"
+RC-N,Mod credit cards nonaccrual,Loan mods credit cards nonaccrual,RCFD,K276,"M.1.f.(4)(a) Col C"
+RC-N,Mod auto loans PD30,Loan mods automobile loans past due 30-89 days,RCFD,K277,"M.1.f.(4)(b) Col A"
+RC-N,Mod auto loans PD90,Loan mods automobile loans past due 90+ days,RCFD,K278,"M.1.f.(4)(b) Col B"
+RC-N,Mod auto loans nonaccrual,Loan mods automobile loans nonaccrual,RCFD,K279,"M.1.f.(4)(b) Col C"
+RC-N,Mod other consumer PD30,Loan mods other consumer past due 30-89 days,RCFD,K280,"M.1.f.(4)(c) Col A"
+RC-N,Mod other consumer PD90,Loan mods other consumer past due 90+ days,RCFD,K281,"M.1.f.(4)(c) Col B"
+RC-N,Mod other consumer nonaccrual,Loan mods other consumer nonaccrual,RCFD,K282,"M.1.f.(4)(c) Col C"
+RC-N,Total mods PD30,Total loan modifications past due 30-89 days,RCFD,HK26,M.1.g. Col A
+RC-N,Total mods PD90,Total loan modifications past due 90+ days,RCFD,HK27,M.1.g. Col B
+RC-N,Total mods nonaccrual,Total loan modifications nonaccrual,RCFD,HK28,M.1.g. Col C
+RC-N,CRE not secured by RE PD30,CRE/construction loans not secured by RE past due 30-89 days,RCFD,6558,M.2. Col A
+RC-N,CRE not secured by RE PD90,CRE/construction loans not secured by RE past due 90+ days,RCFD,6559,M.2. Col B
+RC-N,CRE not secured by RE nonaccrual,CRE/construction loans not secured by RE nonaccrual,RCFD,6560,M.2. Col C
+RC-N,RE loans non-US PD30,RE loans to non-U.S. addressees past due 30-89 days,RCFD,1248,M.3. Col A
+RC-N,RE loans non-US PD90,RE loans to non-U.S. addressees past due 90+ days,RCFD,1249,M.3. Col B
+RC-N,RE loans non-US nonaccrual,RE loans to non-U.S. addressees nonaccrual,RCFD,1250,M.3. Col C
+RC-N,Held for sale PD30,Loans and leases held for sale past due 30-89 days,RCFD,C240,M.5. Col A
+RC-N,Held for sale PD90,Loans and leases held for sale past due 90+ days,RCFD,C241,M.5. Col B
+RC-N,Held for sale nonaccrual,Loans and leases held for sale nonaccrual,RCFD,C226,M.5. Col C
+RC-N,Derivatives PD30,Derivative contracts fair value past due 30-89 days,RCFD,3529,M.6. Col A
+RC-N,Derivatives PD90,Derivative contracts fair value past due 90+ days,RCFD,3530,M.6. Col B
+RC-N,Additions to nonaccrual,Additions to nonaccrual assets during previous six months (June/December),RCFD,C410,M.7.
+RC-N,Nonaccrual assets sold,Nonaccrual assets sold during previous six months (June/December),RCFD,C411,M.8.
+RC-N,Nondepository FI PD30,Loans to nondepository financial institutions past due 30-89 days,RCFD,PV23,M.9. Col A
+RC-N,Nondepository FI PD90,Loans to nondepository financial institutions past due 90+ days,RCFD,PV24,M.9. Col B
+RC-N,Nondepository FI nonaccrual,Loans to nondepository financial institutions nonaccrual,RCFD,PV25,M.9. Col C

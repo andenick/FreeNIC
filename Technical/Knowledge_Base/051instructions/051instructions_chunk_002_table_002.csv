@@ -1,0 +1,19 @@
+schedule,item,description,htm_amort_cost_rcon,htm_fair_value_rcon,afs_amort_cost_rcon,afs_fair_value_rcon,reporting_frequency
+RC-B,1,"U.S. Treasury securities",0211,0213,1286,1287,Quarterly
+RC-B,2,"U.S. Government agency and sponsored agency obligations (excl MBS)",HT50,HT51,HT52,HT53,Quarterly
+RC-B,3,"Securities issued by states and political subdivisions in the U.S.",8496,8497,8498,8499,Quarterly
+RC-B,4.a.(1),"Residential MBS pass-through: Issued or guaranteed by FNMA FHLMC or GNMA",HT54,HT55,HT56,HT57,Quarterly
+RC-B,4.a.(2),"Residential MBS pass-through: Other",G308,G309,G310,G311,Quarterly
+RC-B,4.b.(1),"Other residential MBS: Issued or guaranteed by U.S. Govt agencies/sponsored agencies",G312,G313,G314,G315,Quarterly
+RC-B,4.b.(2),"Other residential MBS: Collateralized by MBS issued/guaranteed by U.S. Govt agencies",G316,G317,G318,G319,Quarterly
+RC-B,4.b.(3),"Other residential MBS: All other",G320,G321,G322,G323,Quarterly
+RC-B,4.c.(1)(a),"Commercial MBS pass-through: Issued or guaranteed by FNMA FHLMC or GNMA",K142,K143,K144,K145,Quarterly
+RC-B,4.c.(1)(b),"Commercial MBS pass-through: Other",K146,K147,K148,K149,Quarterly
+RC-B,4.c.(2)(a),"Other commercial MBS: Issued or guaranteed by U.S. Govt agencies/sponsored agencies",K150,K151,K152,K153,Quarterly
+RC-B,4.c.(2)(b),"Other commercial MBS: All other",K154,K155,K156,K157,Quarterly
+RC-B,5.a.,"Asset-backed securities (ABS)",C026,C988,C989,C027,Quarterly
+RC-B,5.b.,"Structured financial products",HT58,HT59,HT60,HT61,Quarterly
+RC-B,6.a.,"Other domestic debt securities",1737,1738,1739,1741,Quarterly
+RC-B,6.b.,"Other foreign debt securities",1742,1743,1744,1746,Quarterly
+RC-B,7,"Unallocated portfolio layer fair value hedge basis adjustments",,,,MG95,Quarterly
+RC-B,8,"Total (sum of items 1 through 7)",1754,1771,1772,1773,Quarterly

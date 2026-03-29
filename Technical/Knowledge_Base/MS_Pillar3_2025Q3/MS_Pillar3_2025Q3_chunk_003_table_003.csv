@@ -1,0 +1,8 @@
+Risk Category,One-Day Holding Period Daily Average ($ millions),10-Day Holding Period Period End ($ millions),10-Day Holding Period Daily Average ($ millions),10-Day Holding Period High ($ millions),10-Day Holding Period Low ($ millions)
+Interest rate,38,115,119,180,90
+Credit spread,40,108,128,182,91
+Equity price,52,156,165,207,132
+Foreign exchange rate,33,113,103,169,80
+Commodity price,30,97,95,122,67
+Less: Diversification benefit,-113,-343,-357,N/A,N/A
+Total Regulatory VaR,80,246,253,294,220

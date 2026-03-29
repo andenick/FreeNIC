@@ -1,0 +1,4 @@
+Reporter Description,Frequency,Timing of Submission
+"U.S. firms that are identified as (i) Global systemically important bank holding companies; (ii) Category II banking organizations; or (iii) Category III banking organizations with average weighted short-term wholesale funding of $75 billion or more. FBOs that are identified as (i) Category II foreign banking organizations; or (ii) Category III foreign banking organizations with average weighted short-term wholesale funding of $75 billion or more.",Each Business Day,T+2
+"U.S. firms identified as Category III banking organizations with average weighted short-term wholesale funding of less than $75 billion. FBOs identified as Category III foreign banking organizations with average weighted short-term wholesale funding of less than $75 billion.",Monthly,T+2
+"U.S. firms identified as Category IV banking organizations. FBOs identified as Category IV foreign banking organizations.",Monthly,T+10

@@ -1,0 +1,29 @@
+Schedule,Item,Description,MDRM,Amount_Thousands
+HI-Memo,M.7.m.,Insurance expenses,BHCK Y924,0
+HI-Memo,M.7.n.,Transaction based,BHCK 8565,5773000
+HI-Memo,M.7.o.,Depreciation on technology and other assets,BHCK 8566,1248000
+HI-Memo,M.7.p.,[blank],BHCK 8567,0
+HI-Memo,M.8.a.(1),Discontinued operations a.(1),BHCK FT29,0
+HI-Memo,M.8.a.(2),Applicable income tax effect a.(2),BHCK FT30,0
+HI-Memo,M.8.b.(1),Discontinued operations b.(1),BHCK FT31,0
+HI-Memo,M.8.b.(2),Applicable income tax effect b.(2),BHCK FT32,0
+HI-Memo,M.9.a.,Trading revenue: Interest rate exposures,BHCK 8757,8498000
+HI-Memo,M.9.b.,Trading revenue: Foreign exchange exposures,BHCK 8758,-4013000
+HI-Memo,M.9.c.,Trading revenue: Equity security and index exposures,BHCK 8759,8311000
+HI-Memo,M.9.d.,Trading revenue: Commodity and other exposures,BHCK 8760,1660000
+HI-Memo,M.9.e.,Trading revenue: Credit exposures,BHCK F186,894000
+HI-Memo,M.9.f.,Impact on trading revenue of changes in creditworthiness of derivatives counterparties on derivative assets,BHCK K090,202000
+HI-Memo,M.9.g.,Impact on trading revenue of changes in creditworthiness of holding company on derivative liabilities,BHCK K094,-81000
+HI-Memo,M.10.a.,Net gains (losses) on credit derivatives held for trading,BHCK C889,0
+HI-Memo,M.10.b.,Net gains (losses) on credit derivatives held for purposes other than trading,BHCK C890,-141000
+HI-Memo,M.11.,Credit losses on derivatives,BHCK A251,0
+HI-Memo,M.12.a.,Income from the sale and servicing of mutual funds and annuities (in domestic offices),BHCK 8431,1601000
+HI-Memo,M.12.b.(1),Premiums on insurance related to the extension of credit,BHCK C242,0
+HI-Memo,M.12.b.(2),All other insurance premiums,BHCK C243,-1000
+HI-Memo,M.12.c.,Benefits losses and expenses from insurance-related activities,BHCK B983,1000
+HI-Memo,M.13.,Subchapter S election in effect for federal income tax purposes (0=No 1=Yes),BHCK A530,0
+HI-Memo,M.14.a.,Net gains (losses) on assets reported at fair value under a fair value option,BHCK F551,-140000
+HI-Memo,M.14.a.(1),Estimated net gains (losses) on loans attributable to changes in instrument-specific credit risk,BHCK F552,-23000
+HI-Memo,M.14.b.,Net gains (losses) on liabilities reported at fair value under a fair value option,BHCK F553,-11009000
+HI-Memo,M.14.b.(1),Estimated net gains (losses) on liabilities attributable to changes in instrument-specific credit risk,BHCK F554,-14000
+HI-Memo,M.15.,Stock-based employee compensation expense (net of tax effects),BHCK C409,2536000

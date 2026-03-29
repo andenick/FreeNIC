@@ -1,0 +1,23 @@
+schedule,item,description,past_due_30_89_rcon,past_due_90_plus_rcon,nonaccrual_rcon,reporting_frequency
+RC-N,1.a.(1),"1-4 family residential construction loans",F172,F174,F176,Quarterly
+RC-N,1.a.(2),"Other construction loans and all land development and other land loans",F173,F175,F177,Quarterly
+RC-N,1.b.,"Secured by farmland",3493,3494,3495,Quarterly
+RC-N,1.c.(1),"Revolving open-end loans secured by 1-4 family residential properties",5398,5399,5400,Quarterly
+RC-N,1.c.(2)(a),"Closed-end loans secured by first liens on 1-4 family residential properties",C236,C237,C229,Quarterly
+RC-N,1.c.(2)(b),"Closed-end loans secured by junior liens on 1-4 family residential properties",C238,C239,C230,Quarterly
+RC-N,1.d.,"Secured by multifamily (5 or more) residential properties",3499,3500,3501,Quarterly
+RC-N,1.e.(1),"Loans secured by owner-occupied nonfarm nonresidential properties",F178,F180,F182,Quarterly
+RC-N,1.e.(2),"Loans secured by other nonfarm nonresidential properties",F179,F181,F183,Quarterly
+RC-N,2.,"Loans to depository institutions and acceptances of other banks",B834,B835,B836,Quarterly
+RC-N,4.,"Commercial and industrial loans",1606,1607,1608,Quarterly
+RC-N,5.a.,"Credit cards",B575,B576,B577,Quarterly
+RC-N,5.b.,"Automobile loans",K213,K214,K215,Quarterly
+RC-N,5.c.,"Other consumer loans (revolving credit plans other than credit cards)",K216,K217,K218,Quarterly
+RC-N,7.,"All other loans",5459,5460,5461,Quarterly
+RC-N,8.,"Lease financing receivables",1226,1227,1228,Quarterly
+RC-N,9.,"Total loans and leases (sum of items 1 through 8)",1406,1407,1403,Quarterly
+RC-N,10.,"Debt securities and other assets (excl OREO and other repossessed assets)",3505,3506,3507,Quarterly
+RC-N,11.,"Loans guaranteed by U.S. Government (excl FDIC loss-sharing)",K036,K037,K038,Quarterly
+RC-N,11.a.,"Guaranteed portion excluding rebooked GNMA loans",K039,K040,K041,Quarterly
+RC-N,11.b.,"Rebooked GNMA loans",K042,K043,K044,Quarterly
+RC-N,12.,"Covered loans protected by FDIC loss-sharing agreements",,K103,K104,Quarterly

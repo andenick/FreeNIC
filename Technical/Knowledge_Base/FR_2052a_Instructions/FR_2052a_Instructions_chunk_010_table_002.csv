@@ -1,0 +1,148 @@
+PID,Product,Required,Dependent,Not Applicable
+I.A.1,Unencumbered Assets,Y,,
+I.A.2,Capacity,Y,,
+I.A.3,Unrestricted Reserve Balances,Y,,
+I.A.4,Restricted Reserve Balances,Y,,
+I.A.5,Unsettled Asset Purchases,Y,,
+I.A.6,Forward Asset Purchases,Y,,
+I.A.7,Encumbered Assets,Y,,
+I.U.1,Onshore Placements,,,Y
+I.U.2,Offshore Placements,,,Y
+I.U.3,Required Operational Balances,,,Y
+I.U.4,Excess Operational Balances,,,Y
+I.U.5,Outstanding Draws on Unsecured Revolving Facilities,,,Y
+I.U.6,Other Loans,,,Y
+I.U.7,Cash Items in the Process of Collection,,,Y
+I.U.8,Short-Term Investments,,,Y
+I.S.1,Reverse Repo,Y,,
+I.S.2,Securities Borrowing,Y,,
+I.S.3,Dollar Rolls,Y,,
+I.S.4,Collateral Swaps,Y,,
+I.S.5,Margin Loans,Y,,
+I.S.6,Other Secured Loans - Rehypothecatable,Y,,
+I.S.7,Outstanding Draws on Secured Revolving Facilities,Y,,
+I.S.8,Other Secured Loans - Non-Rehypothecatable,Y,,
+I.S.9,Synthetic Customer Longs,Y,,
+I.S.10,Synthetic Firm Sourcing,Y,,
+I.O.1,Derivative Receivables,,,Y
+I.O.2,Collateral Called for Receipt,Y,,
+I.O.3,TBA Sales,Y,,
+I.O.4,Undrawn Committed Facilities Purchased,,Y,
+I.O.5,Lock-up Balance,,,Y
+I.O.6,Interest and Dividends Receivable,Y,,
+I.O.7,Net 30-Day Derivative Receivables,,,Y
+I.O.8,Principal Payments Receivable on Unencumbered Investment Securities,Y,,
+I.O.9,Other Cash Inflows,,Y,
+O.W.1,Asset-Backed Commercial Paper: Single-Seller,Y,,
+O.W.2,Asset-Backed Commercial Paper: Multi-Seller,Y,,
+O.W.3,Collateralized Commercial Paper,Y,,
+O.W.4,Asset-Backed Securities,Y,,
+O.W.5,Covered Bonds,Y,,
+O.W.6,Tender Option Bonds,Y,,
+O.W.7,Other Asset-Backed Financing,Y,,
+O.W.8,Commercial Paper,,,Y
+O.W.9,Onshore Borrowing,,,Y
+O.W.10,Offshore Borrowing,,,Y
+O.W.11,Unstructured Long Term Debt,,,Y
+O.W.12,Structured Long Term Debt,,,Y
+O.W.13,Government Supported Debt,,,Y
+O.W.14,Unsecured Notes,,,Y
+O.W.15,Structured Notes,,,Y
+O.W.16,Wholesale CDs,,,Y
+O.W.17,Draws on Committed Lines,,Y,
+O.W.18,Free Credits,,,Y
+O.W.19,Other Unsecured Financing,,,Y
+O.S.1,Repo,Y,,
+O.S.2,Securities Lending,Y,,
+O.S.3,Dollar Rolls,Y,,
+O.S.4,Collateral Swaps,Y,,
+O.S.5,FHLB Advances,Y,,
+O.S.6,Exceptional Central Bank Operations,Y,,
+O.S.7,Customer Shorts,Y,,
+O.S.8,Firm Shorts,Y,,
+O.S.9,Synthetic Customer Shorts,Y,,
+O.S.10,Synthetic Firm Financing,Y,,
+O.S.11,Other Secured Financing Transactions,Y,,
+O.D.1,Transactional Accounts,,Y,
+O.D.2,Non-Transactional Relationship Accounts,,Y,
+O.D.3,Non-Transactional Non-Relationship Accounts,,Y,
+O.D.4,Operational Account Balances,,Y,
+O.D.5,Excess Balances in Operational Accounts,,Y,
+O.D.6,Non-Operational Account Balances,,Y,
+O.D.7,Operational Escrow Accounts,,Y,
+O.D.8,Non-Reciprocal Brokered Deposits,,Y,
+O.D.9,Stable Affiliated Sweep Account Balances,,Y,
+O.D.10,Less Stable Affiliated Sweep Account Balances,,Y,
+O.D.11,Non-Affiliated Sweep Accounts,,Y,
+O.D.12,Other Product Sweep Accounts,,Y,
+O.D.13,Reciprocal Accounts,,Y,
+O.D.14,Other Third-Party Deposits,,Y,
+O.D.15,Other Accounts,,Y,
+O.O.1,Derivative Payables,,,Y
+O.O.2,Collateral Called for Delivery,Y,,
+O.O.3,TBA Purchases,Y,,
+O.O.4,Credit Facilities,,Y,
+O.O.5,Liquidity Facilities,,Y,
+O.O.6,Retail Mortgage Commitments,,Y,
+O.O.7,Trade Finance Instruments,,Y,
+O.O.8,MTM Impact on Derivative Positions,,,Y
+O.O.9,Loss of Rehypothecation Rights Due to a 1 Notch Downgrade,Y,,
+O.O.10,Loss of Rehypothecation Rights Due to a 2 Notch Downgrade,Y,,
+O.O.11,Loss of Rehypothecation Rights Due to a 3 Notch Downgrade,Y,,
+O.O.12,Loss of Rehypothecation Rights Due to a Change in Financial Condition,Y,,
+O.O.13,Total Collateral Required Due to a 1 Notch Downgrade,Y,,
+O.O.14,Total Collateral Required Due to a 2 Notch Downgrade,Y,,
+O.O.15,Total Collateral Required Due to a 3 Notch Downgrade,Y,,
+O.O.16,Total Collateral Required Due to a Change in Financial Condition,Y,,
+O.O.17,Excess Margin,,Y,
+O.O.18,Unfunded Term Margin,,Y,
+O.O.19,Interest and Dividends Payable,,Y,
+O.O.20,Net 30-Day Derivative Payables,,,Y
+O.O.21,Other Outflows Related to Structured Transactions,,,Y
+O.O.22,Other Cash Outflows,,Y,
+S.DC.1,Gross Derivative Asset Values,,,Y
+S.DC.2,Gross Derivative Liability Values,,,Y
+S.DC.3,Derivative Settlement Payments Delivered,Y,,
+S.DC.4,Derivative Settlement Payments Received,Y,,
+S.DC.5,Initial Margin Posted - House,Y,,
+S.DC.6,Initial Margin Posted - Customer,Y,,
+S.DC.7,Initial Margin Received,Y,,
+S.DC.8,Variation Margin Posted - House,Y,,
+S.DC.9,Variation Margin Posted - Customer,Y,,
+S.DC.10,Variation Margin Received,Y,,
+S.DC.11,Derivative CCP Default Fund Contribution,Y,,
+S.DC.12,Other CCP Pledges and Contributions,Y,,
+S.DC.13,Collateral Disputes Deliverables,,,Y
+S.DC.14,Collateral Disputes Receivables,,,Y
+S.DC.15,Sleeper Collateral Deliverables,Y,,
+S.DC.16,Required Collateral Deliverables,Y,,
+S.DC.17,Sleeper Collateral Receivables,Y,,
+S.DC.18,Derivative Collateral Substitution Risk,,,Y
+S.DC.19,Derivative Collateral Substitution Capacity,,,Y
+S.DC.20,Other Collateral Substitution Risk,,,Y
+S.DC.21,Other Collateral Substitution Capacity,,,Y
+S.L.1,Subsidiary Liquidity That Cannot be Transferred,Y,,
+S.L.2,Subsidiary Liquidity Available for Transfer,Y,,
+S.L.3,Unencumbered Asset Hedges - Early Termination Outflows,Y,,
+S.L.4,Non-Structured Debt Maturing in Greater than 30-days - Primary Market Maker,,,Y
+S.L.5,Structured Debt Maturing in Greater than 30-days - Primary Market Maker,,,Y
+S.L.6,Liquidity Coverage Ratio,,,Y
+S.L.7,Subsidiary Funding That Cannot be Transferred,,,Y
+S.L.8,Subsidiary Funding Available for Transfer,,,Y
+S.L.9,Additional Funding Requirement for Off-Balance Sheet Rehypothecated Assets,Y,,
+S.L.10,Net Stable Funding Ratio,,,Y
+S.B.1,Regulatory Capital Element,,,Y
+S.B.2,Other Liabilities,,Y,
+S.B.3,Non-Performing Assets,Y,,
+S.B.4,Other Assets,,Y,
+S.B.5,Counterparty Netting,Y,,
+S.B.6,Carrying Value Adjustment,,Y,
+S.I.1,Long Market Value Client Assets,Y,,
+S.I.2,Short Market Value Client Assets,Y,,
+S.I.3,Gross Client Wires Received,Y,,
+S.I.4,Gross Client Wires Paid,Y,,
+S.I.5,FRB 23A Capacity,,,Y
+S.I.6,Subsidiary Liquidity Not Transferrable,Y,,
+S.FX.1,Spot,,,Y
+S.FX.2,Forwards and Futures,,,Y
+S.FX.3,Swaps,,,Y

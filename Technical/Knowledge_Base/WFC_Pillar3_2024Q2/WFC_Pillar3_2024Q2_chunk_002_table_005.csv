@@ -1,0 +1,11 @@
+Table 5: Credit Risk Assessment of Wholesale Exposures by Probability of Default Grades,,,,,,,,June 30 2024
+(in millions except ratios),,,,,,Exposure-weighted average,,
+PD Range (percentage),Balance Sheet Amount,Undrawn Commitments,Exposure at Default,Advanced Approach RWAs,PD (%),LGD,Risk Weight
+0.00 to < 0.05,$541388,$5678,$543777,$17932,0.02,9.49,3.3
+0.05 to < 0.25,$224264,$316285,$349485,$100853,0.13,34.87,28.86
+0.25 to < 1.50,$191478,$109009,$243084,$151887,0.70,33.90,62.48
+1.50 to < 5.00,$43153,$23299,$53319,$46933,2.26,32.22,88.02
+5.00 to < 13.50,$28952,$9200,$34464,$77448,8.40,46.75,224.72
+13.50 to < 100,$6166,$1330,$7108,$13662,16.15,37.50,192.21
+100 (default),$5279,$313,$5628,$5941,100.00,40.06,105.56
+Total Wholesale,$1040680,$465114,$1236865,$414656,1.06,23.77,33.52

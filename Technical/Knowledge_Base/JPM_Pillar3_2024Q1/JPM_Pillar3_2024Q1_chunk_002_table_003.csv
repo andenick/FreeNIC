@@ -1,0 +1,11 @@
+Table: Residential Mortgage Exposures by PD Range
+"March 31, 2024 (in millions, except ratios)",,,,,,
+PD range (%),Balance sheet amount,Off balance sheet commitments,EAD,RWA,Exposure-weighted avg PD,Exposure-weighted avg LGD,Exposure-weighted avg Risk weight
+0.00 to <0.10,142945,19476,150824,7203,0.05,29.71,4.78
+0.10 to <0.20,46480,615,46719,5411,0.15,33.72,11.58
+0.20 to <0.75,38886,2263,40959,8979,0.32,36.41,21.92
+0.75 to <5.50,9555,90,9554,6067,1.80,35.37,63.51
+5.50 to <10.00,919,0,905,1014,6.38,28.37,112.09
+10.00 to <100,1525,2,1509,2240,32.07,28.65,148.43
+100 (default),3361,0,3366,3464,100.00,N/A,102.85
+Total,243671,22446,253836,34378,1.72%,31.34%,13.54%

@@ -1,0 +1,11 @@
+schedule,item,description,mdrm_code,data_type,reporting_frequency
+RI-Memo,M.3.,"Income on tax-exempt loans and leases to states and political subdivisions",RIAD 4313,Amount,Quarterly
+RI-Memo,M.4.,"Income on tax-exempt securities issued by states and political subdivisions",RIAD 4507,Amount,Quarterly
+RI-Memo,M.5.,"Number of full-time equivalent employees at end of current period",RIAD 4150,Number,Quarterly
+RI-Memo,M.6.,"Interest and fee income on loans to finance agricultural production and other loans to farmers",RIAD 4024,Amount,"Conditional (banks >=300M or ag loans >5% total)"
+RI-Memo,M.7.,"Date of institution acquisition (if pushdown accounting applied this calendar year)",RIAD 9106,Date,Quarterly
+RI-Memo,M.11.,"Does the reporting bank have a Subchapter S election in effect for federal income tax purposes",RIAD A530,Yes/No,Quarterly
+RI-Memo,M.15.a.,"Consumer overdraft-related service charges on consumer deposit products",RIAD H032,Amount,"December only (banks >=1B)"
+RI-Memo,M.15.b.,"Consumer account periodic maintenance charges on consumer deposit products",RIAD H033,Amount,"December only (banks >=1B)"
+RI-Memo,M.15.c.,"Consumer customer ATM fees on consumer deposit products",RIAD H034,Amount,"December only (banks >=1B)"
+RI-Memo,M.15.d.,"All other service charges on deposit accounts",RIAD H035,Amount,"December only (banks >=1B)"

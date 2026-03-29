@@ -1,0 +1,26 @@
+"Table 20: Equity Exposures Not Subject to the Market Risk Capital Rules",,,,,,,
+"June 30, 2024",,,,,,,
+"In millions of dollars, except percentages",Risk Weight Category,Carrying Value (1)(2),Fair Value (2),Effective Risk Weight (3),RWA (4),Unfunded Commitment
+Simple Risk Weight Approach:,,,,,,,
+"  Equity Exposures Subject to a 0% Risk Weight",0%,4516,4516,0%,0,4516
+"  Equity Exposures Subject to a 20% Risk Weight",20%,793,793,20%,159,
+"  Community Development Equity Exposures",100%,2716,2493,100%,3091,375
+"  Significant Investments in Unconsolidated Financial Institutions",250%,1640,1640,250%,4100,0
+"  Publicly Traded Equity Exposures (5)",300%,73,87,100%,73,0
+"  Non-publicly Traded Equity Exposures (5)(6)",400%,14727,14727,100%,14731,4
+"  Equity Exposures to Leveraged Investments Funds",600%,10,10,600%,68,1
+Total Simple Risk Weight Approach,,24475,24267,76%,22222,4897
+Equity Exposures to Investment Funds:,,,,,,,
+"  Full Look-Through Approach",N/A,10139,10139,33%,3390,94
+"  Simple Modified Look-Through Approach",N/A,113,113,66%,81,11
+"  Alternative Modified Look-Through Approach",N/A,258,258,212%,548,0
+Total Equity Exposures to Investment Funds,,10510,10510,38%,4019,105
+Total Equity Exposures,,34985,34777,66%,26241,5002
+,,,,,,,
+Notes:,,,,,,,
+"(1) Total carrying value of approximately $35.0 billion consists of approximately $0.4 billion of publicly traded and approximately $34.6 billion of non-publicly traded equity exposures.",,,,,,,
+"(2) In accordance with U.S. GAAP, total carrying value includes approximately $0.4 billion of unfunded equity commitments related to qualified affordable housing partnerships, but excludes approximately $4.6 billion of unfunded equity commitments relating to other equity investments.",,,,,,,
+"(3) Effective risk weight for equity exposures to investment funds is a blended risk weight of the investments held by the investment funds.",,,,,,,
+"(4) Unfunded equity commitments are included in the derivation of risk-weighted assets.",,,,,,,
+"(5) Equity exposures within the 300% and 400% risk weight categories were risk-weighted at effective risk weight of 100% due to the aggregate amount not exceeding the threshold for non-significant equity exposures which is 10% of total capital.",,,,,,,
+"(6) Included in the carry value and fair market value is the adjusted carrying value of equity derivatives that is the effective notional principal amount of the exposure.",,,,,,,

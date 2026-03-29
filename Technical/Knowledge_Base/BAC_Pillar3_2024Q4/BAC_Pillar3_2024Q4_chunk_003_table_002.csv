@@ -1,0 +1,10 @@
+Table,Table 5 - Qualifying Revolving Exposures by PD Range,,,,,,December 31 2024
+(Dollars in millions),Balance Sheet Amount,Undrawn Commitments,EAD,RWA,PD (Exposure-Weighted Avg),LGD (Exposure-Weighted Avg),Risk Weight (Exposure-Weighted Avg)
+0.00 to < 0.50,23621,347859,68768,7861,0.24%,95.72%,11.43%
+0.50 to < 1.50,33677,41526,47198,15965,0.92%,95.72%,33.83%
+1.50 to < 3.50,27567,5113,32236,23267,2.53%,95.72%,72.18%
+3.50 to < 7.00,10286,1586,11573,13327,4.94%,95.88%,115.16%
+7.00 to < 10.00,1854,507,2111,3310,8.01%,95.72%,156.80%
+10.00 to < 100.00,6248,666,6835,13893,41.93%,95.72%,203.26%
+100.00 (default),3,1,3,3,100.00%,n/a,100.00%
+Total,103256,397258,168724,77626,2.98%,95.73%,46.01%

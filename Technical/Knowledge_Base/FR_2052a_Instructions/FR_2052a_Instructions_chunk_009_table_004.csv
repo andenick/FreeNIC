@@ -1,0 +1,127 @@
+Section,Table,Field Name,Field Type
+Inflows,Assets,Reporting Entity,text
+Inflows,Assets,Product,text
+Inflows,Assets,Sub-Product,text
+Inflows,Assets,Market Value,numeric
+Inflows,Assets,Lendable Value,numeric
+Inflows,Assets,Maturity Bucket,text
+Inflows,Assets,Forward Start Amount,numeric
+Inflows,Assets,Forward Start Bucket,text
+Inflows,Assets,Collateral Class,text
+Inflows,Assets,Treasury Control,text
+Inflows,Assets,Accounting Designation,text
+Inflows,Assets,Effective Maturity Bucket,text
+Inflows,Assets,Encumbrance Type,text
+Inflows,Assets,Internal Counterparty,text
+Inflows,Assets,Business Line,text
+Inflows,Unsecured,Reporting Entity,text
+Inflows,Unsecured,Product,text
+Inflows,Unsecured,Counterparty,text
+Inflows,Unsecured,G-SIB,text
+Inflows,Unsecured,Maturity Amount,numeric
+Inflows,Unsecured,Maturity Bucket,text
+Inflows,Unsecured,Maturity Optionality,text
+Inflows,Unsecured,Effective Maturity Bucket,text
+Inflows,Unsecured,Encumbrance Type,text
+Inflows,Unsecured,Forward Start Amount,numeric
+Inflows,Unsecured,Forward Start Bucket,text
+Inflows,Unsecured,Internal,text
+Inflows,Unsecured,Internal Counterparty,text
+Inflows,Unsecured,Risk Weight,percent
+Inflows,Unsecured,Business Line,text
+Inflows,Secured,Reporting Entity,text
+Inflows,Secured,Product,text
+Inflows,Secured,Sub-Product,text
+Inflows,Secured,Maturity Amount,numeric
+Inflows,Secured,Maturity Bucket,text
+Inflows,Secured,Maturity Optionality,text
+Inflows,Secured,Effective Maturity Bucket,text
+Inflows,Secured,Encumbrance Type,text
+Inflows,Secured,Forward Start Amount,numeric
+Inflows,Secured,Forward Start Bucket,text
+Inflows,Secured,Collateral Class,text
+Inflows,Secured,Collateral Value,numeric
+Inflows,Secured,Unencumbered,text
+Inflows,Secured,Treasury Control,text
+Inflows,Secured,Internal,text
+Inflows,Secured,Internal Counterparty,text
+Inflows,Secured,Risk Weight,percent
+Inflows,Secured,Business Line,text
+Inflows,Secured,Settlement,text
+Inflows,Secured,Counterparty,text
+Inflows,Secured,G-SIB,text
+Inflows,Other,Reporting Entity,text
+Inflows,Other,Product,text
+Inflows,Other,Maturity Amount,numeric
+Inflows,Other,Maturity Bucket,text
+Inflows,Other,Forward Start Amount,numeric
+Inflows,Other,Forward Start Bucket,text
+Inflows,Other,Collateral Class,text
+Inflows,Other,Collateral Value,numeric
+Inflows,Other,Treasury Control,text
+Inflows,Other,Counterparty,text
+Inflows,Other,G-SIB,text
+Inflows,Other,Internal,text
+Inflows,Other,Internal Counterparty,text
+Inflows,Other,Business Line,text
+Outflows,Deposits,Reporting Entity,text
+Outflows,Deposits,Product,text
+Outflows,Deposits,Counterparty,text
+Outflows,Deposits,G-SIB,text
+Outflows,Deposits,Maturity Amount,numeric
+Outflows,Deposits,Maturity Bucket,text
+Outflows,Deposits,Maturity Optionality,text
+Outflows,Deposits,Collateral Class,text
+Outflows,Deposits,Collateral Value,numeric
+Outflows,Deposits,Insured,text
+Outflows,Deposits,Trigger,text
+Outflows,Deposits,Rehypothecated,text
+Outflows,Deposits,Business Line,text
+Outflows,Deposits,Internal,text
+Outflows,Deposits,Internal Counterparty,text
+Outflows,Wholesale,Reporting Entity,text
+Outflows,Wholesale,Product,text
+Outflows,Wholesale,Counterparty,text
+Outflows,Wholesale,G-SIB,text
+Outflows,Wholesale,Maturity Amount,numeric
+Outflows,Wholesale,Maturity Bucket,text
+Outflows,Wholesale,Maturity Optionality,text
+Outflows,Wholesale,Collateral Class,text
+Outflows,Wholesale,Collateral Value,numeric
+Outflows,Wholesale,Forward Start Amount,numeric
+Outflows,Wholesale,Forward Start Bucket,text
+Outflows,Wholesale,Internal,text
+Outflows,Wholesale,Internal Counterparty,text
+Outflows,Wholesale,Loss Absorbency,text
+Outflows,Wholesale,Business Line,text
+Outflows,Secured,Reporting Entity,text
+Outflows,Secured,Product,text
+Outflows,Secured,Sub-Product,text
+Outflows,Secured,Maturity Amount,numeric
+Outflows,Secured,Maturity Bucket,text
+Outflows,Secured,Maturity Optionality,text
+Outflows,Secured,Forward Start Amount,numeric
+Outflows,Secured,Forward Start Bucket,text
+Outflows,Secured,Collateral Class,text
+Outflows,Secured,Collateral Value,numeric
+Outflows,Secured,Treasury Control,text
+Outflows,Secured,Internal,text
+Outflows,Secured,Internal Counterparty,text
+Outflows,Secured,Business Line,text
+Outflows,Secured,Settlement,text
+Outflows,Secured,Rehypothecated,text
+Outflows,Secured,Counterparty,text
+Outflows,Secured,G-SIB,text
+Outflows,Other,Reporting Entity,text
+Outflows,Other,Product,text
+Outflows,Other,Counterparty,text
+Outflows,Other,G-SIB,text
+Outflows,Other,Maturity Amount,numeric
+Outflows,Other,Maturity Bucket,text
+Outflows,Other,Forward Start Amount,numeric
+Outflows,Other,Forward Start Bucket,text
+Outflows,Other,Collateral Class,text
+Outflows,Other,Collateral Value,numeric
+Outflows,Other,Internal,text
+Outflows,Other,Internal Counterparty,text
+Outflows,Other,Business Line,text

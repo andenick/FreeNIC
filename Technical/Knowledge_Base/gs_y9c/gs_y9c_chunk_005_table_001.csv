@@ -1,0 +1,29 @@
+Schedule,Item,Description,MDRM_PastDue30to89,MDRM_PastDue90plus,MDRM_Nonaccrual
+HC-N,1.a.(1),1-4 family residential construction loans,BHCK F172,BHCK F174,BHCK F176
+HC-N,1.a.(2),Other construction and land development loans,BHCK F173,BHCK F175,BHCK F177
+HC-N,1.b.,Secured by farmland in domestic offices,BHCK 3493,BHCK 3494,BHCK 3495
+HC-N,1.c.(1),Revolving open-end loans secured by 1-4 family residential,BHCK 5398,BHCK 5399,BHCK 5400
+HC-N,1.c.(2)(a),Closed-end: Secured by first liens,BHCK C236,BHCK C237,BHCK C229
+HC-N,1.c.(2)(b),Closed-end: Secured by junior liens,BHCK C238,BHCK C239,BHCK C230
+HC-N,1.d.,Secured by multifamily (5+) residential properties,BHCK 3499,BHCK 3500,BHCK 3501
+HC-N,1.e.(1),Owner-occupied nonfarm nonresidential properties,BHCK F178,BHCK F180,BHCK F182
+HC-N,1.e.(2),Other nonfarm nonresidential properties,BHCK F179,BHCK F181,BHCK F183
+HC-N,1.f.,In foreign offices,BHCK B572,BHCK B573,BHCK B574
+HC-N,2.a.,U.S. banks and other U.S. depository institutions,BHCK 5377,BHCK 5378,BHCK 5379
+HC-N,2.b.,Foreign banks,BHCK 5380,BHCK 5381,BHCK 5382
+HC-N,3.,Agricultural production and other loans to farmers,BHCK 1594,BHCK 1597,BHCK 1583
+HC-N,4.,Commercial and industrial loans,BHCK 1606,BHCK 1607,BHCK 1608
+HC-N,5.a.,Credit cards,BHCK B575,BHCK B576,BHCK B577
+HC-N,5.b.,Automobile loans,BHCK K213,BHCK K214,BHCK K215
+HC-N,5.c.,Other consumer loans,BHCK K216,BHCK K217,BHCK K218
+HC-N,6.,Loans to foreign governments and official institutions,BHCK 5389,BHCK 5390,BHCK 5391
+HC-N,7.,All other loans,BHCK 5459,BHCK 5460,BHCK 5461
+HC-N,8.a.,Leases to individuals for household family and other personal expenditures,BHCK F166,BHCK F167,BHCK F168
+HC-N,8.b.,All other leases,BHCK F169,BHCK F170,BHCK F171
+HC-N,8.c.,Lease finance receivables,BHCK KX63,BHCK KX64,BHCK KX65
+HC-N,9.,Total loans and leases (sum of items 1 through 8.b),BHCK 1406,BHCK 1407,BHCK 1403
+HC-N,10.,Debt securities and other assets,BHCK 3505,BHCK 3506,BHCK 3507
+HC-N,11.,Loans and leases guaranteed by U.S. Government,BHCK K036,BHCK K037,BHCK K038
+HC-N,11.a.,Guaranteed portion (excl rebooked GNMA loans),BHCK K039,BHCK K040,BHCK K041
+HC-N,11.b.,Rebooked GNMA loans,BHCK K042,BHCK K043,BHCK K044
+HC-N,12.,Covered loans protected by FDIC loss-sharing agreements,BHCK K102,BHCK K103,BHCK K104

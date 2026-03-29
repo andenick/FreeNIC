@@ -1,0 +1,28 @@
+Schedule B - Summary Risk-Weighted Asset Information (Pages B-1 and B-2),,,,,,,,,
+Exposure Category,Col A: Wtd-Avg PD (%),Col B: Balance Sheet Amount,Col C: Total Undrawn Amount,Col D: Exposure at Default,Col E: Wtd-Avg Maturity (Years),Col F: Wtd-Avg LGD after CRM (%),Col G: Risk-Weighted Assets,Col H: Expected Credit Loss,Item
+Wholesale Exposures,,,,,,,,,
+Corporate,3.38,116610000,221360000,250669000,2.79,33.93,155559000,1380000,1
+Bank,0.71,40083000,1435000,41164000,0.23,60.64,10692000,118000,2
+Sovereign,0.02,336871000,2292000,338954000,1.65,17.87,12343000,0,3
+IPRE,7.82,12467000,4358000,15219000,2.75,29.17,8838000,370000,4
+HVCRE,3.04,1008000,1093000,1579000,2.62,29.74,1083000,17000,5
+"Eligible margin loans/repos/OTC derivatives with cross-product netting - EAD adjustment method",,,,0,,,0,,6
+"Eligible margin loans/repos/OTC derivatives with cross-product netting - collateral reflected in LGD",,,,,,,,, 7
+"Eligible margin loans/repos - no cross-product netting - EAD adjustment method",0.46,,,64750000,0.48,49.32,18645000,37000,8
+"Eligible margin loans/repos - no cross-product netting - collateral reflected in LGD",,,,,,,,, 9
+"OTC derivatives - no cross-product netting - EAD adjustment method",1.82,,,107943000,1.02,53.40,66346000,0,10
+"OTC derivatives - no cross-product netting - collateral reflected in LGD",,,,,,,,, 11
+Retail Exposures,,,,,,,,,
+Residential mortgage - closed-end first lien exposures,7.40,19864000,2565000,22156000,,30.60,8762000,30000,12
+Residential mortgage - closed-end junior lien exposures,10.03,658000,522000,1158000,,90.00,2675000,0,13
+Residential mortgage - revolving exposures,5.66,612000,138000,750000,,100.00,1854000,0,14
+Qualifying revolving exposures,4.79,20014000,70140000,44746000,,100.00,29085000,2143000,15
+Other retail exposures,2.25,13918000,774000,9112000,,43.92,4383000,65000,16
+Securitization Exposures,,,,,,,,,
+Subject to the supervisory formula approach,,11569000,,,,, 2516000,,17
+Subject to simplified supervisory formula approach,,103610000,,,,,27661000,,18
+Subject to 1250% risk weight,,7000,,,,,91000,,19
+Cleared Transactions,,,,,,,,,
+Derivative contracts and netting sets to derivatives,,75546000,,,,,2863000,,20
+Repo-style transactions,,3405000,,,,,69000,,21
+Default fund contributions,,10398000,,,,,4770000,,22

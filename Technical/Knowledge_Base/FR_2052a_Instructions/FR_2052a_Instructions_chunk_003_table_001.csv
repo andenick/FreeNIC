@@ -1,0 +1,4 @@
+O.D fields,Reporting Entity,Currency,Converted,PID,Product,Counterparty,Maturity Amount,Maturity Bucket,Insured,Trigger,Internal,Business Line
+Example 1,BANK,USD,N,4,Operational Account Balances,Non-Financial Corporate,1000,Open,FDIC,N,N,Commercial Banking
+Example 2,BANK,USD,N,6,Non-Operational Account Balances,Non-Financial Corporate,500,Open,Uninsured,N,N,Commercial Banking
+Example 3,BANK,USD,N,6,Non-Operational Account Balances,Non-Financial Corporate,750,Day 5,Uninsured,N,N,Commercial Banking

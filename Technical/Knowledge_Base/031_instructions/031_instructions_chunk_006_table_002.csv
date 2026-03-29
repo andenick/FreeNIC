@@ -1,0 +1,105 @@
+Schedule,Item,Description,MDRM_Prefix,MDRM_Code,Item_Number
+RC-P,Retail originations for sale,Retail originations during quarter of 1-4 family residential mortgage loans for sale,RCON,HT81,1.
+RC-P,Wholesale originations for sale,Wholesale originations and purchases during quarter of 1-4 family residential mortgage loans for sale,RCON,HT82,2.
+RC-P,Mortgage loans sold,1-4 family residential mortgage loans sold during the quarter,RCON,FT04,3.
+RC-P,Mortgage loans HFS/trading,1-4 family residential mortgage loans held for sale or trading at quarter-end,RCON,FT05,4.
+RC-P,Noninterest income mortgage,Noninterest income from sale securitization and servicing of 1-4 family residential mortgage loans,RIAD,HT85,5.
+RC-P,Repurchases and indemnifications,Repurchases and indemnifications of 1-4 family residential mortgage loans during quarter,RCON,HT86,6.
+RC-P,Rep warranty reserves govt,Rep and warranty reserves for representations to U.S. govt and GSE agencies,RCON,L191,7.a.
+RC-P,Rep warranty reserves other,Rep and warranty reserves for representations to other parties,RCON,L192,7.b.
+RC-P,Total rep warranty reserves,Total representation and warranty reserves,RCON,M288,7.c.
+RC-Q,AFS and equity securities FV,AFS debt securities and equity securities with readily determinable FV - Total FV,RCFD,JA36,1. Col A
+RC-Q,AFS and equity securities netting,AFS debt securities and equity securities - Amounts netted,RCFD,G474,1. Col B
+RC-Q,AFS and equity securities L1,AFS debt securities and equity securities - Level 1,RCFD,G475,1. Col C
+RC-Q,AFS and equity securities L2,AFS debt securities and equity securities - Level 2,RCFD,G476,1. Col D
+RC-Q,AFS and equity securities L3,AFS debt securities and equity securities - Level 3,RCFD,G477,1. Col E
+RC-Q,Fed funds sold and repos FV,Fed funds sold and securities purchased under agreements to resell - Total FV,RCFD,G478,2. Col A
+RC-Q,Fed funds sold and repos netting,Fed funds sold and repos - Amounts netted,RCFD,G479,2. Col B
+RC-Q,Fed funds sold and repos L1,Fed funds sold and repos - Level 1,RCFD,G480,2. Col C
+RC-Q,Fed funds sold and repos L2,Fed funds sold and repos - Level 2,RCFD,G481,2. Col D
+RC-Q,Fed funds sold and repos L3,Fed funds sold and repos - Level 3,RCFD,G482,2. Col E
+RC-Q,Loans HFS FV,Loans and leases held for sale - Total FV,RCFD,G483,3. Col A
+RC-Q,Loans HFS netting,Loans and leases HFS - Amounts netted,RCFD,G484,3. Col B
+RC-Q,Loans HFS L1,Loans and leases HFS - Level 1,RCFD,G485,3. Col C
+RC-Q,Loans HFS L2,Loans and leases HFS - Level 2,RCFD,G486,3. Col D
+RC-Q,Loans HFS L3,Loans and leases HFS - Level 3,RCFD,G487,3. Col E
+RC-Q,Loans HFI FV,Loans and leases held for investment - Total FV,RCFD,G488,4. Col A
+RC-Q,Loans HFI netting,Loans and leases HFI - Amounts netted,RCFD,G489,4. Col B
+RC-Q,Loans HFI L1,Loans and leases HFI - Level 1,RCFD,G490,4. Col C
+RC-Q,Loans HFI L2,Loans and leases HFI - Level 2,RCFD,G491,4. Col D
+RC-Q,Loans HFI L3,Loans and leases HFI - Level 3,RCFD,G492,4. Col E
+RC-Q,Derivative assets FV,Trading assets derivative assets - Total FV,RCFD,3543,5.a. Col A
+RC-Q,Derivative assets netting,Trading assets derivative assets - Amounts netted,RCFD,G493,5.a. Col B
+RC-Q,Derivative assets L1,Trading assets derivative assets - Level 1,RCFD,G494,5.a. Col C
+RC-Q,Derivative assets L2,Trading assets derivative assets - Level 2,RCFD,G495,5.a. Col D
+RC-Q,Derivative assets L3,Trading assets derivative assets - Level 3,RCFD,G496,5.a. Col E
+RC-Q,Other trading assets FV,Other trading assets - Total FV,RCFD,G497,5.b. Col A
+RC-Q,Other trading assets netting,Other trading assets - Amounts netted,RCFD,G498,5.b. Col B
+RC-Q,Other trading assets L1,Other trading assets - Level 1,RCFD,G499,5.b. Col C
+RC-Q,Other trading assets L2,Other trading assets - Level 2,RCFD,G500,5.b. Col D
+RC-Q,Other trading assets L3,Other trading assets - Level 3,RCFD,G501,5.b. Col E
+RC-Q,Nontrading securities FV,Nontrading securities at FV with changes in earnings - Total FV,RCFD,F240,"5.b.(1) Col A"
+RC-Q,Nontrading securities netting,Nontrading securities at FV - Amounts netted,RCFD,F684,"5.b.(1) Col B"
+RC-Q,Nontrading securities L1,Nontrading securities at FV - Level 1,RCFD,F692,"5.b.(1) Col C"
+RC-Q,Nontrading securities L2,Nontrading securities at FV - Level 2,RCFD,F241,"5.b.(1) Col D"
+RC-Q,Nontrading securities L3,Nontrading securities at FV - Level 3,RCFD,F242,"5.b.(1) Col E"
+RC-Q,All other assets FV,All other assets - Total FV,RCFD,G391,6. Col A
+RC-Q,All other assets netting,All other assets - Amounts netted,RCFD,G392,6. Col B
+RC-Q,All other assets L1,All other assets - Level 1,RCFD,G395,6. Col C
+RC-Q,All other assets L2,All other assets - Level 2,RCFD,G396,6. Col D
+RC-Q,All other assets L3,All other assets - Level 3,RCFD,G804,6. Col E
+RC-Q,Total assets FV,Total assets measured at FV on recurring basis - Total FV,RCFD,G502,7. Col A
+RC-Q,Total assets netting,Total assets at FV - Amounts netted,RCFD,G503,7. Col B
+RC-Q,Total assets L1,Total assets at FV - Level 1,RCFD,G504,7. Col C
+RC-Q,Total assets L2,Total assets at FV - Level 2,RCFD,G505,7. Col D
+RC-Q,Total assets L3,Total assets at FV - Level 3,RCFD,G506,7. Col E
+RC-Q,Deposits FV,Deposits - Total FV,RCFD,F252,8. Col A
+RC-Q,Deposits netting,Deposits - Amounts netted,RCFD,F686,8. Col B
+RC-Q,Deposits L1,Deposits - Level 1,RCFD,F694,8. Col C
+RC-Q,Deposits L2,Deposits - Level 2,RCFD,F253,8. Col D
+RC-Q,Deposits L3,Deposits - Level 3,RCFD,F254,8. Col E
+RC-Q,Fed funds purchased FV,Fed funds purchased and repos - Total FV,RCFD,G507,9. Col A
+RC-Q,Fed funds purchased netting,Fed funds purchased and repos - Amounts netted,RCFD,G508,9. Col B
+RC-Q,Fed funds purchased L1,Fed funds purchased and repos - Level 1,RCFD,G509,9. Col C
+RC-Q,Fed funds purchased L2,Fed funds purchased and repos - Level 2,RCFD,G510,9. Col D
+RC-Q,Fed funds purchased L3,Fed funds purchased and repos - Level 3,RCFD,G511,9. Col E
+RC-Q,Derivative liabilities FV,Trading liabilities derivative liabilities - Total FV,RCFD,3547,10.a. Col A
+RC-Q,Derivative liabilities netting,Derivative liabilities - Amounts netted,RCFD,G512,10.a. Col B
+RC-Q,Derivative liabilities L1,Derivative liabilities - Level 1,RCFD,G513,10.a. Col C
+RC-Q,Derivative liabilities L2,Derivative liabilities - Level 2,RCFD,G514,10.a. Col D
+RC-Q,Derivative liabilities L3,Derivative liabilities - Level 3,RCFD,G515,10.a. Col E
+RC-Q,Other trading liabilities FV,Other trading liabilities - Total FV,RCFD,G516,10.b. Col A
+RC-Q,Other trading liabilities netting,Other trading liabilities - Amounts netted,RCFD,G517,10.b. Col B
+RC-Q,Other trading liabilities L1,Other trading liabilities - Level 1,RCFD,G518,10.b. Col C
+RC-Q,Other trading liabilities L2,Other trading liabilities - Level 2,RCFD,G519,10.b. Col D
+RC-Q,Other trading liabilities L3,Other trading liabilities - Level 3,RCFD,G520,10.b. Col E
+RC-Q,Other borrowed money FV,Other borrowed money - Total FV,RCFD,G521,11. Col A
+RC-Q,Other borrowed money netting,Other borrowed money - Amounts netted,RCFD,G522,11. Col B
+RC-Q,Other borrowed money L1,Other borrowed money - Level 1,RCFD,G523,11. Col C
+RC-Q,Other borrowed money L2,Other borrowed money - Level 2,RCFD,G524,11. Col D
+RC-Q,Other borrowed money L3,Other borrowed money - Level 3,RCFD,G525,11. Col E
+RC-Q,Sub notes FV,Subordinated notes and debentures - Total FV,RCFD,G526,12. Col A
+RC-Q,Sub notes netting,Subordinated notes - Amounts netted,RCFD,G527,12. Col B
+RC-Q,Sub notes L1,Subordinated notes - Level 1,RCFD,G528,12. Col C
+RC-Q,Sub notes L2,Subordinated notes - Level 2,RCFD,G529,12. Col D
+RC-Q,Sub notes L3,Subordinated notes - Level 3,RCFD,G530,12. Col E
+RC-Q,All other liabilities FV,All other liabilities - Total FV,RCFD,G805,13. Col A
+RC-Q,All other liabilities netting,All other liabilities - Amounts netted,RCFD,G806,13. Col B
+RC-Q,All other liabilities L1,All other liabilities - Level 1,RCFD,G807,13. Col C
+RC-Q,All other liabilities L2,All other liabilities - Level 2,RCFD,G808,13. Col D
+RC-Q,All other liabilities L3,All other liabilities - Level 3,RCFD,G809,13. Col E
+RC-Q,Total liabilities FV,Total liabilities measured at FV on recurring basis - Total FV,RCFD,G531,14. Col A
+RC-Q,Total liabilities netting,Total liabilities at FV - Amounts netted,RCFD,G532,14. Col B
+RC-Q,Total liabilities L1,Total liabilities at FV - Level 1,RCFD,G533,14. Col C
+RC-Q,Total liabilities L2,Total liabilities at FV - Level 2,RCFD,G534,14. Col D
+RC-Q,Total liabilities L3,Total liabilities at FV - Level 3,RCFD,G535,14. Col E
+RC-Q,Loans at FV 1-4 fam RE,Loans measured at fair value secured by 1-4 family residential,RCFD,HT87,"M.3.a.(1)"
+RC-Q,Loans at FV all other RE,Loans measured at fair value all other loans secured by RE,RCFD,HT88,"M.3.a.(2)"
+RC-Q,Loans at FV C&I,Loans measured at fair value commercial and industrial,RCFD,F585,M.3.b.
+RC-Q,Loans at FV consumer,Loans measured at fair value consumer loans,RCFD,HT89,M.3.c.
+RC-Q,Loans at FV other,Loans measured at fair value other loans,RCFD,F589,M.3.d.
+RC-Q,UPB loans at FV 1-4 fam RE,Unpaid principal balance of loans at FV 1-4 family residential,RCFD,HT91,"M.4.a.(1)"
+RC-Q,UPB loans at FV all other RE,Unpaid principal balance of loans at FV all other RE,RCFD,HT92,"M.4.a.(2)"
+RC-Q,UPB loans at FV C&I,Unpaid principal balance of loans at FV commercial and industrial,RCFD,F597,M.4.b.
+RC-Q,UPB loans at FV consumer,Unpaid principal balance of loans at FV consumer,RCFD,HT93,M.4.c.
+RC-Q,UPB loans at FV other,Unpaid principal balance of loans at FV other loans,RCFD,F601,M.4.d.

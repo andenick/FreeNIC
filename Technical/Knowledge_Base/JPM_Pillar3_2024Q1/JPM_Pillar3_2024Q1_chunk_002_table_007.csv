@@ -1,0 +1,10 @@
+Table: Wholesale Exposures by PD Range
+"March 31, 2024 (in millions, except ratios)",,,,,,
+PD range (%),Balance sheet amount,Off balance sheet commitments,EAD,RWA,Exposure-weighted avg PD,Exposure-weighted avg LGD,Exposure-weighted avg Risk weight
+0.00 to <0.15,1120610,112333,1203204,81255,0.02,23.73,6.75
+0.15 to <0.50,173076,192629,302201,124555,0.17,31.90,41.22
+0.50 to <1.35,158931,122374,228917,138025,0.81,33.08,60.29
+1.35 to <10.00,78032,61651,111935,99265,3.60,30.35,88.68
+10.00 to <100,24781,24266,36667,53730,21.13,29.54,146.54
+100 (default),6674,1057,7136,7557,100.00,N/A,105.90
+Total,1562104,514310,1890060,504387,1.14%,26.80%,26.69%

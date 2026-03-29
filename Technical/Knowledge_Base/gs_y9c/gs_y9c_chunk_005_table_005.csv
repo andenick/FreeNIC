@@ -1,0 +1,30 @@
+Schedule,Item,Description,MDRM
+HC-R-I,1.,Common stock plus related surplus net of treasury stock and unearned ESOP shares,BHCA P742
+HC-R-I,2.,Retained earnings,BHCA KW00
+HC-R-I,2.a.,CECL transition election (0=No 1=Yes 3-year 2=Yes 5-year 2020),BHCA JJ29
+HC-R-I,3.,Accumulated other comprehensive income (AOCI),BHCA B530
+HC-R-I,3.a.,AOCI opt-out election (0=No 1=Yes),BHCA P838
+HC-R-I,4.,Common equity tier 1 minority interest includable in CET1 capital,BHCA P839
+HC-R-I,5.,CET1 capital before adjustments and deductions (sum of items 1 through 4),BHCA P840
+HC-R-I,6.,LESS: Goodwill net of associated DTLs,BHCA P841
+HC-R-I,7.,LESS: Intangible assets (other than goodwill and MSAs) net of associated DTLs,BHCA P842
+HC-R-I,8.,LESS: DTAs from NOL and tax credit carryforwards net of valuation allowances and DTLs,BHCA P843
+HC-R-I,9.a.,LESS: Net unrealized gains (losses) on AFS debt securities,BHCA P844
+HC-R-I,9.c.,LESS: Accumulated net gains (losses) on cash flow hedges,BHCA P846
+HC-R-I,9.d.,LESS: Amounts in AOCI from defined benefit postretirement plans,BHCA P847
+HC-R-I,9.e.,LESS: Net unrealized gains (losses) on HTM securities in AOCI,BHCA P848
+HC-R-I,9.f.,LESS: Accumulated net gain (loss) on cash flow hedges relating to hedging non-FV items (non-AOCI opt-out only),BHCA P849
+HC-R-I,10.a.,LESS: Unrealized net gain (loss) from changes in fair value due to own credit risk,BHCA Q258
+HC-R-I,10.b.,LESS: All other deductions from CET1 before threshold-based deductions,BHCA P850
+HC-R-I,11.,LESS: Non-significant investments in capital of unconsolidated FIs exceeding 10% threshold (advanced only),BHCW P851
+HC-R-I,12.,Subtotal (non-advanced: item 5 minus items 6 through 10.b; advanced: item 5 minus items 6 through 11),BHCA P852 / BHCW P852
+HC-R-I,13.a.,LESS: Investments in capital of unconsolidated FIs exceeding 25% of item 12 (non-advanced),BHCA LB58
+HC-R-I,13.b.,LESS: Significant investments exceeding 10% CET1 deduction threshold (advanced),BHCW P853
+HC-R-I,14.a.,LESS: MSAs exceeding 25% of item 12 (non-advanced),BHCA LB59
+HC-R-I,14.b.,LESS: MSAs exceeding 10% CET1 deduction threshold (advanced),BHCW P854
+HC-R-I,15.a.,LESS: DTAs from temporary differences exceeding 25% of item 12 (non-advanced),BHCA LB60
+HC-R-I,15.b.,LESS: DTAs from temporary differences exceeding 10% CET1 deduction threshold (advanced),BHCW P855
+HC-R-I,16.,LESS: Amount exceeding 15% CET1 deduction threshold (advanced only),BHCW P856
+HC-R-I,17.,LESS: Deductions due to insufficient AT1 and T2 capital,BHCA P857 / BHCW P857
+HC-R-I,18.,Total adjustments and deductions for CET1 capital,BHCA P858 / BHCW P858
+HC-R-I,19.,Common equity tier 1 capital (item 12 minus item 18),BHCA P859 / BHCW P859

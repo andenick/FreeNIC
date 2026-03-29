@@ -1,0 +1,32 @@
+Schedule,Item,Description,MDRM_SoldProtection,MDRM_PurchasedProtection
+HC-L,1.a.,Unused commitments: Revolving open-end loans secured by 1-4 family residential,BHCK 3814,
+HC-L,1.b.(1),Unused consumer credit card lines,BHCK J455,
+HC-L,1.b.(2),Other unused credit card lines,BHCK J456,
+HC-L,1.c.(1),Commitments to fund CRE construction and land development secured by RE,BHCK 3816,
+HC-L,1.c.(1)(a),1-4 family residential construction commitments,BHCK F164,
+HC-L,1.c.(1)(b),Commercial RE other construction and land development commitments,BHCK F165,
+HC-L,1.c.(2),CRE commitments NOT secured by real estate,BHCK 6550,
+HC-L,1.d.,Securities underwriting,BHCK 3817,
+HC-L,1.e.(1),Other unused commitments: C&I loans,BHCK J457,
+HC-L,1.e.(2),Other unused commitments: Loans to financial institutions,BHCK J458,
+HC-L,1.e.(3),Other unused commitments: All other,BHCK J459,
+HC-L,2.,Financial standby letters of credit and foreign office guarantees,BHCK 6566,
+HC-L,2.a.,Amount of financial standby letters of credit conveyed to others,BHCK 3820,
+HC-L,3.,Performance standby letters of credit and foreign office guarantees,BHCK 6570,
+HC-L,3.a.,Amount of performance standby letters of credit conveyed to others,BHCK 3822,
+HC-L,4.,Commercial and similar letters of credit,BHCK 3411,
+HC-L,6.a.,Securities lent,BHCK 3433,
+HC-L,6.b.,Securities borrowed,BHCK 3432,
+HC-L,7.a.(1),Credit derivatives: Credit default swaps notional,BHCK C968,BHCK C969
+HC-L,7.a.(2),Credit derivatives: Total return swaps notional,BHCK C970,BHCK C971
+HC-L,7.a.(3),Credit derivatives: Credit options notional,BHCK C972,BHCK C973
+HC-L,7.a.(4),Credit derivatives: Other credit derivatives notional,BHCK C974,BHCK C975
+HC-L,7.b.(1),Credit derivatives: Gross positive fair value,BHCK C219,BHCK C221
+HC-L,7.b.(2),Credit derivatives: Gross negative fair value,BHCK C220,BHCK C222
+HC-L,7.c.(1)(a),Credit derivatives by reg capital: Market Risk Rule sold protection,BHCK G401,
+HC-L,7.c.(1)(b),Credit derivatives by reg capital: Market Risk Rule purchased protection,,BHCK G402
+HC-L,7.c.(2)(a),Credit derivatives by reg capital: All other sold protection,BHCK G403,
+HC-L,7.c.(2)(b),Credit derivatives by reg capital: All other purchased recognized as guarantee,,BHCK G404
+HC-L,7.c.(2)(c),Credit derivatives by reg capital: All other purchased not recognized,,BHCK G405
+HC-L,8.,Spot foreign exchange contracts,BHCK 8765,
+HC-L,9.,All other off-balance-sheet items (exclude derivatives),BHCK 3430,

@@ -1,0 +1,19 @@
+Schedule,Item,Description,RCON_Number,RCON_Amount,Notes
+RC-C Part II,1.,All loans have original amounts of $100K or less (Yes/No),6999,,Nonfarm nonresidential + C&I loans
+RC-C Part II,2.a.,Number of loans secured by nonfarm nonresidential properties,5562,,Number of loans
+RC-C Part II,2.b.,Number of commercial and industrial loans,5563,,Number of loans
+RC-C Part II,3.a.,Nonfarm nonresidential - original amounts $100K or less,5564,5565,Number and amount
+RC-C Part II,3.b.,Nonfarm nonresidential - original amounts $100K-$250K,5566,5567,Number and amount
+RC-C Part II,3.c.,Nonfarm nonresidential - original amounts $250K-$1M,5568,5569,Number and amount
+RC-C Part II,4.a.,C&I loans - original amounts $100K or less,5570,5571,Number and amount
+RC-C Part II,4.b.,C&I loans - original amounts $100K-$250K,5572,5573,Number and amount
+RC-C Part II,4.c.,C&I loans - original amounts $250K-$1M,5574,5575,Number and amount
+RC-C Part II,5.,All farm loans have original amounts of $100K or less (Yes/No),6860,,Farmland + ag production loans
+RC-C Part II,6.a.,Number of loans secured by farmland,5576,,Number of loans
+RC-C Part II,6.b.,Number of ag production loans,5577,,Number of loans
+RC-C Part II,7.a.,Farmland loans - original amounts $100K or less,5578,5579,Number and amount
+RC-C Part II,7.b.,Farmland loans - original amounts $100K-$250K,5580,5581,Number and amount
+RC-C Part II,7.c.,Farmland loans - original amounts $250K-$500K,5582,5583,Number and amount
+RC-C Part II,8.a.,Ag production loans - original amounts $100K or less,5584,5585,Number and amount
+RC-C Part II,8.b.,Ag production loans - original amounts $100K-$250K,5586,5587,Number and amount
+RC-C Part II,8.c.,Ag production loans - original amounts $250K-$500K,5588,5589,Number and amount

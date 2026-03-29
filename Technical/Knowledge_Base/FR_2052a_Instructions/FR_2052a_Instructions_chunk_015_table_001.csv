@@ -1,0 +1,18 @@
+Table Number,Table Title,LCR Rule Section,PID,Counterparty,Maturity Bucket,Collateral Class,Rehypothecated,Key Conditions
+68,Secured Funding L2A (Deposits),S.32(j)(1)(ii),"O.D.4 (not FDIC), 5, 6, 7",All counterparties (with CB note),<= 30 calendar days,Level 2A HQLA,#,"CV < MA treated as unsecured under .32(h); O.D.4 Insured=Not FDIC"
+69,Secured Funding L2A (Outflows Secured),S.32(j)(1)(ii),"O.S.1, 2, 3, 5, 6, 7, 11",All counterparties (with CB note),<= 30 calendar days,Level 2A HQLA,#,"O.S.7 not Unsettled; O.S.6 not Covered FRF"
+70,Secured Funding L2A (Wholesale),S.32(j)(1)(ii),O.W.1-7,#,<= 30 calendar days,Level 2A HQLA,#,
+71,Secured Funding Govt Entities not L1/L2A (Deposits),S.32(j)(1)(iii),"O.D.4, 5, 6 (not FDIC), 7","Sovereign, CB (with note), GSE, MDB",<= 30 calendar days,Level 2B HQLA or Non-HQLA,#,
+72,Secured Funding Govt Entities not L1/L2A (Outflows Secured),S.32(j)(1)(iii),"O.S.1, 2, 3, 5, 6, 7, 11","Sovereign, CB (with note), GSE, MDB",<= 30 calendar days,Level 2B HQLA or Non-HQLA,#,"O.S.6 exception for Covered FRF with Y-1/Y-2/Y-3 collateral"
+73,Secured Funding L2B (Collateralized Deposits),S.32(j)(1)(iv),"O.D.4, 7 (collateralized only)","Non-Financial Corporate, PSE, Other Supra, all financial entities, Debt Issuing SPE, Other",<= 30 calendar days,Level 2B HQLA,Y,
+74,Secured Funding L2B (Non-Rel/Non-Op Deposits),S.32(j)(1)(iv),"O.D.5, 6","Non-Financial Corporate, PSE, Other Supra, all financial entities, Debt Issuing SPE, Other",<= 30 calendar days,Level 2B HQLA,"Y for non-financial; # for financial",
+75,Secured Funding L2B (Outflows Secured),S.32(j)(1)(iv),"O.S.1, 2, 3, 7, 11","Non-Financial Corporate, PSE, Other Supra, all financial entities, Debt Issuing SPE, Other",<= 30 calendar days,Level 2B HQLA,"Y for non-financial; # for financial",O.S.7 not Unsettled
+76,Secured Funding L2B (Wholesale),S.32(j)(1)(iv),O.W.1-7,#,<= 30 calendar days,Level 2B HQLA,#,
+77,Customer Shorts Non-HQLA Customer Longs,S.32(j)(1)(v),O.S.7,"Non-Financial Corporate, PSE, Other Supra, all financial entities, Debt Issuing SPE, Other",<= 30 calendar days,Non-HQLA,#,Sub-Product=Customer Long
+78,Secured Funding Non-HQLA (Collateralized Deposits),S.32(j)(1)(vi),"O.D.4, 7 (collateralized only)","Non-Financial Corporate, PSE, Other Supra, all financial entities, Debt Issuing SPE, Other",<= 30 calendar days,Non-HQLA,Y,
+79,Secured Funding Non-HQLA (Non-Rel/Non-Op Deposits),S.32(j)(1)(vi),"O.D.5, 6","Non-Financial Corporate, PSE, Other Supra, all financial entities, Debt Issuing SPE, Other",<= 30 calendar days,Non-HQLA,"Y for non-financial; # for financial",
+80,Secured Funding Non-HQLA (Outflows Secured),S.32(j)(1)(vi),"O.S.1, 2, 3, 7, 11","Non-Financial Corporate, PSE, Other Supra, all financial entities, Debt Issuing SPE, Other",<= 30 calendar days,Non-HQLA,"Y for non-financial; # for financial","O.S.7 not Customer Long or Unsettled"
+81,Secured Funding Non-HQLA (Wholesale),S.32(j)(1)(vi),O.W.1-7,#,<= 30 calendar days,Non-HQLA,#,
+82,Secured but Lower Unsecured Rate (Deposits),S.32(j)(2),"O.D.5, 6","Non-Financial Corporate, PSE, Other Supra, Debt Issuing SPE, Other",<= 30 calendar days,Level 2B HQLA or Non-HQLA,N,Insured=* (LCR relevant)
+83,Secured but Lower Unsecured Rate (Outflows Secured),S.32(j)(2),"O.S.1, 2, 3, 5, 7, 11","Non-Financial Corporate, PSE, Other Supra, Debt Issuing SPE, Other",<= 30 calendar days,Level 2B HQLA or Non-HQLA,N,O.S.7 must be firm long
+84,Secured but Lower Unsecured Rate (Operational),S.32(j)(2),O.D.4 (collateralized only),"All counterparties; if FDIC: also Sovereigns, GSEs, MDBs, CB",<= 30 calendar days,"If FDIC: Not Level 1; if not FDIC: Level 2B or Non-HQLA",#,

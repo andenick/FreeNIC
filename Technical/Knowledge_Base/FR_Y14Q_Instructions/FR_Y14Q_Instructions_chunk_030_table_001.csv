@@ -1,0 +1,15 @@
+Derivative Type,Unstressed MtM MDRM,Stressed MtM Severely Adverse MDRM
+Vanilla Interest Rate,CACSR592,CACSR606
+Vanilla FX,CACSR593,CACSR607
+Vanilla Commodity (Cash),CACSR594,CACSR608
+Vanilla Credit,CACSR595,CACSR609
+Vanilla Equity,CACSR596,CACSR610
+Structured Interest Rate,CACSR597,CACSR611
+Flow Exotic and Structured FX,CACSR598,CACSR612
+Other Cash & Physical Commodity,CACSR599,CACSR613
+Other (Single Name) Credit,CACSR600,CACSR614
+Structured (Multi-Name) Credit,CACSR601,CACSR615
+Exotic Equity,CACSR602,CACSR616
+Hybrids,CACSR603,CACSR617
+Structured Products (MBS ABS TBAs),CACSR604,CACSR618
+Other,CACSR605,CACSR655

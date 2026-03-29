@@ -1,0 +1,16 @@
+99% Regulatory VaR,,,,,,,,,,
+Quarter Ended December 31 2024,,,,,,,,,,
+,One-Day Holding Period,,10-Day Holding Period,,,,,,
+$ in millions,Daily Average (note 1),,Period End,,Daily Average (note 1),,High,,Low,
+Interest rate,$,31,$,71,$,99,$,177,$,64
+Credit spread,,26,,58,,82,,128,,57
+Equity price,,37,,104,,116,,196,,92
+Foreign exchange rate,,19,,75,,59,,82,,43
+Commodity price,,26,,98,,84,,112,,60
+"Less: Diversification benefit (notes 2 3)",,(84),,(248),,(265),,N/A,,N/A
+Total Regulatory VaR,$,55,$,158,$,175,$,263,$,138
+,,,,,,,,,,
+Notes:,,,,,,,,,,
+"1. The daily average shown is calculated over the entire quarter. Per regulatory requirements, the daily average of the previous 60 business days from the period-end date is utilized in the regulatory capital calculation.",,,,,,,,,,
+"2. Diversification benefit equals the difference between the total Regulatory VaR and the sum of the component VaRs.",,,,,,,,,,
+"3. The high and low VaR values for the total Regulatory VaR and each of the component VaRs might have occurred on different days during the quarter, and therefore the diversification benefit is not an applicable measure.",,,,,,,,,,

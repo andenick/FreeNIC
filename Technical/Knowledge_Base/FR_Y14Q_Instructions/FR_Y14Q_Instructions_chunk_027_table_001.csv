@@ -1,0 +1,31 @@
+Category,Sub-Category,Definition,FR Y-9C HC-C Reference
+1. Student Loans,,Student loans,line 6.d
+2. Other Consumer,2a. Domestic,Domestic other consumer loans,"lines 6.b and 6.d"
+2. Other Consumer,2b. International,International other consumer loans,"lines 6.b and 6.d"
+3. First Lien,3a. Domestic,Domestic first lien loans,line 1.c.(2).a
+3. First Lien,3b. International,International first lien loans (analogous definition),line 1.c.(2).a
+4. Junior Lien,4a. Domestic,Domestic junior lien loans,"line 1.c.(2).b or 1.c.(1)"
+4. Junior Lien,4b. International,International junior lien loans (analogous definition),"line 1.c.(2).b or 1.c.(1)"
+5. Bank and Charge Cards,5a. Domestic,Domestic bank and charge cards,line 6.a
+5. Bank and Charge Cards,5b. International,International bank and charge cards,line 6.a
+6. Auto,6a. Domestic,Domestic auto loans,line 6.c
+6. Auto,6b. International,International auto loans,line 6.c
+7. Commercial Real Estate,7a.(1) Construction Domestic,Domestic C&D loans,"lines 1.a.(1) or 1.a.(2)"
+7. Commercial Real Estate,7a.(2) Construction International,International C&D loans (analogous definition),"lines 1.a.(1) or 1.a.(2)"
+7. Commercial Real Estate,7b.(1) Multifamily Domestic,Domestic Multifamily loans,line 1.d
+7. Commercial Real Estate,7b.(2) Multifamily International,International Multifamily loans (analogous definition),line 1.d
+7. Commercial Real Estate,7c.(1) NFNR Non-owner occupied Domestic,Domestic NFNR loans,line 1.e.(2)
+7. Commercial Real Estate,7c.(2) NFNR Non-owner occupied International,International NFNR loans (analogous definition),line 1.e.(2)
+7. Commercial Real Estate,7d.(1) NFNR Owner occupied Domestic,Domestic NFNR loans,line 1.e.(1)
+7. Commercial Real Estate,7d.(2) NFNR Owner occupied International,International NFNR loans (analogous definition),line 1.e.(1)
+8. Loans Secured by Farmland,8a. Domestic,Domestic farmland loans,line 1.b
+8. Loans Secured by Farmland,8b. International,International farmland loans (analogous definition),line 1.b
+9. Commercial and Industrial,9a. Graded,Graded loans,"line 4.a or 4.b"
+9. Commercial and Industrial,9b.(1) Small Business Domestic,"US small business loans without commercial internal risk rating or different scale","lines 2.a, 2.b, 3, 4.a, 7, 9.a, 9.b.(1), 9.b.(2), 10.b excl corporate/SME credit cards on line 4.a"
+9. Commercial and Industrial,9b.(2) Small Business International,"International small business loans without commercial internal risk rating or different scale","lines 2.a, 2.b, 3, 4.b, 7, 9.a, 9.b.(1), 9.b.(2), 10.b excl corporate/SME credit cards on line 4.a"
+10. Graded Other Loans,10a. Graded Loans to Foreign Governments,Graded loans,line 7
+10. Graded Other Loans,10b. Graded Agricultural Loans,Graded loans,line 3
+10. Graded Other Loans,10c. Graded Loans to Depositories and Other Financial,Graded loans,"lines 2.a., 2.b., and 9.a"
+10. Graded Other Loans,10d. Other Graded Commercial Leases,Graded leases,line 10.b
+10. Graded Other Loans,10e. All Other Graded Loans,Graded loans,line 9.b.(2)
+Not loan category specific,,Loans reported in the respective FR Y-9C line items,

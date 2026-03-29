@@ -1,0 +1,12 @@
+"Table 24: CRM Risk-Weighted Assets",,,,
+"June 30, 2024",,,,
+"In millions of dollars","As of June 30, 2024",,,
+,CRM Model Capital (1),CRM-Model RWA (2),8% CRM Floor RWA (3),Final CRM RWA (4)
+,99,1233,830,1233
+,,,,
+Notes:,,,,
+"(1) CRM Model Capital is calculated once per week.",,,,
+"(2) CRM Model RWA is calculated using the greater of the 12 week mean and period end CRM Model Capital (see Table 24.1 below), multiplied by 12.5.",,,,
+"(3) The CRM Floor is based on the fair value of net long positions (inclusive of netting).",,,,
+"(4) Final CRM RWA = Greater of (2) CRM-Model RWA and (3) 8% CRM Floor.",,,,
+"Immaterial differences in calculations above may exist due to rounding.",,,,

@@ -1,0 +1,31 @@
+Schedule,Item,Description,MDRM
+HC-C-Memo,M.1.a.(1),Loan modifications: 1-4 family residential construction loans,BHDM K158
+HC-C-Memo,M.1.a.(2),Loan modifications: Other construction and land development loans,BHDM K159
+HC-C-Memo,M.1.b.,Loan modifications: Loans secured by 1-4 family residential properties,BHDM F576
+HC-C-Memo,M.1.c.,Loan modifications: Secured by multifamily (5+) residential properties,BHDM K160
+HC-C-Memo,M.1.d.(1),Loan modifications: Owner-occupied nonfarm nonresidential,BHDM K161
+HC-C-Memo,M.1.d.(2),Loan modifications: Other nonfarm nonresidential,BHDM K162
+HC-C-Memo,M.1.e.(1),Loan modifications: C&I to U.S. addressees,BHCK K163
+HC-C-Memo,M.1.e.(2),Loan modifications: C&I to non-U.S. addressees,BHCK K164
+HC-C-Memo,M.1.e.(3),Loan modifications: C&I to U.S. and non-U.S. addressees,BHCK KX59
+HC-C-Memo,M.1.f.,Loan modifications: All other loans,BHCK K165
+HC-C-Memo,M.1.f.(1),Loan modifications: Loans secured by farmland in domestic offices,BHDM K166
+HC-C-Memo,M.1.f.(2),Loan modifications: Agricultural production and other loans to farmers,BHCK K168
+HC-C-Memo,M.1.f.(3)(a),Loan modifications: Credit cards,BHCK K098
+HC-C-Memo,M.1.f.(3)(b),Loan modifications: Automobile loans,BHCK K203
+HC-C-Memo,M.1.f.(3)(c),Loan modifications: Other consumer loans,BHCK K204
+HC-C-Memo,M.1.g.,Total loan modifications in compliance with modified terms,BHCK HK25
+HC-C-Memo,M.2.,Loans to finance CRE construction and land development (not secured by RE),BHCK 2746
+HC-C-Memo,M.3.,Loans secured by real estate to non-U.S. addressees,BHCK B837
+HC-C-Memo,M.4.,Outstanding credit card fees and finance charges,BHCK C391
+HC-C-Memo,M.6.a.,Closed-end loans with negative amortization features secured by 1-4 family residential,BHCK F230
+HC-C-Memo,M.6.b.,Total maximum remaining amount of negative amortization,BHCK F231
+HC-C-Memo,M.6.c.,Total amount of negative amortization,BHCK F232
+HC-C-Memo,M.9.,Loans secured by 1-4 family residential in process of foreclosure,BHDM F577
+HC-C-Memo,M.12.a.,Acquired loans: Loans secured by real estate (Col A/B/C),BHCK G091/G092/G093
+HC-C-Memo,M.12.b.,Acquired loans: Commercial and industrial loans,BHCK G094/G095/G096
+HC-C-Memo,M.12.c.,Acquired loans: Consumer loans,BHCK G097/G098/G099
+HC-C-Memo,M.12.d.,Acquired loans: All other loans and leases,BHCK G100/G101/G102
+HC-C-Memo,M.12.e.,Acquired loans: Loans and leases total,BHCK KX60/KX61/KX62
+HC-C-Memo,M.14.,Pledged loans and leases,BHCK G378
+HC-C-Memo,M.15.,Revolving open-end loans converted to non-revolving closed-end status,BHCK LE75

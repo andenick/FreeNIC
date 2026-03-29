@@ -1,0 +1,20 @@
+Table: Components of Capital - Reconciliation of Total Stockholders' Equity to Basel III Advanced Capital
+"March 31, 2024 (in millions)",Basel III Advanced CECL Transitional,Basel III Advanced CECL Fully Phased-In
+Total stockholders' equity,336637,336637
+"Less: Preferred stock",29900,29900
+Common stockholders' equity,306737,306737
+"Less: Goodwill (a)",54335,54335
+"Less: Other intangible assets",3133,3133
+"Add: Deferred tax liabilities (b)",2981,2981
+"Add: Other CET1 capital adjustments (c)(d)",5319,4599
+CET1 capital,257569,256849
+Preferred stock,29900,29900
+"Other Tier 1 capital adjustments (e)",-5999,-5999
+"Less: Tier 1 capital deductions",699,699
+Total Tier 1 capital,280771,280051
+"Long-term debt and other instruments qualifying as Tier 2 capital",11690,11690
+"Qualifying allowance for credit losses (f)(g)",7149,7153
+Other Tier 2 capital adjustments,0,0
+"Less: Tier 2 capital deductions",844,844
+Total Tier 2 capital,17995,17999
+Total capital,298766,298050

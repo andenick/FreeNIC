@@ -1,0 +1,65 @@
+Schedule,Item,Description,MDRM_Prefix,MDRM_Code,Item_Number
+RC-O,Total deposit liabilities gross,Total deposit liabilities before exclusions as defined in Section 3(l),RCFD,F236,1.
+RC-O,Total allowable exclusions,Total allowable exclusions including interest accrued and unpaid,RCFD,F237,2.
+RC-O,Total foreign deposits,Total foreign deposits including interest accrued and unpaid,RCFN,F234,3.
+RC-O,Avg consolidated total assets,Average consolidated total assets for the calendar quarter,RCFD,K652,4.
+RC-O,Averaging method,Averaging method used (1=daily 2=weekly),RCFD,K653,4.a.
+RC-O,Avg tangible equity,Average tangible equity for the calendar quarter,RCFD,K654,5.
+RC-O,Holdings unsecured debt,Holdings of long-term unsecured debt issued by other FDIC-insured depository institutions,RCFD,K655,6.
+RC-O,Unsecured other borrowings 1yr or less,Unsecured other borrowings with remaining maturity one year or less,RCFD,G465,7.a.
+RC-O,Unsecured other borrowings 1-3yr,Unsecured other borrowings over one year through three years,RCFD,G466,7.b.
+RC-O,Unsecured other borrowings 3-5yr,Unsecured other borrowings over three years through five years,RCFD,G467,7.c.
+RC-O,Unsecured other borrowings over 5yr,Unsecured other borrowings over five years,RCFD,G468,7.d.
+RC-O,Sub debt 1yr or less,Subordinated notes and debentures with remaining maturity one year or less,RCFD,G469,8.a.
+RC-O,Sub debt 1-3yr,Subordinated notes and debentures over one year through three years,RCFD,G470,8.b.
+RC-O,Sub debt 3-5yr,Subordinated notes and debentures over three years through five years,RCFD,G471,8.c.
+RC-O,Sub debt over 5yr,Subordinated notes and debentures over five years,RCFD,G472,8.d.
+RC-O,Brokered reciprocal deposits,Brokered reciprocal deposits included in RC-E Part I M.1.b,RCON,G803,9.
+RC-O,Fully consolidated brokered reciprocal,Fully consolidated brokered reciprocal deposits,RCON,L190,9.a.
+RC-O,Bankers bank certification,Does institution meet bankers bank definition and business conduct test,RCFD,K656,10.
+RC-O,Bankers bank deduction,Bankers bank deduction,RCFD,K657,10.a.
+RC-O,Bankers bank deduction limit,Bankers bank deduction limit,RCFD,K658,10.b.
+RC-O,Custodial bank certification,Does institution meet custodial bank definition,RCFD,K659,11.
+RC-O,Custodial bank deduction,Custodial bank deduction,RCFD,K660,11.a.
+RC-O,Custodial bank deduction limit,Custodial bank deduction limit,RCFD,K661,11.b.
+RC-O,Deposits excl retirement 250K or less amt,Amount of deposit accounts excluding retirement of $250K or less,RCON,F049,"M.1.a.(1)"
+RC-O,Deposits excl retirement 250K or less num,Number of deposit accounts excluding retirement of $250K or less,RCON,F050,"M.1.a.(2)"
+RC-O,Deposits excl retirement over 250K amt,Amount of deposit accounts excluding retirement of more than $250K,RCON,F051,"M.1.b.(1)"
+RC-O,Deposits excl retirement over 250K num,Number of deposit accounts excluding retirement of more than $250K,RCON,F052,"M.1.b.(2)"
+RC-O,Retirement deposits 250K or less amt,Amount of retirement deposit accounts of $250K or less,RCON,F045,"M.1.c.(1)"
+RC-O,Retirement deposits 250K or less num,Number of retirement deposit accounts of $250K or less,RCON,F046,"M.1.c.(2)"
+RC-O,Retirement deposits over 250K amt,Amount of retirement deposit accounts of more than $250K,RCON,F047,"M.1.d.(1)"
+RC-O,Retirement deposits over 250K num,Number of retirement deposit accounts of more than $250K,RCON,F048,"M.1.d.(2)"
+RC-O,Uninsured deposits estimate,Estimated amount of uninsured deposits in domestic offices,RCON,5597,M.2.
+RC-O,Parent consolidation flag,Has institution been consolidated with parent bank or savings association,TEXT/RCON,A545,M.3.
+RC-O,Dually payable deposits foreign,Dually payable deposits in foreign branches,RCFN,GW43,M.4.
+RC-O,CECL transitional amount,Applicable CECL transitional amount attributable to loans and leases HFI,RCFD,MW53,M.5.
+RC-O,Special mention,Criticized and classified items special mention,RCFD,K663,M.6.a.
+RC-O,Substandard,Criticized and classified items substandard,RCFD,K664,M.6.b.
+RC-O,Doubtful,Criticized and classified items doubtful,RCFD,K665,M.6.c.
+RC-O,Loss,Criticized and classified items loss,RCFD,K666,M.6.d.
+RC-O,Nontraditional 1-4 fam mortgages,Nontraditional 1-4 family residential mortgage loans,RCFD,N025,M.7.a.
+RC-O,Securitizations nontraditional 1-4 fam,Securitizations of nontraditional 1-4 family residential mortgage loans,RCFD,N026,M.7.b.
+RC-O,Higher-risk consumer loans,Higher-risk consumer loans,RCFD,N027,M.8.a.
+RC-O,Securitizations higher-risk consumer,Securitizations of higher-risk consumer loans,RCFD,N028,M.8.b.
+RC-O,Higher-risk C&I loans and securities,Higher-risk C&I loans and securities,RCFD,N029,M.9.a.
+RC-O,Securitizations higher-risk C&I,Securitizations of higher-risk C&I loans and securities,RCFD,N030,M.9.b.
+RC-O,Total unfunded construction commitments,Total unfunded commitments to fund construction and land loans secured by RE,RCFD,K676,M.10.a.
+RC-O,Guaranteed unfunded commitments,Portion of unfunded commitments guaranteed by U.S. government,RCFD,K677,M.10.b.
+RC-O,OREO US govt recoverable,OREO recoverable from U.S. government under guarantee or insurance,RCFD,K669,M.11.
+RC-O,Nonbrokered time over 250K,Nonbrokered time deposits more than $250K in domestic offices,RCON,K678,M.12.
+RC-O,Guaranteed construction loans,Portion of funded construction loans guaranteed or insured by U.S. government,RCFD,N177,M.13.a.
+RC-O,Guaranteed multifam and nonfarm nonres,Portion of funded loans secured by multifamily and nonfarm nonresidential guaranteed,RCFD,N178,M.13.b.
+RC-O,Guaranteed closed-end first liens,Portion of funded closed-end first liens on 1-4 family guaranteed,RCFD,N179,M.13.c.
+RC-O,Guaranteed closed-end junior and revolving,Portion of funded closed-end junior liens and revolving 1-4 family guaranteed,RCFD,N180,M.13.d.
+RC-O,Guaranteed C&I loans,Portion of funded C&I loans guaranteed,RCFD,N181,M.13.e.
+RC-O,Guaranteed credit card loans,Portion of funded credit card loans guaranteed,RCFD,N182,M.13.f.
+RC-O,Guaranteed other consumer loans,Portion of funded other consumer loans guaranteed,RCFD,N183,M.13.g.
+RC-O,Guaranteed non-agency RMBS,Non-agency residential mortgage-backed securities guaranteed,RCFD,M963,M.13.h.
+RC-O,Largest counterparty exposure,Amount of institutions largest counterparty exposure,RCFD,K673,M.14.
+RC-O,20 largest counterparty exposures,Total amount of institutions 20 largest counterparty exposures,RCFD,K674,M.15.
+RC-O,Guaranteed loan modifications,Portion of loan modifications in compliance guaranteed by U.S. government,RCFD,L189,M.16.
+RC-O,Consol deposit liabilities gross,Fully consolidated total deposit liabilities before exclusions,RCFD,L194,M.17.a.
+RC-O,Consol allowable exclusions,Fully consolidated total allowable exclusions,RCFD,L195,M.17.b.
+RC-O,Consol unsecured borrowings 1yr,Fully consolidated unsecured other borrowings remaining maturity 1yr or less,RCFD,L196,M.17.c.
+RC-O,Consol uninsured deposits,Fully consolidated estimated uninsured deposits in domestic offices,RCON,L197,M.17.d.

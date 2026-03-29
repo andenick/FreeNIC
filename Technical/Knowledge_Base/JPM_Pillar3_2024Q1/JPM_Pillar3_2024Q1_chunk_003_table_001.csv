@@ -1,0 +1,13 @@
+Table: Equity Risk-Weighted Assets by Risk-Weight Category
+"March 31, 2024 (in millions)",,
+Risk-weight category,"Exposure (a)",RWA
+"0%","7286 (b)",0
+20%,1337,283
+100%,42701,45263
+250%,846,2243
+300%,0,0
+400%,0,0
+600%,5,35
+Simple Modified Look-Through Approach,388,1321
+Full Look-Through Approach,24657,15147
+Total,77220,64292

@@ -1,0 +1,19 @@
+Schedule,Item,Description,MDRM
+HC-F,1.,Accrued interest receivable,BHCK B556
+HC-F,2.,Net deferred tax assets,BHCK 2148
+HC-F,3.,Interest-only strips receivable (not in the form of a security),BHCK HT80
+HC-F,4.,Equity investments without readily determinable fair values,BHCK 1752
+HC-F,5.a.,General account life insurance assets,BHCK K201
+HC-F,5.b.,Separate account life insurance assets,BHCK K202
+HC-F,5.c.,Hybrid account life insurance assets,BHCK K270
+HC-F,6.,Other,BHCK 2168
+HC-F,7.,Total (must equal Schedule HC item 11),BHCT 2160
+HC-G,2.,Net deferred tax liabilities,BHCK 3049
+HC-G,3.,Allowance for credit losses on off-balance-sheet credit exposures,BHCK B557
+HC-G,4.,Other,BHCK B984
+HC-G,5.,Total (must equal Schedule HC item 20),BHCT 2750
+HC-H,1.,Earning assets repriceable/maturing within one year,BHCK 3197
+HC-H,2.,Interest-bearing deposit liabilities repricing/maturing within one year,BHCK 3296
+HC-H,3.,Long-term debt repricing within one year,BHCK 3298
+HC-H,4.,Variable-rate preferred stock,BHCK 3408
+HC-H,5.,Long-term debt scheduled to mature within one year,BHCK 3409

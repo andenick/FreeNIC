@@ -1,0 +1,81 @@
+Schedule,Item,Description,MDRM_Prefix,MDRM_Code,Item_Number
+RC-R Part I,Common stock plus surplus,Common stock plus related surplus net of treasury stock and unearned ESOP shares,RCFA,P742,1.
+RC-R Part I,Retained earnings,Retained earnings,RCFA,KW00,2.
+RC-R Part I,CECL transition election,CECL transition election in effect (0=No 1=Yes 3yr 2=Yes 5yr),RCOA,JJ29,2.a.
+RC-R Part I,AOCI,Accumulated other comprehensive income,RCFA,B530,3.
+RC-R Part I,AOCI opt-out election,AOCI opt-out election (1=Yes 0=No),RCOA,P838,3.a.
+RC-R Part I,CET1 minority interest,Common equity tier 1 minority interest includable in CET1,RCFA,P839,4.
+RC-R Part I,CET1 before adj,CET1 capital before adjustments and deductions,RCFA,P840,5.
+RC-R Part I,LESS Goodwill,LESS Goodwill net of associated DTLs,RCFA,P841,6.
+RC-R Part I,LESS Intangibles,LESS Intangible assets other than goodwill and MSAs net of DTLs,RCFA,P842,7.
+RC-R Part I,LESS DTAs NOL,LESS DTAs from net operating loss and tax credit carryforwards net of valuation allowances and DTLs,RCFA,P843,8.
+RC-R Part I,LESS AFS unrealized,LESS Net unrealized gains losses on AFS debt securities,RCFA,P844,9.a.
+RC-R Part I,LESS Cash flow hedges,LESS Accumulated net gains losses on cash flow hedges,RCFA,P846,9.c.
+RC-R Part I,LESS Postretirement AOCI,LESS Amounts in AOCI from defined benefit postretirement plans,RCFA,P847,9.d.
+RC-R Part I,LESS HTM unrealized,LESS Net unrealized gains losses on HTM securities in AOCI,RCFA,P848,9.e.
+RC-R Part I,LESS Cash flow hedges non-FV,LESS Accumulated net gain loss on cash flow hedges related to non-FV items,RCFA,P849,9.f.
+RC-R Part I,LESS Own credit risk,LESS Unrealized net gain loss from changes in FV of liabilities due to own credit risk,RCFA,Q258,10.a.
+RC-R Part I,LESS Other CET1 deductions,LESS All other deductions from additions to CET1 before threshold deductions,RCFA,P850,10.b.
+RC-R Part I,LESS Non-significant investments,LESS Non-significant investments in unconsolidated FIs exceeding 10% threshold (advanced only),RCFW,P851,11.
+RC-R Part I,Subtotal,Subtotal after adjustments and deductions,RCFA/RCFW,P852,12.
+RC-R Part I,LESS Investments exceeding 25%,LESS Investments in capital of unconsolidated FIs exceeding 25% of item 12 (non-advanced),RCFA,LB58,13.a.
+RC-R Part I,LESS Significant investments 10%,LESS Significant investments in common stock exceeding 10% CET1 threshold (advanced),RCFW,P853,13.b.
+RC-R Part I,LESS MSAs exceeding 25%,LESS MSAs net of DTLs exceeding 25% of item 12 (non-advanced),RCFA,LB59,14.a.
+RC-R Part I,LESS MSAs exceeding 10%,LESS MSAs net of DTLs exceeding 10% CET1 threshold (advanced),RCFW,P854,14.b.
+RC-R Part I,LESS DTAs temp diff 25%,LESS DTAs from temporary differences exceeding 25% of item 12 (non-advanced),RCFA,LB60,15.a.
+RC-R Part I,LESS DTAs temp diff 10%,LESS DTAs from temporary differences exceeding 10% CET1 threshold (advanced),RCFW,P855,15.b.
+RC-R Part I,LESS 15% threshold,LESS Amount exceeding 15% CET1 deduction threshold (advanced only),RCFW,P856,16.
+RC-R Part I,LESS Insufficient AT1/T2,LESS Deductions applied to CET1 due to insufficient additional tier 1 and tier 2 capital,RCFA/RCFW,P857,17.
+RC-R Part I,Total CET1 adj,Total adjustments and deductions for CET1 capital,RCFA/RCFW,P858,18.
+RC-R Part I,CET1 capital,Common equity tier 1 capital,RCFA/RCFW,P859,19.
+RC-R Part I,AT1 instruments,Additional tier 1 capital instruments plus related surplus,RCFA,P860,20.
+RC-R Part I,AT1 phase-out,Non-qualifying capital instruments subject to phase-out from additional tier 1,RCFA,P861,21.
+RC-R Part I,T1 minority interest,Tier 1 minority interest not included in CET1,RCFA,P862,22.
+RC-R Part I,AT1 before deductions,Additional tier 1 capital before deductions,RCFA,P863,23.
+RC-R Part I,LESS AT1 deductions,LESS Additional tier 1 capital deductions,RCFA,P864,24.
+RC-R Part I,AT1 capital,Additional tier 1 capital,RCFA,P865,25.
+RC-R Part I,Tier 1 capital,Tier 1 capital,RCFA,8274,26.
+RC-R Part I,Avg total consolidated assets,Average total consolidated assets,RCFA,KW03,27.
+RC-R Part I,LESS Deductions from T1,LESS Deductions from CET1 and additional tier 1 capital,RCFA,P875,28.
+RC-R Part I,LESS Other leverage deductions,LESS Other deductions from assets for leverage ratio,RCFA,B596,29.
+RC-R Part I,Total assets for leverage,Total assets for the leverage ratio,RCFA,A224,30.
+RC-R Part I,Leverage ratio,Leverage ratio percentage,RCFA,7204,31.
+RC-R Part I,CBLR election,CBLR framework election in effect,RCOA,LE74,31.a.
+RC-R Part I,SA-CCR opt-in,SA-CCR opt-in election (non-advanced only),RCOA,NC99,31.b.
+RC-R Part I,Total assets CBLR,Total assets for CBLR (must be less than $10 billion),RCFA,2170,32.
+RC-R Part I,Trading assets and liabilities CBLR,Trading assets and trading liabilities amount,RCFA,KX77,33.
+RC-R Part I,Trading pct CBLR,Trading assets and trading liabilities percentage (5% limit),RCFA,KX78,33. pct
+RC-R Part I,Conditionally cancellable,Unused portion of conditionally cancellable commitments,RCFA,KX79,34.a.
+RC-R Part I,Securities lent borrowed,Securities lent and borrowed,RCFA,KX80,34.b.
+RC-R Part I,Other OBS exposures,Other off-balance sheet exposures,RCFA,KX81,34.c.
+RC-R Part I,Total OBS exposures,Total off-balance sheet exposures amount,RCFA,KX82,34.d.
+RC-R Part I,Total OBS pct,Total off-balance sheet exposures percentage (25% limit),RCFA,KX83,34.d. pct
+RC-R Part I,Uncond cancellable commitments,Unconditionally cancellable commitments,RCFA,S540,35.
+RC-R Part I,Investments T2 unconsolidated FI,Investments in tier 2 capital of unconsolidated FIs,RCFA,LB61,36.
+RC-R Part I,Allocated transfer risk reserve,Allocated transfer risk reserve,RCFA,3128,37.
+RC-R Part I,ACL PCD loans HFI,Allowances for credit losses on PCD assets loans and leases HFI,RCFA,JJ30,38.a.
+RC-R Part I,ACL PCD HTM,Allowances for credit losses on PCD assets HTM debt securities,RCFA,JJ31,38.b.
+RC-R Part I,ACL PCD other,Allowances for credit losses on PCD assets other financial assets at amortized cost,RCFA,JJ32,38.c.
+RC-R Part I,T2 instruments,Tier 2 capital instruments plus related surplus,RCFA,P866,39.
+RC-R Part I,T2 phase-out,Non-qualifying capital instruments subject to phase-out from tier 2,RCFA,P867,40.
+RC-R Part I,Total capital minority interest,Total capital minority interest not in tier 1,RCFA,P868,41.
+RC-R Part I,AACL in tier 2,Adjusted allowances for credit losses includable in tier 2,RCFA,5310,42.a.
+RC-R Part I,Eligible credit reserves T2,Eligible credit reserves includable in tier 2 (advanced only),RCFW,5310,42.b.
+RC-R Part I,T2 before deductions,Tier 2 capital before deductions,RCFA,P870,44.a.
+RC-R Part I,T2 before deductions adv,Tier 2 capital before deductions (advanced),RCFW,P870,44.b.
+RC-R Part I,LESS T2 deductions,LESS Tier 2 capital deductions,RCFA,P872,45.
+RC-R Part I,Tier 2 capital,Tier 2 capital,RCFA,5311,46.a.
+RC-R Part I,Tier 2 capital adv,Tier 2 capital (advanced),RCFW,5311,46.b.
+RC-R Part I,Total capital,Total capital,RCFA,3792,47.a.
+RC-R Part I,Total capital adv,Total capital (advanced),RCFW,3792,47.b.
+RC-R Part I,Total RWA,Total risk-weighted assets,RCFA,A223,48.a.
+RC-R Part I,Total RWA adv,Total risk-weighted assets (advanced),RCFW,A223,48.b.
+RC-R Part I,CET1 ratio,Common equity tier 1 capital ratio,RCFA/RCFW,P793,49.
+RC-R Part I,Tier 1 ratio,Tier 1 capital ratio,RCFA/RCFW,7206,50.
+RC-R Part I,Total capital ratio,Total capital ratio,RCFA/RCFW,7205,51.
+RC-R Part I,Capital conservation buffer,Capital conservation buffer,RCFA,H311,52.a.
+RC-R Part I,Total applicable buffer,Total applicable capital buffer (advanced/Cat III only),RCFW,H312,52.b.
+RC-R Part I,Eligible retained income,Eligible retained income,RCFA,H313,53.
+RC-R Part I,Distributions and bonuses,Distributions and discretionary bonus payments during quarter,RCFA,H314,54.
+RC-R Part I,Total leverage exposure,Total leverage exposure (advanced/Cat III only),RCFA,H015,55.a.
+RC-R Part I,Supplementary leverage ratio,Supplementary leverage ratio,RCFA,H036,55.b.

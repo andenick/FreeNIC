@@ -1,0 +1,32 @@
+Schedule A - SLR Table 2: Supplementary Leverage Ratio,,,
+Dollar Amounts in Thousands,MDRM,Amount,Item
+On-balance sheet exposures,,,
+"Balance sheet carrying value of all on-balance sheet assets (excl. derivatives and repo-style, incl. collateral)",Y830,1384970000,2.1
+"Deductions: From common equity tier 1 capital and additional tier 1 capital",M349,6783000,2.2.a
+"Deductions: Qualifying central bank deposits for custodial banking organizations",LB42,0,2.2.b
+Total on-balance sheet exposures (item 2.1 minus items 2.2.a and 2.2.b),D956,1378187000,2.3
+Derivative transactions,,,
+Replacement cost for all derivative transactions,M337,92661000,2.4
+Add-on amounts for PFE for all derivative transactions,M339,204893000,2.5
+Gross-up for collateral posted in derivative transactions if deducted from balance sheet,Y822,0,2.6
+"Deduction of receivable assets for qualifying cash variation margin posted (positive amount)",Y823,0,2.7
+"Exempted exposures to CCPs in cleared transactions (positive amount)",Y824,23502000,2.8
+Adjusted effective notional principal amount of sold credit protection,M340,914899000,2.9
+"Adjusted effective notional principal amount offsets and PFE deductions for sold credit protection (positive amount)",Y825,855873000,2.10
+"Total derivative exposures (sum 2.4, 2.5, 2.6, 2.9 minus 2.7, 2.8, 2.10)",Y826,333078000,2.11
+Repo-style transactions,,,
+"Gross assets for repo-style transactions, with no recognition of netting",M334,556096000,2.12
+"Reduction of gross value of receivables in reverse repos by cash payables in repos (positive value)",Y828,188320000,2.13
+Counterparty credit risk for all repo-style transactions,N507,30111000,2.14
+Exposure amount for repo-style transactions where institution acts as agent,Y827,0,2.15
+"Total exposures for repo-style transactions (sum 2.12, 2.14, 2.15 minus 2.13)",Y829,397887000,2.16
+Off-balance sheet exposures,,,
+Off-balance sheet exposures at gross notional amounts,H012,347139000,2.17
+"Adjustments for conversion to credit equivalent amounts (positive amount)",H013,190943000,2.18
+Total off-balance sheet exposures (item 2.17 minus item 2.18),Y831,156196000,2.19
+Capital and total leverage exposure,,,
+Tier 1 capital,8274,118515000,2.20
+"Total leverage exposure (sum of items 2.3, 2.11, 2.16, and 2.19)",H015,2265348000,2.21
+Supplementary leverage ratio,MDRM,Percentage,Item
+Supplementary leverage ratio (item 2.20 / item 2.21),H036,5.2316,2.22
+"Holding companies subject to enhanced SLR standards only: Leverage buffer",FS93,2.2316,2.23

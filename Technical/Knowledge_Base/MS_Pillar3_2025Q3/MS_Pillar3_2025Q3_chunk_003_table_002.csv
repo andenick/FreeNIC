@@ -1,0 +1,8 @@
+Component,Measure for Market Risk ($ millions),RWA ($ millions)
+Regulatory VaR,751,9385
+Regulatory stressed VaR,1139,14233
+Incremental risk charge,206,2575
+Comprehensive risk measure,46,579
+Specific risk: Non-securitizations,1812,22651
+Specific risk: Securitizations,860,10745
+Total market risk,4814,60168

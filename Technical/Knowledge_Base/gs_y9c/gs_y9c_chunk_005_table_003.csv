@@ -1,0 +1,18 @@
+Schedule,Item,Description,MDRM_TotalFV,MDRM_Netted,MDRM_Level1,MDRM_Level2,MDRM_Level3
+HC-Q,1.,AFS debt and equity securities with RDFV not held for trading,BHCY JA36,BHCK G474,BHCK G475,BHCK G476,BHCK G477
+HC-Q,2.,Federal funds sold and securities purchased under agreements to resell,BHCK G478,BHCK G479,BHCK G480,BHCK G481,BHCK G482
+HC-Q,3.,Loans and leases held for sale,BHCK G483,BHCK G484,BHCK G485,BHCK G486,BHCK G487
+HC-Q,4.,Loans and leases held for investment,BHCK G488,BHCK G489,BHCK G490,BHCK G491,BHCK G492
+HC-Q,5.a.,Trading assets: Derivative assets,BHCT 3543,BHCK G493,BHCK G494,BHCK G495,BHCK G496
+HC-Q,5.b.,Trading assets: Other trading assets,BHCK G497,BHCK G498,BHCK G499,BHCK G500,BHCK G501
+HC-Q,5.b.(1),Nontrading securities at fair value with changes in earnings,BHCK F240,BHCK F684,BHCK F692,BHCK F241,BHCK F242
+HC-Q,6.,All other assets,BHCK G391,BHCK G392,BHCK G395,BHCK G396,BHCK G804
+HC-Q,7.,Total assets measured at fair value on a recurring basis,BHCK G502,BHCK G503,BHCK G504,BHCK G505,BHCK G506
+HC-Q,8.,Deposits,BHCK F252,BHCK F686,BHCK F694,BHCK F253,BHCK F254
+HC-Q,9.,Federal funds purchased and securities sold under agreements to repurchase,BHCK G507,BHCK G508,BHCK G509,BHCK G510,BHCK G511
+HC-Q,10.a.,Trading liabilities: Derivative liabilities,BHCT 3547,BHCK G512,BHCK G513,BHCK G514,BHCK G515
+HC-Q,10.b.,Trading liabilities: Other trading liabilities,BHCK G516,BHCK G517,BHCK G518,BHCK G519,BHCK G520
+HC-Q,11.,Other borrowed money,BHCK G521,BHCK G522,BHCK G523,BHCK G524,BHCK G525
+HC-Q,12.,Subordinated notes and debentures,BHCK G526,BHCK G527,BHCK G528,BHCK G529,BHCK G530
+HC-Q,13.,All other liabilities,BHCK G805,BHCK G806,BHCK G807,BHCK G808,BHCK G809
+HC-Q,14.,Total liabilities measured at fair value on a recurring basis,BHCK G531,BHCK G532,BHCK G533,BHCK G534,BHCK G535

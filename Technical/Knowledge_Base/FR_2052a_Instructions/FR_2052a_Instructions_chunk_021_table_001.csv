@@ -1,0 +1,22 @@
+Table Number,Description,Regulation Reference,PID,Counterparty,Maturity Bucket,Key Conditions
+10,Not FDIC insured transactional and non-relationship retail deposits excl sweeps/brokered,SS.104(c)(1),"O.D.1, 2","Retail, Small Business",#,Insured = Not FDIC
+11,Non-relationship retail deposits excl sweeps/brokered,SS.104(c)(1),"O.D.3, O.D.14","Retail, Small Business",#,Insured = #
+12,Insured reciprocal brokered deposits,SS.104(c)(2),O.D.13,"Retail, Small Business",#,Insured = FDIC
+13,Not FDIC insured affiliated relationship sweep deposits,SS.104(c)(3),O.D.9,"Retail, Small Business",#,Insured = Not FDIC
+14,Less stable affiliated retail sweep deposits,SS.104(c)(3),O.D.10,"Retail, Small Business",#,Insured = #
+15,Non-reciprocal brokered deposits maturing >= 1 year,SS.104(c)(4),O.D.8,"Retail, Small Business",>= 1 Year,
+16,Unsecured wholesale non-deposit funding from non-financials < 1 year,SS.104(d)(1),"O.W.9, 10, 17, 18, 19",Non-Financial Wholesale Entity,< 1 Year,Forward Start = NULL; Loss Absorbency = #
+17,Unsecured wholesale deposit funding from non-financials < 1 year,SS.104(d)(1),"O.D.5, 6, 8, 10, 11, 13, 14, 15",Non-Financial Wholesale Entity,< 1 Year,Collateral Class = NULL
+18,Securities financing transactions with non-financials < 1 year,SS.104(d)(2),"O.S.1, 2, 3, 5, 7, 11",Non-Financial Wholesale Entity,< 1 Year,Forward Start = NULL; Sub-Product = #
+19,Collateralized deposits from non-financials < 1 year,SS.104(d)(2),"O.D.5, 6, 8, 10, 11, 13, 14, 15",Non-Financial Wholesale Entity,< 1 Year,Collateral Class = Not NULL
+20,Unsecured wholesale non-deposit funding from financials/CB >= 6M < 1Y,SS.104(d)(3),"O.W.9, 10, 17, 18, 19","Financial Sector Entity, Central Bank",">= 6 Months, < 1 Year",Forward Start = NULL; Loss Absorbency = #
+21,Unsecured wholesale deposit funding from financials/CB >= 6M < 1Y,SS.104(d)(3),"O.D.5, 6, 8, 10, 11, 13, 14, 15","Financial Sector Entity, Central Bank",">= 6 Months, < 1 Year",Collateral Class = NULL
+22,Securities financing transactions with financials/CB >= 6M < 1Y,SS.104(d)(4),"O.S.1, 2, 3, 6, 11","Financial Sector Entity, Central Bank",">= 6 Months, < 1 Year",Sub-Product = Not FRFF; Forward Start = NULL
+23,Secured wholesale deposit funding from financials/CB >= 6M < 1Y,SS.104(d)(4),"O.D.5, 6, 8, 10, 11, 13, 14, 15","Financial Sector Entity, Central Bank",">= 6 Months, < 1 Year",Collateral Class = Not NULL
+24,Securities issued >= 6M < 1Y,SS.104(d)(5),"O.W.1-8, 11-16",#,">= 6 Months, < 1 Year",Forward Start = NULL; Loss Absorbency = #
+25,Operational deposits,SS.104(d)(6),"O.D.4, 7",#,#,
+26,Non-reciprocal brokered retail deposits in transactional accounts or >= 6M < 1Y,SS.104(d)(7),O.D.8,"Retail, Small Business","Open or >= 6 Months, < 1 Year",
+27,Non-affiliated retail sweep deposits,SS.104(d)(8),O.D.11,"Retail, Small Business",#,
+28,Other unsecured funding from retail customers,SS.104(d)(9),"O.W.18, 19","Retail, Small Business",#,Forward Start = NULL; Loss Absorbency = #
+29,Other secured funding from retail customers,SS.104(d)(9),"O.S.1, 2, 3, 7, 11","Retail, Small Business",#,Forward Start = NULL; Sub-Product = #
+30,Interest payable to retail customers,SS.104(d)(9),O.O.19,"Retail, Small Business",#,Forward Start = NULL

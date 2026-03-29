@@ -1,0 +1,19 @@
+Item,Description,Col_A_Totals,Col_B_Adjustments,Col_C_0pct,Col_D_2pct,Col_E_4pct,Col_F_10pct,Col_G_20pct,Col_H_50pct,Col_I_100pct,Col_J_150pct,Col_K_250pct,Col_L_300pct,Col_M_400pct,Col_N_600pct,Col_O_625pct,Col_P_937.5pct,Col_Q_1250pct,Col_R_OtherRW_Exposure,Col_S_OtherRW_RWA
+1,Cash and balances due from depository institutions,D957,S396,D958,,,,D959,S397,D960,S398,,,,,,,,
+2.a,Held-to-maturity securities,D961,S399,D962,HJ74,HJ75,,D963,D964,D965,S400,S405,,S406,,,,,,
+2.b,"AFS debt securities and equity securities with readily determinable fair values, not held for trading",JA21,S402,D967,HJ76,HJ77,,D968,D969,D970,S403,,,,,,,H271,H272
+3.a,Federal funds sold,D971,,D972,,,,D973,S410,D974,S411,,,,,,,,
+3.b,Securities purchased under agreements to resell,H171,H172,,,,,,,,,,,,,,,,
+4.a,Loans and leases held for sale: Residential mortgage exposures,S413,S414,H173,,,,S415,S416,S417,,,,,,,,,H273,H274
+4.b,Loans and leases held for sale: High volatility commercial real estate exposures,S419,S420,H174,,,,H175,H176,H177,S421,,,,,,,,H275,H276
+4.c,Loans and leases held for sale: Exposures past due 90+ days or on nonaccrual,S423,S424,S425,HJ78,HJ79,,S426,S427,S428,S429,,,,,,,,H277,H278
+4.d,Loans and leases held for sale: All other exposures,S431,S432,S433,HJ80,HJ81,,S434,S435,S436,S437,,,,,,,,H279,H280
+5.a,Loans and leases held for investment: Residential mortgage exposures,S439,S440,H178,,,,S441,S442,S443,,,,,,,,,H281,H282
+5.b,Loans and leases held for investment: High volatility commercial real estate exposures,S445,S446,H179,,,,H180,H181,H182,S447,,,,,,,,H283,H284
+5.c,Loans and leases held for investment: Exposures past due 90+ days or on nonaccrual,S449,S450,S451,HJ82,HJ83,,S452,S453,S454,S455,,,,,,,,H285,H286
+5.d,Loans and leases held for investment: All other exposures,S457,S458,S459,HJ84,HJ85,,S460,S461,S462,S463,,,,,,,,H287,H288
+6,LESS: Allowance for credit losses on loans and leases,3123,3123,,,,,,,,,,,,,,,,,
+7,Trading assets,D976,S466,D977,HJ86,HJ87,,D978,D979,D980,S467,H186,H290,H187,,,,,,H291,H292
+8,"All other assets (premises, OREO, investments in unconsolidated subsidiaries, intangibles, etc.)",D981,S469,D982,HJ88,HJ89,,D983,D984,D985,H185,H293,H188,S470,S471,,,,,H294,H295
+8.a,Separate account bank-owned life insurance,,,,,,,,,,,,,,,,,,H296,H297
+8.b,Default fund contributions to central counterparties,,,,,,,,,,,,,,,,,,H298,H299

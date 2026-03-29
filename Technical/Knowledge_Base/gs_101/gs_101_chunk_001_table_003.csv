@@ -1,0 +1,37 @@
+Schedule A - Capital Ratios and Buffers (Page A-3),,,
+Capital ratios and buffers,MDRM,Percentage,Item
+Common equity tier 1 capital ratio (item 29 / item 60),P793,15.0953,61
+Tier 1 capital ratio (item 45 / item 60),7206,17.2404,62
+Total capital ratio (item 59 / item 60),7205,18.7190,63
+"Institution-specific CET1 ratio to avoid limitations on distributions and bonuses",Y933,10.0000,64
+"of which: capital conservation buffer",FB52,2.5000,65
+"of which: countercyclical capital buffer (if applicable)",FB53,0.0000,66
+"of which: G-SIB surcharge (if applicable)",FB54,3.0000,67
+CET1 capital available to meet items 65 through 67 (as % of RWA),FB55,9.8445,68
+,,,
+Amounts not deducted (before risk-weighting),MDRM,Amount,Item
+"Non-significant investments in capital of unconsolidated FIs, not deducted",P907,7881000,72
+"Significant investments in unconsolidated FIs common stock, net of DTLs, not deducted",P908,2923000,73
+"MSAs, net of associated DTLs, not deducted",P909,0,74
+"DTAs from temporary differences, not deducted",P910,5769000,75
+,,,
+Limitations on provisions in tier 2 capital,MDRM,Amount,Item
+Total adjusted allowances for credit losses (AACL) under standardized approach,P911,5308000,76
+Amount of AACL includable in tier 2 capital under standardized approach,5310,5308000,77
+Total eligible credit reserves (calculated using advanced approaches),J183,5427000,78
+Amount of eligible credit reserves includable in tier 2 capital,J173,1263000,79
+,,,
+Non-qualifying capital instruments,MDRM,Amount,Item
+Cap on CET1 non-qualifying capital instruments subject to phase-out,P913,0,80
+Amount of CET1 non-qualifying capital instruments excluded,P914,0,81
+Cap on AT1 non-qualifying capital instruments subject to phase-out,P915,0,82
+Amount of AT1 non-qualifying capital instruments excluded,P916,0,83
+Cap on T2 non-qualifying capital instruments subject to phase-out,P917,0,84
+Amount of T2 non-qualifying capital instruments excluded,P918,0,85
+,,,
+Memoranda,MDRM,,Item
+Expected credit loss that exceeds eligible credit reserves,P886,0,86
+Advanced approaches RWA (from Schedule B item 36),A223,687426000,87
+CET1 capital ratio (calculated using advanced approaches),P793,15.0953,88
+Tier 1 capital ratio (calculated using advanced approaches),7206,17.2404,89
+Total capital ratio (calculated using advanced approaches),7205,18.7190,90
