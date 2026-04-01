@@ -1,0 +1,21 @@
+doc_id,source_pdf,total_pages,size_mb,chunk_count,density_category,hdarp_status,preparation_date,processing_date,enrichment_date,notes
+031_instructions,Inputs/2026.01.29 filing inputs/031_instructions.pdf,88,1.15,9,LOW,COMPLETE,2026-03-22T19:23:03.147612,2026-03-22T22:38:12.984932,,9 body + 12 tables
+041_instructions,Inputs/2026.01.29 filing inputs/041_instructions.pdf,86,0.77,9,LOW,COMPLETE,2026-03-22T19:23:03.172166,2026-03-22T22:38:12.984932,,9 body + 7 tables
+051instructions,Inputs/2026.01.29 filing inputs/051instructions.pdf,66,0.5,7,LOW,COMPLETE,2026-03-22T19:23:03.191012,2026-03-22T22:38:12.984932,,7 body + 13 tables
+BAC_Pillar3_2024Q4,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/BankOfAmerica/BAC_Pillar3_2024Q4.pdf,33,2.49,5,MEDIUM,COMPLETE,2026-03-22T19:23:03.545691,2026-03-22T22:38:12.984932,,5 body + 28 tables
+BAC_Pillar3_2025Q3,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/BankOfAmerica/BAC_Pillar3_2025Q3.pdf,33,0.71,4,LOW,COMPLETE,2026-03-22T19:23:03.561500,2026-03-22T22:38:12.984932,,4 body + 27 tables
+C_Pillar3_2024Q2,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/Citigroup/C_Pillar3_2024Q2.pdf,58,0.49,6,LOW,COMPLETE,2026-03-22T19:23:03.689428,2026-03-22T22:38:12.984932,,6 body + 36 tables
+C_Pillar3_2024Q3,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/Citigroup/C_Pillar3_2024Q3.pdf,58,0.42,6,LOW,COMPLETE,2026-03-22T19:23:03.713239,2026-03-22T22:38:12.984932,,6 body + 36 tables
+FR_2052a_Instructions,Inputs/newfilings_2026.01.27/FR_2052a/FR_2052a_Instructions_Current.pdf,253,2.61,26,LOW,COMPLETE,2026-03-22T19:23:03.515183,2026-03-22T22:38:12.984932,,26 body + 33 tables
+FR_Y14A_Instructions,Inputs/newfilings_2026.01.27/FR_Y14/FR_Y14A_Instructions_Current.pdf,160,1.32,16,LOW,COMPLETE,2026-03-22T19:23:03.242521,2026-03-22T22:38:12.984932,,16 body + 4 tables
+FR_Y14M_Instructions,Inputs/newfilings_2026.01.27/FR_Y14/FR_Y-14M_Instructions.pdf,184,1.49,19,LOW,COMPLETE,2026-03-22T19:23:03.403122,2026-03-22T22:38:12.984932,,19 body + 21 tables
+FR_Y14Q_Instructions,Inputs/newfilings_2026.01.27/FR_Y14/FR_Y14Q_Instructions_Current.pdf,313,2.59,32,LOW,COMPLETE,2026-03-22T19:23:03.350839,2026-03-22T22:38:12.984932,,32 body + 21 tables
+gs_101,Inputs/2026.01.29 filing inputs/gs_101.pdf,38,2.88,5,MEDIUM,COMPLETE,2026-03-22T19:23:03.119973,2026-03-22T22:38:12.984932,,5 body + 19 tables
+gs_bhcpr,Inputs/2026.01.29 filing inputs/gs_bhcpr.pdf,27,11.35,5,HIGH,COMPLETE,2026-03-22T19:23:02.934526,2026-03-22T22:38:12.984932,,5 body + 17 tables
+gs_y9c,Inputs/2026.01.29 filing inputs/gs_y9c.pdf,73,3.43,8,LOW,COMPLETE,2026-03-22T19:23:02.599478,2026-03-22T22:38:12.984932,,8 body + 43 tables
+JPM_Pillar3_2024Q1,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/JPMorgan/JPM_Pillar3_2024Q1.pdf,30,0.83,3,LOW,COMPLETE,2026-03-22T19:23:03.577730,2026-03-22T22:38:12.984932,,3 body + 41 tables
+JPM_Pillar3_2024Q4,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/JPMorgan/JPM_Pillar3_2024Q4.pdf,31,0.32,4,LOW,COMPLETE,2026-03-22T19:23:03.595837,2026-03-22T22:38:12.984932,,4 body + 44 tables
+MS_Pillar3_2024Q4,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/MorganStanley/MS_Pillar3_2024Q4.pdf,28,0.37,3,LOW,COMPLETE,2026-03-22T19:23:03.738550,2026-03-22T22:38:12.984932,,3 body + 27 tables
+MS_Pillar3_2025Q3,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/MorganStanley/MS_Pillar3_2025Q3.pdf,28,0.37,3,LOW,COMPLETE,2026-03-22T19:23:03.797114,2026-03-22T22:38:12.984932,,3 body + 27 tables
+WFC_Pillar3_2024Q2,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/WellsFargo/WFC_Pillar3_2024Q2.pdf,48,0.81,5,LOW,COMPLETE,2026-03-22T19:23:03.638655,2026-03-22T22:38:12.984932,,5 body + 31 tables
+WFC_Pillar3_2025Q1,Inputs/newfilings_2026.01.27/Pillar3_Disclosures/WellsFargo/WFC_Pillar3_2025Q1.pdf,47,0.65,5,LOW,COMPLETE,2026-03-22T19:23:03.664446,2026-03-22T22:38:12.984932,,5 body + 30 tables

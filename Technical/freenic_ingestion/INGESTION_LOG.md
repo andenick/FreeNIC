@@ -49,3 +49,5 @@
 | 2026-03-24 23:52:07 | Phase 12 | Parquet export: 34 tables, 5,083.0 MB total. 7671.6s |
 | 2026-03-25 07:59:43 | Phase 20 | Variable crosswalks: 76 entries across 4 sources. 44.9s |
 | 2026-03-25 08:00:35 | Phase 13 | Validation: 6/7 checks passed. 13.1s |
+| 2026-03-30 22:01:12 | Phase 10 | Catalog built: variables, filing_coverage, entity_coverage, schema_evolution, data_sources. 178.2s |
+| 2026-03-30 22:47:25 | Phase 12 | Parquet export: 34 tables, 5,065.2 MB total. 2722.1s |

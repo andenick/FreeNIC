@@ -218,6 +218,31 @@ def build_filing_coverage(con):
                COUNT(DISTINCT rssd_id), COUNT(DISTINCT variable_id), COUNT(*)
         FROM dfast_results
         GROUP BY year
+
+        UNION ALL
+
+        -- Robin panel (wide-format, 156 columns as "variables")
+        SELECT 'robin', MAKE_DATE(year, 12, 31),
+               COUNT(*), 156, COUNT(*)
+        FROM robin_panel
+        GROUP BY year
+
+        UNION ALL
+
+        -- FRED series
+        SELECT 'fred', observation_date,
+               1, COUNT(DISTINCT series_id), COUNT(*)
+        FROM fred_series
+        GROUP BY observation_date
+
+        UNION ALL
+
+        -- FDIC history events
+        SELECT 'fdic_history', effective_date,
+               COUNT(DISTINCT fdic_cert), 1, COUNT(*)
+        FROM fdic_history
+        WHERE effective_date IS NOT NULL
+        GROUP BY effective_date
     """)
 
     count = con.execute("SELECT COUNT(*) FROM catalog.filing_coverage").fetchone()[0]
@@ -291,6 +316,27 @@ def build_entity_coverage(con):
                COUNT(DISTINCT period_end)
         FROM pillar3_disclosures
         GROUP BY rssd_id
+
+        UNION ALL
+
+        -- Robin panel entities (only those with RSSD mapping via crosswalk)
+        SELECT rc.rssd_id, 'robin',
+               MIN(MAKE_DATE(rp.year, 12, 31)), MAX(MAKE_DATE(rp.year, 12, 31)),
+               COUNT(DISTINCT rp.year)
+        FROM robin_panel rp
+        JOIN robin_crosswalk rc ON CAST(rp.bank_id AS BIGINT) = CAST(rc.bank_id_robin AS BIGINT)
+        WHERE rc.rssd_id IS NOT NULL
+        GROUP BY rc.rssd_id
+
+        UNION ALL
+
+        -- FDIC history entities
+        SELECT fdic_cert, 'fdic_history',
+               MIN(effective_date), MAX(effective_date),
+               COUNT(*)
+        FROM fdic_history
+        WHERE effective_date IS NOT NULL
+        GROUP BY fdic_cert
     """)
 
     count = con.execute("SELECT COUNT(*) FROM catalog.entity_coverage").fetchone()[0]
@@ -454,6 +500,46 @@ def build_data_sources(con):
             'Pillar 3 quarterly disclosure CSV from HDARP extraction' AS description,
             '24_ingest_pillar3.py' AS ingestion_script
         FROM pillar3_disclosures
+
+        UNION ALL
+
+        SELECT 'fdic_history_api', 'Inputs/fdic_history/', 'fdic_api',
+            'FDIC institution history events via api.fdic.gov', '25_ingest_fdic_history.py'
+
+        UNION ALL
+
+        SELECT 'fred_banking_macro', 'Inputs/fred_h8/', 'fred_csv',
+            'FRED banking and macroeconomic time series', '27_ingest_fed_h8.py'
+
+        UNION ALL
+
+        SELECT 'robin_panel', 'Volcker/Inputs/Robin/FAILING_BANKS/', 'robin_csv',
+            'Robin Failing Banks annual panel (1863-2024)', '28_ingest_robin_panel.py'
+
+        UNION ALL
+
+        SELECT 'robin_deposits', 'Volcker/Inputs/Robin/FAILING_BANKS/', 'robin_csv',
+            'Robin deposit dynamics (historical + modern)', '28_ingest_robin_panel.py'
+
+        UNION ALL
+
+        SELECT 'robin_crosswalk', 'Volcker/Technical/Catalogs/bank_identifier_crosswalk.csv', 'csv',
+            'Robin bank_id to RSSD/FDIC cert crosswalk', '29_ingest_volcker_catalogs.py'
+
+        UNION ALL
+
+        SELECT 'bhc_ownership', 'Volcker/Technical/Catalogs/bhc_hierarchy.csv', 'csv',
+            'BHC parent-child ownership hierarchy', '29_ingest_volcker_catalogs.py'
+
+        UNION ALL
+
+        SELECT 'sector_groupings', 'Volcker/Technical/Catalogs/sec_filings_catalog.csv', 'csv',
+            'CIK to SIC to sector classifications', '29_ingest_volcker_catalogs.py'
+
+        UNION ALL
+
+        SELECT 'stress_scenarios', 'Inputs/dfast/', 'dfast_csv',
+            'Fed stress test scenario definitions (domestic + international)', '30_ingest_stress_scenarios.py'
     """)
 
     count = con.execute("SELECT COUNT(*) FROM catalog.data_sources").fetchone()[0]

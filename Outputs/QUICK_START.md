@@ -2,7 +2,7 @@
 
 ## What is freenic?
 
-A unified DuckDB database of all publicly available US banking regulatory data — 1.50 billion observations spanning 1867-2025. Covers 217,210 institutions, 9,375 variables, 91,782 entity-filing combinations, 24,056 FDIC-insured banks with quarterly financials, 294,035 bank branches with deposit data, 43 stress-tested BHCs, 5 G-SIB Pillar 3 disclosures, and 4,114 bank failures since 1934.
+A unified DuckDB database of all publicly available US banking regulatory data — 1.50 billion observations spanning 1863-2026. Covers 217,210 institutions, 9,375 variables, 140,134 entity-filing combinations across 10 filing types, 24,056 FDIC-insured banks with quarterly financials, 294,035 bank branches with deposit data, 43 stress-tested BHCs, 5 G-SIB Pillar 3 disclosures, 4,114 bank failures since 1934, the Robin Failing Banks panel (39,299 banks, 1863-2024), and FRED macroeconomic context series.
 
 ## Connect
 
@@ -189,6 +189,9 @@ ORDER BY t.dt_trans DESC;
 | `bank_failures_enriched` | Failures joined with institution details (RSSD, entity type, regulator) |
 | `deposit_market_share` | Per-institution annual deposit market share by state and county |
 | `stress_test_summary` | DFAST Severely Adverse scenario results only |
+| `cross_source_financials` | Unified financial data across BHCF/Luck/FDIC via variable crosswalk |
+| `robin_panel_enriched` | Robin panel + RSSD/FDIC cert linkage via crosswalk |
+| `failure_timeline` | Combined Robin + FDIC failures with cross-database matching |
 
 ```sql
 -- Use views for enriched queries without manual joins:
@@ -295,31 +298,123 @@ LIMIT 20;
 | bhcf_filings | 208.1M | FFIEC Bulk Downloads + BHCF CSV | 1986Q3-2025Q4 |
 | fdic_financials | 69.3M | FDIC BankFind API (SDI) | 1984Q1-2025Q4 |
 | occ_historical | 9.8M | OCC Balance Sheets (TSV) | 1867-1904 |
+| robin_panel | 2.87M | Robin Failing Banks Database | 1863-2024 |
 | fdic_sod | 2.7M | FDIC BankFind API (SOD) | 1994-2025 |
+| fdic_history | 582K | FDIC History API | all dates |
+| fred_series | 75K | FRED (15 banking + macro series) | 1954-2025 |
+| bhc_ownership | 36.7K | Volcker BHC hierarchy catalog | current |
 | dfast_results | 28K | Federal Reserve DFAST CSV | 2013-2025 |
+| sector_groupings | 16.5K | SEC CIK→SIC→sector | current |
+| robin_crosswalk | 14.3K | Robin↔RSSD/FDIC cert mapping | reference |
 | pillar3_disclosures | 8K | HDARP-extracted Pillar 3 CSVs | 2024Q1-2025Q3 |
 | bank_failures | 4.1K | FDIC Failed Banks API | 1934-2026 |
+| robin_deposits_* | 3.5K | Robin deposit dynamics | historical+modern |
+| stress_scenarios_* | 452 | Fed stress test definitions | 2026 |
 | institutions | 217K | NIC Active + Closed Attributes | current |
 | mdrm | 87K | FFIEC Master Data Reference Manual | reference |
 | crsp_mapping | 19K | CRSP-FRB Link (16 vintages) | 1959-2025 |
+
+## Additional Queries
+
+### Robin historical bank data (1863-2024)
+
+```sql
+-- Bank-level assets for all banks in 1929 (Great Depression onset)
+SELECT canonical_bank_name, state_abbrev, assets, deposits, failed_bank
+FROM robin_panel
+WHERE year = 1929
+ORDER BY assets DESC NULLS LAST
+LIMIT 20;
+
+-- Banks that failed with run indicators
+SELECT canonical_bank_name, year, assets, time_to_fail
+FROM robin_panel
+WHERE failed_bank = 1 AND year BETWEEN 1930 AND 1933
+ORDER BY assets DESC NULLS LAST
+LIMIT 20;
+```
+
+### FRED macro context
+
+```sql
+-- Federal funds rate over time
+SELECT observation_date, value AS fed_funds_rate
+FROM fred_series
+WHERE series_id = 'FEDFUNDS'
+ORDER BY observation_date DESC
+LIMIT 20;
+```
+
+### FDIC institution history
+
+```sql
+-- All mergers in 2023
+SELECT institution_name, change_desc, effective_date, city, state_code
+FROM fdic_history
+WHERE change_desc ILIKE '%merger%' AND YEAR(effective_date) = 2023
+ORDER BY effective_date;
+```
+
+### BHC ownership hierarchy
+
+```sql
+-- All subsidiaries of JPMorgan Chase
+SELECT rssd_id_bank, nm_lgl, entity_type, pct_equity, hierarchy_level
+FROM bhc_ownership
+WHERE rssd_id_bhc = 1039502
+ORDER BY hierarchy_level, nm_lgl;
+```
+
+### Stress test scenario definitions
+
+```sql
+-- Severely Adverse unemployment projections
+SELECT "Date", "Unemployment rate", "Real GDP growth"
+FROM stress_scenarios_domestic
+WHERE "Scenario Name" = 'Severely Adverse'
+ORDER BY "Date";
+```
+
+### Failure timeline (cross-database)
+
+```sql
+-- Failures with both Robin and FDIC data
+SELECT canonical_bank_name, year, assets, fdic_name, fdic_closing_date, acquiring_institution
+FROM failure_timeline
+WHERE fdic_cert IS NOT NULL
+ORDER BY assets DESC NULLS LAST
+LIMIT 20;
+```
 
 ## File Layout
 
 ```
 Outputs/
-  freenic.duckdb          # 8.0 GB — the complete database
-  parquet/                 # ~3.8 GB — per-table Parquet exports
+  freenic.duckdb          # 9.2 GB — the complete database
+  parquet/                 # ~5.0 GB — per-table Parquet exports (34 files)
     institutions.parquet
     bhcf_filings.parquet
     call_report_filings.parquet
     luck_call_reports.parquet
     fdic_financials.parquet
     fdic_sod.parquet
+    fdic_history.parquet
+    fred_series.parquet
+    robin_panel.parquet
+    robin_deposits_historical.parquet
+    robin_deposits_modern.parquet
+    robin_crosswalk.parquet
+    bhc_ownership.parquet
+    sector_groupings.parquet
+    stress_scenarios_domestic.parquet
+    stress_scenarios_international.parquet
     dfast_results.parquet
     pillar3_disclosures.parquet
     occ_historical.parquet
-    ... (23 tables total)
+    variable_crosswalk.parquet
+    ... and 14 more (reference, catalog, etc.)
   QUICK_START.md           # this file
   DATA_DICTIONARY.md       # full schema reference
+  DATA_SOURCE_INVENTORY.md # all 20 ingested sources
   COVERAGE_GAPS.md         # known data gaps and limitations
 ```

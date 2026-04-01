@@ -2,12 +2,12 @@
 
 ## Overview
 
-- **Total rows**: 1,499,110,463
-- **Tables**: 24 (19 main + 5 catalog)
-- **Views**: 8 convenience views
+- **Total rows**: 1,502,730,000+
+- **Tables**: 34 (29 main + 5 catalog)
+- **Views**: 10 convenience views
 - **Variables cataloged**: 9,375 (84.6% matched to MDRM)
-- **Cross-source crosswalk**: 64 variable mappings across 3 sources
-- **Temporal coverage**: 1867-2025
+- **Cross-source crosswalk**: 76 variable mappings across 4 sources
+- **Temporal coverage**: 1863-2026
 
 ---
 
@@ -236,7 +236,7 @@ Every unique variable observed across all filing types.
 | description_full | VARCHAR | Full MDRM description |
 | schedule | VARCHAR | Reporting schedule |
 
-### `catalog.filing_coverage` — Quarterly Coverage (724 rows)
+### `catalog.filing_coverage` — Quarterly Coverage (53,394 rows)
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -248,7 +248,7 @@ Every unique variable observed across all filing types.
 | pct_populated | DOUBLE | Sparsity measure |
 | source_files | VARCHAR[] | Source files used |
 
-### `catalog.entity_coverage` — Per-Entity Filing History (91,782 rows)
+### `catalog.entity_coverage` — Per-Entity Filing History (140,134 rows)
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -258,7 +258,7 @@ Every unique variable observed across all filing types.
 | last_filing | DATE | Last filing date |
 | total_filings | INTEGER | Number of filings |
 
-### `catalog.data_sources` — Provenance Tracking (581 rows)
+### `catalog.data_sources` — Provenance Tracking (589 rows)
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -311,18 +311,24 @@ DFAST results filtered to Severely Adverse scenario only — the binding constra
 ### `cross_source_financials` (118,462,126 rows)
 Unified financial data across BHCF, Luck, and FDIC SDI via the variable crosswalk. Enables concept-level queries (e.g., "total_assets") that automatically span all sources. Columns: rssd_id, institution_name, period_end, concept, source_variable, source_table, value.
 
+### `robin_panel_enriched` (2,867,936 rows)
+Robin panel joined with RSSD and FDIC cert identifiers via robin_crosswalk. All 156 Robin columns plus rssd_id, fdic_cert, name_ffiec, match_confidence, ffiec_entity_type, rssd_id_bhc. Use for linking Robin historical data to modern regulatory identifiers.
+
+### `failure_timeline` (17 columns)
+Combined failure records from Robin (failed_bank indicator) and FDIC bank_failures, matched via robin_crosswalk. Columns: bank_id, canonical_bank_name, state_abbrev, year, assets, deposits, equity, failed_bank, receivership_date, time_to_fail, bank_run_indicator, rssd_id, fdic_cert, fdic_name, fdic_closing_date, acquiring_institution, fund.
+
 ---
 
 ## Crosswalk Layer
 
-### `variable_crosswalk` — Cross-Source Variable Mapping (64 rows)
+### `variable_crosswalk` — Cross-Source Variable Mapping (76 rows)
 
-Maps plain-language variable names from Luck, FDIC SDI, and DFAST to MDRM codes and standardized concept names.
+Maps plain-language variable names from Luck, FDIC SDI, Robin, and DFAST to MDRM codes and standardized concept names.
 
 | Column | Type | Description |
 |--------|------|-------------|
 | source_variable | VARCHAR | Variable name in the source table |
-| source_table | VARCHAR | Source table (luck_call_reports, fdic_financials, dfast_results) |
+| source_table | VARCHAR | Source table (luck_call_reports, fdic_financials, robin_panel, dfast_results) |
 | mdrm_variable | VARCHAR | Corresponding MDRM code (NULL if no direct match) |
 | concept | VARCHAR | Standardized concept name (e.g., total_assets, net_income) |
 | match_confidence | VARCHAR | Confidence: exact, probable, manual, derived, metadata |
@@ -402,9 +408,194 @@ Branch-level deposit data from the FDIC Summary of Deposits survey. 15,505 insti
 | regulator | VARCHAR | Primary federal regulator |
 | source | VARCHAR | Data source ('fdic_sod') |
 
+### `fdic_history` — Institution History Events (581,588 rows)
+
+All FDIC-recorded institution history events (name changes, mergers, charter conversions, openings, closings).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| fdic_cert | INTEGER | FDIC certificate number |
+| institution_name | VARCHAR | Institution name at time of event |
+| change_code | INTEGER | Event type code |
+| change_desc | VARCHAR | Event description (e.g., "Name Change", "Merger", "Failure") |
+| effective_date | DATE | Event date |
+| city | VARCHAR | City |
+| state_code | VARCHAR | State abbreviation |
+| county | VARCHAR | County name |
+| class_code | VARCHAR | Charter class code |
+| process_date | DATE | FDIC processing date |
+
+### `fred_series` — FRED Banking & Macro Series (75,037 rows)
+
+15 FRED time series providing macroeconomic context (1954-2025): bank credit, deposits, interest rates, GDP, unemployment.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| series_id | VARCHAR | FRED series ID (e.g., TOTBKCR, FEDFUNDS, GDP) |
+| observation_date | DATE | Observation date |
+| value | DOUBLE | Observed value |
+| series_name | VARCHAR | Human-readable series name |
+
+---
+
+## Robin Panel Layer
+
+### `robin_panel` — Robin Failing Banks Annual Panel (2,867,936 rows)
+
+Annual bank-level data from the Robin Failing Banks database. 39,299 banks, 156 variables, 1863-2024. Provides the deepest historical coverage in freenic, filling the 1905-1958 gap at annual granularity.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| bank_id | DOUBLE | Robin bank identifier |
+| canonical_bank_name | VARCHAR | Standardized bank name |
+| city_name | VARCHAR | City |
+| state_abbrev | VARCHAR | State abbreviation |
+| year | BIGINT | Observation year |
+| charter | VARCHAR | Charter type |
+| assets | DOUBLE | Total assets |
+| deposits | DOUBLE | Total deposits |
+| loans | DOUBLE | Total loans |
+| equity | DOUBLE | Total equity |
+| capital | VARCHAR | Capital |
+| surplus | VARCHAR | Surplus |
+| liquid | DOUBLE | Liquid assets |
+| oreo | VARCHAR | Other real estate owned |
+| failed_bank | BIGINT | Failure indicator (1 = failed) |
+| time_to_fail | DOUBLE | Years until failure |
+| call_date | DATE | Call report date |
+| ... | ... | 139 additional financial, macro, and risk variables |
+
+### `robin_deposits_historical` — Pre-FDIC Deposit Dynamics (2,961 rows)
+
+Deposit and asset data at suspension for pre-FDIC failed banks. Includes receivership outcomes (collections, dividends, offsets).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| failure_id | BIGINT | Failure event identifier |
+| charter | DOUBLE | Charter type |
+| deposits_at_suspension | DOUBLE | Deposits at time of suspension |
+| assets_at_suspension | DOUBLE | Assets at time of suspension |
+| simplified_cause_of_failure | VARCHAR | Cause of failure |
+| collected_from_assets | DOUBLE | Amount collected from asset liquidation |
+| dividends | DOUBLE | Dividends paid to depositors |
+| ... | ... | 71 additional receivership and recovery columns |
+
+### `robin_deposits_modern` — Modern Deposit Dynamics (547 rows)
+
+Deposit dynamics for modern (post-FDIC) bank failures. Includes bank run indicators, brokered deposits, and funding structure.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| bank_id | DOUBLE | Robin bank identifier |
+| year | BIGINT | Year |
+| quarter | DATE | Quarter date |
+| assets | DOUBLE | Total assets |
+| deposits | DOUBLE | Total deposits |
+| failed_bank | BIGINT | Failure indicator |
+| deposits_time | DOUBLE | Time deposits |
+| deposits_demand | DOUBLE | Demand deposits |
+| brokered_dep | DOUBLE | Brokered deposits |
+| otherbor_liab | DOUBLE | Other borrowed liabilities |
+| ... | ... | 37 additional funding and risk columns |
+
+### `robin_crosswalk` — Robin ↔ RSSD/FDIC Mapping (14,286 rows)
+
+Maps Robin bank_id to FFIEC RSSD IDs and FDIC certificate numbers. 6.5% match rate to institutions table (expected — most Robin IDs are pre-NIC historical banks).
+
+| Column | Type | Description |
+|--------|------|-------------|
+| bank_id_robin | INTEGER | Robin bank identifier |
+| charter_robin | INTEGER | Robin charter number |
+| rssd_id | INTEGER | FK → institutions (NULL if no match) |
+| fdic_cert | INTEGER | FDIC certificate number |
+| canonical_name_robin | VARCHAR | Robin bank name |
+| name_ffiec | VARCHAR | FFIEC institution name |
+| match_method | VARCHAR | How match was determined |
+| match_confidence | DOUBLE | Match confidence score |
+| robin_year_min | INTEGER | First year in Robin data |
+| robin_year_max | INTEGER | Last year in Robin data |
+| entity_type | VARCHAR | FFIEC entity type |
+| is_bhc | BOOLEAN | Bank holding company flag |
+| failed | INTEGER | Failure flag |
+| rssd_id_bhc | INTEGER | Parent BHC RSSD ID |
+
+---
+
+## BHC & Sector Layer
+
+### `bhc_ownership` — BHC Ownership Hierarchy (36,668 rows)
+
+Parent-child ownership relationships for bank holding companies. Includes equity percentages and hierarchy levels.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| rssd_id_bhc | INTEGER | Parent BHC RSSD ID |
+| rssd_id_bank | INTEGER | Subsidiary bank RSSD ID |
+| fdic_cert | INTEGER | FDIC certificate number |
+| hierarchy_level | INTEGER | Level in ownership tree |
+| relationship_type | VARCHAR | Relationship type |
+| pct_equity | DOUBLE | Equity ownership percentage |
+| nm_lgl | VARCHAR | Legal name |
+| nm_short | VARCHAR | Short name |
+| city | VARCHAR | City |
+| state_abbr | VARCHAR | State abbreviation |
+| entity_type | VARCHAR | Entity type code |
+| is_bhc | BOOLEAN | BHC indicator |
+| is_primary_bank | BOOLEAN | Primary bank indicator |
+| status | VARCHAR | Active/Inactive status |
+
+### `sector_groupings` — CIK→SIC→Sector Classifications (16,548 rows)
+
+Maps SEC CIK identifiers to SIC codes and sector groups. Useful for classifying BHCs by industry sector.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| cik | VARCHAR | SEC CIK identifier |
+| ticker | VARCHAR | Stock ticker |
+| company_name | VARCHAR | Company name |
+| sic_code | DOUBLE | SIC industry code |
+| sector_group | VARCHAR | Sector classification |
+
 ---
 
 ## Stress Testing & Disclosure Layer
+
+### `stress_scenarios_domestic` — Fed Domestic Stress Scenarios (226 rows)
+
+Federal Reserve stress test domestic macroeconomic scenario definitions. Quarterly projections for GDP, unemployment, rates, house prices, etc.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| Scenario Name | VARCHAR | Scenario (Baseline, Adverse, Severely Adverse) |
+| Date | VARCHAR | Projection quarter |
+| Real GDP growth | DOUBLE | Real GDP growth rate (%) |
+| Unemployment rate | DOUBLE | Unemployment rate (%) |
+| CPI inflation rate | DOUBLE | CPI inflation rate (%) |
+| 3-month Treasury rate | DOUBLE | 3-month T-bill rate (%) |
+| 10-year Treasury yield | DOUBLE | 10-year Treasury yield (%) |
+| BBB corporate yield | DOUBLE | BBB corporate bond yield (%) |
+| Mortgage rate | DOUBLE | 30-year mortgage rate (%) |
+| House Price Index (Level) | DOUBLE | HPI level index |
+| ... | ... | 8 additional domestic macro variables |
+
+### `stress_scenarios_international` — Fed International Stress Scenarios (226 rows)
+
+Federal Reserve stress test international macroeconomic scenario definitions.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| Scenario Name | VARCHAR | Scenario (Baseline, Adverse, Severely Adverse) |
+| Date | VARCHAR | Projection quarter |
+| Euro area real GDP growth | DOUBLE | Euro area GDP growth (%) |
+| Euro area inflation | DOUBLE | Euro area CPI (%) |
+| Euro area bilateral dollar exchange rate (USD/euro) | DOUBLE | USD/EUR exchange rate |
+| Japan real GDP growth | DOUBLE | Japan GDP growth (%) |
+| U.K. real GDP growth | DOUBLE | UK GDP growth (%) |
+| ... | ... | 7 additional international variables |
+
+---
+
+## Stress Testing & Disclosure Layer (continued)
 
 ### `dfast_results` — DFAST Stress Test Results (28,231 rows)
 

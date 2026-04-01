@@ -1,5 +1,53 @@
 # freenic Progress Log
 
+## Session 9 — 2026-03-30/31 (Opus 4.6)
+
+**Focus**: Recatalog, Python/R packages, MCP upgrade, new accessor functions
+
+**Accomplished**:
+- Part A: Recatalog & documentation update
+  - Updated `10_build_catalog.py` to cover Robin, FRED, FDIC history in entity_coverage, filing_coverage, data_sources
+  - Rebuilt catalog: filing_coverage 724→53,394 rows, entity_coverage 91,782→140,134 rows
+  - Re-exported all 34 Parquet files (5.0 GB, 45 min)
+  - Updated DATA_DICTIONARY.md: added 10 missing tables + 2 missing views
+  - Updated QUICK_START.md: corrected counts (34 tables), added 6 new query examples, new file layout
+- Part B: Python package (`Outputs/freenic_py/`)
+  - Built pip-installable package with Parquet-backed DuckDB-on-memory engine
+  - 16 public functions: set_data_dir, query, list_tables, describe, close, lookup_institution, lookup_rssd, lookup_column_id, get_financials, search_variables, get_hierarchy, get_failures, show_source_descriptions, show_regulatory_groups, verify_mdrm_codes, verify_rssds
+  - 24 pytest tests passing
+  - pyproject.toml with hatchling build backend
+- Part C: R package (`Outputs/freenic_r/`)
+  - Built arrow-based Parquet reader package
+  - 34 read_*() functions (one per table) + freenic_query() SQL via DuckDB-on-Parquet
+  - 6 lookup/verify functions: lookup_rssd, lookup_column_id, show_source_descriptions, show_regulatory_groups, verify_mdrm_codes, verify_rssds
+  - Config: freenic_set_data_dir() / FREENIC_DATA_DIR env var
+  - DESCRIPTION, NAMESPACE, LICENSE, tests scaffolded
+- Part D: MCP server upgrade (`Technical/freenic_mcp/server.py`)
+  - Expanded from 7 to 15 tools
+  - New tools: get_failures, get_fred_series, lookup_rssd, lookup_column_id, show_source_descriptions, show_regulatory_groups, verify_mdrm_codes, verify_rssds
+  - Added source="robin" to get_financials
+  - Added SUMMARIZE to allowed SQL keywords
+  - 15/15 existing tests pass
+
+**Decisions**:
+- Parquet-only for both packages (no bundled DuckDB — 9.2 GB too large)
+- Packages in Outputs/ (distributable artifacts)
+- MCP server stays separate at Technical/freenic_mcp/ (improved in place)
+- R returns list from lookup_column_id (catalog + crosswalk have different schemas)
+- FDIC financials accessor uses fdic_cert not rssd_id (fixed from Session 8 bug)
+- Robin bank_id needs BIGINT cast (values exceed INT32 range)
+
+**Files Created**:
+- `Outputs/freenic_py/` — Complete Python package (pyproject.toml, src/freenic/*.py, tests/*.py, README.md, LICENSE)
+- `Outputs/freenic_r/` — Complete R package (DESCRIPTION, NAMESPACE, R/*.R, tests/*, LICENSE)
+
+**Files Modified**:
+- `Technical/freenic_ingestion/scripts/10_build_catalog.py` — Added Robin/FRED/FDIC history coverage
+- `Technical/freenic_mcp/server.py` — 7→15 tools, robin source, improved docstrings
+- `Outputs/DATA_DICTIONARY.md` — 10 new tables, 2 new views, updated counts
+- `Outputs/QUICK_START.md` — Updated overview, data sources table, file layout, 6 new query examples
+- `Outputs/parquet/*.parquet` — All 34 files re-exported with updated catalog
+
 ## Session 8 — 2026-03-24 (Opus 4.6)
 
 **Focus**: Cross-project data enrichment from Volcker project
