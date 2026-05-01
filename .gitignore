@@ -12,6 +12,9 @@ Inputs/dfast/
 Inputs/luck_database/
 Inputs/filing_instructions/
 Inputs/occ/
+Inputs/chicago_fed_call_reports/
+Inputs/newfilings*/
+Inputs/nic_attributes/
 
 # Keep Inputs/README.md
 !Inputs/README.md
