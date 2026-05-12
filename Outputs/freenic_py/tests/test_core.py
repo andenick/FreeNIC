@@ -1,12 +1,13 @@
 """Tests for freenic core functionality."""
 
 import os
+from pathlib import Path
 import pytest
 import freenic
 
 PARQUET_DIR = os.environ.get(
     "FREENIC_DATA_DIR",
-    "D:/Arcanum/Projects/freenic/Outputs/parquet",
+    str(Path(__file__).resolve().parent.parent.parent.parent / "Outputs" / "parquet"),
 )
 
 

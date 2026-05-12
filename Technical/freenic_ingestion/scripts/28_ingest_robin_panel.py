@@ -1,6 +1,7 @@
-"""Phase 28: Ingest Robin Failing Banks panel dataset from Volcker project.
+"""Phase 28: Ingest Robin Failing Banks panel dataset.
 
-Source: D:/Arcanum/Projects/Volcker/Inputs/Robin/FAILING_BANKS/
+Source: Set VOLCKER_DATA_DIR env var, or defaults to ../../../Projects/Volcker
+Original location: Volcker project Inputs/Robin/FAILING_BANKS/
 - combined_data.csv: 2,867,936 bank-year observations, 156 variables, 1863-2024
 - deposits_before_failure_historical.csv: 2,961 pre-FDIC era deposit dynamics
 - deposits_before_failure_modern.csv: 547 modern era deposit dynamics with run indicator
@@ -16,7 +17,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from utils import get_db, log_ingestion, timer
 
-VOLCKER_ROBIN = Path("D:/Arcanum/Projects/Volcker/Inputs/Robin/FAILING_BANKS")
+import os
+_volcker_root = Path(os.environ.get("VOLCKER_DATA_DIR", str(Path(__file__).resolve().parent.parent.parent.parent.parent / "Volcker")))
+VOLCKER_ROBIN = _volcker_root / "Inputs" / "Robin" / "FAILING_BANKS"
 
 
 def ingest_panel(con):

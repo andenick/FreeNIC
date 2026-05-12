@@ -8,7 +8,7 @@ from datetime import datetime
 from pathlib import Path
 
 # Project paths
-PROJECT_ROOT = Path("D:/Arcanum/Projects/freenic")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 INPUTS_DIR = PROJECT_ROOT / "Inputs"
 TECHNICAL_DIR = PROJECT_ROOT / "Technical"
 OUTPUTS_DIR = PROJECT_ROOT / "Outputs"

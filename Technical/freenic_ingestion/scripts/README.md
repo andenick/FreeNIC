@@ -41,7 +41,7 @@
 
 All input paths are centralized in `utils.py` via the `INPUT_PATHS` dictionary.
 Scripts import `INPUT_PATHS` rather than constructing paths from `INPUTS_DIR`.
-Scripts 28-30 reference the Volcker project directly (`D:/Arcanum/Projects/Volcker/`).
+Scripts 28-30 reference the Volcker project via `VOLCKER_DATA_DIR` env var (defaults to `../../../Projects/Volcker`).
 
 ## Adding a New Data Source
 

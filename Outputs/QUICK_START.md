@@ -35,7 +35,7 @@ freenic includes an MCP server for querying the database directly from Claude Co
 
 **Setup** (already registered if you ran `/readystart freenic`):
 ```bash
-claude mcp add freenic -- python "D:/Arcanum/Projects/freenic/Technical/freenic_mcp/server.py"
+claude mcp add freenic -- python Technical/freenic_mcp/server.py
 ```
 
 **Available tools**:

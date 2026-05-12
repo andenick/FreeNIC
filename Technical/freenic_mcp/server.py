@@ -61,7 +61,7 @@ def _resolve_connection() -> duckdb.DuckDBPyConnection:
     Resolution order:
       1. FREENIC_DATA_DIR — directory of .parquet files (creates in-memory DB with views)
       2. FREENIC_DB_PATH  — path to a .duckdb file (opens read-only)
-      3. Default fallback to D:/Arcanum/Projects/freenic/Outputs/freenic.duckdb
+      3. Default fallback to ./Outputs/freenic.duckdb (relative to repo root)
     """
     data_dir = os.environ.get("FREENIC_DATA_DIR")
     if data_dir:
@@ -80,7 +80,7 @@ def _resolve_connection() -> duckdb.DuckDBPyConnection:
 
     db_path = os.environ.get("FREENIC_DB_PATH")
     if not db_path:
-        db_path = "D:/Arcanum/Projects/freenic/Outputs/freenic.duckdb"
+        db_path = str(Path(__file__).resolve().parent.parent.parent / "Outputs" / "freenic.duckdb")
     p = Path(db_path)
     if not p.exists():
         raise FileNotFoundError(

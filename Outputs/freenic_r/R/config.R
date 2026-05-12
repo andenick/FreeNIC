@@ -8,7 +8,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' freenic_set_data_dir("D:/Arcanum/Projects/freenic/Outputs/parquet")
+#' freenic_set_data_dir("/path/to/freenic/Outputs/parquet")
 #' }
 freenic_set_data_dir <- function(path) {
   path <- normalizePath(path, mustWork = TRUE)

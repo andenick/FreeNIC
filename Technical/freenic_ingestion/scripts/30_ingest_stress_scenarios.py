@@ -1,6 +1,7 @@
-"""Phase 30: Ingest Fed stress test scenario definitions from Volcker project.
+"""Phase 30: Ingest Fed stress test scenario definitions.
 
-Source: D:/Arcanum/Projects/Volcker/Inputs/Data/2026_Proposed_*.csv
+Source: Set VOLCKER_DATA_DIR env var, or defaults to ../../../Projects/Volcker
+Original location: Volcker project Inputs/Data/2026_Proposed_*.csv
 6 CSV files covering domestic + international scenarios:
 - Historic (actual macro data)
 - Baseline (Fed projection)
@@ -17,7 +18,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from utils import get_db, log_ingestion, timer
 
-VOLCKER_DATA = Path("D:/Arcanum/Projects/Volcker/Inputs/Data")
+import os
+_volcker_root = Path(os.environ.get("VOLCKER_DATA_DIR", str(Path(__file__).resolve().parent.parent.parent.parent.parent / "Volcker")))
+VOLCKER_DATA = _volcker_root / "Inputs" / "Data"
 
 DOMESTIC = [
     "2026_Proposed_Historic_Domestic.csv",

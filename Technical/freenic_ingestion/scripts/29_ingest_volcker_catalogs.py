@@ -1,6 +1,7 @@
 """Phase 29: Ingest Volcker project catalog data (crosswalk, hierarchy, sectors).
 
-Source: D:/Arcanum/Projects/Volcker/Technical/Catalogs/
+Source: Set VOLCKER_DATA_DIR env var, or defaults to ../../../Projects/Volcker
+Original location: Volcker project Technical/Catalogs/
 - bank_identifier_crosswalk.csv: 14,287 Robin↔RSSD↔FDIC cert mappings
 - bhc_hierarchy.csv: 36,668 BHC parent-child relationships with ownership %
 - sector_groupings.csv: 16,548 CIK→SIC→sector classifications
@@ -12,7 +13,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from utils import get_db, log_ingestion, timer
 
-VOLCKER_CATALOGS = Path("D:/Arcanum/Projects/Volcker/Technical/Catalogs")
+import os
+_volcker_root = Path(os.environ.get("VOLCKER_DATA_DIR", str(Path(__file__).resolve().parent.parent.parent.parent.parent / "Volcker")))
+VOLCKER_CATALOGS = _volcker_root / "Technical" / "Catalogs"
 
 
 def ingest_crosswalk(con):

@@ -14,7 +14,7 @@ pip install -e .
 import freenic
 
 # Point to your Parquet data directory
-freenic.set_data_dir("D:/Arcanum/Projects/freenic/Outputs/parquet")
+freenic.set_data_dir("/path/to/freenic/Outputs/parquet")
 
 # List available tables
 freenic.list_tables()

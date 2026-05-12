@@ -1,13 +1,14 @@
 """Tests for freenic typed accessor functions."""
 
 import os
+from pathlib import Path
 import pytest
 import pandas as pd
 import freenic
 
 PARQUET_DIR = os.environ.get(
     "FREENIC_DATA_DIR",
-    "D:/Arcanum/Projects/freenic/Outputs/parquet",
+    str(Path(__file__).resolve().parent.parent.parent.parent / "Outputs" / "parquet"),
 )
 
 
