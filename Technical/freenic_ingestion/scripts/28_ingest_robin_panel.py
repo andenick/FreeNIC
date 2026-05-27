@@ -1,7 +1,9 @@
 """Phase 28: Ingest Robin Failing Banks panel dataset.
 
-Source: Set VOLCKER_DATA_DIR env var, or defaults to ../../../Projects/Volcker
-Original location: Volcker project Inputs/Robin/FAILING_BANKS/
+Source: freenic's own Inputs/Robin/FAILING_BANKS/ checkout (created 2026-05-19
+via /robin-checkout — see Council/Robin/docs/specs/INPUTS_ROBIN_CONTRACT.md).
+Canonical: D:/Arcanum/Council/Robin/DATA/FAILING_BANKS/
+
 - combined_data.csv: 2,867,936 bank-year observations, 156 variables, 1863-2024
 - deposits_before_failure_historical.csv: 2,961 pre-FDIC era deposit dynamics
 - deposits_before_failure_modern.csv: 547 modern era deposit dynamics with run indicator
@@ -9,17 +11,34 @@ Original location: Volcker project Inputs/Robin/FAILING_BANKS/
 This is an annual panel of ALL US banks (failed + surviving) with financial data,
 failure indicators, macro context, and computed ratios. Partially fills the 1905-1958 gap
 in freenic's temporal coverage.
+
+History: pre-2026-05-19 this script read FAILING_BANKS *through Volcker*
+(VOLCKER_DATA_DIR env var or default `../../../Projects/Volcker`). That was an
+antipattern — projects should maintain their own Robin checkouts. Fixed during
+Robin Revamp Phase B2. The VOLCKER_DATA_DIR env var is still respected as a
+fallback for backwards compatibility.
 """
 
+import os
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from utils import get_db, log_ingestion, timer
 
-import os
+# freenic's own Robin checkout (canonical going forward)
+FREENIC_ROBIN = Path(__file__).resolve().parent.parent.parent.parent / "Inputs" / "Robin" / "FAILING_BANKS"
+
+# Legacy: read through Volcker if explicitly configured OR if freenic's own checkout is missing
 _volcker_root = Path(os.environ.get("VOLCKER_DATA_DIR", str(Path(__file__).resolve().parent.parent.parent.parent.parent / "Volcker")))
-VOLCKER_ROBIN = _volcker_root / "Inputs" / "Robin" / "FAILING_BANKS"
+VOLCKER_ROBIN_LEGACY = _volcker_root / "Inputs" / "Robin" / "FAILING_BANKS"
+
+if FREENIC_ROBIN.exists() and any(FREENIC_ROBIN.iterdir()):
+    VOLCKER_ROBIN = FREENIC_ROBIN
+else:
+    VOLCKER_ROBIN = VOLCKER_ROBIN_LEGACY
+    print(f"[WARN] freenic Robin checkout missing at {FREENIC_ROBIN}; falling back to {VOLCKER_ROBIN_LEGACY}")
+    print(f"[WARN] Run: python Council/Robin/SCRIPTS/checkout.py FAILING_BANKS D:/Arcanum/Projects/freenic")
 
 
 def ingest_panel(con):

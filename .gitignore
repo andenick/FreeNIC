@@ -1,4 +1,5 @@
 # Raw data files (large, re-downloadable)
+Inputs/Robin/
 Inputs/ffiec_bulk_bhcf/
 Inputs/bhcf_csv_pre2000/
 Inputs/NIC_Structure/
@@ -27,6 +28,7 @@ Outputs/*.duckdb
 
 # HDARP processing intermediates (large, regenerable)
 Technical/HDARP_Processing/
+Technical/HDARP_Integration/
 
 # Python caches
 __pycache__/
