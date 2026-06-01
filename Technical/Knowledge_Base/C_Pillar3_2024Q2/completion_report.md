@@ -1,4 +1,4 @@
-# HDARP v4.5 Document Processing - Completion Report
+# PDF extraction - Completion Report
 
 ## Document Information
 - **Document ID**: C_Pillar3_2024Q2

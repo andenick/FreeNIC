@@ -10,7 +10,7 @@
 ## Processing Summary
 - **Chunks Processed**: 001-032 (32/32) -- COMPLETE
 - **Processing Date**: 2026-03-22
-- **Processor**: HDARP v4.5 Document Processor Agent
+- **Processor**: PDF extraction pipeline
 - **Status**: COMPLETE
 
 ## Content Coverage

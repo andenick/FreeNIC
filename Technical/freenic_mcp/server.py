@@ -47,6 +47,7 @@ _PARQUET_TABLES = [
     "stress_scenarios_international", "catalog_variables",
     "catalog_filing_coverage", "catalog_entity_coverage",
     "catalog_schema_evolution", "catalog_data_sources",
+    "entity_xref", "fdic_sdi_features", "cdr_unrealized_losses",
 ]
 
 MAX_ROWS = 1000
@@ -145,13 +146,19 @@ def _serialize(val):
 def query_freenic(sql: str) -> str:
     """Execute a read-only SQL query against the freenic banking database.
 
-    The database contains 1.5B rows across 34 tables covering US banking
+    The database contains 1.5B rows across 37 tables covering US banking
     regulatory data from 1863-2026. Returns up to 1000 rows as JSON.
 
     Key tables: bhcf_filings (Y-9C), call_report_filings, luck_call_reports,
     fdic_financials, fdic_sod, dfast_results, pillar3_disclosures, institutions,
     bank_failures, variable_crosswalk, robin_panel, fred_series, fdic_history,
     bhc_ownership, stress_scenarios_domestic, stress_scenarios_international.
+
+    Engineered/cross-reference tables: entity_xref (canonical RSSD identity
+    union across all sources, 234K rows), fdic_sdi_features (FDIC-SDI engineered
+    ratios + F1/F3/F5 failure-lead flags by (rssd_id, year), 1984-2025, 413K
+    rows), cdr_unrealized_losses (FFIEC-CDR AFS/HTM fair-value, AOCI & brokered
+    deposits by (rssd_id, period_end), 2019-2025, 47K rows).
 
     Key views: bhcf_enriched, cross_source_financials, entity_summary,
     variable_dictionary, bank_failures_enriched, deposit_market_share,
@@ -772,9 +779,51 @@ def lookup_column_id(
         return json.dumps({"error": str(e)})
 
 
+# Curated descriptions for engineered / cross-reference tables that are
+# derived in post-processing rather than ingested as raw source files, so
+# they do not appear in the catalog.data_sources provenance table.
+_ENGINEERED_TABLES = [
+    {
+        "table": "entity_xref",
+        "description": "Canonical union of all known RSSD identities across every "
+                       "source (institutions, transformations pred/succ, CRSP, FDIC "
+                       "history, Robin crosswalk, enriched bank failures). Columns: "
+                       "rssd_id, source (pipe-delimited provenance), n_sources.",
+        "rows": 234462,
+        "coverage": "all sources",
+        "build_script": "scripts/20b_build_entity_xref.py",
+    },
+    {
+        "table": "fdic_sdi_features",
+        "description": "FDIC-SDI engineered financial ratios + F1/F3/F5 failure-lead "
+                       "flags by (rssd_id, year). Cols: assets, income_ratio, "
+                       "noncore_proxy, uninsured_ratio, insured_ratio, securities_ratio, "
+                       "equity_ratio, nim, nim_ratio, roa, log_age, F1/F3/F5_failure.",
+        "rows": 413130,
+        "coverage": "1984-2025 Q4",
+        "build_script": "scripts/31_build_sdi_feature_panel.py",
+    },
+    {
+        "table": "cdr_unrealized_losses",
+        "description": "FFIEC-CDR fair-value/AOCI/brokered-deposit measures by "
+                       "(rssd_id, period_end). Cols: cert, afs/htm amort_cost & "
+                       "fair_value, afs/htm/total_unrealized_loss, aoci, "
+                       "brokered_deposits, time_dep_100_250k, time_dep_gt_250k.",
+        "rows": 46929,
+        "coverage": "2019-2025",
+        "build_script": "scripts/32, scripts/33",
+    },
+]
+
+
 @mcp.tool()
 def show_source_descriptions() -> str:
-    """Show all freenic data sources with descriptions, file types, and ingestion scripts."""
+    """Show all freenic data sources with descriptions, file types, and ingestion scripts.
+
+    Also lists engineered/cross-reference tables (entity_xref, fdic_sdi_features,
+    cdr_unrealized_losses) that are derived in post-processing and therefore not
+    tracked in the raw-source provenance catalog.
+    """
     con = _get_con()
     try:
         result = con.execute("""
@@ -784,7 +833,11 @@ def show_source_descriptions() -> str:
             ORDER BY file_type, ingestion_script
         """)
         rows = _rows_to_dicts(result)
-        return json.dumps({"count": len(rows), "sources": rows}, default=str)
+        return json.dumps({
+            "count": len(rows),
+            "sources": rows,
+            "engineered_tables": _ENGINEERED_TABLES,
+        }, default=str)
     except Exception as e:
         return json.dumps({"error": str(e)})
 

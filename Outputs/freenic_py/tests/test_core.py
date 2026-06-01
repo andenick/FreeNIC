@@ -25,9 +25,12 @@ def test_set_data_dir_invalid():
 
 def test_list_tables():
     df = freenic.list_tables()
-    assert len(df) == 34
+    assert len(df) == 37
     assert "institutions" in df["table"].values
     assert "bhcf_filings" in df["table"].values
+    assert "entity_xref" in df["table"].values
+    assert "fdic_sdi_features" in df["table"].values
+    assert "cdr_unrealized_losses" in df["table"].values
     assert df["available"].all()
 
 

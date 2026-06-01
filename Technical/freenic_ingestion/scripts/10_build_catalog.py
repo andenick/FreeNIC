@@ -497,7 +497,7 @@ def build_data_sources(con):
             source_file AS source_id,
             source_file AS file_path,
             'pillar3_csv' AS file_type,
-            'Pillar 3 quarterly disclosure CSV from HDARP extraction' AS description,
+            'Pillar 3 quarterly disclosure CSV from PDF extraction' AS description,
             '24_ingest_pillar3.py' AS ingestion_script
         FROM pillar3_disclosures
 

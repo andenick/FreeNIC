@@ -1,4 +1,4 @@
-# HDARP Processing Completion Report
+# Extraction completion report
 ## Document: JPM_Pillar3_2024Q1
 ## JPMorgan Chase & Co. - Pillar 3 Regulatory Capital Disclosures, Q1 2024
 

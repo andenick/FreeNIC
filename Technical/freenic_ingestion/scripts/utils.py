@@ -14,6 +14,15 @@ TECHNICAL_DIR = PROJECT_ROOT / "Technical"
 OUTPUTS_DIR = PROJECT_ROOT / "Outputs"
 DB_PATH = OUTPUTS_DIR / "freenic.duckdb"
 
+# DATA_ROOT: where the pipeline reads externally-sourced inputs that are not
+# bundled under Inputs/ (e.g. the FFIEC CDR Public bulk ZIPs). Defaults to a
+# repo-relative "data" dir. Override with the DATA_ROOT env var.
+DATA_ROOT = Path(os.environ.get("DATA_ROOT", str(PROJECT_ROOT / "data")))
+# OUTPUT_ROOT: where the pipeline writes derived feature panels (parquet). These
+# panels are FreeNIC outputs consumed by downstream modeling work. Defaults to a
+# repo-relative "outputs" dir. Override with the OUTPUT_ROOT env var.
+OUTPUT_ROOT = Path(os.environ.get("OUTPUT_ROOT", str(PROJECT_ROOT / "outputs")))
+
 # Canonical input paths (A4: centralized after folder rename)
 INPUT_PATHS = {
     'mdrm': INPUTS_DIR / 'ffiec_bulk_bhcf' / 'MDRM_CSV.csv',
@@ -30,9 +39,9 @@ INPUT_PATHS = {
     'fdic_sod': INPUTS_DIR / 'fdic_sod',
     'dfast': INPUTS_DIR / 'dfast',
     'filing_instructions': INPUTS_DIR / 'filing_instructions',
-    # CLV-era sources (W16): the FFIEC CDR Public bulk ZIPs live in the Volcker
-    # project (acquired by 32_acquire_cdr_unrealized.py, parsed by 33_parse_cdr_unrealized.py).
-    'cdr_raw': Path('D:/Arcanum/Projects/Volcker/Technical/AnuData/data/correia/_cdr_raw'),
+    # FFIEC CDR Public bulk Call Report ZIPs (acquired by 32_acquire_cdr_unrealized.py,
+    # parsed by 33_parse_cdr_unrealized.py). Downloaded under DATA_ROOT.
+    'cdr_raw': DATA_ROOT / 'cdr_raw',
     # WS2a: full FFIEC CDR Public bulk Call Reports -- Single Period ZIPs (2012Q1+)
     # acquired by 07d_acquire_cdr_call_bulk.py, ingested by 07e_ingest_call_reports_cdr.py.
     'cdr_call_bulk': INPUTS_DIR / 'cdr_call_bulk',

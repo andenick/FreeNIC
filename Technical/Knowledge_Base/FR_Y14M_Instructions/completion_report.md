@@ -1,4 +1,4 @@
-# HDARP v4.5 Completion Report: FR_Y14M_Instructions
+# Extraction completion report: FR_Y14M_Instructions
 ## Status: COMPLETE (19/19 chunks processed)
 
 ## Document Information

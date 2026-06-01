@@ -59,9 +59,9 @@ RC-R RWA, etc.) for 2012–2025 are now in the warehouse alongside the pre-2012 
 
 **Missing**: GS (Goldman Sachs), BK (BNY Mellon), STT (State Street) — the other US G-SIBs. Also missing: historical quarters before 2024Q1.
 
-**Why**: Only 5 banks' Pillar 3 PDFs were acquired and processed through HDARP.
+**Why**: Only 5 banks' Pillar 3 PDFs were acquired and processed through a PDF extraction pipeline.
 
-**Resolution**: Acquire additional Pillar 3 PDFs from bank investor relations pages and process through HDARP pipeline.
+**Resolution**: Acquire additional Pillar 3 PDFs from bank investor relations pages and process through PDF extraction pipeline.
 
 ### 5. Credit Union Data
 

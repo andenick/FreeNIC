@@ -26,23 +26,22 @@
 24_ingest_pillar3.py  Pillar 3 disclosures (8K obs, 5 G-SIBs)
 25_ingest_fdic_history.py  FDIC institution history (582K events)
 27_ingest_fed_h8.py   FRED banking + macro series (75K obs, 15 series)
-28_ingest_robin_panel.py  Robin Failing Banks panel (2.87M obs, 1863-2024)
-29_ingest_volcker_catalogs.py  Crosswalk, BHC hierarchy, sector groupings
+28_ingest_robin_panel.py  Failing Banks panel (2.87M obs, 1863-2024)
+29_ingest_volcker_catalogs.py  Bank-identifier crosswalk, BHC hierarchy, sector groupings
 30_ingest_stress_scenarios.py  Fed stress test scenario definitions (452 rows)
-30_build_public_luck_panel.py  CLV/W16 public luck panel builder (Volcker-relocated)
-31_build_sdi_feature_panel.py  CLV/W16 SDI feature panel -> fdic_sdi_features (413K rows, 1984-2025)
-32_acquire_cdr_unrealized.py   CLV/W16 FFIEC CDR Public bulk downloader (Playwright)
-33_parse_cdr_unrealized.py     CLV/W16 CDR parser -> cdr_unrealized_losses (46.9K rows, 2019-2025)
+30_build_public_luck_panel.py  Public luck-equivalent panel builder (writes to OUTPUT_ROOT)
+31_build_sdi_feature_panel.py  SDI feature panel -> fdic_sdi_features (413K rows, 1984-2025)
+32_acquire_cdr_unrealized.py   FFIEC CDR Public bulk downloader (Playwright)
+33_parse_cdr_unrealized.py     CDR parser -> cdr_unrealized_losses (46.9K rows, 2019-2025)
 ```
 
-> **Intentional 30-prefix overlap (CLV/W16):** the four CLV-era builders
-> (`30_build_public_luck_panel.py`, `31`/`32`/`33`) were relocated from the Volcker
-> project (see `Volcker/Technical/AnuData/clv/CLV_INDEX.md` relocation map) and share
-> the `30` prefix with the pre-existing `30_ingest_stress_scenarios.py`. The collision
-> is a filename-sort artifact only — both run independently. Renumbering to a 40-43
-> band was deliberately deferred to avoid churning the CLV_INDEX relocation map that
-> references these exact names. `fdic_sdi_features` and `cdr_unrealized_losses` are
-> their freeNIC table outputs (wired into 00_setup / 12_export / 13_validate / 20_crosswalks).
+> **Intentional 30-prefix overlap:** the four fair-value/feature builders
+> (`30_build_public_luck_panel.py`, `31`/`32`/`33`) share the `30` prefix with the
+> pre-existing `30_ingest_stress_scenarios.py`. The collision is a filename-sort
+> artifact only — both run independently. `fdic_sdi_features` and
+> `cdr_unrealized_losses` are their FreeNIC table outputs (wired into
+> 00_setup / 12_export / 13_validate / 20_crosswalks); the parquet panels are written
+> under `OUTPUT_ROOT`.
 
 ## Script Number Gaps
 
@@ -54,7 +53,10 @@
 
 All input paths are centralized in `utils.py` via the `INPUT_PATHS` dictionary.
 Scripts import `INPUT_PATHS` rather than constructing paths from `INPUTS_DIR`.
-Scripts 28-30 reference the Volcker project via `VOLCKER_DATA_DIR` env var (defaults to `../../../Projects/Volcker`).
+Externally-sourced inputs (Failing Banks panel, bank-identifier catalogs, stress
+scenarios, FFIEC CDR bulk ZIPs) are read from `Inputs/<source>/` if bundled, else
+from `$DATA_ROOT/<source>/`. Derived feature panels are written to `$OUTPUT_ROOT/`.
+See the project README "## Setup" and `data/MANIFEST.md`.
 
 ## Adding a New Data Source
 

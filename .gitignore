@@ -37,9 +37,10 @@ Inputs/fdic_failures_api.json.bak_pre_ws2b
 *.dta
 *.bak_pre_ws2b
 
-# HDARP processing intermediates (large, regenerable)
+# PDF-extraction processing intermediates and catalog (large/internal, regenerable)
 Technical/HDARP_Processing/
 Technical/HDARP_Integration/
+Technical/HDARP_MASTER_CATALOG.csv
 
 # Python caches
 __pycache__/
@@ -62,7 +63,7 @@ desktop.ini
 .vscode/
 .idea/
 
-# --- Publication hygiene (Arcanum Publication Hygiene Standard v1.0) ---
+# --- Internal/process docs (not for publication) ---
 # Internal session/process/agent docs
 **/Handoffs/
 **/HANDOFF_*.md

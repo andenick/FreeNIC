@@ -140,7 +140,7 @@ FreeNIC/
 │   ├── freenic_ingestion/          30-script ingestion pipeline
 │   │   ├── scripts/00-30           Numbered ingestion scripts
 │   │   └── tests/                  7 test suites (integrity, schema, referential, etc.)
-│   └── Knowledge_Base/             HDARP-processed regulatory filing instructions
+│   └── Knowledge_Base/             extracted from regulatory filing instructions
 └── .gitignore
 ```
 
@@ -169,7 +169,8 @@ The ingestion pipeline transforms raw regulatory data into the unified Parquet s
 | 20 | Cross-source identifier crosswalks |
 | 23–25 | DFAST, Pillar 3, FDIC history |
 | 27 | Fed H.8 aggregate series |
-| 28–30 | Robin panel, Volcker catalogs, stress scenarios |
+| 28–30 | Failing Banks panel, bank-identifier catalogs, stress scenarios |
+| 31–33 | SDI feature panel + FFIEC CDR fair-value/unrealized-loss panel |
 
 ---
 
@@ -196,6 +197,42 @@ Seven test suites verify data integrity:
 - **DuckDB** — `pip install duckdb` (included as dependency)
 - **Disk** — ~5 GB for Parquet files, ~20 GB for raw inputs during ingestion
 - **APIs** — None required for querying; ingestion scripts download from public URLs
+
+---
+
+## Setup
+
+Querying the published Parquet/DuckDB outputs needs no configuration. To **run the
+ingestion pipeline yourself**, point it at where it should read inputs and write
+derived panels via two environment variables:
+
+| Variable | Purpose | Default |
+|----------|---------|---------|
+| `DATA_ROOT` | Where externally-sourced inputs not bundled under `Inputs/` are read (e.g. FFIEC CDR bulk ZIPs, the Failing Banks panel, bank-identifier catalogs, stress scenarios) | `./data` |
+| `OUTPUT_ROOT` | Where derived feature panels (`*.parquet`) are written | `./outputs` |
+
+```bash
+git clone https://github.com/andenick/FreeNIC.git && cd FreeNIC
+pip install -r requirements.txt
+# optional: only needed to re-run ingestion
+export DATA_ROOT=/path/to/your/data
+export OUTPUT_ROOT=/path/to/your/outputs
+```
+
+Each ingestion script first looks for its source under `Inputs/<source>/`; if that
+is absent it falls back to `$DATA_ROOT/<source>/`. See **`data/MANIFEST.md`** for the
+exact files each script expects and where to download them.
+
+### API keys — bring your own
+
+Querying needs no keys. Some ingestion sources are public APIs that offer an optional
+free key for higher rate limits:
+
+- **FRED** (Fed H.8 / banking series): free key at
+  <https://fred.stlouisfed.org/docs/api/api_key.html>; set `FRED_API_KEY`.
+
+Copy `.env.example` to `.env` and fill in any keys you use. The FDIC BankFind, FFIEC
+CDR, and Chicago Fed downloads require no key.
 
 ---
 

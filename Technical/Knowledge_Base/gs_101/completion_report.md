@@ -1,4 +1,4 @@
-# HDARP Processing Completion Report: gs_101
+# Extraction completion report: gs_101
 
 ## Document Information
 - **Document ID**: gs_101

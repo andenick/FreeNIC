@@ -1,4 +1,4 @@
-# HDARP Processing Completion Report
+# Extraction completion report
 ## Document: FR_Y14A_Instructions
 ## Status: COMPLETE (16/16 chunks processed)
 

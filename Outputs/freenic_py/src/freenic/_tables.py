@@ -1,6 +1,6 @@
 """Table name constants and metadata for the freenic database."""
 
-# All 34 Parquet tables in the freenic database
+# All 37 Parquet tables in the freenic database
 TABLES = [
     "mdrm",
     "reporting_forms",
@@ -36,6 +36,9 @@ TABLES = [
     "catalog_entity_coverage",
     "catalog_schema_evolution",
     "catalog_data_sources",
+    "entity_xref",
+    "fdic_sdi_features",
+    "cdr_unrealized_losses",
 ]
 
 # Tables that use long format (variable_id / value columns)
@@ -85,4 +88,7 @@ TABLE_DESCRIPTIONS = {
     "catalog_entity_coverage": "Per-entity filing history (140K)",
     "catalog_schema_evolution": "Variable lifecycle tracking",
     "catalog_data_sources": "Data provenance tracking",
+    "entity_xref": "Canonical RSSD identity union across all sources (234K)",
+    "fdic_sdi_features": "FDIC-SDI engineered ratios + failure-lead flags, (rssd_id,year) 1984-2025 (413K rows)",
+    "cdr_unrealized_losses": "FFIEC-CDR AFS/HTM fair-value, AOCI & brokered deposits, (rssd_id,period_end) 2019-2025 (47K rows)",
 }

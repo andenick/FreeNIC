@@ -4,11 +4,10 @@ call_report_filings in a single conditional-aggregation scan. Era-aware recipes
 in SQL. Writes data/correia/public_luck_panel.parquet."""
 
 import duckdb
-from pathlib import Path
-from utils import DB_PATH
+from utils import DB_PATH, OUTPUT_ROOT
 
-OUT = Path("D:/Arcanum/Projects/Volcker/Technical/AnuData/data/correia/"
-           "public_luck_panel.parquet")
+OUT = OUTPUT_ROOT / "public_luck_panel.parquet"
+OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT_STR = str(OUT).replace("\\", "/")
 
 # aggregate -> SQL value expression (era-aware where needed)

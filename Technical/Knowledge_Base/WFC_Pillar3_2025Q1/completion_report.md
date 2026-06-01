@@ -1,4 +1,4 @@
-# HDARP v4.5 Completion Report: WFC_Pillar3_2025Q1
+# Extraction completion report: WFC_Pillar3_2025Q1
 
 ## Document Information
 - **Document**: Wells Fargo & Company Basel III Pillar 3 Regulatory Capital Disclosures

@@ -3,7 +3,7 @@
 Source: Technical/Knowledge_Base/{bank}_Pillar3_{quarter}/ CSV files
 Target: pillar3_disclosures table
 
-Parses extracted CSV tables from HDARP-processed Pillar 3 quarterly disclosures
+Parses extracted CSV tables from extracted from Pillar 3 quarterly disclosures
 for 5 G-SIBs (JPM, BAC, WFC, C, MS). Focuses on capital, RWA, ratios, SLR, TLAC.
 """
 

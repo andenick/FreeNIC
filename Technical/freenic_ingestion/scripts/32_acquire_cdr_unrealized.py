@@ -10,11 +10,11 @@ Saves each period's ZIP to data/correia/_cdr_raw/.
 """
 import sys
 import time
-from pathlib import Path
 from playwright.sync_api import sync_playwright
+from utils import DATA_ROOT
 
 URL = "https://cdr.ffiec.gov/public/pws/downloadbulkdata.aspx"
-RAW = Path("D:/Arcanum/Projects/Volcker/Technical/AnuData/data/correia/_cdr_raw")
+RAW = DATA_ROOT / "cdr_raw"
 RAW.mkdir(parents=True, exist_ok=True)
 
 # target reporting periods (YYYYMMDD) — Q4 2019..2024 + latest available 2025 quarters

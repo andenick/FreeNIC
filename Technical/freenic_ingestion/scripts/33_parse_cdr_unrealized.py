@@ -24,15 +24,15 @@ SDI ASSET, enabling cert/rssd-level reconciliation.
 Output: data/correia/cdr_unrealized_2019_2025.parquet
 """
 import zipfile
-import io
 import re
 import sys
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from utils import DATA_ROOT, OUTPUT_ROOT
 
-RAW = Path("D:/Arcanum/Projects/Volcker/Technical/AnuData/data/correia/_cdr_raw")
-OUT = Path("D:/Arcanum/Projects/Volcker/Technical/AnuData/data/correia/cdr_unrealized_2019_2025.parquet")
+RAW = DATA_ROOT / "cdr_raw"
+OUT = OUTPUT_ROOT / "cdr_unrealized_2019_2025.parquet"
 
 # schedule keyword -> {output_col: (rcfd_code, rcon_code)}
 SCHED_FIELDS = {
@@ -208,8 +208,7 @@ def main():
     # unrealized_loss / equity percentile in 2022Q4 (the V2 SVB-killer ratio).
     # equity from the SDI panel (EQ) joined by rssd.
     try:
-        sdi = pd.read_parquet("D:/Arcanum/Projects/Volcker/Technical/AnuData/data/correia/"
-                              "sdi_feature_panel.parquet")
+        sdi = pd.read_parquet(OUTPUT_ROOT / "sdi_feature_panel.parquet")
         eq22 = sdi[sdi.year == 2022][["rssd_id", "assets", "equity_ratio"]].copy()
         eq22["equity"] = eq22.assets * eq22.equity_ratio
         m = p22.merge(eq22[["rssd_id", "equity"]], on="rssd_id", how="inner")

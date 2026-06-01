@@ -2,16 +2,16 @@
 
 Outputs to Outputs/parquet/{table}.parquet for language-agnostic access.
 
-Track 1 robustness (2026-06-01): skip-if-current freshness gating, memory/temp
-spill safety, and single-file period-chunk sort-then-concatenate for the >2 GB
-tables (call_report_filings 1.9B rows, luck_call_reports, bhcf_filings,
-fdic_financials) so no single billion-row global in-memory sort is attempted.
-See ``export_helpers.py`` and FREENIC_EXPORT_AND_REFERENTIAL_FIX_PLAN.md TRACK 1.
+Robustness: skip-if-current freshness gating, memory/temp spill safety, and
+single-file period-chunk sort-then-concatenate for the >2 GB tables
+(call_report_filings 1.9B rows, luck_call_reports, bhcf_filings, fdic_financials)
+so no single billion-row global in-memory sort is attempted. See
+``export_helpers.py``.
 
 CONCURRENCY WARNING: do NOT run this full export at the same time as other heavy
-local jobs (Kalendern OCR, Hopper GPU) — the original 0-byte-tmp hang happened
-under exactly that RAM/disk contention. Skip-if-current makes re-runs cheap, so
-prefer to run this alone after ingestion settles.
+local jobs that compete for RAM/disk — a 0-byte-tmp hang can occur under heavy
+RAM/disk contention. Skip-if-current makes re-runs cheap, so prefer to run this
+alone after ingestion settles.
 
 Usage:
     python 12_export_parquet.py            # skip tables whose parquet is current
@@ -60,6 +60,7 @@ TABLES = [
     ('main', 'stress_scenarios_international'),
     ('main', 'fdic_sdi_features'),
     ('main', 'cdr_unrealized_losses'),
+    ('main', 'entity_xref'),
     ('catalog', 'variables'),
     ('catalog', 'filing_coverage'),
     ('catalog', 'entity_coverage'),
@@ -89,6 +90,7 @@ SORT_KEYS = {
     'bhc_ownership': 'rssd_id_bhc, rssd_id_bank',
     'fdic_sdi_features': 'rssd_id, year',
     'cdr_unrealized_losses': 'rssd_id, period_end',
+    'entity_xref': 'rssd_id',
 }
 
 

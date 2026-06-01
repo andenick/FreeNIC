@@ -1,4 +1,4 @@
-# HDARP Processing Completion Report
+# Extraction completion report
 ## FR_2052a_Instructions - COMPLETE (26/26 Chunks)
 
 ### Document Information

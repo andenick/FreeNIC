@@ -1,4 +1,4 @@
-# HDARP v4.5 Document Processing Completion Report
+# PDF extraction Completion Report
 ## MS_Pillar3_2025Q3 -- Morgan Stanley Pillar 3 Disclosure Q3 2025
 
 **Document**: Morgan Stanley Basel III Pillar 3 Disclosures Report for the Quarterly Period Ended September 30, 2025

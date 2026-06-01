@@ -70,6 +70,14 @@ export FREENIC_DATA_DIR="/path/to/parquet"
 | FDIC Summary of Deposits | 2.7M | 1994-2025 |
 | + 13 more sources | | |
 
+### Engineered / cross-reference tables
+
+| Table | Rows | Coverage |
+|-------|------|----------|
+| `entity_xref` — canonical RSSD identity union across all sources | 234K | all |
+| `fdic_sdi_features` — FDIC-SDI engineered ratios + failure-lead flags, by (rssd_id, year) | 413K | 1984-2025 |
+| `cdr_unrealized_losses` — FFIEC-CDR AFS/HTM fair-value, AOCI & brokered deposits, by (rssd_id, period_end) | 47K | 2019-2025 |
+
 ## API Reference
 
 - `set_data_dir(path)` - Set Parquet directory path

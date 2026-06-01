@@ -50,6 +50,12 @@ TABLE_FILING_TYPES = {
     'bhcf_filings': ('BHCF',),
 }
 
+# Tables that must ALWAYS be re-exported (never skipped). filing_metadata is the
+# bookkeeping table that grows on every ingest AND is the freshness oracle for the
+# other tables — it has no signal for its own growth, so skip-if-current would let
+# its parquet silently lag after each ingest. It is tiny, so always re-export it.
+ALWAYS_EXPORT = frozenset({'filing_metadata'})
+
 ROW_GROUP_SIZE = 122880
 COMPRESSION = 'ZSTD'
 
@@ -168,6 +174,8 @@ def is_current(con, table: str, out_path: Path, markers: dict) -> bool:
     (the only writers of these tables log to filing_metadata or are re-run via
     ``--force``).
     """
+    if table in ALWAYS_EXPORT:
+        return False
     if not out_path.exists() or out_path.stat().st_size == 0:
         return False
     parquet_mtime = out_path.stat().st_mtime

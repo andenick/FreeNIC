@@ -1,0 +1,16 @@
+# FreeNIC — Python dependencies for querying and running the ingestion pipeline.
+# Querying the published Parquet/DuckDB only needs duckdb (+ pandas/numpy for the
+# Python helper package). The remaining packages are used by specific ingestion phases.
+
+duckdb>=0.10
+pandas>=2.0
+numpy>=1.24
+
+# Ingestion-only:
+pyreadstat>=1.2      # SAS XPT call-report files (phase 07)
+playwright>=1.40     # FFIEC CDR bulk download flow (phase 32); run `playwright install chromium`
+PyYAML>=6.0          # config/catalog parsing
+
+# Optional:
+pytest>=7.0          # test suite
+mcp>=1.0             # MCP server (Technical/freenic_mcp/server.py)

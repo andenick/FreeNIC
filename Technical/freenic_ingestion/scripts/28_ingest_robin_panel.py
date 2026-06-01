@@ -1,8 +1,7 @@
-"""Phase 28: Ingest Robin Failing Banks panel dataset.
+"""Phase 28: Ingest the Failing Banks annual panel dataset.
 
-Source: freenic's own Inputs/Robin/FAILING_BANKS/ checkout (created 2026-05-19
-via /robin-checkout — see Council/Robin/docs/specs/INPUTS_ROBIN_CONTRACT.md).
-Canonical: D:/Arcanum/Council/Robin/DATA/FAILING_BANKS/
+Source: the public Failing Banks database
+(https://github.com/andenick/failing-banks), FAILING_BANKS/ directory.
 
 - combined_data.csv: 2,867,936 bank-year observations, 156 variables, 1863-2024
 - deposits_before_failure_historical.csv: 2,961 pre-FDIC era deposit dynamics
@@ -12,38 +11,34 @@ This is an annual panel of ALL US banks (failed + surviving) with financial data
 failure indicators, macro context, and computed ratios. Partially fills the 1905-1958 gap
 in freenic's temporal coverage.
 
-History: pre-2026-05-19 this script read FAILING_BANKS *through Volcker*
-(VOLCKER_DATA_DIR env var or default `../../../Projects/Volcker`). That was an
-antipattern — projects should maintain their own Robin checkouts. Fixed during
-Robin Revamp Phase B2. The VOLCKER_DATA_DIR env var is still respected as a
-fallback for backwards compatibility.
+Place the FAILING_BANKS CSVs under either:
+  - Inputs/failing_banks/   (bundled with the project), or
+  - $DATA_ROOT/failing_banks/   (external source root; see README "## Setup")
+See data/MANIFEST.md for download details.
 """
 
-import os
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from utils import get_db, log_ingestion, timer
+from utils import get_db, log_ingestion, timer, INPUTS_DIR, DATA_ROOT
 
-# freenic's own Robin checkout (canonical going forward)
-FREENIC_ROBIN = Path(__file__).resolve().parent.parent.parent.parent / "Inputs" / "Robin" / "FAILING_BANKS"
+# Prefer the project-bundled checkout; fall back to DATA_ROOT.
+_BUNDLED = INPUTS_DIR / "failing_banks" / "FAILING_BANKS"
+_EXTERNAL = DATA_ROOT / "failing_banks" / "FAILING_BANKS"
 
-# Legacy: read through Volcker if explicitly configured OR if freenic's own checkout is missing
-_volcker_root = Path(os.environ.get("VOLCKER_DATA_DIR", str(Path(__file__).resolve().parent.parent.parent.parent.parent / "Volcker")))
-VOLCKER_ROBIN_LEGACY = _volcker_root / "Inputs" / "Robin" / "FAILING_BANKS"
-
-if FREENIC_ROBIN.exists() and any(FREENIC_ROBIN.iterdir()):
-    VOLCKER_ROBIN = FREENIC_ROBIN
+if _BUNDLED.exists() and any(_BUNDLED.iterdir()):
+    FAILING_BANKS = _BUNDLED
 else:
-    VOLCKER_ROBIN = VOLCKER_ROBIN_LEGACY
-    print(f"[WARN] freenic Robin checkout missing at {FREENIC_ROBIN}; falling back to {VOLCKER_ROBIN_LEGACY}")
-    print(f"[WARN] Run: python Council/Robin/SCRIPTS/checkout.py FAILING_BANKS D:/Arcanum/Projects/freenic")
+    FAILING_BANKS = _EXTERNAL
+    if not (_EXTERNAL.exists() and any(_EXTERNAL.iterdir())):
+        print(f"[WARN] Failing Banks data not found at {_BUNDLED} or {_EXTERNAL}")
+        print("[WARN] Download from https://github.com/andenick/failing-banks (see data/MANIFEST.md)")
 
 
 def ingest_panel(con):
-    """Ingest the main Robin combined panel using DuckDB CSV reader."""
-    csv_path = str(VOLCKER_ROBIN / "combined_data.csv").replace("\\", "/")
+    """Ingest the main Failing Banks combined panel using DuckDB CSV reader."""
+    csv_path = str(FAILING_BANKS / "combined_data.csv").replace("\\", "/")
 
     con.execute("DROP TABLE IF EXISTS robin_panel")
     con.execute(f"""
@@ -74,7 +69,7 @@ def ingest_deposits(con):
         ("deposits_before_failure_historical.csv", "robin_deposits_historical"),
         ("deposits_before_failure_modern.csv", "robin_deposits_modern"),
     ]:
-        csv_path = str(VOLCKER_ROBIN / name).replace("\\", "/")
+        csv_path = str(FAILING_BANKS / name).replace("\\", "/")
         con.execute(f"DROP TABLE IF EXISTS {table}")
         con.execute(f"""
             CREATE TABLE {table} AS

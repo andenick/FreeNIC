@@ -17,7 +17,7 @@
 | 7 | FDIC SOD | FDIC API | 18-19 | `fdic_sod` | 2.82M | 1994-2025 |
 | 8 | FDIC History | FDIC API | 25 | `fdic_history` | 582.6K | All dates |
 | 9 | DFAST | Federal Reserve | 23 | `dfast_results` | 28K | 2013-2025 |
-| 10 | Pillar 3 | HDARP | 24 | `pillar3_disclosures` | 8K | 2024Q1-2025Q3 |
+| 10 | Pillar 3 | PDF extract | 24 | `pillar3_disclosures` | 8K | 2024Q1-2025Q3 |
 | 11 | NIC Attributes | FFIEC | 02 | `institutions` + 4 tables | 217K | Current |
 | 12 | CRSP-FRB Link | NY Fed | 03 | `crsp_mapping` | 19K | 2008-2024 |
 | 13 | MDRM | FFIEC | 01 | `mdrm` | 87K | Reference |

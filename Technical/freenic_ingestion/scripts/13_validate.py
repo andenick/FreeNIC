@@ -19,8 +19,8 @@ from utils import get_db, log_ingestion, timer
 
 # --- Referential check #1 calibration (era-stratified, coverage-aware) ---
 #
-# Rationale (see COVERAGE_GAPS.md S6 + FREENIC_EXPORT_AND_REFERENTIAL_FIX_PLAN.md
-# TRACK 2): the OLD flat 90%-vs-`institutions` gate was mis-calibrated for tables
+# Rationale (see COVERAGE_GAPS.md S6): the OLD flat 90%-vs-`institutions` gate was
+# mis-calibrated for tables
 # spanning 1976-2025. `institutions` (217,210 rssds) under-covers historical
 # defunct/merged entities, so matching filing rssds only against it produced a
 # misleadingly low 34-40% rate -- and 3 permanent xfails -- even though those
@@ -139,9 +139,9 @@ def check_date_ranges(con):
 
     checks = [
         ("bhcf_filings", "period_end", "1980-01-01", "2026-06-30"),
-        ("call_report_filings", "period_end", "1970-01-01", "2025-12-31"),
+        ("call_report_filings", "period_end", "1970-01-01", "2026-06-30"),  # +2026Q1 via CDR (07d/07e)
         ("luck_call_reports", "period_end", "1930-01-01", "2026-06-30"),
-        ("occ_historical", "report_date", "1860-01-01", "1920-01-01"),
+        ("occ_historical", "report_date", "1860-01-01", "1942-01-01"),  # Phase 9b extended OCC-CLV to 1941
         ("bank_failures", "closing_date", "1930-01-01", "2027-01-01"),
         ("fdic_financials", "period_end", "1980-01-01", "2026-06-30"),
         ("pillar3_disclosures", "period_end", "2020-01-01", "2026-12-31"),
@@ -393,7 +393,9 @@ def check_clv_feature_tables(con):
     print(f"    cdr_unrealized_losses rows: {cdr_rows:,} (floor 40,000) [{cdr_status}]")
 
     cdr_pe = con.execute("SELECT MIN(period_end), MAX(period_end) FROM cdr_unrealized_losses").fetchone()
-    pe_min, pe_max = str(cdr_pe[0]), str(cdr_pe[1])
+    # period_end is a TIMESTAMP -> str() yields "2025-12-31 00:00:00"; compare the
+    # DATE portion only so the time suffix doesn't break the lexical range check.
+    pe_min, pe_max = str(cdr_pe[0])[:10], str(cdr_pe[1])[:10]
     pe_status = "PASS" if (cdr_pe[0] is not None and pe_min >= "2019-01-01" and pe_max <= "2025-12-31") else "WARN"
     if pe_status != "PASS":
         all_pass = False

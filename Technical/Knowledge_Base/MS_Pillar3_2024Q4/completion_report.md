@@ -3,8 +3,8 @@
 
 **Processing Date:** 2026-03-22
 **Document:** Morgan Stanley Pillar 3 Disclosure, Quarter Ended December 31, 2024
-**Source:** 3 PDF chunks from D:/Arcanum/Projects/freenic/Technical/HDARP_Processing/MS_Pillar3_2024Q4/chunks/
-**Output:** D:/Arcanum/Projects/freenic/Technical/Knowledge_Base/MS_Pillar3_2024Q4/
+**Source:** 3 PDF chunks of the published Morgan Stanley Pillar 3 disclosure (public investor-relations PDF)
+**Output:** `Technical/Knowledge_Base/MS_Pillar3_2024Q4/`
 
 ---
 

@@ -3,7 +3,7 @@
 ## Document
 - **Title**: Citigroup Inc. Pillar 3 Basel III Advanced Approaches Disclosures
 - **Period**: Quarterly Period Ended September 30, 2024
-- **Source**: D:/Arcanum/Projects/freenic/Technical/HDARP_Processing/C_Pillar3_2024Q3/chunks/
+- **Source**: PDF chunks of the published Citigroup Pillar 3 disclosure (public investor-relations PDF)
 - **Chunks Processed**: 6 of 6
 - **Status**: COMPLETE
 

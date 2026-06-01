@@ -1,6 +1,6 @@
 """C4: Referential integrity tests — entity-id match rates.
 
-Recalibrated 2026-06-01 (TRACK 2). Filing rssds are validated against
+Recalibrated 2026-06-01. Filing rssds are validated against
 `entity_xref` (the de-duped union of all public NIC identity tables, built by
 20b_build_entity_xref.py), NOT just `institutions`. `institutions` (217,210
 rssds) under-covers historical defunct/merged entities, which produced a
@@ -9,7 +9,7 @@ the misses are recovered (chiefly via `transformations.rssd_predecessor`), so
 call_report/luck/fdic now match >=95% overall and the xfails become real PASS
 tests — gated on the MODERN slice so they stay genuine regression guards.
 
-See COVERAGE_GAPS.md S6 and FREENIC_EXPORT_AND_REFERENTIAL_FIX_PLAN.md TRACK 2.
+See COVERAGE_GAPS.md S6.
 """
 
 import pytest

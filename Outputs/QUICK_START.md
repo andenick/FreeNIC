@@ -306,7 +306,7 @@ LIMIT 20;
 | dfast_results | 28K | Federal Reserve DFAST CSV | 2013-2025 |
 | sector_groupings | 16.5K | SEC CIK→SIC→sector | current |
 | robin_crosswalk | 14.3K | Robin↔RSSD/FDIC cert mapping | reference |
-| pillar3_disclosures | 8K | HDARP-extracted Pillar 3 CSVs | 2024Q1-2025Q3 |
+| pillar3_disclosures | 8K | extracted Pillar 3 CSVs | 2024Q1-2025Q3 |
 | bank_failures | 4.1K | FDIC Failed Banks API | 1934-2026 |
 | robin_deposits_* | 3.5K | Robin deposit dynamics | historical+modern |
 | stress_scenarios_* | 452 | Fed stress test definitions | 2026 |

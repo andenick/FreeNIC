@@ -1,7 +1,9 @@
 """Phase 30: Ingest Fed stress test scenario definitions.
 
-Source: Set VOLCKER_DATA_DIR env var, or defaults to ../../../Projects/Volcker
-Original location: Volcker project Inputs/Data/2026_Proposed_*.csv
+Source: Federal Reserve published DFAST/CCAR supervisory scenarios
+(https://www.federalreserve.gov/supervisionreg/dfa-stress-tests.htm).
+Place the scenario CSVs under Inputs/stress_scenarios/ (bundled) or
+$DATA_ROOT/stress_scenarios/ (external; see README "## Setup" and data/MANIFEST.md).
 6 CSV files covering domestic + international scenarios:
 - Historic (actual macro data)
 - Baseline (Fed projection)
@@ -16,11 +18,10 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from utils import get_db, log_ingestion, timer
+from utils import get_db, log_ingestion, timer, INPUTS_DIR, DATA_ROOT
 
-import os
-_volcker_root = Path(os.environ.get("VOLCKER_DATA_DIR", str(Path(__file__).resolve().parent.parent.parent.parent.parent / "Volcker")))
-VOLCKER_DATA = _volcker_root / "Inputs" / "Data"
+_BUNDLED = INPUTS_DIR / "stress_scenarios"
+STRESS_DATA = _BUNDLED if _BUNDLED.exists() else DATA_ROOT / "stress_scenarios"
 
 DOMESTIC = [
     "2026_Proposed_Historic_Domestic.csv",
@@ -41,7 +42,7 @@ def ingest_group(con, table_name, files):
 
     first = True
     for fname in files:
-        fpath = VOLCKER_DATA / fname
+        fpath = STRESS_DATA / fname
         if not fpath.exists():
             print(f"  WARNING: {fname} not found, skipping")
             continue

@@ -1,8 +1,9 @@
-"""Phase 29: Ingest Volcker project catalog data (crosswalk, hierarchy, sectors).
+"""Phase 29: Ingest bank-identifier catalog data (crosswalk, hierarchy, sectors).
 
-Source: Set VOLCKER_DATA_DIR env var, or defaults to ../../../Projects/Volcker
-Original location: Volcker project Technical/Catalogs/
-- bank_identifier_crosswalk.csv: 14,287 Robin↔RSSD↔FDIC cert mappings
+Source: place the catalog CSVs under Inputs/catalogs/ (bundled) or
+$DATA_ROOT/catalogs/ (external source root; see README "## Setup" and
+data/MANIFEST.md). Required files:
+- bank_identifier_crosswalk.csv: 14,287 bank_id↔RSSD↔FDIC cert mappings
 - bhc_hierarchy.csv: 36,668 BHC parent-child relationships with ownership %
 - sector_groupings.csv: 16,548 CIK→SIC→sector classifications
 """
@@ -11,16 +12,15 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from utils import get_db, log_ingestion, timer
+from utils import get_db, log_ingestion, timer, INPUTS_DIR, DATA_ROOT
 
-import os
-_volcker_root = Path(os.environ.get("VOLCKER_DATA_DIR", str(Path(__file__).resolve().parent.parent.parent.parent.parent / "Volcker")))
-VOLCKER_CATALOGS = _volcker_root / "Technical" / "Catalogs"
+_BUNDLED = INPUTS_DIR / "catalogs"
+CATALOGS = _BUNDLED if _BUNDLED.exists() else DATA_ROOT / "catalogs"
 
 
 def ingest_crosswalk(con):
-    """Ingest Robin↔FFIEC bank identifier crosswalk."""
-    csv_path = str(VOLCKER_CATALOGS / "bank_identifier_crosswalk.csv").replace("\\", "/")
+    """Ingest the bank-identifier crosswalk (Failing Banks bank_id ↔ FFIEC RSSD ↔ FDIC cert)."""
+    csv_path = str(CATALOGS / "bank_identifier_crosswalk.csv").replace("\\", "/")
 
     con.execute("DROP TABLE IF EXISTS robin_crosswalk")
     con.execute(f"""
@@ -59,7 +59,7 @@ def ingest_crosswalk(con):
 
 def ingest_hierarchy(con):
     """Ingest BHC hierarchy with ownership percentages."""
-    csv_path = str(VOLCKER_CATALOGS / "bhc_hierarchy.csv").replace("\\", "/")
+    csv_path = str(CATALOGS / "bhc_hierarchy.csv").replace("\\", "/")
 
     con.execute("DROP TABLE IF EXISTS bhc_ownership")
     con.execute(f"""
@@ -90,7 +90,7 @@ def ingest_hierarchy(con):
 
 def ingest_sectors(con):
     """Ingest sector/SIC groupings."""
-    csv_path = str(VOLCKER_CATALOGS / "sector_groupings.csv").replace("\\", "/")
+    csv_path = str(CATALOGS / "sector_groupings.csv").replace("\\", "/")
 
     con.execute("DROP TABLE IF EXISTS sector_groupings")
     con.execute(f"""
@@ -115,7 +115,7 @@ def ingest_sectors(con):
 
 def main():
     elapsed = timer()
-    print("=== Phase 29: Volcker Catalog Data ===\n")
+    print("=== Phase 29: Bank-Identifier Catalogs ===\n")
 
     con = get_db()
 
@@ -128,7 +128,7 @@ def main():
     total = xw_count + hier_count + sec_count
     secs = elapsed()
     print(f"\n  Total: {total:,} rows across 3 tables")
-    log_ingestion("29", f"Volcker catalogs: crosswalk={xw_count:,}, hierarchy={hier_count:,}, sectors={sec_count:,}. {secs:.1f}s")
+    log_ingestion("29", f"Catalogs: crosswalk={xw_count:,}, hierarchy={hier_count:,}, sectors={sec_count:,}. {secs:.1f}s")
     print(f"\nPhase 29 complete in {secs:.1f}s")
 
 

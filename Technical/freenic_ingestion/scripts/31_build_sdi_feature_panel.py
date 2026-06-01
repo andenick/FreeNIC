@@ -31,10 +31,9 @@ confirm SVB/Signature/First Republic present for 2021-2022 with F1=1.
 import numpy as np
 import pandas as pd
 import duckdb
-from pathlib import Path
-from utils import DB_PATH
+from utils import DB_PATH, OUTPUT_ROOT
 
-OUT = Path("D:/Arcanum/Projects/Volcker/Technical/AnuData/data/correia/sdi_feature_panel.parquet")
+OUT = OUTPUT_ROOT / "sdi_feature_panel.parquet"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
 con = duckdb.connect(str(DB_PATH), read_only=True)

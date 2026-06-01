@@ -1,4 +1,4 @@
-# HDARP v4.5 Completion Report: gs_bhcpr
+# Extraction completion report: gs_bhcpr
 
 ## Document Information
 - **Document**: FR BHCPR (Bank Holding Company Performance Report)

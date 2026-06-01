@@ -712,7 +712,7 @@ Federal Reserve Dodd-Frank Act Stress Test results. 43 banks, 13 years (2013-202
 
 ### `pillar3_disclosures` — G-SIB Pillar 3 Disclosures (7,952 rows)
 
-Quarterly Basel III Pillar 3 regulatory disclosures for 5 G-SIBs (JPM, BAC, C, WFC, MS). Parsed from HDARP-extracted CSV tables.
+Quarterly Basel III Pillar 3 regulatory disclosures for 5 G-SIBs (JPM, BAC, C, WFC, MS). Parsed from extracted CSV tables.
 
 | Column | Type | Description |
 |--------|------|-------------|

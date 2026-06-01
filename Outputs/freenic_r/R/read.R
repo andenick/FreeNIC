@@ -346,3 +346,43 @@ read_catalog_schema_evolution <- function(columns = NULL) .read_table("catalog_s
 #' @return A tibble.
 #' @export
 read_catalog_data_sources <- function(columns = NULL) .read_table("catalog_data_sources", columns)
+
+# --- Engineered / Cross-Reference Tables ---
+
+#' Read the canonical entity cross-reference
+#'
+#' Canonical union of all known RSSD identities across every source
+#' (institutions, transformations pred/succ, CRSP, FDIC history, Robin
+#' crosswalk, enriched bank failures). 234,462 rows. Columns: rssd_id,
+#' source (pipe-delimited provenance), n_sources.
+#'
+#' @inheritParams read_mdrm
+#' @return A tibble.
+#' @export
+read_entity_xref <- function(columns = NULL) .read_table("entity_xref", columns)
+
+#' Read the FDIC-SDI feature panel
+#'
+#' FDIC-SDI engineered financial ratios plus failure-lead flags, by
+#' (rssd_id, year) for 1984-2025 Q4. 413,130 rows. Columns include assets,
+#' income_ratio, noncore_proxy, uninsured_ratio, insured_ratio,
+#' securities_ratio, equity_ratio, nim, nim_ratio, roa, log_age, and the
+#' F1/F3/F5 failure-lead flags.
+#'
+#' @inheritParams read_mdrm
+#' @return A tibble.
+#' @export
+read_fdic_sdi_features <- function(columns = NULL) .read_table("fdic_sdi_features", columns)
+
+#' Read FFIEC-CDR unrealized losses
+#'
+#' FFIEC Call Report Data fair-value, AOCI, and brokered-deposit measures
+#' by (rssd_id, period_end) for 2019-2025. 46,929 rows. Columns include
+#' cert, afs_amort_cost, afs_fair_value, htm_amort_cost, htm_fair_value,
+#' afs_unrealized_loss, htm_unrealized_loss, total_unrealized_loss, aoci,
+#' brokered_deposits, time_dep_100_250k, and time_dep_gt_250k.
+#'
+#' @inheritParams read_mdrm
+#' @return A tibble.
+#' @export
+read_cdr_unrealized_losses <- function(columns = NULL) .read_table("cdr_unrealized_losses", columns)
