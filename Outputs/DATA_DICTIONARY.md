@@ -2,12 +2,17 @@
 
 ## Overview
 
-- **Total rows**: 1,502,730,000+
-- **Tables**: 34 (29 main + 5 catalog)
+- **Total rows**: 2,527,000,000+ (~2.53B)
+- **Tables**: 37 (32 main + 5 catalog)
 - **Views**: 10 convenience views
-- **Variables cataloged**: 9,375 (84.6% matched to MDRM)
+- **Variables cataloged**: 13,147
 - **Cross-source crosswalk**: 76 variable mappings across 4 sources
 - **Temporal coverage**: 1863-2026
+
+> **Updated 2026-06-01 (freeNIC comprehensive update).** Call reports extended to 2025Q4
+> (200 quarters, 1.912B rows) via FFIEC CDR bulk; two new tables added
+> (`fdic_sdi_features`, `cdr_unrealized_losses`); `occ_historical` span now 1863-1941;
+> FDIC SDI/failures/SOD/history and FRED refreshed to latest vintage.
 
 ---
 
@@ -145,9 +150,14 @@ FR Y-9C and related BHC financial data. 13,668 entities, 3,208 variables, 158 qu
 
 **Key variables**: BHCK2170 (total assets), BHCK2948 (total equity capital), BHCK4340 (net income), BHCK4074 (total interest income)
 
-### `call_report_filings` — Individual Bank Call Reports (896,251,036 rows)
+### `call_report_filings` — Individual Bank Call Reports (1,912,085,025 rows)
 
-FFIEC 031/041/051 call report data from Chicago Fed. 22,185 entities, 4,473 variables, 101 quarters.
+FFIEC 031/041/051 call report data. **1976Q1–2025Q4, 200 quarters.** Pre-2012 from the
+Chicago Fed bulk archive (`07`/`07b`); **2012Q1–2025Q4 from the FFIEC Central Data Repository
+(CDR) bulk single-period downloads** (`07d_acquire_cdr_call_bulk.py` acquires via Playwright,
+`07e_ingest_call_reports_cdr.py` melts the RCFD/RCON/RIAD schedule columns to long format and
+appends idempotently). All 56 post-2011 quarters present; the long-standing post-2011 gap is
+now closed.
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -156,7 +166,7 @@ FFIEC 031/041/051 call report data from Chicago Fed. 22,185 entities, 4,473 vari
 | schedule | VARCHAR | Call report schedule (RC, RI, RC-B, etc.) |
 | variable_id | VARCHAR | FK → mdrm.variable_id (e.g., RCFD2170) |
 | value | DOUBLE | Reported value |
-| source_file | VARCHAR | Source XPT file |
+| source_file | VARCHAR | Source file (Chicago Fed XPT pre-2012; FFIEC CDR tab-delimited bulk 2012+) |
 
 ### `luck_call_reports` — Luck Historical Database (311,809,300 rows)
 
@@ -170,9 +180,12 @@ Historical call report data from the Luck Database. 24,716 entities, 245 variabl
 | value | DOUBLE | Reported value |
 | source | VARCHAR | Source label |
 
-### `occ_historical` — OCC Balance Sheets 1867-1904 (9,788,940 rows)
+### `occ_historical` — OCC Balance Sheets 1863-1941 (17,775,763 rows)
 
-National bank balance sheet data from the Office of the Comptroller of the Currency. 7,109 banks, 95 variables.
+National bank balance sheet data from the Office of the Comptroller of the Currency. Original
+1867-1904 layer (9,788,940 rows, 7,109 banks, 95 variables, `source='occ'`) plus the Phase 9b
+OCC-CLV finhist extension (7,986,823 rows, 14,258 banks, 66 variables, `source='occ_historical_clv'`),
+together spanning **1863-11-28 to 1941-12-31**.
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -200,6 +213,27 @@ Maps CRSP stock identifiers (PERMCO) to Federal Reserve RSSD IDs. Compiled from 
 | dt_end | DATE | Link end date |
 | source_file | VARCHAR | CRSP vintage file |
 
+### `entity_xref` — Canonical RSSD Identity Universe (234,462 rows)
+
+The de-duped UNION of every distinct `rssd_id` that appears in any public NIC/identity table.
+Built by `20b_build_entity_xref.py` (CREATE OR REPLACE; non-destructive). **No synthesis** — every
+rssd is taken verbatim from a source table; certs are mapped to rssds only via observed cert↔rssd
+pairs (`institutions` ∪ `robin_crosswalk` ∪ `bank_failures_enriched`). This is the correct answer to
+"is this entity a known NIC identity?" — broader than `institutions` (which under-covers historical
+defunct/merged/small filers). Used by `13_validate.py` check #1 (referential) and the referential
+test suite. See COVERAGE_GAPS.md §6 for before/after match rates.
+
+Sources unioned: `institutions.rssd_id` ∪ `transformations.rssd_predecessor` ∪
+`transformations.rssd_successor` ∪ `crsp_mapping.rssd_id` ∪ `robin_crosswalk.rssd_id` ∪
+`robin_crosswalk.rssd_id_bhc` ∪ `bank_failures_enriched.rssd_id` ∪ `fdic_history` (via cert→rssd).
+`institutions` contributes 217,210; `transformations` adds the bulk of the remaining 17,252.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| rssd_id | INTEGER | RSSD identity (PK, distinct) |
+| source | VARCHAR | Pipe-delimited sorted provenance: which source table(s) contributed this rssd (e.g. `institutions\|transformations_predecessor`) |
+| n_sources | INTEGER | Count of distinct source tables vouching for this rssd |
+
 ### `filing_metadata` — Filing Coverage Summary (259 rows)
 
 | Column | Type | Description |
@@ -215,7 +249,7 @@ Maps CRSP stock identifiers (PERMCO) to Federal Reserve RSSD IDs. Compiled from 
 
 ## Catalog Schema (`catalog.*`)
 
-### `catalog.variables` — Variable Catalog (9,375 rows)
+### `catalog.variables` — Variable Catalog (13,147 rows)
 
 Every unique variable observed across all filing types.
 
@@ -258,7 +292,7 @@ Every unique variable observed across all filing types.
 | last_filing | DATE | Last filing date |
 | total_filings | INTEGER | Number of filings |
 
-### `catalog.data_sources` — Provenance Tracking (589 rows)
+### `catalog.data_sources` — Provenance Tracking (689 rows)
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -338,16 +372,18 @@ Maps plain-language variable names from Luck, FDIC SDI, Robin, and DFAST to MDRM
 
 ## FDIC Layer
 
-### `bank_failures` — Failed Bank List (4,114 rows)
+### `bank_failures` — Failed Bank List (4,115 rows)
 
-All FDIC-insured bank failures from 1934 to present, sourced from the FDIC BankFind API.
+All FDIC-insured bank failures from 1934 to present (latest 2026-05-01), sourced from the FDIC
+BankFind API. **`state_code` is now fully populated** (PSTALP from BankFind; 54 distinct states,
+previously NULL).
 
 | Column | Type | Description |
 |--------|------|-------------|
 | cert | INTEGER | FDIC certificate number (FK → institutions.fdic_cert) |
 | bank_name | VARCHAR | Bank name at time of failure |
 | city | VARCHAR | City |
-| state_code | VARCHAR | State abbreviation |
+| state_code | VARCHAR | State abbreviation (PSTALP; populated for all 4,115 rows) |
 | closing_date | DATE | Date the bank was closed |
 | failure_year | INTEGER | Year of failure |
 | acquiring_institution | VARCHAR | Name of acquiring institution |
@@ -361,9 +397,9 @@ All FDIC-insured bank failures from 1934 to present, sourced from the FDIC BankF
 | charter_class | VARCHAR | Charter class at failure |
 | source | VARCHAR | Data source ('fdic_api') |
 
-### `fdic_financials` — FDIC Statistics on Depository Institutions (69,272,714 rows)
+### `fdic_financials` — FDIC Statistics on Depository Institutions (69,455,560 rows)
 
-Quarterly financial data for all FDIC-insured institutions from 1984-2025. 24,056 institutions, 58 pre-computed financial variables, 168 quarters. Long format (one row per institution/quarter/variable).
+Quarterly financial data for all FDIC-insured institutions from 1984Q1 to 2026Q1. 24,060 institutions, 58 pre-computed financial variables, 169 quarters. Long format (one row per institution/quarter/variable).
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -376,9 +412,9 @@ Quarterly financial data for all FDIC-insured institutions from 1984-2025. 24,05
 
 **Key variables**: ASSET (total assets), DEP (total deposits), EQ (equity capital), NETINC (net income), INTINC (interest income), ROA (return on assets), ROE (return on equity), NIM (net interest margin), RBC1AAJ (tier 1 risk-based capital ratio)
 
-### `fdic_sod` — FDIC Summary of Deposits (2,740,878 rows)
+### `fdic_sod` — FDIC Summary of Deposits (2,815,984 rows)
 
-Branch-level deposit data from the FDIC Summary of Deposits survey. 15,505 institutions, 294,035 unique branches, 32 years (1994-2025).
+Branch-level deposit data from the FDIC Summary of Deposits survey. 15,505 institutions, 294,035 unique branches, 32 years (1994-2025, complete through 2025).
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -408,7 +444,7 @@ Branch-level deposit data from the FDIC Summary of Deposits survey. 15,505 insti
 | regulator | VARCHAR | Primary federal regulator |
 | source | VARCHAR | Data source ('fdic_sod') |
 
-### `fdic_history` — Institution History Events (581,588 rows)
+### `fdic_history` — Institution History Events (582,628 rows)
 
 All FDIC-recorded institution history events (name changes, mergers, charter conversions, openings, closings).
 
@@ -425,9 +461,9 @@ All FDIC-recorded institution history events (name changes, mergers, charter con
 | class_code | VARCHAR | Charter class code |
 | process_date | DATE | FDIC processing date |
 
-### `fred_series` — FRED Banking & Macro Series (75,037 rows)
+### `fred_series` — FRED Banking & Macro Series (75,257 rows)
 
-15 FRED time series providing macroeconomic context (1954-2025): bank credit, deposits, interest rates, GDP, unemployment.
+15 FRED time series providing macroeconomic context (1919-2026, latest obs 2026-05-29): bank credit, deposits, interest rates, GDP, unemployment.
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -435,6 +471,66 @@ All FDIC-recorded institution history events (name changes, mergers, charter con
 | observation_date | DATE | Observation date |
 | value | DOUBLE | Observed value |
 | series_name | VARCHAR | Human-readable series name |
+
+---
+
+## CLV Feature Layer
+
+Engineered analysis panels promoted to permanent freeNIC tables from the W16 CLV campaign
+(May 2026). Both are derived **from** other freeNIC sources (FDIC SDI, FFIEC CDR) and are also
+exported to parquet (sorted, ZSTD). The regenerable analysis panels (e.g. `public_luck_panel`)
+remain Volcker-only and are intentionally NOT promoted here.
+
+### `fdic_sdi_features` — FDIC-SDI Engineered Feature Panel (413,130 rows)
+
+Bank-year engineered ratios and failure flags derived from `fdic_financials` (FDIC SDI).
+**1984-2025 (annual, Q4 snapshot), 42 years, 23,065 entities.** Built by
+`31_build_sdi_feature_panel.py`. Asset totals reconcile to `fdic_financials` within ~0.35%.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| rssd_id | INTEGER | FK → institutions |
+| year | INTEGER | Observation year (Q4 snapshot) |
+| assets | DOUBLE | Total assets |
+| income_ratio | DOUBLE | Net income / assets ratio |
+| noncore_proxy | DOUBLE | Noncore funding proxy |
+| uninsured_ratio | DOUBLE | Uninsured deposits / total deposits |
+| insured_ratio | DOUBLE | Insured deposits / total deposits |
+| securities_ratio | DOUBLE | Securities / assets |
+| equity_ratio | DOUBLE | Equity / assets |
+| nim | DOUBLE | Net interest margin |
+| nim_ratio | DOUBLE | Net interest margin ratio |
+| roa | DOUBLE | Return on assets |
+| log_age | DOUBLE | Log of institution age |
+| F1_failure | DOUBLE | Failure flag, 1-year horizon |
+| F3_failure | DOUBLE | Failure flag, 3-year horizon |
+| F5_failure | DOUBLE | Failure flag, 5-year horizon |
+
+### `cdr_unrealized_losses` — FFIEC CDR Unrealized-Loss Layer (46,929 rows)
+
+AFS/HTM fair-value, AOCI, and brokered-deposit detail parsed from FFIEC CDR call-report bulk.
+**2019-2025 (Q4 by year), 5,290 entities.** Built by `33_parse_cdr_unrealized.py` (CDR bulk
+acquired by `32_acquire_cdr_unrealized.py`). MDRMs verified against issuer 10-Ks
+(HTM fair value = RCFD1771, brokered = RCON2365). SVB 2022Q4 reconciles to its disclosed
+~$15B HTM unrealized loss.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| rssd_id | BIGINT | FK → institutions |
+| cert | BIGINT | FDIC certificate number |
+| period_end | TIMESTAMP_MS | Quarter end (Q4 by year) |
+| year | BIGINT | Observation year |
+| afs_amort_cost | DOUBLE | Available-for-sale amortized cost |
+| afs_fair_value | DOUBLE | Available-for-sale fair value |
+| htm_amort_cost | DOUBLE | Held-to-maturity amortized cost |
+| htm_fair_value | DOUBLE | Held-to-maturity fair value (RCFD1771) |
+| afs_unrealized_loss | DOUBLE | AFS unrealized loss (fair value − amortized cost) |
+| htm_unrealized_loss | DOUBLE | HTM unrealized loss (fair value − amortized cost) |
+| total_unrealized_loss | DOUBLE | AFS + HTM unrealized loss |
+| aoci | DOUBLE | Accumulated other comprehensive income |
+| brokered_deposits | DOUBLE | Brokered deposits (RCON2365) |
+| time_dep_100_250k | DOUBLE | Time deposits $100k–$250k |
+| time_dep_gt_250k | DOUBLE | Time deposits > $250k |
 
 ---
 

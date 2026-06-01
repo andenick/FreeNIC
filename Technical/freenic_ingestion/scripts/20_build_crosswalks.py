@@ -102,6 +102,25 @@ ROBIN_CROSSWALK = [
     ("time_to_fail", "robin_panel", None, "time_to_failure", "metadata", "Years until failure"),
 ]
 
+# cdr_unrealized_losses fields -> MDRM (FFIEC CDR Public bulk; values in $ thousands).
+# HTM fair value is RCFD1771 (RCB), corrected from the V0 plan's RCFDJJ34; brokered
+# deposits is RCON2365 (total brokered), corrected from RCONJ473/J474 (time-deposit
+# maturity buckets). See 33_parse_cdr_unrealized.py header for the verification vs SVB 10-K.
+CDR_CROSSWALK = [
+    ("afs_amort_cost", "cdr_unrealized_losses", "RCFD1772", "afs_amortized_cost", "exact", "AFS securities amortized cost (Schedule RCB)"),
+    ("afs_fair_value", "cdr_unrealized_losses", "RCFD1773", "afs_fair_value", "exact", "AFS securities fair value (Schedule RCB)"),
+    ("htm_amort_cost", "cdr_unrealized_losses", "RCFD1754", "htm_amortized_cost", "exact", "HTM securities amortized cost (Schedule RCB)"),
+    ("htm_fair_value", "cdr_unrealized_losses", "RCFD1771", "htm_fair_value", "exact", "HTM securities fair value (Schedule RCB; corrected from RCFDJJ34)"),
+    ("aoci", "cdr_unrealized_losses", "RCFDB530", "aoci", "exact", "Accumulated other comprehensive income (Schedule RC)"),
+    ("brokered_deposits", "cdr_unrealized_losses", "RCON2365", "brokered_deposits", "exact", "Total brokered deposits (Schedule RCE; corrected from RCONJ473/J474)"),
+]
+
+# NOTE: fdic_sdi_features carries no new MDRM rows. Its inputs derive from FDIC SDI
+# variables already crosswalked in FDIC_SDI_CROSSWALK above (ASSET, DEP, EQ, etc.);
+# its remaining columns (income_ratio, noncore_proxy, uninsured_ratio, insured_ratio,
+# securities_ratio, equity_ratio, nim_ratio, roa, log_age, F1/F3/F5_failure) are
+# derived ratios / engineered features with no direct single-MDRM counterpart.
+
 DFAST_CROSSWALK = [
     ("common_equity_tier1_capital_ratio_min", "dfast_results", None, "cet1_ratio_stressed", "manual", "CET1 ratio minimum under stress"),
     ("tier1_capital_ratio_min", "dfast_results", None, "tier1_ratio_stressed", "manual", "Tier 1 capital ratio minimum"),
@@ -133,7 +152,7 @@ def main():
     """)
 
     # Insert all crosswalk entries
-    all_entries = LUCK_CROSSWALK + FDIC_SDI_CROSSWALK + ROBIN_CROSSWALK + DFAST_CROSSWALK
+    all_entries = LUCK_CROSSWALK + FDIC_SDI_CROSSWALK + ROBIN_CROSSWALK + DFAST_CROSSWALK + CDR_CROSSWALK
     for entry in all_entries:
         con.execute("""
             INSERT INTO variable_crosswalk

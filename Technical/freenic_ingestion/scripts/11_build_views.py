@@ -133,7 +133,25 @@ def main():
             i.date_established,
             i.name_legal AS nic_name
         FROM bank_failures bf
-        LEFT JOIN institutions i ON i.fdic_cert = bf.cert
+        LEFT JOIN (
+            -- Cert-reuse guard (2026-05-31): an FDIC cert can be reassigned to a
+            -- surviving bank after the original holder failed. A naive join on cert
+            -- fans out / misattributes those failures (39 reused certs affect ~5
+            -- failures; date_established is unpopulated so it can't disambiguate).
+            -- Collapse institutions to ONE row per cert and only attach an rssd when
+            -- the cert maps unambiguously to a single rssd; leave reused certs NULL
+            -- (honest) rather than guess a survivor. Yields one row per failure.
+            SELECT fdic_cert,
+                   ANY_VALUE(rssd_id) AS rssd_id,
+                   ANY_VALUE(entity_type) AS entity_type,
+                   ANY_VALUE(primary_fed_reg) AS primary_fed_reg,
+                   ANY_VALUE(date_established) AS date_established,
+                   ANY_VALUE(name_legal) AS name_legal
+            FROM institutions
+            WHERE fdic_cert IS NOT NULL
+            GROUP BY fdic_cert
+            HAVING COUNT(DISTINCT rssd_id) = 1
+        ) i ON i.fdic_cert = bf.cert
     """)
 
     # 6. deposit_market_share: Per-institution deposit market share by county

@@ -75,7 +75,9 @@ def main():
             cert,
             rec.get("NAME"),
             rec.get("CITY"),
-            rec.get("STALP"),
+            # FDIC BankFind failures payload uses PSTALP (institution state),
+            # not STALP. STALP is absent here, which left state_code all NULL.
+            rec.get("PSTALP") or rec.get("STALP"),
             closing_date,
             rec.get("FAILYR"),
             rec.get("BIDNAME"),

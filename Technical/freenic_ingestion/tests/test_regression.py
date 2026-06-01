@@ -29,11 +29,13 @@ def test_bank_failures_count(db):
 
 
 def test_occ_historical_dates(db):
+    # Span extended by Phase 9b OCC-CLV finhist: original 1867-1904 layer now
+    # joined by a 1863-1941 extension. Min is 1863, max is 1941.
     result = db.execute(
         "SELECT MIN(report_date), MAX(report_date) FROM occ_historical"
     ).fetchone()
-    assert str(result[0]).startswith("1867"), f"OCC min date: {result[0]}"
-    assert str(result[1]).startswith("1904"), f"OCC max date: {result[1]}"
+    assert str(result[0]).startswith("1863"), f"OCC min date: {result[0]}"
+    assert str(result[1]).startswith("1941"), f"OCC max date: {result[1]}"
 
 
 def test_luck_start_date(db):

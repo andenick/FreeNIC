@@ -19,6 +19,8 @@ MAIN_TABLES = [
     "sector_groupings",
     "stress_scenarios_domestic",
     "stress_scenarios_international",
+    "fdic_sdi_features",
+    "cdr_unrealized_losses",
 ]
 
 CATALOG_TABLES = [
@@ -57,6 +59,8 @@ PARQUET_FILES = [
     "sector_groupings.parquet",
     "stress_scenarios_domestic.parquet",
     "stress_scenarios_international.parquet",
+    "fdic_sdi_features.parquet",
+    "cdr_unrealized_losses.parquet",
 ]
 
 

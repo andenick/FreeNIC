@@ -24,11 +24,29 @@ INPUT_PATHS = {
     'crsp': INPUTS_DIR / 'crsp_frb_link',
     'luck': INPUTS_DIR / 'luck_database',
     'occ': INPUTS_DIR / 'luck_database' / 'occ_historical',
+    'occ_clv': INPUTS_DIR / 'clv_historical_call' / 'historical-call.dta',
     'fdic_failures': INPUTS_DIR / 'fdic_failures_api.json',
     'fdic_financials': INPUTS_DIR / 'fdic_financials',
     'fdic_sod': INPUTS_DIR / 'fdic_sod',
     'dfast': INPUTS_DIR / 'dfast',
     'filing_instructions': INPUTS_DIR / 'filing_instructions',
+    # CLV-era sources (W16): the FFIEC CDR Public bulk ZIPs live in the Volcker
+    # project (acquired by 32_acquire_cdr_unrealized.py, parsed by 33_parse_cdr_unrealized.py).
+    'cdr_raw': Path('D:/Arcanum/Projects/Volcker/Technical/AnuData/data/correia/_cdr_raw'),
+    # WS2a: full FFIEC CDR Public bulk Call Reports -- Single Period ZIPs (2012Q1+)
+    # acquired by 07d_acquire_cdr_call_bulk.py, ingested by 07e_ingest_call_reports_cdr.py.
+    'cdr_call_bulk': INPUTS_DIR / 'cdr_call_bulk',
+}
+
+# Source descriptions for catalog.data_sources provenance (10_build_catalog.py
+# materializes these; kept here so all source metadata lives in one place).
+# fdic_sdi_features derives from already-crosswalked FDIC SDI variables;
+# cdr_unrealized_losses derives from FFIEC CDR Public bulk (RCB/RC/RCE schedules).
+SOURCE_DESCRIPTIONS = {
+    'fdic_sdi_features': 'FDIC SDI-derived annual feature panel (1984-2025): asset ratios, '
+                         'NIM/ROA, log_age, and F1/F3/F5 forward failure flags.',
+    'cdr_unrealized_losses': 'FFIEC CDR Public bulk AFS/HTM fair-value, unrealized-loss, AOCI, '
+                             'and brokered-deposit layer (2019Q4-2025Q4).',
 }
 
 INGESTION_DIR = TECHNICAL_DIR / "freenic_ingestion"

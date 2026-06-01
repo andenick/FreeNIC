@@ -60,9 +60,19 @@ def main():
         print(f"  Download already complete ({len(page_files)} pages cached).")
         return
 
-    # Get total count
+    # Get total count (retry on transient 429/5xx — FDIC rate-limits bursts)
     print("  Probing API for total record count...")
-    probe = download_page(0)
+    probe = None
+    for attempt in range(8):
+        try:
+            probe = download_page(0)
+            break
+        except Exception as e:
+            print(f"  probe retry {attempt}: {str(e)[:70]}")
+            time.sleep(20)
+    if probe is None:
+        print("  FATAL: probe failed after retries.")
+        return
     total = probe["meta"]["total"]
     print(f"  Total records: {total:,}")
 
@@ -89,42 +99,46 @@ def main():
             page_num += 1
             continue
 
-        try:
-            data = download_page(offset)
-            records = [r["data"] for r in data["data"]]
-
-            if not records:
-                print(f"  Page {page_num:04d}: empty response, stopping.")
-                break
-
-            with open(page_path, "w") as f:
-                json.dump(records, f)
-            total_downloaded += len(records)
-            print(f"  Page {page_num:04d}: {len(records)} records "
-                  f"(total: {total_downloaded:,} / {total:,})")
-
-        except Exception as e:
-            print(f"  ERROR on page {page_num}: {e}")
-            print(f"  Retrying in 5s...")
-            time.sleep(5)
+        # Robust per-page retry with exponential backoff — FDIC rate-limits
+        # bursts hard (HTTP 429). Transient errors must not abort the run.
+        records = None
+        for attempt in range(10):
             try:
                 data = download_page(offset)
                 records = [r["data"] for r in data["data"]]
-                with open(page_path, "w") as f:
-                    json.dump(records, f)
-                total_downloaded += len(records)
-                print(f"  Page {page_num:04d}: {len(records)} records (retry OK)")
-            except Exception as e2:
-                print(f"  FATAL: Page {page_num} failed twice: {e2}")
                 break
+            except Exception as e:
+                wait = min(60, 5 * (2 ** attempt))
+                print(f"  page {page_num:04d} attempt {attempt} failed ({str(e)[:60]}); "
+                      f"backoff {wait}s")
+                time.sleep(wait)
+        if records is None:
+            print(f"  STOP: page {page_num} unrecoverable after retries; "
+                  f"leaving cache for resume (no sentinel).")
+            break
+
+        if not records:
+            print(f"  Page {page_num:04d}: empty response, stopping.")
+            break
+
+        with open(page_path, "w") as f:
+            json.dump(records, f)
+        total_downloaded += len(records)
+        print(f"  Page {page_num:04d}: {len(records)} records "
+              f"(total: {total_downloaded:,} / {total:,})")
 
         page_num += 1
-        # Brief pause to avoid rate limiting
-        if page_num % 10 == 0:
-            time.sleep(0.5)
+        # Steady pause to stay under FDIC's rate cap.
+        time.sleep(1.0)
 
-    # Write sentinel
-    sentinel.write_text(f"Downloaded {total_downloaded:,} records in {page_num} pages\n")
+    # Only mark complete if we actually pulled everything (no false "complete"
+    # on a rate-limited partial — re-running resumes from cached pages).
+    if total_downloaded >= total:
+        sentinel.write_text(f"Downloaded {total_downloaded:,} records in {page_num} pages\n")
+        print(f"  Download COMPLETE: {total_downloaded:,}/{total:,} records.")
+    else:
+        print(f"  PARTIAL: {total_downloaded:,}/{total:,} records cached. "
+              f"Re-run to resume; sentinel NOT written.")
 
     secs = elapsed()
     log_ingestion("18", f"FDIC SOD Download: {total_downloaded:,} records, {page_num} pages. {secs:.1f}s")

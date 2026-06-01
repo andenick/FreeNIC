@@ -23,8 +23,19 @@ Inputs/nic_attributes/
 # Generated output data (large, regenerable from scripts)
 Outputs/parquet/
 Outputs/*.duckdb
+Outputs/*.duckdb.tmp/
+Outputs/freenic.duckdb.tmp/
 *.parquet
 *.duckdb
+*.duckdb.tmp/
+
+# Additional large raw-data acquisition dirs (re-downloadable from source)
+Inputs/cdr_call_bulk/
+Inputs/clv_historical_call/
+Inputs/*.bak_*
+Inputs/fdic_failures_api.json.bak_pre_ws2b
+*.dta
+*.bak_pre_ws2b
 
 # HDARP processing intermediates (large, regenerable)
 Technical/HDARP_Processing/
@@ -50,3 +61,16 @@ desktop.ini
 # IDE
 .vscode/
 .idea/
+
+# --- Publication hygiene (Arcanum Publication Hygiene Standard v1.0) ---
+# Internal session/process/agent docs
+**/Handoffs/
+**/HANDOFF_*.md
+**/PROGRESS_LOG.md
+.claude/
+CLAUDE.md
+AGENTS.md
+.cursor/
+# Internal planning docs (reference internal paths/workflow)
+**/*_PLAN.md
+Technical/FREENIC_EXPORT_AND_REFERENTIAL_FIX_PLAN.md

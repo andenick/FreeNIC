@@ -155,6 +155,59 @@ def main():
         )
     """)
 
+    # --- Public-Data Feature Layer (CLV/W16 era) ---
+    # Canonical schemas for the two CLV-derived public tables. The builders
+    # (31_build_sdi_feature_panel.py, 33_parse_cdr_unrealized.py) use
+    # CREATE OR REPLACE TABLE, so these CREATE IF NOT EXISTS stubs exist for
+    # documentation / bootstrap parity (they define the canonical column set).
+
+    # fdic_sdi_features: SDI-derived annual feature panel, one row per (rssd_id, year),
+    # 1984-2025 Q4 (413K rows). Reconciles to fdic_financials ASSET within ~0.35%.
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS fdic_sdi_features (
+            rssd_id          INTEGER,
+            year             INTEGER,
+            assets           DOUBLE,
+            income_ratio     DOUBLE,
+            noncore_proxy    DOUBLE,
+            uninsured_ratio  DOUBLE,
+            insured_ratio    DOUBLE,
+            securities_ratio DOUBLE,
+            equity_ratio     DOUBLE,
+            nim              DOUBLE,
+            nim_ratio        DOUBLE,
+            roa              DOUBLE,
+            log_age          DOUBLE,
+            F1_failure       INTEGER,
+            F3_failure       INTEGER,
+            F5_failure       INTEGER,
+            PRIMARY KEY (rssd_id, year)
+        )
+    """)
+
+    # cdr_unrealized_losses: FFIEC CDR Public bulk fair-value / unrealized-loss layer,
+    # one row per (rssd_id, period_end), 2019Q4-2025Q4 (46.9K rows). Values in $ thousands.
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS cdr_unrealized_losses (
+            rssd_id              INTEGER,
+            cert                 INTEGER,
+            period_end           DATE,
+            year                 INTEGER,
+            afs_amort_cost       DOUBLE,
+            afs_fair_value       DOUBLE,
+            htm_amort_cost       DOUBLE,
+            htm_fair_value       DOUBLE,
+            afs_unrealized_loss  DOUBLE,
+            htm_unrealized_loss  DOUBLE,
+            total_unrealized_loss DOUBLE,
+            aoci                 DOUBLE,
+            brokered_deposits    DOUBLE,
+            time_dep_100_250k    DOUBLE,
+            time_dep_gt_250k     DOUBLE,
+            PRIMARY KEY (rssd_id, period_end)
+        )
+    """)
+
     # --- Crosswalk Layer ---
     con.execute("""
         CREATE TABLE IF NOT EXISTS crsp_mapping (

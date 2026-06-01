@@ -22,9 +22,11 @@ ALL_DATE_TABLES = FILING_TABLES_PERIOD_END + OTHER_DATE_TABLES
 # Expected date bounds
 DATE_BOUNDS = {
     "bhcf_filings": ("1986-01-01", "2026-12-31"),
-    "call_report_filings": ("1976-01-01", "2003-01-01"),
+    # Call reports now extend to 2025Q4 (200 quarters) via FFIEC CDR bulk (07d/07e).
+    "call_report_filings": ("1976-01-01", "2026-01-01"),
     "luck_call_reports": ("1959-01-01", "2026-12-31"),
-    "occ_historical": ("1860-01-01", "1910-01-01"),
+    # OCC historical extended to 1941 by Phase 9b OCC-CLV finhist.
+    "occ_historical": ("1860-01-01", "1942-01-01"),
     "fdic_financials": ("1984-01-01", "2026-12-31"),
     "bank_failures": ("1934-01-01", "2027-01-01"),
     "pillar3_disclosures": ("2020-01-01", "2026-12-31"),
@@ -35,15 +37,20 @@ MIN_ROW_COUNTS = {
     "mdrm": 80000,
     "institutions": 200000,
     "bhcf_filings": 200000000,
-    "call_report_filings": 800000000,
+    # Extended to 2025Q4 (200 quarters, ~1.912B rows) via FFIEC CDR bulk.
+    "call_report_filings": 1800000000,
     "luck_call_reports": 300000000,
     "fdic_financials": 60000000,
     "fdic_sod": 2500000,
-    "occ_historical": 9000000,
+    # OCC original + Phase 9b OCC-CLV extension (~17.8M rows).
+    "occ_historical": 17000000,
     "bank_failures": 4000,
     "dfast_results": 25000,
     "pillar3_disclosures": 7000,
     "variable_crosswalk": 60,
+    # CLV-era tables promoted to permanent freeNIC tables (2026-05-31).
+    "fdic_sdi_features": 400000,
+    "cdr_unrealized_losses": 40000,
 }
 
 
@@ -93,7 +100,7 @@ def test_mdrm_duplicates_negligible(db):
 
 
 def test_total_row_count(db):
-    """Total rows across all filing tables should be ~1.5B."""
+    """Total rows across all filing tables should be ~2.5B after the 2026-05/06 update."""
     tables = ["bhcf_filings", "call_report_filings", "luck_call_reports",
               "fdic_financials", "occ_historical", "fdic_sod",
               "dfast_results", "pillar3_disclosures"]
@@ -101,4 +108,4 @@ def test_total_row_count(db):
         db.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
         for t in tables
     )
-    assert total > 1_400_000_000, f"Total rows {total:,} is below 1.4B"
+    assert total > 2_400_000_000, f"Total rows {total:,} is below 2.4B"

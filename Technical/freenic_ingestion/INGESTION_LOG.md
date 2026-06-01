@@ -51,3 +51,29 @@
 | 2026-03-25 08:00:35 | Phase 13 | Validation: 6/7 checks passed. 13.1s |
 | 2026-03-30 22:01:12 | Phase 10 | Catalog built: variables, filing_coverage, entity_coverage, schema_evolution, data_sources. 178.2s |
 | 2026-03-30 22:47:25 | Phase 12 | Parquet export: 34 tables, 5,065.2 MB total. 2722.1s |
+| 2026-05-29 22:20:19 | Phase 9b | OCC Historical CLV (finhist): 7,986,823 obs, 14,258 banks, 66 vars, 1863-11-28..1941-12-31, source='occ_historical_clv'. Existing occ_historical untouched (9,788,940 rows). 19.4s |
+| 2026-05-29 22:21:05 | Phase 9b | occ_historical.parquet re-export: 17,775,763 rows (44.1 MB). 2.4s |
+| 2026-05-29 23:48:51 | Phase 7b | Incremental Call Reports: +202,525,602 rows, +13 quarters ['1976-12-31', '1997-09-30', '1997-12-31', '2009-09-30', '2009-12-31', '2010-03-31', '2010-06-30', '2010-09-30', '2010-12-31', '2011-03-31', '2011-06-30', '2011-09-30', '2011-12-31'], span now 1976-03-31..2011-12-31 (132 quarters). Skipped existing=119, unreadable=10. Non-destructive (prior missing=0). 316.4s |
+| 2026-05-30 16:38:19 | Phase 7b | Re-export call_report_filings.parquet: 1,401,595,327 rows, 134 quarters (+2002Q3,2003Q1 recovered), 3,973.8 MB. Supersedes 132-qtr export of 2026-05-30 00:08. |
+| 2026-05-30 18:51:56 | Phase 7b | Incremental Call Reports: +122,865,603 rows, +8 quarters ['2003-06-30', '2003-09-30', '2003-12-31', '2004-06-30', '2004-12-31', '2005-03-31', '2005-09-30', '2006-03-31'], span now 1976-03-31..2011-12-31 (142 quarters). Skipped existing=134, unreadable=0. Non-destructive (prior missing=0). 179.9s |
+| 2026-05-31 09:52:09 | Phase 7b | Incremental Call Reports: +0 rows, +0 quarters [], span now 1976-03-31..2011-12-31 (142 quarters). Skipped existing=142, unreadable=0. Non-destructive (prior missing=0). 70.2s |
+| 2026-05-31 10:19:10 | Phase 7b | Incremental Call Reports: +22,833,915 rows, +2 quarters ['1997-03-31', '1997-06-30'], span now 1976-03-31..2011-12-31 (144 quarters). Skipped existing=142, unreadable=0. Non-destructive (prior missing=0). 32.3s |
+| 2026-05-31 19:32:14 | Phase 31 | fdic_sdi_features table built: 413,130 rows, 23,065 entities, 1984-2025 (Q4, FDIC SDI features). |
+| 2026-05-31 19:32:25 | Phase 33 | cdr_unrealized_losses table built: 46,929 rows, 5,290 entities, periods 2019-12-31..2025-12-31 (FFIEC CDR fair-value/AOCI/brokered). |
+| 2026-05-31 19:46:37 | Phase 16 | FDIC Failed Banks: 4,115 failures, 1934-04-19 to 2026-05-01. 57.5s |
+| 2026-05-31 19:53:02 | Phase 25 | FDIC history: 582,628 records. 251.6s |
+| 2026-05-31 19:58:19 | Phase 27 | FRED series: 75,257 obs from 15 series. 152.0s |
+| 2026-05-31 20:15:11 | Phase 17 | FDIC Financials: 69,455,560 obs, 24,060 institutions, 58 vars, 169 quarters, 1984-03-31 to 2026-03-31. 70.0s |
+| 2026-05-31 20:18:22 | Phase 18 | FDIC SOD Download: 160,000 records, 16 pages. 87.2s |
+| 2026-05-31 20:52:52 | Phase 18 | FDIC SOD Download: 2,000,000 records, 200 pages. 1965.6s |
+| 2026-05-31 21:27:23 | Phase 19 | FDIC SOD: 2,815,984 records, 15,505 institutions, 32 years (1994-2025). 363.6s |
+| 2026-05-31 21:30:10 | Phase 23 | DFAST: 28,231 obs, 43 banks, 13 years (2013-2025), 56 variables. 83.4s |
+| 2026-05-31 22:41:48 | Phase 7e | CDR post-2011 Call Reports: +364,790,180 rows, +56 quarters ['2012-03-31', '2012-06-30', '2012-09-30', '2012-12-31', '2013-03-31', '2013-06-30', '2013-09-30', '2013-12-31', '2014-03-31', '2014-06-30', '2014-09-30', '2014-12-31', '2015-03-31', '2015-06-30', '2015-09-30', '2015-12-31', '2016-03-31', '2016-06-30', '2016-09-30', '2016-12-31', '2017-03-31', '2017-06-30', '2017-09-30', '2017-12-31', '2018-03-31', '2018-06-30', '2018-09-30', '2018-12-31', '2019-03-31', '2019-06-30', '2019-09-30', '2019-12-31', '2020-03-31', '2020-06-30', '2020-09-30', '2020-12-31', '2021-03-31', '2021-06-30', '2021-09-30', '2021-12-31', '2022-03-31', '2022-06-30', '2022-09-30', '2022-12-31', '2023-03-31', '2023-06-30', '2023-09-30', '2023-12-31', '2024-03-31', '2024-06-30', '2024-09-30', '2024-12-31', '2025-03-31', '2025-06-30', '2025-09-30', '2025-12-31'], span now 1976-03-31..2025-12-31 (200 quarters). Skipped existing=0, failed=0. Non-destructive (prior missing=0). 1155.4s |
+| 2026-05-31 23:17:28 | Phase 7b | Re-export call_report_filings.parquet: 1,912,085,025 rows, 200 quarters (+2002Q3,2003Q1 recovered), 5,186.9 MB. Supersedes 132-qtr export of 2026-05-30 00:08. |
+| 2026-05-31 23:33:01 | Phase 10 | Catalog built: variables, filing_coverage, entity_coverage, schema_evolution, data_sources. 489.5s |
+| 2026-05-31 23:33:53 | Phase 11 | Built 10 convenience views. 10.8s |
+| 2026-06-01 00:05:26 | Phase 12 | Targeted re-export of 12 changed/new tables (fdic_sdi_features, cdr_unrealized_losses, refreshed FDIC/FRED + catalog); 413.9 MB. call_report_filings already current (7b 23:17). |
+| 2026-06-01 00:06:20 | Phase 13 | Validation: 5/8 checks passed. 21.9s |
+| 2026-06-01 00:07:28 | Phase 13 | Validation: 5/8 checks passed. 19.6s |
+| 2026-06-01 | Summary | freeNIC comprehensive update complete: call_report_filings extended to 2025Q4 (200 qtrs, 1.912B rows via FFIEC CDR 07d/07e); new tables fdic_sdi_features (413,130) + cdr_unrealized_losses (46,929); occ_historical 1863-1941 (17.8M); FDIC SDI/failures/SOD/history + FRED refreshed; bank_failures.state_code fixed; bank_failures_enriched cert-reuse guard. DB ~2.53B rows, 32 main + 5 catalog tables + 10 views. Docs (DATA_DICTIONARY, DATA_SOURCE_INVENTORY, COVERAGE_GAPS) + tests updated. |
+| 2026-06-01 08:25:52 | Phase 20b | entity_xref built: 234,462 distinct rssd identities (union of institutions/transformations/crsp_mapping/robin_crosswalk/bank_failures_enriched/fdic_history). 27.9s |
