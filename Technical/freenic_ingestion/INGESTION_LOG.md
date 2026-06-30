@@ -42,8 +42,8 @@
 | 2026-03-24 15:14:59 | Phase 27 | FRED series: 0 obs from 15 series. 1.2s |
 | 2026-03-24 15:16:57 | Phase 27 | FRED series: 75,037 obs from 15 series. 94.7s |
 | 2026-03-24 16:07:26 | Phase 12 | Parquet export: 26 tables, 4,492.6 MB total. 3014.8s |
-| 2026-03-24 21:40:31 | Phase 28 | Robin panel: 2,867,936 + deposits: 3,508. 42.7s |
-| 2026-03-24 21:41:01 | Phase 29 | Volcker catalogs: crosswalk=14,286, hierarchy=36,668, sectors=16,548. 1.6s |
+| 2026-03-24 21:40:31 | Phase 28 | Failing Banks panel: 2,867,936 + deposits: 3,508. 42.7s |
+| 2026-03-24 21:41:01 | Phase 29 | BHC/identifier catalogs: crosswalk=14,286, hierarchy=36,668, sectors=16,548. 1.6s |
 | 2026-03-24 21:41:46 | Phase 30 | Stress scenarios: domestic=226, intl=226. 1.3s |
 | 2026-03-24 21:43:31 | Phase 11 | Built 10 convenience views. 9.4s |
 | 2026-03-24 23:52:07 | Phase 12 | Parquet export: 34 tables, 5,083.0 MB total. 7671.6s |
@@ -90,3 +90,136 @@
 | 2026-06-01 14:49:10 | Phase 13 | Validation: 7/8 checks passed. 13.6s |
 | 2026-06-01 14:51:53 | Phase 13 | Validation: 8/8 checks passed. 13.4s |
 | 2026-06-01 14:54:28 | Phase 12 | Post-2026Q1 re-export: call_report_filings (201 quarters, 1,915,292,096 rows, 4,692.1 MB, period-chunk, 87.5m) + filing_metadata catch-up (359 rows). filing_metadata now ALWAYS_EXPORT (skip-if-current cannot detect its own growth). Parity 37/37 OK. 13_validate 8/8 (call_report date bound 2025-12-31->2026-06-30). |
+| 2026-06-05 18:25:35 | Phase 13 | Validation: 8/8 checks passed. 12.4s |
+| 2026-06-05 18:41:40 | Phase 10 | Catalog built: variables, filing_coverage, entity_coverage, schema_evolution, data_sources. 514.1s |
+| 2026-06-05 18:47:48 | Dedup | Luck slimmed 311,809,300 -> 38,105,257 rows (pre-1976 core + 2,285 Fed-absent gap-fill cells); 1976+ dropped as 99.88% redundant with call_report_filings (D1 gate core 99.89%). Catalog rebuilt; validate 8/8; pytest 189/0. |
+| 2026-06-05 19:16:15 | Phase 8b | Slim Luck: 38,105,257 -> 38,105,257 rows (dropped 0 redundant 1976+; kept pre-1976 37,716,069 + gap-fill 389,188). 1959-12-31..2023-03-31. 8.4s |
+| 2026-06-05 19:28:53 | Phase 13 | Validation: 8/8 checks passed. 10.3s |
+| 2026-06-05 19:56:25 | Phase 13 | Validation: 8/8 checks passed. 8.2s |
+| 2026-06-05 20:29:23 | Phase 8b | Slim Luck: 38,105,257 -> 37,753,719 rows (dropped 351,538 redundant 1976+; kept pre-1976 37,716,069 + gap-fill 37,650). 1959-12-31..2023-03-31. 6.5s |
+| 2026-06-05 21:51:31 | Phase 13 | Validation: 8/8 checks passed. 8.5s |
+| 2026-06-05 22:51:33 | Phase 24 | Pillar 3: 7,974 obs, 7 banks, 6 periods, 325 tables. 63.5s |
+| 2026-06-05 22:53:19 | Phase 13 | Validation: 8/8 checks passed. 9.4s |
+| 2026-06-05 23:14:52 | Phase 24 | Pillar 3: 9,172 obs, 7 banks, 6 periods, 369 tables. 19.4s |
+| 2026-06-05 23:15:08 | Phase 13 | Validation: 8/8 checks passed. 14.3s |
+| 2026-06-05 23:57:03 | Phase 26 | NCUA 5300 credit-union call reports (SCOPE EXPANSION): 11,542,859 cells, 4,550 directory rows, 4,550 credit unions, 2,539 account codes, 12 schedules. 6.0s |
+| 2026-06-06 00:00:56 | Phase 26 | NCUA 5300 credit-union call reports (SCOPE EXPANSION): 14,755,171 cells, 4,550 directory rows, 4,550 credit unions, 3,262 account codes, 17 schedules. 49.8s |
+| 2026-06-06 00:02:13 | Phase 26 | NCUA 5300 credit-union call reports (SCOPE EXPANSION): 14,755,171 cells, 4,550 directory rows, 4,550 credit unions, 3,262 account codes, 17 schedules. 41.7s |
+| 2026-06-06 00:05:13 | Phase 13 | Validation: 7/8 checks passed. 13.2s |
+| 2026-06-06 00:05:33 | Phase 13 | Validation: 7/8 checks passed. 8.9s |
+| 2026-06-06 00:05:58 | Phase 13 | Validation: 7/8 checks passed. 8.1s |
+| 2026-06-06 00:11:16 | Phase 13 | Validation: 8/8 checks passed. 9.5s |
+| 2026-06-06 00:11:43 | Phase 13 | Validation: 8/8 checks passed. 8.8s |
+| 2026-06-06 09:52:03 | Phase 24 | Pillar 3: 9,523 obs, 8 banks, 6 periods, 387 tables. 38.8s |
+| 2026-06-06 09:53:08 | Phase 13 | Validation: 8/8 checks passed. 9.8s |
+| 2026-06-06 10:48:23 | Phase 34 | SEC EDGAR CIK<->bank/BHC crosswalk (data.sec.gov): 371 rows, 6 distinct SIC codes, 321 with ticker, 351 with 2024Q4 assets. www.sec.gov Akamai-blocked; built via XBRL frames + submissions SIC filter. 363.5s |
+| 2026-06-06 10:50:34 | Phase 13 | Validation: 8/8 checks passed. 16.9s |
+| 2026-06-06 11:40:08 | Phase 13 | Validation: 8/8 checks passed. 9.4s |
+| 2026-06-06 15:32:11 | Phase 35 | HMDA mortgage-lending institution x year summary (CFPB Data Browser API): 57,654 rows at (lei, activity_year, loan_purpose), 9,609 institution-years, years [2022, 2023]. LEI->RSSD name-matched 5,569/9,609 (58.0%). SUMMARY not full LAR; adjacent to call-report core. cross-check mismatches=0. 2112.6s |
+| 2026-06-06 15:33:24 | Phase 13 | Validation: 8/8 checks passed. 8.6s |
+| 2026-06-06 23:09:21 | Phase 13 | Validation: 8/8 checks passed. 9.2s |
+| 2026-06-06 23:35:27 | Phase 13 | Validation: 8/8 checks passed. 9.2s |
+| 2026-06-06 23:56:25 | Phase 13 | Validation: 8/8 checks passed. 9.2s |
+| 2026-06-07 00:23:05 | Phase 10 | Catalog built: variables, filing_coverage, entity_coverage, schema_evolution, data_sources. 454.0s |
+| 2026-06-07 00:25:23 | Phase 13 | Validation: 8/8 checks passed. 8.8s |
+| 2026-06-07 00:33:51 | Phase 13 | Validation: 8/8 checks passed. 8.9s |
+| 2026-06-07 00:42:59 | Phase 13 | Validation: 8/8 checks passed. 8.6s |
+| 2026-06-07 00:49:35 | Phase 36 | id_crosswalk: 3,440 rows (cik=204, lei=3,240, cert=3,440). RSSD<->cert<->CIK<->LEI from in-warehouse data; GLEIF enrichment optional. 8.2s |
+| 2026-06-07 00:53:42 | Phase 13 | Validation: 8/8 checks passed. 9.6s |
+| 2026-06-07 01:04:08 | Phase 13 | Validation: 8/8 checks passed. 9.0s |
+| 2026-06-07 01:17:42 | Phase 26 | NCUA 5300 credit-union call reports (SCOPE EXPANSION): 75,330,908 cells, 23,149 directory rows, 4,720 credit unions, 3,278 account codes, 17 schedules. 381.5s |
+| 2026-06-07 01:19:55 | Phase 13 | Validation: 7/8 checks passed. 8.4s |
+| 2026-06-07 01:20:14 | Phase 13 | Validation: 7/8 checks passed. 8.4s |
+| 2026-06-07 01:20:56 | Phase 13 | Validation: 8/8 checks passed. 8.4s |
+| 2026-06-07 01:35:00 | Phase 35 | HMDA mortgage-lending institution x year summary (CFPB Data Browser API): 208,302 rows at (lei, activity_year, loan_purpose), 34,717 institution-years, years [2018, 2019, 2020, 2021, 2022, 2023, 2024]. LEI->RSSD name-matched 19,349/34,717 (55.7%). SUMMARY not full LAR; adjacent to call-report core. cross-check mismatches=0. 370.3s |
+| 2026-06-07 01:35:25 | Phase 13 | Validation: 8/8 checks passed. 9.1s |
+| 2026-06-07 12:55:14 | Phase 13 | Validation: 8/8 checks passed. 12.6s |
+| 2026-06-07 14:58:38 | Phase 37 | NIC entity identifiers (authoritative Fed crosswalk): 102,932 rows; lei=12,754 occ=2,037 ncua=21,984 cert=10,433. 3.4s |
+| 2026-06-07 15:05:33 | Phase 36 | id_crosswalk (W18 authoritative): 103,037 rows (cik=204, lei=15,278 [nic=12,754/hmda=2,524], cert=102,720, occ=2,037, ncua=21,984). Authoritative NIC IDs from nic_entity_identifiers. 253.2s |
+| 2026-06-07 15:08:28 | Phase 13 | Validation: 8/8 checks passed. 14.2s |
+| 2026-06-07 15:54:32 | Phase 37b | NIC attribute extension: 220,092 rows, 33 Fed-direct attribute cols (geography + charter/reg + status/type). 4.7s |
+| 2026-06-07 15:56:11 | Phase 37b | NIC attribute extension: 220,092 rows, 33 Fed-direct attribute cols (geography + charter/reg + status/type). 5.4s |
+| 2026-06-07 15:57:47 | Phase 13 | Validation: 8/8 checks passed. 12.5s |
+| 2026-06-07 18:19:00 | Phase 39 | UBPR ratios: 11,280,931 rows, 4,543 banks, 1 periods, 2,803 concepts (XBRL from CDR bulk). 32.0s |
+| 2026-06-07 18:23:31 | Phase 13 | Validation: 8/8 checks passed. 16.1s |
+| 2026-06-07 18:32:19 | Phase 39 | UBPR ratios: 54,324,336 rows, 4,650 banks, 5 periods, 2,803 concepts (XBRL from CDR bulk). 183.0s |
+| 2026-06-07 18:33:02 | Phase 13 | Validation: 8/8 checks passed. 16.0s |
+| 2026-06-07 18:43:50 | Phase 39 | UBPR ratios: 43,294,650 rows, 4,650 banks, 5 periods, 2,803 concepts (XBRL from CDR bulk). 298.6s |
+| 2026-06-07 18:44:32 | Phase 13 | Validation: 8/8 checks passed. 13.9s |
+| 2026-06-07 19:53:37 | Phase 41 | FR Y-15 systemic-risk indicators: 22,481 rows, 57 institutions, 5 years, 184 RISK line items (FFIEC NIC Y-15 snapshots). 10.9s |
+| 2026-06-07 19:56:03 | Phase 13 | Validation: 8/8 checks passed. 13.4s |
+| 2026-06-07 20:20:10 | Phase 27b | FRED H.8 disaggregated: +118 series; fred_series now 130,188 rows / 133 series. 34.1s |
+| 2026-06-07 22:26:10 | Phase 27b | FRED H.8 disaggregated: +1,934 series; fred_series now 1,334,059 rows / 1,943 series. 1034.2s |
+| 2026-06-07 22:27:23 | Phase 13 | Validation: 8/8 checks passed. 19.4s |
+| 2026-06-07 22:48:06 | Phase 39 | UBPR ratios: 79,120,269 rows, 4,879 banks, 9 periods, 2,817 concepts (XBRL from CDR bulk). 208.8s |
+| 2026-06-07 22:54:15 | Phase 13 | Validation: 8/8 checks passed. 13.1s |
+| 2026-06-07 23:10:52 | Phase 10 | Catalog built: variables, filing_coverage, entity_coverage, schema_evolution, data_sources. 538.3s |
+| 2026-06-07 23:12:07 | Phase 13 | Validation: 8/8 checks passed. 9.4s |
+| 2026-06-07 23:28:39 | Phase 13 | Validation: 8/8 checks passed. 9.6s |
+| 2026-06-08 00:17:29 | Phase 13 | Validation: 8/8 checks passed. 9.3s |
+| 2026-06-08 00:35:22 | Phase 13 | Validation: 8/8 checks passed. 7.8s |
+| 2026-06-08 01:48:55 | Phase 39 | UBPR ratios: 116,155,287 rows, 5,073 banks, 13 periods, 2,817 concepts (XBRL from CDR bulk). 242.7s |
+| 2026-06-08 01:58:53 | Phase 13 | Validation: 8/8 checks passed. 11.2s |
+| 2026-06-08 02:47:52 | Phase 13 | Validation: 8/8 checks passed. 7.7s |
+| 2026-06-08 21:45:22 | Phase 13 | Validation: 8/8 checks passed. 11.0s |
+| 2026-06-08 21:59:49 | Phase 13 | Validation: 9/9 checks passed. 8.3s |
+| 2026-06-08 22:44:44 | Phase 44 | Built catalog.namespace_variables. 2.9s |
+| 2026-06-08 22:45:33 | Phase 44 | Built catalog.namespace_variables. 2.9s |
+| 2026-06-08 22:46:59 | Phase 12 | Parquet export: 47 tables (exported 4, skipped 43, empty 0, errors 0); 4,807.9 MB newly written. 4.6s |
+| 2026-06-08 22:47:33 | Phase 13 | Validation: 10/10 checks passed. 16.7s |
+| 2026-06-08 22:55:42 | Phase 13 | Validation: 10/10 checks passed. 18.3s |
+| 2026-06-08 23:22:52 | Phase 12 | Parquet export: 48 tables (exported 2, skipped 46, empty 0, errors 0); 0.0 MB newly written. 1.1s |
+| 2026-06-08 23:54:48 | Phase 13 | Validation: 10/10 checks passed. 13.9s |
+| 2026-06-09 00:22:10 | Phase 13 | Validation: 10/10 checks passed. 9.9s |
+| 2026-06-09 01:37:44 | Phase 42 | UBPR peer ingest: 988,450 rows in 10.4s |
+| 2026-06-09 01:39:57 | Phase 42 | UBPR peer ingest: 939,214 rows in 9.4s |
+| 2026-06-09 02:09:30 | Phase 42 | UBPR peer ingest: 22,067,752 rows in 204.3s |
+| 2026-06-09 02:10:44 | Phase 12 | Parquet export: 49 tables (exported 2, skipped 47, empty 0, errors 0); 88.8 MB newly written. 5.2s |
+| 2026-06-09 02:11:57 | Phase 13 | Validation: 10/10 checks passed. 15.3s |
+| 2026-06-09 02:41:50 | Phase 42 | UBPR peer ingest: 250,012,503 rows in 292.7s |
+| 2026-06-09 02:45:19 | Phase 12 | Parquet export: 50 tables (exported 2, skipped 48, empty 0, errors 0); 902.0 MB newly written. 81.4s |
+| 2026-06-09 02:45:45 | Phase 13 | Validation: 10/10 checks passed. 12.2s |
+| 2026-06-09 03:40:31 | Phase 39 | UBPR ratios: 154,188,856 rows, 5,221 banks, 17 periods, 2,822 concepts (XBRL from CDR bulk). 249.0s |
+| 2026-06-09 03:51:37 | Phase 39 | UBPR ratios: 237,585,672 rows, 5,735 banks, 25 periods, 2,943 concepts (XBRL from CDR bulk). 554.7s |
+| 2026-06-09 03:52:21 | Phase 13 | Validation: 9/10 checks passed. 17.3s |
+| 2026-06-09 03:53:19 | Phase 13 | Validation: 9/10 checks passed. 12.1s |
+| 2026-06-09 03:53:44 | Phase 44 | Built catalog.namespace_variables. 2.9s |
+| 2026-06-09 03:53:45 | Phase 12 | Parquet export: 50 tables (exported 1, skipped 49, empty 0, errors 0); 0.0 MB newly written. 0.9s |
+| 2026-06-09 03:54:12 | Phase 13 | Validation: 10/10 checks passed. 12.5s |
+| 2026-06-09 04:51:53 | Phase 39 | UBPR ratios: 393,041,241 rows, 6,567 banks, 37 periods, 2,971 concepts (XBRL from CDR bulk). 1584.1s |
+| 2026-06-09 04:52:38 | Phase 44 | Built catalog.namespace_variables. 15.3s |
+| 2026-06-09 04:52:57 | Phase 13 | Validation: 10/10 checks passed. 17.8s |
+| 2026-06-09 05:36:20 | Phase 39 | UBPR ratios: 434,527,232 rows, 6,576 banks, 42 periods, 2,971 concepts (XBRL from CDR bulk). 1032.9s |
+| 2026-06-09 05:36:57 | Phase 13 | Validation: 10/10 checks passed. 18.8s |
+| 2026-06-09 06:42:18 | Phase 39 | UBPR ratios: 618,599,995 rows, 7,477 banks, 54 periods, 3,059 concepts (XBRL from CDR bulk). 2432.7s |
+| 2026-06-09 06:42:44 | Phase 44 | Built catalog.namespace_variables. 5.5s |
+| 2026-06-09 06:43:04 | Phase 13 | Validation: 10/10 checks passed. 19.0s |
+| 2026-06-09 08:08:38 | Phase 39 | UBPR ratios: 805,554,926 rows, 8,360 banks, 66 periods, 3,092 concepts (XBRL from CDR bulk). 3663.3s |
+| 2026-06-09 08:09:09 | Phase 44 | Built catalog.namespace_variables. 7.0s |
+| 2026-06-09 08:09:30 | Phase 13 | Validation: 10/10 checks passed. 20.4s |
+| 2026-06-09 09:42:26 | Phase 39 | UBPR ratios: 1,004,062,459 rows, 9,298 banks, 78 periods, 3,101 concepts (XBRL from CDR bulk). 4264.8s |
+| 2026-06-09 09:42:51 | Phase 44 | Built catalog.namespace_variables. 7.2s |
+| 2026-06-09 09:43:12 | Phase 13 | Validation: 10/10 checks passed. 21.0s |
+| 2026-06-09 11:17:04 | Phase 39 | UBPR ratios: 1,207,754,536 rows, 10,194 banks, 90 periods, 3,111 concepts (XBRL from CDR bulk). 5402.5s |
+| 2026-06-09 12:13:54 | Phase 39 | UBPR ratios: 1,224,921,102 rows, 10,250 banks, 91 periods, 3,112 concepts (XBRL from CDR bulk). 3368.8s |
+| 2026-06-09 14:51:40 | Phase 39 | UBPR ratios: 1,251,149,050 rows, 10,250 banks, 94 periods, 3,112 concepts (XBRL from CDR bulk). 4538.5s |
+| 2026-06-09 14:54:10 | Phase 44 | Built catalog.namespace_variables. 42.9s |
+| 2026-06-09 14:57:04 | Phase 13 | Validation: 10/10 checks passed. 34.9s |
+| 2026-06-09 23:10:17 | Phase 44 | Built catalog.namespace_variables. 14.1s |
+| 2026-06-09 23:10:52 | Phase 13 | Validation: 10/10 checks passed. 23.4s |
+| 2026-06-10 00:08:00 | Phase 13 | Validation: 10/10 checks passed. 24.6s |
+| 2026-06-10 00:19:12 | Phase 36b | GLEIF LEI widening: id_crosswalk.lei 15,278 -> 17,713 (+2,435; lei_source='gleif'=2,435). Unambiguous normalized-name match GLEIF US/ACTIVE legal_name <-> NIC institutions. 11.7s |
+| 2026-06-10 00:19:51 | Phase 13 | Validation: 10/10 checks passed. 26.5s |
+| 2026-06-10 00:55:11 | Phase 27b-backfill | A7 FRED H.8 backfill: +3 series (LTDDCBW027SBOG, CASACBW027SBOG, TLADCBW027SBOG, H8B3053NFRA) via API-host fallback; fred_series 1,946 distinct. |
+| 2026-06-10 00:57:36 | Phase 27b-backfill | A7 FRED H.8 backfill: +1 series (LTDDCBW027NBOG) via API-host fallback; fred_series 1,947 distinct. |
+| 2026-06-10 00:58:31 | Phase 13 | Validation: 10/10 checks passed. 26.9s |
+| 2026-06-10 01:14:12 | Phase 13 | Validation: 10/10 checks passed. 26.2s |
+| 2026-06-12 10:17:50 | Phase 13 | Validation: 10/10 checks passed. 89.1s |
+| 2026-06-12 11:07:40 | Phase 17 | dict parquet export: 7 tables (47,953 rows, 0.546 MB); SHA256SUMS + PROVENANCE refreshed. 0.3s |
+| 2026-06-12 11:11:08 | Phase 13 | Validation: 11/11 checks passed. 47.1s |
+| 2026-06-12 11:12:05 | Phase 13 | Validation: 11/11 checks passed. 38.8s |
+| 2026-06-12 11:22:02 | Phase 13 | Validation: 11/11 checks passed. 38.6s |
+| 2026-06-12 12:38:15 | Phase 13 | Validation: 11/11 checks passed. 39.4s |
+| 2026-06-14 20:50:41 | Phase 45 | clean_bank_panel built: 1,114,822 rows, span 1863-2026; unit gate JPM $1.746T / SVB $209.0B / occ29 $1.80B. sha d0fb7c8dc35de828. 261.1s |
+| 2026-06-14 20:57:48 | Phase 45 | clean_bank_panel built: 1,114,822 rows, span 1863-2026; unit gate JPM $1.746T / SVB $209.0B / occ29 $1.80B. sha d0fb7c8dc35de828. 241.7s |
+| 2026-06-14 21:08:27 | Phase 13 | Validation: 12/12 checks passed. 154.6s |

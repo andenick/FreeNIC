@@ -1,6 +1,6 @@
 # freenic
 
-Python interface to the freenic US banking regulatory database. 1.5 billion rows spanning 1863-2026, covering 217,210 institutions from 20 data sources.
+Python interface to the freenic US banking regulatory database. ~2.25 billion rows spanning 1863-2026, covering 217,210 institutions from 20 data sources.
 
 ## Installation
 
@@ -62,11 +62,11 @@ export FREENIC_DATA_DIR="/path/to/parquet"
 | Source | Rows | Coverage |
 |--------|------|----------|
 | Chicago Fed Call Reports | 896M | 1976-2002 |
-| Luck Historical Database | 312M | 1959-2025 |
+| Luck Historical Database (pre-1976 core) | 38M | 1959Q4-1975Q4 (+gap-fill) |
 | BHCF Y-9C Filings | 208M | 1986-2025 |
 | FDIC SDI Financials | 69M | 1984-2025 |
 | OCC Historical | 9.8M | 1867-1904 |
-| Robin Failing Banks | 2.9M | 1863-2024 |
+| Failing Banks | 2.9M | 1863-2024 |
 | FDIC Summary of Deposits | 2.7M | 1994-2025 |
 | + 13 more sources | | |
 

@@ -30,14 +30,14 @@ RC-R RWA, etc.) for 2012–2025 are now in the warehouse alongside the pre-2012 
 
 **What's available**:
 - OCC Historical: 1863-1941 (national banks only, balance sheet data; original 1867-1904 layer + Phase 9b OCC-CLV finhist extension to 1941)
-- **Robin Failing Banks Panel: 1863-2024 (annual, 39,299 banks, 156 variables)** — NEW in Session 8
-- Luck Database: 1959Q4-2025Q4 (all insured commercial banks)
+- **Failing Banks Panel: 1863-2024 (annual, 39,299 banks, 156 variables)** — NEW in Session 8
+- Luck Database: 1959Q4-2025Q4 at source; in freeNIC, `luck_call_reports` retains **only the 1959Q4-1975Q4 core** (1976+ deduped — served, broader, by `call_report_filings`; see §8)
 
-**Status**: The Robin panel now provides **annual** bank-level data for the full 1905-1958 period, including assets, deposits, loans, equity, capital, and failure indicators for all banks. This fills the gap at annual granularity. Quarterly detail for this period remains unavailable.
+**Status**: The Failing Banks panel now provides **annual** bank-level data for the full 1905-1958 period, including assets, deposits, loans, equity, capital, and failure indicators for all banks. This fills the gap at annual granularity. Quarterly detail for this period remains unavailable.
 
 **Why quarterly gap remains**: The 1905-1958 period predates computerized quarterly regulatory reporting. Quarterly data exists only in physical archives.
 
-**Mitigation**: For aggregate banking statistics, FRED and Historical Statistics of the United States provide industry totals. Robin panel provides bank-level annual data.
+**Mitigation**: For aggregate banking statistics, FRED and Historical Statistics of the United States provide industry totals. The Failing Banks panel provides bank-level annual data.
 
 ### 3. FR Y-9LP/Y-9SP (Parent-Only Holding Company Reports)
 
@@ -125,6 +125,113 @@ no-op. The 3 former `xfail`s (call_report / luck / fdic_financials) are now real
 Previously `bank_failures.state_code` was NULL for all rows. As of 2026-05-31 it is **fully
 populated** from the BankFind `PSTALP` field (4,115 rows, 54 distinct states). No remaining gap.
 
+### 8. Luck dedup — pre-1976 core only (2026-06-05)
+
+`luck_call_reports` was reduced from **311.8M → 38.1M rows** (1011 MB → 99 MB) by dropping the
+1976+ rows that duplicate `call_report_filings`. Evidence (re-runnable in
+`Technical/coverage_analysis/`):
+
+- **(entity, quarter) overlap, 1976+:** of Luck's 1,946,960 cells, **only 2,285 (0.12%)** are
+  absent from Fed-direct; Fed-direct covers **more** (2,024,885 cells). → 99.88% redundant.
+- **Value reconciliation, 1976+:** core balance-sheet aggregates (assets/deposits/equity/
+  liabilities/loans) reconcile **99.89%** within tolerance against the Fed-direct reconstruction;
+  21/25 mapped variables ≥99%. No underlying MDRM line item is lost (all remain in
+  `call_report_filings`, with broader coverage).
+- **Retained:** the **1959Q4–1975Q4 core** (37,716,069 rows; no Fed-direct equivalent — Fed-direct
+  has 0 rows pre-1976) **plus 37,650 rows for 384 genuinely Fed-absent gap-fill cells**.
+
+**Use 1976+ call reports from `call_report_filings`.** Pre-computed Luck-style aggregates for
+1976+ are produced by the Fed-direct reconstruction `30_build_public_luck_panel.py`.
+
+**Gap recovery (A3, executed 2026-06-05):** of the original 2,285 Fed-absent 1976+ cells,
+**1,901 — the entire 2001–2006 non-deposit-trust-company cluster — were recovered into
+`call_report_filings` from FFIEC CDR Single-Period bulk** (`07f_recover_gap_from_cdr.py`,
++1,733,881 rows, source_file `cdrgap_*`), then dropped from Luck by re-running `08b`. The
+remaining **384** cells are pre-2001 (CDR's floor) or post-2006 entities absent even from CDR —
+genuinely Fed-unavailable, retained as Luck gap-fill.
+
+**Recipe (A2, done 2026-06-05):** the 4 formerly-divergent reconstruction aggregates now reconcile
+≥99% (`securities` 94% residual needs the Luck do-files) — see `30_build_public_luck_panel.py`.
+
+## Known Data Caveats / Consumer Warnings
+
+*Additive consumer-facing caveats discovered downstream during the Bev Testing CLV bank-panel
+reconstruction (2026-06-14). These do NOT change freeNIC's ingestion, validation, or release gating —
+they document traps so that consumers of the published warehouse do not fall into them. All quantitative
+claims below were cross-checked read-only against `Outputs/freenic.duckdb` (read_only=True).*
+
+### C1. `robin_panel` absolute-$ columns are NOT usable as dollar levels (most important)
+
+The absolute-dollar columns in the underlying `robin_panel_base` (`assets`, `deposits`, `loans`, `equity`,
+and other level variables) are **CPI-deflated AND uncalibrated** — they carry a **year-varying scale factor**
+(empirically ~4.81× to ~13.8×) and do **not** represent nominal or real dollar levels. Verified example:
+`MAX(assets)` for 2008 is **8.41e9**, while JPMorgan's real 2008 total assets are **~$1.75T**.
+**Do not use these columns as absolute dollar magnitudes.** The **ratios** computed within `robin_panel`
+(leverage, deposit/asset, etc.) ARE clean.
+
+> **GUARD (W4, `Technical/freenic_ingestion/scripts/48_footgun_guards.py`).** The footgun is now neutralized
+> at the catalog level. The former base table was renamed `robin_panel` → **`robin_panel_base`** (preserving
+> every column incl. the `source` column), and `robin_panel` is now a **guarded VIEW**: the four uncalibrated
+> dollar columns are exposed **only** under the explicit names `assets_uncalibrated_real` /
+> `deposits_uncalibrated_real` / `loans_uncalibrated_real` / `equity_uncalibrated_real` (each with a
+> `COMMENT ON` redirect to `clean_bank_panel` / `call_report_filings` RCFD2170). A bare
+> `SELECT assets FROM robin_panel` now **errors** (BinderException) instead of silently returning garbage;
+> every clean ratio column keeps its original name. Dependents `robin_panel_enriched` and `failure_timeline`
+> were repointed at `robin_panel_base` (behavior unchanged). Use `clean_bank_panel.*_real` (CPI-deflated,
+> calibrated) for real dollar levels.
+
+- **Absolute modern** bank-level levels → `call_report_filings` RCFD2170 (total assets; verified
+  JPM-2008 = $1.746T, SVB ≈ $209B), in thousands of nominal dollars.
+- **Absolute historical** bank-level levels → `occ_historical` (clean nominal dollars; see C3).
+- A clean, unit-verified from-raw reconstruction → `Projects/Bev Testing/Technical/data/clv_panel_v2.parquet` (see C6).
+
+### C2. `robin_panel` provenance (why the $8.4T artifact exists)
+
+`robin_panel` is a **verbatim CSV import** of the Correia–Luck–Verner "Failing Banks" `combined-data.dta`
+(script `28`), **not** a quantity derived by freeNIC from `occ_historical` or `luck_call_reports`. Its
+**modern values are BHC-consolidated/aggregated**, which is the origin of the ~$8.4T "JPMorgan 2008"
+artifact (a holding-company aggregate sitting in a bank-level row), not a clean single-bank level.
+
+### C3. `occ_historical` contains TWO stacked vintages (filter by `source`)
+
+The single `occ_historical` table stacks two different vintages, distinguished by the `source` column:
+- `source='occ_historical'` — OCC TSV layer, **1867-1904**, 95 variables.
+- `source='occ_historical_clv'` — finhist `historical-call.dta` extension, **1863-1941**, 66 variables.
+
+They use **different, only-partly-overlapping `variable_id` namespaces**, so any query that does not
+filter/pivot by `source` may silently mix incompatible variable definitions. **Both vintages are clean
+nominal dollars** (unlike `robin_panel`), making `occ_historical` the right source for absolute historical
+bank-level levels.
+
+> **GUARD (W4, `scripts/48_footgun_guards.py`).** Two typed convenience views now isolate the vintages:
+> **`occ_1867_1904`** (`WHERE source='occ_historical'`, 9,788,940 rows) and **`occ_clv_1863_1941`**
+> (`WHERE source='occ_historical_clv'`, 7,986,823 rows); they are disjoint and sum to the 17,775,763-row base
+> table. Each view + the base table carry a `COMMENT ON` warning that the two vintages **must not be unioned
+> blindly** (incompatible `variable_id` namespaces). Query a single vintage through its typed view, or filter
+> the base table by `source`.
+
+### C4. Modern 1959–1975 failure gap (public FDIC undercounts pre-1980 distress)
+
+The public FDIC failures API (and warehouse `bank_failures`) **lacks the pre-1980 assisted/supervisory-merger
+distress universe** present in CLV/`robin_panel` (where such events are synthetic-negative-ID-keyed). Order of
+magnitude: ~**84** public closures for 1959-75 here vs **~1,297** distress events in CLV for the same window.
+This detail is **not independently reproducible from the public FDIC** — use `robin_panel`/CLV (or the clean
+Bev panel, C6) when the broader historical distress definition is required.
+
+### C5. Determinism gotcha — single-thread large AVG reductions for byte-stable output
+
+Multithreaded DuckDB `AVG` reductions over large tables (e.g. `AVG` over `robin_panel.cpi`) produce
+**ULP-level float jitter** across rebuilds (non-associative parallel float summation). For byte-stable,
+reproducible outputs, run such reductions **single-threaded** (`PRAGMA threads=1`). This is a numerical
+reproducibility note for downstream pipelines; it does not affect freeNIC's own validation thresholds.
+
+### C6. Clean from-raw reconstruction available
+
+A clean, **unit-verified** from-raw reconstruction of the combined historical + modern bank panel exists at
+`Projects/Bev Testing/Technical/data/clv_panel_v2.parquet`. Consumers needing **absolute dollar levels**
+(rather than `robin_panel`'s uncalibrated columns) should point there, or build from `call_report_filings`
+RCFD2170 (modern) / `occ_historical` (historical) directly.
+
 ## Coverage Matrix
 
 ```
@@ -134,8 +241,8 @@ OCC    ██████████████████
                                                      (1863-1941, national banks)
                               GAP: 1942-1958 (quarterly)
                                                      (physical archives only)
-Luck                                ███████████████████████████
-                                                     (1959Q4-2025Q4, 245 vars)
+Luck   (freeNIC table)              ███
+                                                     (1959Q4-1975Q4 core + gap-fill; 1976+ -> call_report_filings)
 Call                                     ████████████████████████████
 Reports                                              (1976Q1-2025Q4, 200 quarters)
 BHCF                                        █████████████████
@@ -154,8 +261,8 @@ FDIC                  ███████████████████�
 History                                              (All dates)
 FRED         █████████████████████████████████████████████████
                                                      (1954-2025, macro context)
-Robin  ██████████████████████████████████████████████████████████████
-Panel                                                (1863-2024, annual, 39K banks)
+Failing██████████████████████████████████████████████████████████████
+Banks                                                (1863-2024, annual, 39K banks)
 ```
 
 ## Data Source URLs
@@ -166,10 +273,64 @@ Panel                                                (1863-2024, annual, 39K ban
 | FFIEC NPW | www.ffiec.gov/npw/ | Intermittently available |
 | FFIEC CDR | cdr.ffiec.gov | Accessible via Playwright (Bulk Data single-period); used for post-2011 call reports + unrealized-loss layer |
 | Chicago Fed | chicagofed.org | Downloaded |
-| Luck Database | Academic distribution | Downloaded |
-| OCC Historical | Academic distribution | Downloaded |
+| Luck Database | [NY Fed: Balance Sheets & Income Statements 1959–2025](https://www.newyorkfed.org/research/banking_research/balance-sheets-income-statements) (free public, Dec 2025; mirror finhist.com) | Downloaded |
+| OCC Historical | [OCC Annual Reports](https://www.occ.treas.gov/publications-and-resources/publications/annual-report/index-annual-report.html) (primary); 1863–1941 digitization via [finhist.com](https://finhist.com/) / [scorreia.com](https://scorreia.com/data/call-reports.html) | Downloaded |
 | Federal Reserve DFAST | federalreserve.gov | Downloaded |
 | CRSP-FRB Link | NY Fed | Downloaded |
 | MDRM | FFIEC | Downloaded |
 | FDIC History API | api.fdic.gov/banks/history | Active, no auth |
 | FRED CSV | fred.stlouisfed.org | Active, no auth |
+
+## Referential integrity & orphan classes (Q4, Definitive Build 2026-06-08)
+
+Every filing table keyed by `rssd_id` is validated against `entity_xref` (the de-duped union of all
+public identity tables) by `13_validate` check #1, era-stratified. Audited match rates
+(`coverage_analysis/q4_referential_audit.json`):
+
+| Table | Modern (≥2000) | Pre-2000 | Overall |
+|---|---|---|---|
+| call_report_filings | 96.5% | 94.7% | 95.6% |
+| luck_call_reports | 100% | 100% | 100% |
+| fdic_financials | 99.8% | 99.8% | 99.8% |
+| fdic_sod | 99.8% | 99.2% | 99.7% |
+| bhcf_filings | 96.9% | 99.2% | 97.7% |
+| ubpr_ratios | 100% | — | 100% |
+| y15_systemic_indicators | 89.5% | — | 89.5% |
+
+**Gate (Q4-tightened):** modern slice must clear **90%** (was 85%), overall **85%** (was 80%); the
+injected-break regression test still FAILs on a real key/join break. `ubpr_ratios` (≥95%) and
+`y15_systemic_indicators` (≥85%) were added to the referential gate.
+
+**Remaining orphan classes (explained, not data errors):**
+- **Pre-modern defunct/merged banks** (the ~3–5% residual in call_report/bhcf): entities that failed,
+  merged, or changed charter before NIC's modern coverage and have no `entity_xref` record. This is a
+  structural NIC-coverage floor, not a join bug — the modern slice (recoverable entities) matches ≥96.5%.
+- **FR Y-15 (6 of 57 filers, 89.5%):** a handful of G-SIB/IHC filers — chiefly foreign banking
+  organizations' US intermediate holding companies — whose snapshot `rssd_id` is not yet in `entity_xref`.
+  Widening via a fresh NIC re-pull + GLEIF (plan unit A6) is the path to close this.
+
+## HMDA pre-2018 (A3, Definitive Build 2026-06-09) — go/no-go
+
+`hmda_summary` is a 2018–2024 LEI-keyed institution×year panel from the CFPB HMDA **Data Browser** API.
+**2017 and earlier are NOT available via the Data Browser** — `/view/filers?years=2017` returns **HTTP 400**
+(the Data Browser covers 2018+ only; this was verified empirically, not assumed).
+
+**Pre-2018 path (legacy):** HMDA 1981–2017 exists on the FFIEC HMDA legacy platform as flat files keyed by
+the old **respondent_id** (panel/reporter + LAR files), with **no LEI**. Building a comparable institution×year
+summary would require: (1) the legacy panel (respondent_id → name/agency), (2) LAR aggregation by
+respondent×year×loan-purpose, and (3) a respondent_id→RSSD crosswalk distinct from the LEI path.
+
+**Decision: NO-GO for now (documented).** It is a separate, sizable ingestion with a different key schema and
+no LEI join; the marginal value (older mortgage-lending aggregates, adjacent to the call-report core) does not
+justify the effort at this stage. The modern 2018–2024 LEI panel is retained as the canonical HMDA layer.
+Re-open if a respondent_id→RSSD crosswalk and legacy-panel ingest are separately warranted.
+
+## FR Y-15 pre-2020 (A4, Definitive Build 2026-06-09) — no bulk product
+
+`y15_systemic_indicators` is a 2020–2024 panel from the FFIEC NIC **FR Y-15 Snapshots** page. Empirically,
+that page lists **only 2020–2024** snapshot CSVs (10 links: 5 `Snapshot_All` + 5 `Snapshot_Indicators`,
+verified 2026-06-09 via a headed browser past Cloudflare). **No 2015–2019 snapshot bulk product exists** on
+NIC; pre-2020 FR Y-15 is available only as per-institution NPW filings (no bulk dataset). The `Snapshot_All`
+files we hold ARE the data; the `Snapshot_Indicators` companion assets are separately 403-gated but redundant.
+**Decision: Y-15 retained at 2020–2024 (the full NIC-published snapshot extent).** Not a gap to fill — an
+upstream coverage boundary.
