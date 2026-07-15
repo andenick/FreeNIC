@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "FreeNIC: Free National Information Center"
+message: "If you use this data, please cite it using the metadata from this file."
+type: dataset
+authors:
+  - family-names: Anderson
+    given-names: Nicholas
+repository-code: "https://github.com/andenick/FreeNIC"
+url: "https://data.freenic.org"
+license: CC-BY-4.0
+version: "1.0.0"
+date-released: "2026-07-14"

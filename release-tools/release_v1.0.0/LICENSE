@@ -1,0 +1,24 @@
+FreeNIC v1.0.0 — Data License
+
+The FreeNIC data compilation (the 60 base-table Parquet files + the 163-year
+bank-aggregate spine listed in release_manifest.json) is released under the
+Creative Commons Attribution 4.0 International License (CC-BY-4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+  Copyright (c) 2026 Nicholas Anderson.
+  You are free to share and adapt the material for any purpose, provided you
+  give appropriate credit (cite FreeNIC via CITATION.cff).
+
+E-3 PROVISIONAL NOTE. The CC-BY-4.0 grant applies to FreeNIC's own compilation,
+curation, derivation, and metadata. Individual upstream sources carry their own
+terms — most are US Government / regulatory public-domain works (FFIEC, FDIC,
+Federal Reserve, OCC, FRED, NCUA, SEC), but a few academic/derived sources
+(Correia-Luck-Verner "Failing Banks"; finhist / Harvard Dataverse DOI
+10.7910/DVN/Q22XR1; the bank-data-dictionary) require citation and are governed
+by their source terms for the source data itself. See DATA_LICENSE.md and
+Outputs/PROVENANCE.csv for the per-table, per-era source terms and required
+citations. Where upstream data terms and CC-BY-4.0 could appear to conflict, the
+upstream terms govern that source's data only. This E-3 licensing note is
+PROVISIONAL pending final per-source clearance review.
+
+FreeNIC's source CODE remains under the MIT License (see the repository LICENSE).

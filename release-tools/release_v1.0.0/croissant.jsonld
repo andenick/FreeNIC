@@ -1,0 +1,569 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "sha256": "cr:sha256"
+  },
+  "@type": "Dataset",
+  "name": "FreeNIC",
+  "version": "1.0.0",
+  "datePublished": "2026-07-14",
+  "description": "Research-grade US banking data warehouse slice: 60 base-table parquet files + the 163-year (1863-2026) bank-aggregate spine, exported from the freenic DuckDB warehouse (build 1.4, 2026Q1).",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://data.freenic.org",
+  "creator": {
+    "@type": "Person",
+    "name": "Nicholas Anderson"
+  },
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "bank_failures.parquet",
+      "name": "bank_failures.parquet",
+      "contentSize": "146666 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "0ba3bb80142c12d6bd47d3ccd5f6dd7851633748e441f0bcf14cdb50d3a22464",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "bhc_ownership.parquet",
+      "name": "bhc_ownership.parquet",
+      "contentSize": "924945 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "80c6a055e6af33c460a4087bb7cedf0632190fcbbe70d5382ecfdf66a0b0a666",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "bhcf_filings.parquet",
+      "name": "bhcf_filings.parquet",
+      "contentSize": "603639693 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "8e0e258d367a8350d09864e1f6dbd1877f50a9062e13956bc0a2f183aa0736d3",
+      "description": "Bank-HOLDING-COMPANY consolidated FR Y-9C financials (long/EAV)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "branches.parquet",
+      "name": "branches.parquet",
+      "contentSize": "3278518 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "7abefdf5030ea95346204c0565a7d1f11c857093c2139e8db22573c372d44794",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "call_report_filings.parquet",
+      "name": "call_report_filings.parquet",
+      "contentSize": "4928509231 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "1a6e5f3bc0c0d8e8bdd307b695b19abbf0363ab983f338084840e07d0bcb5935",
+      "description": "Individual-bank FFIEC Call Report filings (long/EAV)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "catalog_data_sources.parquet",
+      "name": "catalog_data_sources.parquet",
+      "contentSize": "9646 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "9279dfe7471a71ccb8dfa669ac5517cdf13db9ed3b3276ec68a0f881435c0728",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "catalog_entity_coverage.parquet",
+      "name": "catalog_entity_coverage.parquet",
+      "contentSize": "893444 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "e16183e5f90b8d2f3a10b8b06cf65fa87c8fc2cb9c615fa201239c2333d805d9",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "catalog_filing_coverage.parquet",
+      "name": "catalog_filing_coverage.parquet",
+      "contentSize": "219614 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "4c93f026814c51025462841fa3c3d414ad3a1475334eba698d6b3029ea9cebbe",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "catalog_namespace_variables.parquet",
+      "name": "catalog_namespace_variables.parquet",
+      "contentSize": "289953 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "ea98bc6f7fc9d5b4e1fc58e02fa7b8b0170ce381ee3ae7b65652d216d157c530",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "catalog_schema_evolution.parquet",
+      "name": "catalog_schema_evolution.parquet",
+      "contentSize": "89822 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "4ea4f60e37326f4494d813803f26eebdf21ee88fa0d66792042a014420b1da32",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "catalog_variables.parquet",
+      "name": "catalog_variables.parquet",
+      "contentSize": "1634978 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "4ef5e4f1fc66a4500ee11d938f57d15e42ec00d75a31365a951deb2b8538d960",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "cdr_unrealized_losses.parquet",
+      "name": "cdr_unrealized_losses.parquet",
+      "contentSize": "1301423 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "7dfd66b67b8f70a1959aeed6b7c3daaebfba54e1f529042125b26fbb597aba8b",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "clean_bank_panel.parquet",
+      "name": "clean_bank_panel.parquet",
+      "contentSize": "96412292 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "6594324b127af04ea95ed1768eaee2f4f2d2073494ad43722c23afd1a6e38ade",
+      "description": "CANONICAL per-bank dollar-LEVEL panel (from-raw, nominal + CPI-real)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "crsp_mapping.parquet",
+      "name": "crsp_mapping.parquet",
+      "contentSize": "116615 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "3913a6663454ca730b46ff15f4115ae1e383feae68eb40f74dd039f800d12a19",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "dfast_results.parquet",
+      "name": "dfast_results.parquet",
+      "contentSize": "56331 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "07cf696e724257faaaaa723d8c5dae428cb2790004540340ceb9200a551041fc",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "dict_crosswalk.parquet",
+      "name": "dict_crosswalk.parquet",
+      "contentSize": "54727 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "efd1174f0fe6c25ff8a614e8fc09e867d092dfe382d7dd14759484612b9a6987",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "dict_edit_history.parquet",
+      "name": "dict_edit_history.parquet",
+      "contentSize": "47768 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "c8378b136505db1a00595de534361ce26e3c91abeb3c1e8a49cca7f50e566fcd",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "dict_meta.parquet",
+      "name": "dict_meta.parquet",
+      "contentSize": "568 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "a87ed9410d50a1446232f38f419511f3591808270c2b258286b3160508245f0d",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "dict_relationships.parquet",
+      "name": "dict_relationships.parquet",
+      "contentSize": "248444 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "9002081b7e26b88fff1a0bfbee562041aab56699f29c9c62f54e19b99c97de85",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "dict_schedule_lineitems.parquet",
+      "name": "dict_schedule_lineitems.parquet",
+      "contentSize": "54731 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "ccc2d2151cfff1a9ee2fc6b30ee671570fa863825b479105e71ab45913285838",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "dict_ubpr_concepts.parquet",
+      "name": "dict_ubpr_concepts.parquet",
+      "contentSize": "69598 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "6b68a8ba4418ca0f0bcd8c98fe7110b2c1d782f4b59aab33756d6c022acb9648",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "dict_variable_access_map.parquet",
+      "name": "dict_variable_access_map.parquet",
+      "contentSize": "96734 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "8bb09c75aef7d9bc4c4fd14dedfa5882e3dc57bd8d8a380983c50ce68ee4133e",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "entity_xref.parquet",
+      "name": "entity_xref.parquet",
+      "contentSize": "827370 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "91b0901d249f81e83f4815fd97b02b561e508b148d541b0c4f4289196263aac6",
+      "description": "Canonical RSSD identity universe + source coverage."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "fdic_financials.parquet",
+      "name": "fdic_financials.parquet",
+      "contentSize": "344193857 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "a6aaa193172a9491dbe5bd11653dcdc90e93d276132796fd987ac4846da351ae",
+      "description": "FDIC SDI bank-level financials (long/EAV)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "fdic_history.parquet",
+      "name": "fdic_history.parquet",
+      "contentSize": "5894132 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "4763829ec5b9ba477d3b1c6e9a89367e9b6e764c10c13748971568b9ab781999",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "fdic_sdi_features.parquet",
+      "name": "fdic_sdi_features.parquet",
+      "contentSize": "27420925 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "f01f1f6b0537b0c175d2e5f323f99de632861d7747fb1419cbb93e365fa755f2",
+      "description": "Engineered bank-year ratios + failure flags (from fdic_financials)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "fdic_sod.parquet",
+      "name": "fdic_sod.parquet",
+      "contentSize": "55669419 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "5a66a43490e5cdba034cd0abebe7963dffb8022661187f62f8fb514796903f18",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "filing_metadata.parquet",
+      "name": "filing_metadata.parquet",
+      "contentSize": "5413 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "d45bb1e0617fb75aaef73f7c3c1a7bbfdbccbd466d3ce071231feb1116bfc56f",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "fred_series.parquet",
+      "name": "fred_series.parquet",
+      "contentSize": "5600905 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "9ac54e98a734821d37406bf55fa7c5ed3d4d3b7fbaa4d9f0e967d89a53cecda9",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "freenic_manifest.parquet",
+      "name": "freenic_manifest.parquet",
+      "contentSize": "6832 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "80017335fcce4d6c8112f37e9b942444c083b31b0ad388a138ca267bd36b57c0",
+      "description": "Self-describing warehouse manifest (one row per table/view)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "hmda_summary.parquet",
+      "name": "hmda_summary.parquet",
+      "contentSize": "1296589 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "4ffac1a69278a5f1f190712b6e46bc98d041cff6ebd8e2cb14bd5566f963365a",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "id_crosswalk.parquet",
+      "name": "id_crosswalk.parquet",
+      "contentSize": "2318619 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "507c2d0e1e7c3e320b95141119b0e4ce4873852b3b83d7c9bea03c433f0b34f6",
+      "description": "Keystone identity crosswalk across identifier systems."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "institution_attributes.parquet",
+      "name": "institution_attributes.parquet",
+      "contentSize": "1584540 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "ce02f1bce39ff52eaf7851167ca17c645bd57a7757cdb7e2b1874567c0cc8ee2",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "institutions.parquet",
+      "name": "institutions.parquet",
+      "contentSize": "5355527 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "3b3932b3ba4457d9ec0c0df7d918bf45eac09e5efaf27fb90c3a512509536be2",
+      "description": "Master entity table (NIC): the rssd_id join key."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "luck_call_reports.parquet",
+      "name": "luck_call_reports.parquet",
+      "contentSize": "112593966 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "3b308b0a1aaed3d2aa9ed689678f236409bdb92c00faf17a80a50d6a29fa5f58",
+      "description": "Luck/FRBNY historical Call reconstruction 1959-1975 (long/EAV)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "mdrm.parquet",
+      "name": "mdrm.parquet",
+      "contentSize": "3737276 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "12ea9ab394469cdad225ac9628aebe6aa09685270d021c9a7c3bfcda552a28a4",
+      "description": "FFIEC MDRM label dictionary for variable codes."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ncua_5300.parquet",
+      "name": "ncua_5300.parquet",
+      "contentSize": "3025683784 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "ee65061356b489105acb3145dc41d7837ef4604964abe48da53c3c83cca862b1",
+      "description": "NCUA credit-union 5300 call reports (long/EAV)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ncua_cu_directory.parquet",
+      "name": "ncua_cu_directory.parquet",
+      "contentSize": "932491 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "14249858688cc7814f0b15a53d897bd433a467b8b4c8a91fe5b38118427331f8",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "nic_attributes_ext.parquet",
+      "name": "nic_attributes_ext.parquet",
+      "contentSize": "3360779 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "c380fbdc9446cbec7a9b1f6f35a452ddb25658410b67dd4ae08aa26d21002496",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "nic_entity_identifiers.parquet",
+      "name": "nic_entity_identifiers.parquet",
+      "contentSize": "1232613 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "76b8f6ef6be965200bf4db8a0e76b04a946bfa6afc7a800d023626d1056e29df",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "occ_historical.parquet",
+      "name": "occ_historical.parquet",
+      "contentSize": "47608718 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "840ff511a165667211985957c32fba0ecb381711adea55e051232f1701271435",
+      "description": "OCC national-bank balance sheets 1863-1941 (long/EAV)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "occ_historical_clv.parquet",
+      "name": "occ_historical_clv.parquet",
+      "contentSize": "22386958 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "9a023af54c5193d3b6472eb34155c580ced960bf117e20afa0cc1ea2549a5079",
+      "description": "Typed view: occ_historical WHERE source='occ_historical_clv' (finhist, 1863-1941)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "pillar3_disclosures.parquet",
+      "name": "pillar3_disclosures.parquet",
+      "contentSize": "81235 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "db2c8ca4b7b17cc8718e0ff8a70f951cf890ff86d4c2168c4a2da15ecad84769",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "relationships.parquet",
+      "name": "relationships.parquet",
+      "contentSize": "1173979 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "ecdd65959a8851abc776d5593c511f02d37d2f209ea09b63d72f8a27d2506747",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "reporting_forms.parquet",
+      "name": "reporting_forms.parquet",
+      "contentSize": "2379 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "59f0e7ac4734e537bc9e2b8576866f057eb727a646ee010c282c9ec898ad4abc",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "robin_crosswalk.parquet",
+      "name": "robin_crosswalk.parquet",
+      "contentSize": "287255 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "871a3bd54e1ba7da5f4895e50ed24ca3c5fec2cf948d463fa2fbae1923491c44",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "robin_deposits_historical.parquet",
+      "name": "robin_deposits_historical.parquet",
+      "contentSize": "559909 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "5864e9815d12b56ba0a85962763c70ca201dd168d7c83e2d28d93bff9618fedf",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "robin_deposits_modern.parquet",
+      "name": "robin_deposits_modern.parquet",
+      "contentSize": "86523 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "0b3a68f052a7a728f4bd9f907b7c9ea25addf61edd3144ee18bf23363d6d0a97",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "robin_panel_base.parquet",
+      "name": "robin_panel_base.parquet",
+      "contentSize": "612718364 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "4a41ac9af02742b12a3e83e2ec39c3856e7dfd7882cfd6016c0dec034b9f952d",
+      "description": "Base table behind the guarded robin_panel view (CLV 'Failing Banks' verbatim import)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "sec_cik_crosswalk.parquet",
+      "name": "sec_cik_crosswalk.parquet",
+      "contentSize": "10522 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "6782b78b3a93aac4840d747dcb33d55bd68f969372df6312831865bf57685f2c",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "sector_groupings.parquet",
+      "name": "sector_groupings.parquet",
+      "contentSize": "228749 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "605fe58bc2c4324f6998dfe801dd13e2833ee492cedba91cd473f4de8381a7fc",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "stress_scenarios.parquet",
+      "name": "stress_scenarios.parquet",
+      "contentSize": "11206 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "6bbb1fb3d81e8b4e4bf1996b560c4937b54e7706917ce163eb4cd099bb7cc89c",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "stress_scenarios_domestic.parquet",
+      "name": "stress_scenarios_domestic.parquet",
+      "contentSize": "11837 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "f999a08b1b5060a49d137e8daec92cefced98abf2b1b086615f82001a91a79e8",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "stress_scenarios_international.parquet",
+      "name": "stress_scenarios_international.parquet",
+      "contentSize": "9638 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "66c73f888cde5bb7d415f0a61acc30d5c7353262132914aa3245e2ebaeec8a1d",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "transformations.parquet",
+      "name": "transformations.parquet",
+      "contentSize": "258717 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "299405bbfa29638c874d707c90dc24bd2936ebfc67fb03a0b9d76c0343f0abca",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ubpr_peer_rank.parquet",
+      "name": "ubpr_peer_rank.parquet",
+      "contentSize": "945804300 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "e38d15904d0dc78b6ebf0940f364c6dd58cecea94947a8669f5a4cd5a3effe5b",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ubpr_peer_stats.parquet",
+      "name": "ubpr_peer_stats.parquet",
+      "contentSize": "93162440 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "20564f6935d001dadb68e0e4f9ad0489b58c45b3684d3a4e064759cc47dee2d1",
+      "description": ""
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ubpr_ratios.parquet",
+      "name": "ubpr_ratios.parquet",
+      "contentSize": "3173347219 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "0280466a38b077460d7b9653de46abaa3558b1ae856621d5b4fc650ff3b7881f",
+      "description": "FFIEC UBPR standardized ratios + dollar items (long/EAV)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "variable_crosswalk.parquet",
+      "name": "variable_crosswalk.parquet",
+      "contentSize": "3423 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "efc3c861f7c7fbb1502e8ff1488146879d4a1a46b36b5aad79f096353c535b3d",
+      "description": "Cross-source variable -> standardized concept mapping."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "y15_systemic_indicators.parquet",
+      "name": "y15_systemic_indicators.parquet",
+      "contentSize": "77206 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "ecdd9342b9bde3b4189e1674493ebed0656acd8dc6715944d5d5f49b48376203",
+      "description": "FR Y-15 systemic-risk indicators (G-SIB scoring) (long/EAV)."
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "long_bank_aggregates_1863_2026.parquet",
+      "name": "long_bank_aggregates_1863_2026.parquet",
+      "contentSize": "10967 B",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "23b6d71b4af113af69bb574f7474e9db46377b89966a274d644ecae464d79217",
+      "description": "Replicated 163-year national/insured/commercial bank-aggregate spine: long form year x metric (num_banks / total_assets / total_deposits / total_loans) with a `definition` toggle (national_only / all_"
+    }
+  ]
+}
