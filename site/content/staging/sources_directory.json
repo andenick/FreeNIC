@@ -1,0 +1,136 @@
+{
+  "sources": [
+    {
+      "id": "ffiec_cdr",
+      "name": "FFIEC Central Data Repository (CDR)",
+      "url": "https://cdr.ffiec.gov/public/",
+      "provides": "The official public distribution point for U.S. bank Call Report and FR Y-9C filings. Its Bulk Data section offers per-period downloads of the full reporting universe, and its Taxonomies section publishes the XBRL taxonomy that defines every reported field, its schedule, and the validation edits that govern it. The CDR is also the source for UBPR bulk extracts and the FFIEC 101/102/002/009 reports.",
+      "coverage": "Call Report and FR Y-9C current cycles plus archived historical periods; the underlying bulk filings used here run 2012Q1-2026Q1 for Call Reports and the FR Y-9C from 1986Q3 onward.",
+      "use_for": "Acquiring authoritative, machine-readable regulatory filings at scale, and reading the official field definitions and edit checks behind them.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    },
+    {
+      "id": "fed_mdrm",
+      "name": "Federal Reserve Micro Data Reference Manual (MDRM)",
+      "url": "https://www.federalreserve.gov/apps/mdrm/",
+      "provides": "The master data dictionary for the Federal Reserve and FFIEC reporting system. Every variable code (e.g. BHCK2170, RCFD2170) maps to a human-readable name, full description, item type, the reporting forms that carry it, and the date range over which it was collected. The manual is downloadable as a zipped CSV dictionary.",
+      "coverage": "The full active and historical code universe (tens of thousands of variable codes across all Fed/FFIEC forms), with per-code start and end reporting dates.",
+      "use_for": "Decoding any regulatory variable, resolving code prefixes and scopes, and tracing when a series was active.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    },
+    {
+      "id": "fed_reporting_forms",
+      "name": "Federal Reserve Reporting Forms",
+      "url": "https://www.federalreserve.gov/apps/reportingforms/",
+      "provides": "A searchable catalogue of the forms the Federal Reserve uses to collect data from bank holding companies, depository institutions, and other entities. Each entry links to the blank form, the line-by-line reporting instructions, and the OMB documentation. The FR Y-9C (consolidated holding-company financial statements) and the rest of the FR Y-series are filed here.",
+      "coverage": "All current FR-numbered and FFIEC reporting forms, with instructions; superseded form vintages are retained.",
+      "use_for": "Reading the authoritative form layout and instructions that define what each schedule and line item means.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    },
+    {
+      "id": "chicagofed_bhc",
+      "name": "Chicago Fed Commercial Bank Data",
+      "url": "https://www.chicagofed.org/banking/financial-institution-reports/commercial-bank-data",
+      "provides": "The Federal Reserve Bank of Chicago's archive of machine-readable commercial-bank Call Report data, the standard source for pre-CDR historical micro filings. It distributes the bulk Call Report files (SAS transport format) that predate the FFIEC CDR's bulk coverage, alongside related bank structure and BHC reference files.",
+      "coverage": "Historical Call Report bulk files from 1976Q1 through 2011Q4 (the digital micro-filing record before the CDR bulk era).",
+      "use_for": "Building long historical Call Report panels that reach back before the FFIEC CDR's modern bulk downloads begin.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    },
+    {
+      "id": "fdic_bankfind",
+      "name": "FDIC BankFind Suite / Financial Data API",
+      "url": "https://banks.data.fdic.gov/",
+      "provides": "The FDIC's open data platform for insured depository institutions. It serves the Statistics on Depository Institutions (SDI) quarterly financials, the Summary of Deposits branch survey, the failed-bank list, and institution structure-change history, all through a documented REST API returning JSON or CSV. The web BankFind tool offers the same data interactively.",
+      "coverage": "SDI quarterly financials 1984Q1-2026Q1; Summary of Deposits 1994-2025; failure records from 1934 to present; institution history across all dates.",
+      "use_for": "Pulling an independent, FDIC-collected view of bank financials, deposits, branches, and failures to cross-check or extend the Fed/FFIEC filings.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    },
+    {
+      "id": "ffiec_nic",
+      "name": "FFIEC National Information Center (NIC)",
+      "url": "https://www.ffiec.gov/NPW/",
+      "provides": "The authoritative registry of financial-institution identity and structure. NIC publishes the entity master (legal names, RSSD identifiers, charter and regulator codes, geography), parent-child ownership relationships, and predecessor/successor transformation events for mergers and charter changes. It is the source of record for resolving who owns whom and how institutions map across the regulatory ID systems (RSSD, LEI, FDIC cert, OCC, NCUA).",
+      "coverage": "Current institution, branch, relationship, and transformation snapshots covering active and closed/merged entities (the structure record stretches back across the full NIC history).",
+      "use_for": "Tracing corporate hierarchies, linking identifiers across regulators, and attaching entity context to filing data.",
+      "verified": "2026-06-12",
+      "verified_by": "docs"
+    },
+    {
+      "id": "fed_stress_tests",
+      "name": "Federal Reserve Stress Tests (DFAST)",
+      "url": "https://www.federalreserve.gov/supervisionreg/dfa-stress-tests.htm",
+      "provides": "The Federal Reserve's hub for the Dodd-Frank Act Stress Test program. It publishes the annual supervisory stress-test results by bank, the macroeconomic scenario definitions (baseline, adverse, and severely adverse paths for GDP, unemployment, rates, and asset prices), and the historical archive of prior exercises and CCAR results.",
+      "coverage": "DFAST results from 2013 to the current annual exercise; supervisory scenario paths published each cycle, plus historical CCAR exercises (2011-2021).",
+      "use_for": "Capital-adequacy and tail-risk analysis: comparing projected losses and post-stress capital ratios against the published supervisory scenarios.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    },
+    {
+      "id": "nyfed_finhist",
+      "name": "NY Fed Historical Bank Balance Sheets / finhist.com",
+      "url": "https://www.newyorkfed.org/research/banking_research/balance-sheets-income-statements",
+      "provides": "The Correia-Luck-Verner distribution of digitized historical commercial-bank balance sheets and income statements, released through the Federal Reserve Bank of New York's banking-research page (also mirrored at finhist.com). It reconstructs the pre-1976 micro record from the underlying FFIEC Reports of Condition and Income, for which no Fed bulk microdata otherwise exists.",
+      "coverage": "Commercial-bank balance sheets and income statements from 1959 onward (the 1959Q4-1975Q4 window is the only machine-readable source for that period); the companion finhist.com site also hosts digitized OCC national-bank balance sheets 1863-1941.",
+      "use_for": "Extending bank-level financial panels back before the modern Fed/FFIEC digital record begins.",
+      "verified": "2026-06-12",
+      "verified_by": "http",
+      "citation_note": "Citation required. Cite: Correia, Sergio, Stephan Luck, and Emil Verner, \"Failing Banks,\" Quarterly Journal of Economics (DOI: 10.1093/qje/qjaf044)."
+    },
+    {
+      "id": "harvard_dataverse_clv_occ",
+      "name": "Harvard Dataverse — CLV / OCC Historical Layer",
+      "url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/Q22XR1",
+      "provides": "The archived, DOI-citable deposit of the Correia-Luck historical national-bank dataset on Harvard Dataverse. It supplies digitized OCC national-bank balance-sheet data and the extended historical layer that fills the early span and additional banks not available elsewhere as machine-readable data.",
+      "coverage": "Digitized OCC national-bank balance sheets spanning 1863-1941.",
+      "use_for": "Obtaining a permanently archived, citable copy of the historical OCC/CLV layer for reproducible historical banking research.",
+      "verified": "2026-06-12",
+      "verified_by": "http",
+      "citation_note": "Citation required. Cite the Correia-Luck dataset (DOI: 10.7910/DVN/Q22XR1) and the associated \"Failing Banks\" research (DOI: 10.1093/qje/qjaf044)."
+    },
+    {
+      "id": "ffiec_ubpr",
+      "name": "FFIEC Uniform Bank Performance Report (UBPR)",
+      "url": "https://www.ffiec.gov/ubpr.htm",
+      "provides": "The FFIEC's standardized analytical report that turns raw Call Report filings into comparable performance ratios (profitability, capital, asset quality, liquidity, and efficiency) and benchmarks each bank against its peer group. The User's Guide documents how every ratio is derived, annualized, and averaged. UBPR bulk data and the peer-group statistics are distributed through the FFIEC CDR.",
+      "coverage": "UBPR ratios and peer-group benchmarks from 2002Q4 to the current quarter (the floor offered in bulk by the CDR).",
+      "use_for": "Reading standardized, peer-relative bank performance ratios without recomputing them from raw line items.",
+      "verified": "2026-06-12",
+      "verified_by": "docs"
+    },
+    {
+      "id": "bank_data_dictionary",
+      "name": "Bank Regulatory Data Dictionary",
+      "url": "https://andenick.github.io/bank-data-dictionary/",
+      "provides": "Our open catalogue and field-level mapping of the U.S. bank regulatory data universe. It documents every major information collection and its subschedules, the MDRM code system, the FFIEC NIC institutional-structure layer, the identifier crosswalk, cross-form concept mappings, and reconciliation formulas. Each reconciliation identity carries an empirical verdict, tested against billions of rows of real filings. Source is on GitHub at github.com/andenick/bank-data-dictionary.",
+      "coverage": "All 22 FR Y-9C schedules and the Call Report line items, the MDRM/UBPR code system, and an edit-check history across 30 taxonomy cycles (2001-2026).",
+      "use_for": "Understanding what the regulatory datasets are, how their fields are structured, and how schedules and forms reconcile to one another.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    },
+    {
+      "id": "freenic",
+      "name": "FreeNIC",
+      "url": "https://freenic.org/",
+      "provides": "The query and explorer surface for the unified U.S. banking regulatory data set. FreeNIC brings the Fed, FFIEC, FDIC, NCUA, OCC, and historical sources into one harmonized warehouse with a shared identifier spine, so you can look up institutions, browse schedules, and run cross-source queries against the actual filings rather than just their definitions.",
+      "coverage": "A unified warehouse spanning 1863-2026 across Call Reports, FR Y-9C, FDIC SDI, NCUA 5300, UBPR, NIC structure, and historical layers.",
+      "use_for": "Exploring and querying the real filing data, and linking entities across regulators via the identifier crosswalk.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    },
+    {
+      "id": "freenic_data",
+      "name": "FreeNIC Bulk Data (data.freenic.org)",
+      "url": "https://data.freenic.org/",
+      "provides": "The bulk download surface for the FreeNIC warehouse. Every table is published as a columnar Parquet file (institutions, branches, relationships, Call Report and FR Y-9C filings, FDIC financials, UBPR ratios, the dictionary taxonomy tables, and more), ready to load directly into DuckDB, pandas, or Spark.",
+      "coverage": "The full set of FreeNIC tables as individual Parquet files, mirroring the warehouse's 1863-2026 span.",
+      "use_for": "Downloading the entire data set for offline, programmatic analysis without an API.",
+      "verified": "2026-06-12",
+      "verified_by": "http"
+    }
+  ]
+}

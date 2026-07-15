@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}{{ v.code }} — Variable dictionary — FreeNIC{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <p class="note"><a href="/dictionary">&larr; Variable dictionary</a>
+    {% if v.kind == 'lineitem' and v.schedule %} /
+    <a href="/dictionary/schedule/{{ v.schedule_slug }}">{{ v.schedule }}</a>{% endif %}</p>
+  <h1><code>{{ v.code }}</code></h1>
+  <p class="lead">{{ v.name or "—" }}</p>
+  <p class="ark-badge-row">
+    {% if v.kind == 'lineitem' %}
+      <span class="ark-badge real-data">{{ v.form_family | upper }} line item</span>
+      {% if v.schedule %}<span class="ark-badge">{{ v.schedule }}</span>{% endif %}
+    {% else %}
+      <span class="ark-badge real-data">UBPR concept</span>
+      {% if v.category %}<span class="ark-badge">{{ v.category }}</span>{% endif %}
+      {% if v.validated %}<span class="ark-badge reproducible">validated</span>{% endif %}
+    {% endif %}
+  </p>
+</section>
+
+<!-- MDRM / concept attributes ------------------------------------------- -->
+<section class="prose">
+  <h2>Attributes</h2>
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <tbody>
+        {% if v.kind == 'lineitem' %}
+        <tr><th style="width:14rem;">Schedule placement</th>
+          <td>{% if v.schedule %}<a href="/dictionary/schedule/{{ v.schedule_slug }}">{{ v.form_family | upper }} {{ v.schedule }}</a>{% else %}{{ v.form_family | upper }}{% endif %}
+            {% if v.line_number %}, line {{ v.line_number }}{% endif %}</td></tr>
+        <tr><th>Item description</th><td>{{ v.name or "—" }}</td></tr>
+        <tr><th>Column role</th><td class="mono">{{ v.column_role or "—" }}</td></tr>
+        <tr><th>Forms</th><td class="mono">{{ v.forms or "—" }}</td></tr>
+        <tr><th>Collected since</th><td class="mono">{{ v.start_date or "—" }}</td></tr>
+        {% if v.notes %}<tr><th>Notes</th><td>{{ v.notes }}</td></tr>{% endif %}
+        {% else %}
+        <tr><th style="width:14rem;">Category</th><td>{{ v.category or "—" }}</td></tr>
+        <tr><th>Caption</th><td>{{ v.name or "—" }}</td></tr>
+        <tr><th>Derivation</th><td style="white-space:normal;"><code style="font-size:.82rem;">{{ v.derivation or "—" }}</code></td></tr>
+        {% if v.inputs %}<tr><th>Inputs</th><td class="mono" style="white-space:normal;">{{ v.inputs }}</td></tr>{% endif %}
+        <tr><th>Validated</th><td>{{ v.validated or "—" }}{% if v.agreement %} (agreement {{ v.agreement }}){% endif %}</td></tr>
+        {% if v.notes %}<tr><th>Notes</th><td>{{ v.notes }}</td></tr>{% endif %}
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Which views expose it ------------------------------------------------ -->
+{% if access %}
+<section class="prose">
+  <h2>Where it is exposed</h2>
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead>
+        <tr><th>Base table</th><th>Observations</th><th>Raw view</th><th>Shaped views</th></tr>
+      </thead>
+      <tbody>
+        {% for a in access %}
+        <tr>
+          <td class="mono">{{ a.base_table }}</td>
+          <td class="num">{{ "{:,}".format(a.n_obs) if a.n_obs is not none else "—" }}</td>
+          <td class="mono">{{ a.raw_view or "—" }}</td>
+          <td class="mono" style="white-space:normal;max-width:30ch;">{{ a.shaped_views or "—" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
+
+<!-- Relationships it appears in ------------------------------------------ -->
+{% if rels %}
+<section class="prose">
+  <h2>Relationships ({{ n_rels }})</h2>
+  <p class="note">Edit checks and reconciliation identities whose definition references this code,
+     with the empirical pass rate against real filings where measured.</p>
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead>
+        <tr><th>Expression</th><th>Scope</th><th>Kind</th><th>Status</th><th>Pass rate</th></tr>
+      </thead>
+      <tbody>
+        {% for r in rels %}
+        <tr>
+          <td style="white-space:normal;max-width:48ch;"><code style="font-size:.8rem;">{{ r.expression }}</code></td>
+          <td class="mono">{{ r.scope }}</td>
+          <td class="mono">{{ r.kind }}</td>
+          <td class="mono" style="white-space:nowrap;">{{ r.status }}</td>
+          <td class="num">{{ r.pass_pct }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
+
+<section class="prose">
+  <p class="src">Attributes and relationships are from the version-pinned
+     {% if meta.dictionary_version %}<b>{{ meta.dictionary_version }}</b> {% endif %}dictionary slice.
+     The canonical narrative guide for this variable's schedule is at
+     <a href="{{ ref_url }}" rel="noopener">the bank-data-dictionary reference site</a>; the full
+     taxonomy is browsable on <a href="/dictionary">Dictionary</a> and downloadable from <a href="/data">Data</a>.</p>
+</section>
+
+{% endblock %}

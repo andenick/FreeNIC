@@ -1,0 +1,125 @@
+{
+ "_provenance": "Published figures from the FreeNIC data-sources table (github.com/andenick/FreeNIC). Row counts are approximate as published.",
+ "sources": [
+  {
+   "n": 1,
+   "source": "Chicago Fed Call Reports",
+   "rows": "896M",
+   "coverage": "1976-2002"
+  },
+  {
+   "n": 2,
+   "source": "Luck Historical Database (pre-1976 core)",
+   "rows": "38M",
+   "coverage": "1959Q4-1975Q4 (+gap-fill)"
+  },
+  {
+   "n": 3,
+   "source": "BHCF Y-9C Filings",
+   "rows": "208M",
+   "coverage": "1986-2025"
+  },
+  {
+   "n": 4,
+   "source": "FDIC SDI Financials",
+   "rows": "69M",
+   "coverage": "1984-2025"
+  },
+  {
+   "n": 5,
+   "source": "OCC Historical",
+   "rows": "9.8M",
+   "coverage": "1863-1941"
+  },
+  {
+   "n": 6,
+   "source": "Robin Failing Banks Panel",
+   "rows": "2.9M",
+   "coverage": "1863-2024"
+  },
+  {
+   "n": 7,
+   "source": "FDIC Summary of Deposits",
+   "rows": "2.7M",
+   "coverage": "1994-2025"
+  },
+  {
+   "n": 8,
+   "source": "FDIC Bank Failures",
+   "rows": "4K",
+   "coverage": "1934-2026"
+  },
+  {
+   "n": 9,
+   "source": "FDIC Historical",
+   "rows": "500K",
+   "coverage": "1934-2025"
+  },
+  {
+   "n": 10,
+   "source": "NIC Structure Data",
+   "rows": "36K",
+   "coverage": "Current"
+  },
+  {
+   "n": 11,
+   "source": "CRSP-FRB Link",
+   "rows": "14K",
+   "coverage": "1971-2024"
+  },
+  {
+   "n": 12,
+   "source": "MDRM Variable Dictionary",
+   "rows": "87K",
+   "coverage": "Current"
+  },
+  {
+   "n": 13,
+   "source": "DFAST Stress Test Results",
+   "rows": "500",
+   "coverage": "2013-2025"
+  },
+  {
+   "n": 14,
+   "source": "Pillar 3 G-SIB Disclosure",
+   "rows": "20K",
+   "coverage": "2020-2025"
+  },
+  {
+   "n": 15,
+   "source": "Fed H.8",
+   "rows": "75K",
+   "coverage": "1973-2025"
+  },
+  {
+   "n": 16,
+   "source": "FRED Banking Series",
+   "rows": "75K",
+   "coverage": "1954-2025"
+  },
+  {
+   "n": 17,
+   "source": "Stress Test Scenarios",
+   "rows": "1K",
+   "coverage": "2024-2026"
+  },
+  {
+   "n": 18,
+   "source": "Bank Identifier Crosswalk",
+   "rows": "14K",
+   "coverage": "Current"
+  },
+  {
+   "n": 19,
+   "source": "BHC Hierarchy",
+   "rows": "37K",
+   "coverage": "Current"
+  },
+  {
+   "n": 20,
+   "source": "Sector Groupings",
+   "rows": "17K",
+   "coverage": "Current"
+  }
+ ]
+}

@@ -1,0 +1,132 @@
+/* =========================================================
+   FreeNIC — site.css
+   v1.1 token-migration: the site body custom-props now DERIVE from the Arcanum
+   Site Kit --ark-* tokens (defined in arcanum.css, flipped by the chrome theme
+   toggle). The page body therefore flips light/dark IN LOCKSTEP with the kit
+   chrome — no white-body-under-dark-chrome seam. The slate accent still comes
+   from themes/freenic.css (--ark-accent). Fallback literals are kept after each
+   var() for the (impossible-in-practice) case arcanum.css fails to load.
+   ========================================================= */
+:root{
+  --ink:    var(--ark-fg, #1d2433);
+  --muted:  var(--ark-fg-dim, #6b7280);
+  --line:   var(--ark-line, #e4e7ec);
+  --bg:     var(--ark-bg, #f7f9fb);
+  --card:   var(--ark-bg-soft, #ffffff);
+  --accent: var(--ark-accent, #0f5c5c);    /* slate accent (from themes/freenic.css) */
+  --accent2:var(--ark-accent, #127a7a);    /* 2nd accent -> kit accent (gotcha #2) */
+  --on-accent: var(--ark-accent-ink, #fff);/* text ON an accent fill                */
+  --tag:    var(--ark-tag, #eef2f2);       /* code / thead / hover wash             */
+  --gold:#b58a2e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.6; font-size:16px;
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85em;
+  background:var(--tag);padding:1px 5px;border-radius:4px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+/* (The persistent DRAFT banner was removed — the site ships as a finished product;
+   honest sample-vs-full framing now lives on the Data and Methodology pages.) */
+
+/* in-slice badge — marks the ~3 source rows actually shipped in the 5 MB sample */
+.ark-badge.in-slice{color:var(--ark-accent)}
+
+/* header (LEGACY — kit .ark-header now owns the chrome; kept for safety only) */
+.site-header{border-bottom:1px solid var(--line);background:var(--card);position:sticky;top:0;z-index:10}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-size:1.35rem;font-weight:800;color:var(--ink)}
+.brand .dot{color:var(--accent)}
+.site-header nav a{margin-left:18px;color:var(--ink);font-weight:500;font-size:.95rem}
+.site-header nav a:hover{color:var(--accent)}
+
+/* hero */
+.hero{padding:42px 0 18px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.hero h1{font-size:2.5rem;margin:.1em 0;line-height:1.1}
+.tagline{font-size:1.25rem;color:var(--accent);margin:.2em 0 .1em;font-weight:500}
+.meta{color:var(--muted);margin:.2em 0}
+
+/* stats */
+.stats{display:flex;flex-wrap:wrap;gap:16px;margin:26px 0}
+.stat{flex:1;min-width:120px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:16px 18px;text-align:center}
+.stat .num{display:block;font-size:1.9rem;font-weight:800;color:var(--accent);line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.stat .lbl{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+
+/* prose */
+.prose{margin:30px 0}
+.prose h2{font-size:1.5rem;margin:.4em 0 .3em;border-bottom:2px solid var(--accent);
+  display:inline-block;padding-bottom:2px}
+.prose h3{font-size:1.15rem;margin:.6em 0 .2em}
+.lead{font-size:1.12rem}
+.callout{background:var(--card);border-left:4px solid var(--accent);padding:14px 18px;
+  border-radius:0 8px 8px 0;margin:16px 0}
+.callout h3{margin-top:0}
+.src{color:var(--muted);font-size:.85rem}
+.note{color:var(--muted);font-size:.9rem}
+
+/* cards */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px;color:var(--ink);transition:box-shadow .15s,transform .15s}
+.card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-2px);text-decoration:none}
+.card h3{margin:.2em 0 .4em}
+.card p{font-size:.95rem;color:var(--muted)}
+.kv{list-style:none;padding:0;margin:10px 0 0;font-size:.9rem}
+.kv li{padding:3px 0;border-top:1px dashed var(--line)}
+.kv b{color:var(--muted);font-weight:600;margin-right:6px}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}
+.controls label{font-size:.9rem;color:var(--muted)}
+.controls select,.controls input{font-size:.95rem;padding:6px 10px;border:1px solid var(--line);
+  border-radius:8px;background:var(--card);color:var(--ink)}
+.controls button{font-size:.95rem;padding:6px 14px;border:none;border-radius:8px;
+  background:var(--accent);color:var(--on-accent);font-weight:600;cursor:pointer}
+.controls button:hover{background:var(--accent2);filter:brightness(1.06)}
+
+/* query textarea — dark-aware (was relying on browser default field colors) */
+#sql{background:var(--card);color:var(--ink)}
+
+/* tables */
+table.data{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--card)}
+table.data th,table.data td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+table.data thead th{background:var(--tag);border-bottom:2px solid var(--accent);font-size:.85rem;
+  text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+table.data tbody tr:hover{background:var(--tag)}
+table.data td.num{text-align:right;font-variant-numeric:tabular-nums}
+.table-scroll{max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:10px}
+.table-scroll thead th{position:sticky;top:0}
+
+/* plots — soft surface (NOT hard #fff) so the now-transparent ArkPlotly charts
+   stay visible in dark mode */
+.plot{width:100%;height:420px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px}
+
+/* per-series download row (explorer FRED chart) */
+.dl-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 2px}
+
+/* footer (LEGACY — kit .ark-footer now owns the chrome; kept for safety only) */
+.site-footer{border-top:1px solid var(--line);margin-top:50px;padding:24px 0;background:var(--card)}
+.site-footer p{margin:.3em 0;font-size:.9rem}
+.muted{color:var(--muted)}
+.arcanum-chrome{font-size:.82rem;color:var(--muted);margin-top:.8em;padding-top:.6em;border-top:1px solid var(--line)}
+.arcanum-chrome a{color:var(--muted);text-decoration:underline}
+
+@media(max-width:720px){
+  .card-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2rem}
+}
+
+/* FNV-3 — kill 360px horizontal-scroll overflow (scroll trap) from long unwrapped
+   strings. Bare source URLs on /sources break anywhere; code/pre blocks (the DuckDB
+   httpfs snippets on /methodology) scroll inside their own box instead of the page. */
+.src-url,.prose a[href^="http"]{overflow-wrap:anywhere;word-break:break-word}
+.prose pre,.ark-code pre{overflow-x:auto;max-width:100%}
+.prose pre code,.ark-code pre code{white-space:pre}

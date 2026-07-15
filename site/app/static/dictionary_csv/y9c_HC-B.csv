@@ -1,0 +1,141 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-B,1,U.S. Treasury securities,mdrm_htm_amortized_cost,BHCK0211,,1994-03-31,LCR Level 1 HQLA; zero credit risk
+y9c,HC-B,1,U.S. Treasury securities,mdrm_htm_fair_value,BHCK0213,,1994-03-31,LCR Level 1 HQLA; zero credit risk
+y9c,HC-B,1,U.S. Treasury securities,mdrm_afs_amortized_cost,BHCK1286,,1994-03-31,LCR Level 1 HQLA; zero credit risk
+y9c,HC-B,1,U.S. Treasury securities,mdrm_afs_fair_value,BHCK1287,,1994-03-31,LCR Level 1 HQLA; zero credit risk
+y9c,HC-B,2,U.S. government agency obligations (exclude mortgage-backed securities),mdrm_htm_amortized_cost,BHCKHT50,,2018-06-30,FHLB/SBA/TVA agency debt; HT50-53 replaced retired 1289/1290 and old repo JF77/JF78
+y9c,HC-B,2,U.S. government agency obligations (exclude mortgage-backed securities),mdrm_htm_fair_value,BHCKHT51,,2018-06-30,FHLB/SBA/TVA agency debt; HT50-53 replaced retired 1289/1290 and old repo JF77/JF78
+y9c,HC-B,2,U.S. government agency obligations (exclude mortgage-backed securities),mdrm_afs_amortized_cost,BHCKHT52,,2018-06-30,FHLB/SBA/TVA agency debt; HT50-53 replaced retired 1289/1290 and old repo JF77/JF78
+y9c,HC-B,2,U.S. government agency obligations (exclude mortgage-backed securities),mdrm_afs_fair_value,BHCKHT53,,2018-06-30,FHLB/SBA/TVA agency debt; HT50-53 replaced retired 1289/1290 and old repo JF77/JF78
+y9c,HC-B,3,Securities issued by states and political subdivisions in the U.S.,mdrm_htm_amortized_cost,BHCK8496,,2001-03-31,Tax-exempt munis; current item 3 (was item 7 in old repo layout)
+y9c,HC-B,3,Securities issued by states and political subdivisions in the U.S.,mdrm_htm_fair_value,BHCK8497,,2001-03-31,Tax-exempt munis; current item 3 (was item 7 in old repo layout)
+y9c,HC-B,3,Securities issued by states and political subdivisions in the U.S.,mdrm_afs_amortized_cost,BHCK8498,,2001-03-31,Tax-exempt munis; current item 3 (was item 7 in old repo layout)
+y9c,HC-B,3,Securities issued by states and political subdivisions in the U.S.,mdrm_afs_fair_value,BHCK8499,,2001-03-31,Tax-exempt munis; current item 3 (was item 7 in old repo layout)
+y9c,HC-B,7,Unallocated portfolio layer fair value hedge basis adjustments,mdrm_htm_amortized_cost,BHCKMG95,,2022-09-30,"Single cell only (item 7 has one MDRM, BHCKMG95); portfolio-layer ASU 2022-01 hedge basis"
+y9c,HC-B,8,Total (sum of items 1 through 7),mdrm_htm_amortized_cost,BHCK1754,,1994-03-31,Col A BHCK1754 HTM total ties HC 2.a; Col D BHCT1773 AFS FV total ties HC 2.b
+y9c,HC-B,8,Total (sum of items 1 through 7),mdrm_htm_fair_value,BHCK1771,,1994-03-31,Col A BHCK1754 HTM total ties HC 2.a; Col D BHCT1773 AFS FV total ties HC 2.b
+y9c,HC-B,8,Total (sum of items 1 through 7),mdrm_afs_amortized_cost,BHCK1772,,1994-03-31,Col A BHCK1754 HTM total ties HC 2.a; Col D BHCT1773 AFS FV total ties HC 2.b
+y9c,HC-B,8,Total (sum of items 1 through 7),mdrm_afs_fair_value,BHCT1773,,1994-03-31,Col A BHCK1754 HTM total ties HC 2.a; Col D BHCT1773 AFS FV total ties HC 2.b
+y9c,HC-B,4.a.(1),Residential MBS pass-through: Guaranteed by GNMA,mdrm_htm_amortized_cost,BHCKG300,,2009-06-30,Full-faith-and-credit; Level 1 HQLA
+y9c,HC-B,4.a.(1),Residential MBS pass-through: Guaranteed by GNMA,mdrm_htm_fair_value,BHCKG301,,2009-06-30,Full-faith-and-credit; Level 1 HQLA
+y9c,HC-B,4.a.(1),Residential MBS pass-through: Guaranteed by GNMA,mdrm_afs_amortized_cost,BHCKG302,,2009-06-30,Full-faith-and-credit; Level 1 HQLA
+y9c,HC-B,4.a.(1),Residential MBS pass-through: Guaranteed by GNMA,mdrm_afs_fair_value,BHCKG303,,2009-06-30,Full-faith-and-credit; Level 1 HQLA
+y9c,HC-B,4.a.(2),Residential MBS pass-through: Issued by FNMA and FHLMC,mdrm_htm_amortized_cost,BHCKG304,,2009-06-30,GSE; Level 2A HQLA
+y9c,HC-B,4.a.(2),Residential MBS pass-through: Issued by FNMA and FHLMC,mdrm_htm_fair_value,BHCKG305,,2009-06-30,GSE; Level 2A HQLA
+y9c,HC-B,4.a.(2),Residential MBS pass-through: Issued by FNMA and FHLMC,mdrm_afs_amortized_cost,BHCKG306,,2009-06-30,GSE; Level 2A HQLA
+y9c,HC-B,4.a.(2),Residential MBS pass-through: Issued by FNMA and FHLMC,mdrm_afs_fair_value,BHCKG307,,2009-06-30,GSE; Level 2A HQLA
+y9c,HC-B,4.a.(3),Residential MBS pass-through: Other pass-through securities,mdrm_htm_amortized_cost,BHCKG308,,2009-06-30,Other agency/private pass-through
+y9c,HC-B,4.a.(3),Residential MBS pass-through: Other pass-through securities,mdrm_htm_fair_value,BHCKG309,,2009-06-30,Other agency/private pass-through
+y9c,HC-B,4.a.(3),Residential MBS pass-through: Other pass-through securities,mdrm_afs_amortized_cost,BHCKG310,,2009-06-30,Other agency/private pass-through
+y9c,HC-B,4.a.(3),Residential MBS pass-through: Other pass-through securities,mdrm_afs_fair_value,BHCKG311,,2009-06-30,Other agency/private pass-through
+y9c,HC-B,4.a.(4),"Residential MBS pass-through: Guaranteed by GNMA, issued by FNMA and FHLMC and other pass-through securities",mdrm_htm_amortized_cost,BHCKKX52,,2019-12-31,Combined pass-through reporting line (KX52-55)
+y9c,HC-B,4.a.(4),"Residential MBS pass-through: Guaranteed by GNMA, issued by FNMA and FHLMC and other pass-through securities",mdrm_htm_fair_value,BHCKKX53,,2019-12-31,Combined pass-through reporting line (KX52-55)
+y9c,HC-B,4.a.(4),"Residential MBS pass-through: Guaranteed by GNMA, issued by FNMA and FHLMC and other pass-through securities",mdrm_afs_amortized_cost,BHCKKX54,,2019-12-31,Combined pass-through reporting line (KX52-55)
+y9c,HC-B,4.a.(4),"Residential MBS pass-through: Guaranteed by GNMA, issued by FNMA and FHLMC and other pass-through securities",mdrm_afs_fair_value,BHCKKX55,,2019-12-31,Combined pass-through reporting line (KX52-55)
+y9c,HC-B,4.b.(1),Other residential MBS (CMOs/REMICs/stripped): Issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_htm_amortized_cost,BHCKG312,,2009-06-30,CMOs/REMICs issued/guaranteed by agency or GSE
+y9c,HC-B,4.b.(1),Other residential MBS (CMOs/REMICs/stripped): Issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_htm_fair_value,BHCKG313,,2009-06-30,CMOs/REMICs issued/guaranteed by agency or GSE
+y9c,HC-B,4.b.(1),Other residential MBS (CMOs/REMICs/stripped): Issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_afs_amortized_cost,BHCKG314,,2009-06-30,CMOs/REMICs issued/guaranteed by agency or GSE
+y9c,HC-B,4.b.(1),Other residential MBS (CMOs/REMICs/stripped): Issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_afs_fair_value,BHCKG315,,2009-06-30,CMOs/REMICs issued/guaranteed by agency or GSE
+y9c,HC-B,4.b.(2),Other residential MBS (CMOs/REMICs/stripped): Collateralized by MBS issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_htm_amortized_cost,BHCKG316,,2009-06-30,Collateralized by agency/GSE MBS
+y9c,HC-B,4.b.(2),Other residential MBS (CMOs/REMICs/stripped): Collateralized by MBS issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_htm_fair_value,BHCKG317,,2009-06-30,Collateralized by agency/GSE MBS
+y9c,HC-B,4.b.(2),Other residential MBS (CMOs/REMICs/stripped): Collateralized by MBS issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_afs_amortized_cost,BHCKG318,,2009-06-30,Collateralized by agency/GSE MBS
+y9c,HC-B,4.b.(2),Other residential MBS (CMOs/REMICs/stripped): Collateralized by MBS issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_afs_fair_value,BHCKG319,,2009-06-30,Collateralized by agency/GSE MBS
+y9c,HC-B,4.b.(3),Other residential MBS (CMOs/REMICs/stripped): All other residential mortgage-backed securities,mdrm_htm_amortized_cost,BHCKG320,,2009-06-30,Private-label RMBS; not HQLA
+y9c,HC-B,4.b.(3),Other residential MBS (CMOs/REMICs/stripped): All other residential mortgage-backed securities,mdrm_htm_fair_value,BHCKG321,,2009-06-30,Private-label RMBS; not HQLA
+y9c,HC-B,4.b.(3),Other residential MBS (CMOs/REMICs/stripped): All other residential mortgage-backed securities,mdrm_afs_amortized_cost,BHCKG322,,2009-06-30,Private-label RMBS; not HQLA
+y9c,HC-B,4.b.(3),Other residential MBS (CMOs/REMICs/stripped): All other residential mortgage-backed securities,mdrm_afs_fair_value,BHCKG323,,2009-06-30,Private-label RMBS; not HQLA
+y9c,HC-B,4.c.(1)(a),"Commercial MBS - pass-through: Issued or guaranteed by FNMA, FHLMC, or GNMA",mdrm_htm_amortized_cost,BHCKK142,,2011-03-31,Agency multifamily CMBS pass-through
+y9c,HC-B,4.c.(1)(a),"Commercial MBS - pass-through: Issued or guaranteed by FNMA, FHLMC, or GNMA",mdrm_htm_fair_value,BHCKK143,,2011-03-31,Agency multifamily CMBS pass-through
+y9c,HC-B,4.c.(1)(a),"Commercial MBS - pass-through: Issued or guaranteed by FNMA, FHLMC, or GNMA",mdrm_afs_amortized_cost,BHCKK144,,2011-03-31,Agency multifamily CMBS pass-through
+y9c,HC-B,4.c.(1)(a),"Commercial MBS - pass-through: Issued or guaranteed by FNMA, FHLMC, or GNMA",mdrm_afs_fair_value,BHCKK145,,2011-03-31,Agency multifamily CMBS pass-through
+y9c,HC-B,4.c.(1)(b),Commercial MBS - pass-through: Other pass-through securities,mdrm_htm_amortized_cost,BHCKK146,,2011-03-31,Non-agency CMBS pass-through
+y9c,HC-B,4.c.(1)(b),Commercial MBS - pass-through: Other pass-through securities,mdrm_htm_fair_value,BHCKK147,,2011-03-31,Non-agency CMBS pass-through
+y9c,HC-B,4.c.(1)(b),Commercial MBS - pass-through: Other pass-through securities,mdrm_afs_amortized_cost,BHCKK148,,2011-03-31,Non-agency CMBS pass-through
+y9c,HC-B,4.c.(1)(b),Commercial MBS - pass-through: Other pass-through securities,mdrm_afs_fair_value,BHCKK149,,2011-03-31,Non-agency CMBS pass-through
+y9c,HC-B,4.c.(2)(a),Commercial MBS - other: Issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_htm_amortized_cost,BHCKK150,,2011-03-31,Agency/GSE-issued other CMBS
+y9c,HC-B,4.c.(2)(a),Commercial MBS - other: Issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_htm_fair_value,BHCKK151,,2011-03-31,Agency/GSE-issued other CMBS
+y9c,HC-B,4.c.(2)(a),Commercial MBS - other: Issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_afs_amortized_cost,BHCKK152,,2011-03-31,Agency/GSE-issued other CMBS
+y9c,HC-B,4.c.(2)(a),Commercial MBS - other: Issued or guaranteed by U.S. Government agencies or sponsored agencies,mdrm_afs_fair_value,BHCKK153,,2011-03-31,Agency/GSE-issued other CMBS
+y9c,HC-B,4.c.(2)(b),Commercial MBS - other: All other commercial MBS,mdrm_htm_amortized_cost,BHCKK154,,2011-03-31,Private-label CMBS
+y9c,HC-B,4.c.(2)(b),Commercial MBS - other: All other commercial MBS,mdrm_htm_fair_value,BHCKK155,,2011-03-31,Private-label CMBS
+y9c,HC-B,4.c.(2)(b),Commercial MBS - other: All other commercial MBS,mdrm_afs_amortized_cost,BHCKK156,,2011-03-31,Private-label CMBS
+y9c,HC-B,4.c.(2)(b),Commercial MBS - other: All other commercial MBS,mdrm_afs_fair_value,BHCKK157,,2011-03-31,Private-label CMBS
+y9c,HC-B,5.a,Asset-backed securities (ABS),mdrm_htm_amortized_cost,BHCKC026,,2006-03-31,"Aggregate ABS; A=C026 HTM cost, B=C988 HTM FV, C=C989 AFS cost, D=C027 AFS FV"
+y9c,HC-B,5.a,Asset-backed securities (ABS),mdrm_afs_fair_value,BHCKC027,,2006-03-31,"Aggregate ABS; A=C026 HTM cost, B=C988 HTM FV, C=C989 AFS cost, D=C027 AFS FV"
+y9c,HC-B,5.a,Asset-backed securities (ABS),mdrm_htm_fair_value,BHCKC988,,2006-03-31,"Aggregate ABS; A=C026 HTM cost, B=C988 HTM FV, C=C989 AFS cost, D=C027 AFS FV"
+y9c,HC-B,5.a,Asset-backed securities (ABS),mdrm_afs_amortized_cost,BHCKC989,,2006-03-31,"Aggregate ABS; A=C026 HTM cost, B=C988 HTM FV, C=C989 AFS cost, D=C027 AFS FV"
+y9c,HC-B,5.b,Structured financial products,mdrm_htm_amortized_cost,BHCKHT58,,2018-06-30,CDOs/CLOs etc.; HT58-61
+y9c,HC-B,5.b,Structured financial products,mdrm_htm_fair_value,BHCKHT59,,2018-06-30,CDOs/CLOs etc.; HT58-61
+y9c,HC-B,5.b,Structured financial products,mdrm_afs_amortized_cost,BHCKHT60,,2018-06-30,CDOs/CLOs etc.; HT58-61
+y9c,HC-B,5.b,Structured financial products,mdrm_afs_fair_value,BHCKHT61,,2018-06-30,CDOs/CLOs etc.; HT58-61
+y9c,HC-B,6.a,Other domestic debt securities,mdrm_htm_amortized_cost,BHCK1737,,2001-03-31,Domestic corporate/other debt
+y9c,HC-B,6.a,Other domestic debt securities,mdrm_htm_fair_value,BHCK1738,,2001-03-31,Domestic corporate/other debt
+y9c,HC-B,6.a,Other domestic debt securities,mdrm_afs_amortized_cost,BHCK1739,,2001-03-31,Domestic corporate/other debt
+y9c,HC-B,6.a,Other domestic debt securities,mdrm_afs_fair_value,BHCK1741,,2001-03-31,Domestic corporate/other debt
+y9c,HC-B,6.b,Other foreign debt securities,mdrm_htm_amortized_cost,BHCK1742,,2001-03-31,Foreign sovereign/corporate debt
+y9c,HC-B,6.b,Other foreign debt securities,mdrm_htm_fair_value,BHCK1743,,2001-03-31,Foreign sovereign/corporate debt
+y9c,HC-B,6.b,Other foreign debt securities,mdrm_afs_amortized_cost,BHCK1744,,2001-03-31,Foreign sovereign/corporate debt
+y9c,HC-B,6.b,Other foreign debt securities,mdrm_afs_fair_value,BHCK1746,,2001-03-31,Foreign sovereign/corporate debt
+y9c,HC-B,M.1,Pledged securities,mdrm_htm_amortized_cost,BHCK0416,,1986-09-30,Single cell BHCK0416; securities pledged as collateral
+y9c,HC-B,M.2.a,Maturity / repricing: Remaining maturity of one year or less,mdrm_htm_amortized_cost,BHCK0383,,1986-09-30,Single cell BHCK0383; debt securities maturing/repricing in 1 year or less
+y9c,HC-B,M.2.b,Maturity / repricing: Over one year through five years,mdrm_htm_amortized_cost,BHCK0384,,1986-09-30,Single cell BHCK0384
+y9c,HC-B,M.2.c,Maturity / repricing: Over five years,mdrm_htm_amortized_cost,BHCK0387,,1986-09-30,Single cell BHCK0387
+y9c,HC-B,M.3,Amortized cost of HTM securities sold or transferred to AFS or trading during the calendar year-to-date,mdrm_htm_amortized_cost,BHCK1778,,1994-03-31,Single cell BHCK1778; YTD amortized cost at date of sale/transfer
+y9c,HC-B,M.4.a,Structured notes: Amortized cost,mdrm_htm_amortized_cost,BHCK8782,,1995-03-31,Single cell BHCK8782
+y9c,HC-B,M.4.b,Structured notes: Fair value,mdrm_htm_amortized_cost,BHCK8783,,1995-03-31,Single cell BHCK8783
+y9c,HC-B,M.5.a,ABS by underlying assets: Credit card receivables,mdrm_htm_amortized_cost,BHCKB838,,2001-03-31,"A=B838 HTM cost, B=B839 HTM FV, C=B840 AFS cost, D=B841 AFS FV"
+y9c,HC-B,M.5.a,ABS by underlying assets: Credit card receivables,mdrm_htm_fair_value,BHCKB839,,2001-03-31,"A=B838 HTM cost, B=B839 HTM FV, C=B840 AFS cost, D=B841 AFS FV"
+y9c,HC-B,M.5.a,ABS by underlying assets: Credit card receivables,mdrm_afs_amortized_cost,BHCKB840,,2001-03-31,"A=B838 HTM cost, B=B839 HTM FV, C=B840 AFS cost, D=B841 AFS FV"
+y9c,HC-B,M.5.a,ABS by underlying assets: Credit card receivables,mdrm_afs_fair_value,BHCKB841,,2001-03-31,"A=B838 HTM cost, B=B839 HTM FV, C=B840 AFS cost, D=B841 AFS FV"
+y9c,HC-B,M.5.b,ABS by underlying assets: Home equity lines,mdrm_htm_amortized_cost,BHCKB842,,2001-03-31,
+y9c,HC-B,M.5.b,ABS by underlying assets: Home equity lines,mdrm_htm_fair_value,BHCKB843,,2001-03-31,
+y9c,HC-B,M.5.b,ABS by underlying assets: Home equity lines,mdrm_afs_amortized_cost,BHCKB844,,2001-03-31,
+y9c,HC-B,M.5.b,ABS by underlying assets: Home equity lines,mdrm_afs_fair_value,BHCKB845,,2001-03-31,
+y9c,HC-B,M.5.c,ABS by underlying assets: Automobile loans,mdrm_htm_amortized_cost,BHCKB846,,2001-03-31,
+y9c,HC-B,M.5.c,ABS by underlying assets: Automobile loans,mdrm_htm_fair_value,BHCKB847,,2001-03-31,
+y9c,HC-B,M.5.c,ABS by underlying assets: Automobile loans,mdrm_afs_amortized_cost,BHCKB848,,2001-03-31,
+y9c,HC-B,M.5.c,ABS by underlying assets: Automobile loans,mdrm_afs_fair_value,BHCKB849,,2001-03-31,
+y9c,HC-B,M.5.d,ABS by underlying assets: Other consumer loans,mdrm_htm_amortized_cost,BHCKB850,,2001-03-31,
+y9c,HC-B,M.5.d,ABS by underlying assets: Other consumer loans,mdrm_htm_fair_value,BHCKB851,,2001-03-31,
+y9c,HC-B,M.5.d,ABS by underlying assets: Other consumer loans,mdrm_afs_amortized_cost,BHCKB852,,2001-03-31,
+y9c,HC-B,M.5.d,ABS by underlying assets: Other consumer loans,mdrm_afs_fair_value,BHCKB853,,2001-03-31,
+y9c,HC-B,M.5.e,ABS by underlying assets: Commercial and industrial loans,mdrm_htm_amortized_cost,BHCKB854,,2001-03-31,CLO tranches
+y9c,HC-B,M.5.e,ABS by underlying assets: Commercial and industrial loans,mdrm_htm_fair_value,BHCKB855,,2001-03-31,CLO tranches
+y9c,HC-B,M.5.e,ABS by underlying assets: Commercial and industrial loans,mdrm_afs_amortized_cost,BHCKB856,,2001-03-31,CLO tranches
+y9c,HC-B,M.5.e,ABS by underlying assets: Commercial and industrial loans,mdrm_afs_fair_value,BHCKB857,,2001-03-31,CLO tranches
+y9c,HC-B,M.5.f,ABS by underlying assets: Other,mdrm_htm_amortized_cost,BHCKB858,,2001-03-31,
+y9c,HC-B,M.5.f,ABS by underlying assets: Other,mdrm_htm_fair_value,BHCKB859,,2001-03-31,
+y9c,HC-B,M.5.f,ABS by underlying assets: Other,mdrm_afs_amortized_cost,BHCKB860,,2001-03-31,
+y9c,HC-B,M.5.f,ABS by underlying assets: Other,mdrm_afs_fair_value,BHCKB861,,2001-03-31,
+y9c,HC-B,M.6.a,SFP by collateral: Trust preferred securities issued by financial institutions,mdrm_htm_amortized_cost,BHCKG348,,2009-06-30,
+y9c,HC-B,M.6.a,SFP by collateral: Trust preferred securities issued by financial institutions,mdrm_htm_fair_value,BHCKG349,,2009-06-30,
+y9c,HC-B,M.6.a,SFP by collateral: Trust preferred securities issued by financial institutions,mdrm_afs_amortized_cost,BHCKG350,,2009-06-30,
+y9c,HC-B,M.6.a,SFP by collateral: Trust preferred securities issued by financial institutions,mdrm_afs_fair_value,BHCKG351,,2009-06-30,
+y9c,HC-B,M.6.b,SFP by collateral: Trust preferred securities issued by real estate investment trusts,mdrm_htm_amortized_cost,BHCKG352,,2009-06-30,
+y9c,HC-B,M.6.b,SFP by collateral: Trust preferred securities issued by real estate investment trusts,mdrm_htm_fair_value,BHCKG353,,2009-06-30,
+y9c,HC-B,M.6.b,SFP by collateral: Trust preferred securities issued by real estate investment trusts,mdrm_afs_amortized_cost,BHCKG354,,2009-06-30,
+y9c,HC-B,M.6.b,SFP by collateral: Trust preferred securities issued by real estate investment trusts,mdrm_afs_fair_value,BHCKG355,,2009-06-30,
+y9c,HC-B,M.6.c,SFP by collateral: Corporate and similar loans,mdrm_htm_amortized_cost,BHCKG356,,2009-06-30,
+y9c,HC-B,M.6.c,SFP by collateral: Corporate and similar loans,mdrm_htm_fair_value,BHCKG357,,2009-06-30,
+y9c,HC-B,M.6.c,SFP by collateral: Corporate and similar loans,mdrm_afs_amortized_cost,BHCKG358,,2009-06-30,
+y9c,HC-B,M.6.c,SFP by collateral: Corporate and similar loans,mdrm_afs_fair_value,BHCKG359,,2009-06-30,
+y9c,HC-B,M.6.d,SFP by collateral: 1-4 family residential MBS issued or guaranteed by U.S. GSEs,mdrm_htm_amortized_cost,BHCKG360,,2009-06-30,
+y9c,HC-B,M.6.d,SFP by collateral: 1-4 family residential MBS issued or guaranteed by U.S. GSEs,mdrm_htm_fair_value,BHCKG361,,2009-06-30,
+y9c,HC-B,M.6.d,SFP by collateral: 1-4 family residential MBS issued or guaranteed by U.S. GSEs,mdrm_afs_amortized_cost,BHCKG362,,2009-06-30,
+y9c,HC-B,M.6.d,SFP by collateral: 1-4 family residential MBS issued or guaranteed by U.S. GSEs,mdrm_afs_fair_value,BHCKG363,,2009-06-30,
+y9c,HC-B,M.6.e,SFP by collateral: 1-4 family residential MBS not issued or guaranteed by GSEs,mdrm_htm_amortized_cost,BHCKG364,,2009-06-30,
+y9c,HC-B,M.6.e,SFP by collateral: 1-4 family residential MBS not issued or guaranteed by GSEs,mdrm_htm_fair_value,BHCKG365,,2009-06-30,
+y9c,HC-B,M.6.e,SFP by collateral: 1-4 family residential MBS not issued or guaranteed by GSEs,mdrm_afs_amortized_cost,BHCKG366,,2009-06-30,
+y9c,HC-B,M.6.e,SFP by collateral: 1-4 family residential MBS not issued or guaranteed by GSEs,mdrm_afs_fair_value,BHCKG367,,2009-06-30,
+y9c,HC-B,M.6.f,SFP by collateral: Diversified (mixed) pools of structured financial products,mdrm_htm_amortized_cost,BHCKG368,,2009-06-30,
+y9c,HC-B,M.6.f,SFP by collateral: Diversified (mixed) pools of structured financial products,mdrm_htm_fair_value,BHCKG369,,2009-06-30,
+y9c,HC-B,M.6.f,SFP by collateral: Diversified (mixed) pools of structured financial products,mdrm_afs_amortized_cost,BHCKG370,,2009-06-30,
+y9c,HC-B,M.6.f,SFP by collateral: Diversified (mixed) pools of structured financial products,mdrm_afs_fair_value,BHCKG371,,2009-06-30,
+y9c,HC-B,M.6.g,SFP by collateral: Other collateral or reference assets,mdrm_htm_amortized_cost,BHCKG372,,2009-06-30,
+y9c,HC-B,M.6.g,SFP by collateral: Other collateral or reference assets,mdrm_htm_fair_value,BHCKG373,,2009-06-30,
+y9c,HC-B,M.6.g,SFP by collateral: Other collateral or reference assets,mdrm_afs_amortized_cost,BHCKG374,,2009-06-30,
+y9c,HC-B,M.6.g,SFP by collateral: Other collateral or reference assets,mdrm_afs_fair_value,BHCKG375,,2009-06-30,
+y9c,HC-B,M.7,Structured financial products guaranteed by U.S. Government agencies or sponsored agencies included in Sch HC-B item 5.b,mdrm_htm_amortized_cost,BHCKPU98,,2026-03-31,New current-form item effective 2026-03-31; not yet in warehouse through 2025Q4
+y9c,HC-B,M.7,Structured financial products guaranteed by U.S. Government agencies or sponsored agencies included in Sch HC-B item 5.b,mdrm_htm_fair_value,BHCKPU99,,2026-03-31,New current-form item effective 2026-03-31; not yet in warehouse through 2025Q4
+y9c,HC-B,M.7,Structured financial products guaranteed by U.S. Government agencies or sponsored agencies included in Sch HC-B item 5.b,mdrm_afs_amortized_cost,BHCKPV00,,2026-03-31,New current-form item effective 2026-03-31; not yet in warehouse through 2025Q4
+y9c,HC-B,M.7,Structured financial products guaranteed by U.S. Government agencies or sponsored agencies included in Sch HC-B item 5.b,mdrm_afs_fair_value,BHCKPV01,,2026-03-31,New current-form item effective 2026-03-31; not yet in warehouse through 2025Q4

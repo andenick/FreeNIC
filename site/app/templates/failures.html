@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% block title %}Bank-failure explorer — FreeNIC{% endblock %}
+{% block head %}
+  <script src="/static/vendor/plotly.min.js"></script>
+{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>Bank-failure explorer</h1>
+  <p>Explore the <b>{{ "{:,}".format(n_failures) }} FDIC bank-failure records</b> in the curated slice,
+     from <b>{{ year_min }}</b> to <b>{{ year_max }}</b>. Filter by era, state, resolution type or
+     charter class; chart the failures-per-year timeline; and download the exact rows. Every value is
+     real published FDIC data — nothing is fabricated or imputed.</p>
+  <p class="note">FreeNIC frames US banking over <b>{{ counts.time_span }}</b> (163 years). Federal
+     failure records begin with the <b>{{ year_min }}</b> creation of the FDIC — the earlier era on the
+     <a href="/explorer">163-year spine</a> tracks bank <i>counts and balance sheets</i>, not
+     resolution events. So this timeline starts at {{ year_min }} by construction, not by omission.</p>
+</section>
+
+<!-- TIMELINE chart (Universal Graph Contract: Download CSV top-right, single chart,
+     legend/notes below). Reflects the active filters. -->
+<section class="prose">
+  <h2>Failures per year</h2>
+  <div class="controls">
+    <label>Year from
+      <select id="yfrom"></select>
+    </label>
+    <label>Year to
+      <select id="yto"></select>
+    </label>
+    <label>State
+      <select id="state"><option value="">All states</option></select>
+    </label>
+    <label>Resolution
+      <select id="restype"><option value="">All resolutions</option></select>
+    </label>
+    <label>Charter class
+      <select id="cclass"><option value="">All charters</option></select>
+    </label>
+    <button type="button" class="ark-btn" id="reset" title="Clear all filters">Reset</button>
+  </div>
+  <div class="dl-row" id="dl_year"></div>
+  <div id="chart_year" class="plot"></div>
+  <p class="note" id="year_note"></p>
+  <p class="note">Resolution codes (FDIC): <code>PA</code>/<code>P&amp;A</code> purchase &amp;
+     assumption, <code>PO</code> payout, <code>IDT</code> insured-deposit transfer,
+     <code>A/A</code> assistance, <code>OBAM</code> open-bank assistance/merger. Charter classes:
+     <code>N</code> national, <code>NM</code> state non-member, <code>SM</code> state member,
+     <code>SB</code>/<code>SL</code> savings, <code>SI</code> savings institution. See the
+     <a href="/sources">sources directory</a> for the FDIC lineage.</p>
+</section>
+
+<!-- TABLE view -->
+<section class="prose">
+  <h2>Failure records</h2>
+  <p class="note" id="table_note"></p>
+  <div class="dl-row" id="dl_table"></div>
+  <div class="ark-table-wrap" role="region" tabindex="0" aria-label="Bank-failure records">
+    <table class="ark-table data" id="failtbl" data-arktable>
+      <thead><tr>
+        <th>Bank</th><th>City</th><th>State</th><th>Closed</th><th>Year</th>
+        <th>Acquirer</th><th>Total assets</th><th>Est. loss</th><th>Resolution</th><th>Charter</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="src" style="margin-top:.8em">Download the full failures table:
+     <span class="dl-row" id="dl_full" style="display:inline-flex"></span></p>
+</section>
+
+<section class="prose">
+  <div class="callout">
+    <h3>Provenance</h3>
+    <p style="margin:0">The <code>bank_failures</code> table is real FDIC BankFind failure/assistance
+       records (public), harmonized in the FreeNIC pipeline alongside the academic <b>Robin</b>
+       failing-banks compilation. Monetary fields (<code>total_assets</code>,
+       <code>total_deposits</code>, <code>estimated_loss</code>) are in US-dollar thousands ($000s) as
+       published by FDIC; nulls (e.g. some estimated-loss values) are shown as <code>—</code>, never
+       invented. Full provenance: <a href="/methodology">Methodology &amp; DPR</a>.</p>
+  </div>
+</section>
+
+<script>
+const TABLE_CAP = 500;   // rows rendered into the DOM; CSV carries the full filtered set
+async function j(u){ const r = await fetch(u); return r.json(); }
+function fmt(n){ return n==null ? "—" : Number(n).toLocaleString(); }
+function esc(s){ return s==null ? "" : String(s); }
+
+let FACETS = null;
+
+function fillYearSelects(lo, hi){
+  const yf = document.getElementById("yfrom"), yt = document.getElementById("yto");
+  for (let y = lo; y <= hi; y++){
+    const a = document.createElement("option"); a.value = y; a.textContent = y; yf.appendChild(a);
+    const b = document.createElement("option"); b.value = y; b.textContent = y; yt.appendChild(b);
+  }
+  yf.value = lo; yt.value = hi;
+}
+
+function fillSelect(id, rows){
+  const el = document.getElementById(id);
+  rows.forEach(r => {
+    const o = document.createElement("option");
+    o.value = r.value; o.textContent = r.value + " (" + r.n.toLocaleString() + ")";
+    el.appendChild(o);
+  });
+}
+
+function currentFilters(){
+  const p = new URLSearchParams();
+  p.set("year_from", document.getElementById("yfrom").value);
+  p.set("year_to", document.getElementById("yto").value);
+  const st = document.getElementById("state").value;
+  const rt = document.getElementById("restype").value;
+  const cc = document.getElementById("cclass").value;
+  if (st) p.set("state", st);
+  if (rt) p.set("resolution_type", rt);
+  if (cc) p.set("charter_class", cc);
+  p.set("limit", "10000");
+  return p;
+}
+
+function yearHistogram(rows){
+  const counts = {};
+  rows.forEach(r => { counts[r.failure_year] = (counts[r.failure_year] || 0) + 1; });
+  const years = Object.keys(counts).map(Number).sort((a,b)=>a-b);
+  return { x: years, y: years.map(y => counts[y]) };
+}
+
+async function refresh(){
+  const p = currentFilters();
+  const rows = await j("/api/failures?" + p.toString());
+
+  // Timeline chart from the filtered set
+  const h = yearHistogram(rows);
+  ArkPlotly.plot("chart_year", [{
+    type:"bar", x: h.x, y: h.y,
+    hovertemplate:"%{x}: %{y} failures<extra></extra>"
+  }], {xaxis:{title:{text:"year"}}, yaxis:{title:{text:"failures"}}},
+      {filename:"freenic_failures_by_year"});
+  document.getElementById("year_note").textContent =
+    rows.length + " failure record" + (rows.length===1?"":"s") + " match the current filters"
+    + (h.x.length ? " (" + h.x[0] + "–" + h.x[h.x.length-1] + ")." : ".");
+
+  // Table (capped for the DOM; CSV has everything)
+  const tb = document.querySelector("#failtbl tbody");
+  tb.innerHTML = "";
+  rows.slice(0, TABLE_CAP).forEach(r => {
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      `<td data-label="Bank" style="text-align:left">${esc(r.bank_name)}</td>`+
+      `<td data-label="City">${esc(r.city)}</td>`+
+      `<td class="mono" data-label="State">${esc(r.state_code)}</td>`+
+      `<td class="mono" data-label="Closed">${esc(r.closing_date)}</td>`+
+      `<td class="mono" data-label="Year">${esc(r.failure_year)}</td>`+
+      `<td data-label="Acquirer" style="text-align:left">${(r.acquiring_institution && r.acquiring_institution!=='0') ? esc(r.acquiring_institution) : '—'}</td>`+
+      `<td class="num" data-label="Total assets">${fmt(r.total_assets)}</td>`+
+      `<td class="num" data-label="Est. loss">${fmt(r.estimated_loss)}</td>`+
+      `<td class="mono" data-label="Resolution">${esc(r.resolution_type)}</td>`+
+      `<td class="mono" data-label="Charter">${esc(r.charter_class)}</td>`;
+    tb.appendChild(tr);
+  });
+  document.getElementById("table_note").textContent =
+    rows.length > TABLE_CAP
+      ? ("Showing the first " + TABLE_CAP + " of " + rows.length + " matching records — download the CSV for all.")
+      : (rows.length + " matching record" + (rows.length===1?"":"s") + ".");
+
+  // Universal Graph Contract downloads: CSV of the exact filtered chart/table data.
+  if (window.ArkDownloads){
+    const csvRows = rows.map(r => ({
+      bank_name: r.bank_name, city: r.city, state_code: r.state_code,
+      closing_date: r.closing_date, failure_year: r.failure_year,
+      acquiring_institution: r.acquiring_institution,
+      total_deposits: r.total_deposits, total_assets: r.total_assets,
+      estimated_loss: r.estimated_loss, resolution_type: r.resolution_type,
+      charter_class: r.charter_class
+    }));
+    const dy = document.getElementById("dl_year"); dy.innerHTML = "";
+    dy.appendChild(ArkDownloads.csvButton(
+      h.x.map((y,i) => ({year: y, n_failures: h.y[i]})),
+      "freenic_failures_by_year", "Download chart CSV"));
+    const dt = document.getElementById("dl_table"); dt.innerHTML = "";
+    dt.appendChild(ArkDownloads.csvButton(csvRows, "freenic_failures_filtered", "Download results CSV"));
+  }
+}
+
+(async () => {
+  FACETS = await j("/api/failure_facets");
+  fillYearSelects(FACETS.year_min, FACETS.year_max);
+  fillSelect("state", FACETS.states);
+  fillSelect("restype", FACETS.resolution_types);
+  fillSelect("cclass", FACETS.charter_classes);
+  ["yfrom","yto","state","restype","cclass"].forEach(id =>
+    document.getElementById(id).addEventListener("change", refresh));
+  document.getElementById("reset").addEventListener("click", () => {
+    document.getElementById("yfrom").value = FACETS.year_min;
+    document.getElementById("yto").value = FACETS.year_max;
+    document.getElementById("state").value = "";
+    document.getElementById("restype").value = "";
+    document.getElementById("cclass").value = "";
+    refresh();
+  });
+  if (window.ArkDownloads){
+    document.getElementById("dl_full").appendChild(ArkDownloads.buttons({
+      csv:     "/api/download/bank_failures.csv",
+      parquet: "/api/download/bank_failures.parquet"
+    }));
+  }
+  await refresh();
+})();
+</script>
+
+{% endblock %}

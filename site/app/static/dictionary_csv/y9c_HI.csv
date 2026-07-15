@@ -1,0 +1,214 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HI,3.,3. Net interest income (item 1.h minus item 2.f),mdrm_code,BHCK4074,,1976-03-31,Net interest income
+y9c,HI,3.,3. Net interest income (item 1.h minus item 2.f),call_mdrm,RIAD4074,,1976-03-31,Net interest income
+y9c,HI,4.,4. Provision for credit losses on financial assets,mdrm_code,BHCKJJ33,,2019-03-31,Provision for credit losses on financial assets (CECL)
+y9c,HI,4.,4. Provision for credit losses on financial assets,call_mdrm,RIADJJ33,,2019-03-31,Provision for credit losses on financial assets (CECL)
+y9c,HI,9.,9. Applicable income taxes (foreign and domestic),mdrm_code,BHCK4302,,1976-03-31,Applicable income taxes (foreign and domestic)
+y9c,HI,9.,9. Applicable income taxes (foreign and domestic),call_mdrm,RIAD4302,,1976-03-31,Applicable income taxes (foreign and domestic)
+y9c,HI,10.,10. Income (loss) before discontinued operations (item 8 minus item 9),mdrm_code,BHCK4300,,1976-03-31,
+y9c,HI,10.,10. Income (loss) before discontinued operations (item 8 minus item 9),call_mdrm,RIAD4300,,1976-03-31,
+y9c,HI,11.,"11. Discontinued operations, net of applicable income taxes",mdrm_code,BHCKFT28,,2016-09-30,"Discontinued operations, net of taxes (replaced extraordinary items)"
+y9c,HI,11.,"11. Discontinued operations, net of applicable income taxes",call_mdrm,RIADFT28,,2016-09-30,"Discontinued operations, net of taxes (replaced extraordinary items)"
+y9c,HI,12.,12. Net income (loss) attributable to holding company and noncontrolling (minority) interests (sum of items 10 and 11),mdrm_code,BHCKG104,,2009-03-31,Net income attributable to HC and noncontrolling interests
+y9c,HI,12.,12. Net income (loss) attributable to holding company and noncontrolling (minority) interests (sum of items 10 and 11),call_mdrm,RIADG104,,2009-03-31,Net income attributable to HC and noncontrolling interests
+y9c,HI,13.,"13. LESS: Net income (loss) attributable to noncontrolling (minority) interests (if net income, report as a positive value; if net loss, report as a negative value)",mdrm_code,BHCKG103,,2009-03-31,Net income attributable to noncontrolling (minority) interests
+y9c,HI,13.,"13. LESS: Net income (loss) attributable to noncontrolling (minority) interests (if net income, report as a positive value; if net loss, report as a negative value)",call_mdrm,RIADG103,,2009-03-31,Net income attributable to noncontrolling (minority) interests
+y9c,HI,14.,14. Net income (loss) attributable to holding company (item 12 minus item 13),mdrm_code,BHCK4340,,1976-03-31,Net income attributable to holding company (bottom line)
+y9c,HI,14.,14. Net income (loss) attributable to holding company (item 12 minus item 13),call_mdrm,RIAD4340,,1976-03-31,Net income attributable to holding company (bottom line)
+y9c,HI,1.a.(1)(a),(a) Loans secured by 1- 4 family residential properties,mdrm_code,BHCK4435,,2008-03-31,Loans secured by 1-4 family residential
+y9c,HI,1.a.(1)(a),(a) Loans secured by 1- 4 family residential properties,call_mdrm,RIAD4435,,2008-03-31,Loans secured by 1-4 family residential
+y9c,HI,1.a.(1)(b),(b) All other loans secured by real estate,mdrm_code,BHCK4436,,1976-03-31,All other loans secured by real estate
+y9c,HI,1.a.(1)(b),(b) All other loans secured by real estate,call_mdrm,RIAD4436,,1976-03-31,All other loans secured by real estate
+y9c,HI,1.a.(1)(c),(c) All other loans,mdrm_code,BHCKF821,,2008-03-31,All other loans
+y9c,HI,1.a.(1)(c),(c) All other loans,call_mdrm,RIAD4058,,2008-03-31,All other loans
+y9c,HI,1.a.(2),"(2) In foreign offices, Edge and Agreement subsidiaries, and IBFs",mdrm_code,BHCK4059,,1976-03-31,Loans in foreign offices/Edge/IBFs
+y9c,HI,1.a.(2),"(2) In foreign offices, Edge and Agreement subsidiaries, and IBFs",call_mdrm,RIAD4059,,1976-03-31,Loans in foreign offices/Edge/IBFs
+y9c,HI,1.b.,b. Income from lease financing receivables,mdrm_code,BHCK4065,,1976-03-31,
+y9c,HI,1.b.,b. Income from lease financing receivables,call_mdrm,RIAD4065,,1976-03-31,
+y9c,HI,1.c.,c. Interest income on balances due from depository institutions,mdrm_code,BHCK4115,,1976-03-31,Balances due from depository institutions
+y9c,HI,1.c.,c. Interest income on balances due from depository institutions,call_mdrm,RIAD4115,,1976-03-31,Balances due from depository institutions
+y9c,HI,1.d.(1),(1) U.S. Treasury securities and U.S. government agency obligations (excluding mortgage-backed securities),mdrm_code,BHCKB488,,1997-03-31,U.S. Treasury/agency (excl MBS)
+y9c,HI,1.d.(1),(1) U.S. Treasury securities and U.S. government agency obligations (excluding mortgage-backed securities),call_mdrm,RIADB488,,1997-03-31,U.S. Treasury/agency (excl MBS)
+y9c,HI,1.d.(2),(2) Mortgage-backed securities,mdrm_code,BHCKB489,,1997-03-31,Mortgage-backed securities
+y9c,HI,1.d.(2),(2) Mortgage-backed securities,call_mdrm,RIADB489,,1997-03-31,Mortgage-backed securities
+y9c,HI,1.d.(3),(3) All other securities,mdrm_code,BHCK4060,,1976-03-31,All other securities
+y9c,HI,1.d.(3),(3) All other securities,call_mdrm,RIAD4060,,1976-03-31,All other securities
+y9c,HI,1.e.,e. Interest income from trading assets,mdrm_code,BHCK4069,,1995-03-31,
+y9c,HI,1.e.,e. Interest income from trading assets,call_mdrm,RIAD4069,,1995-03-31,
+y9c,HI,1.f.,f. Interest income on federal funds sold and securities purchased under agreements to resell,mdrm_code,BHCK4020,,1976-03-31,Fed funds sold and reverse repos
+y9c,HI,1.f.,f. Interest income on federal funds sold and securities purchased under agreements to resell,call_mdrm,RIAD4020,,1976-03-31,Fed funds sold and reverse repos
+y9c,HI,1.g.,g. Other interest income,mdrm_code,BHCK4518,,1987-09-30,
+y9c,HI,1.g.,g. Other interest income,call_mdrm,RIAD4518,,1987-09-30,
+y9c,HI,1.h.,h. Total interest income (sum of items 1.a through 1.g),mdrm_code,BHCK4107,,1976-03-31,Total interest income
+y9c,HI,1.h.,h. Total interest income (sum of items 1.a through 1.g),call_mdrm,RIAD4107,,1976-03-31,Total interest income
+y9c,HI,2.a.(1)(a),"(a) Time deposits of $250,000 or less",mdrm_code,BHCKHK03,,2017-03-31,"Time deposits of $250,000 or less"
+y9c,HI,2.a.(1)(a),"(a) Time deposits of $250,000 or less",call_mdrm,RIADHK03,,2017-03-31,"Time deposits of $250,000 or less"
+y9c,HI,2.a.(1)(b),"(b) Time deposits of more than $250,000",mdrm_code,BHCKHK04,,2017-03-31,"Time deposits of more than $250,000"
+y9c,HI,2.a.(1)(b),"(b) Time deposits of more than $250,000",call_mdrm,RIADHK04,,2017-03-31,"Time deposits of more than $250,000"
+y9c,HI,2.a.(1)(c),(c) Other deposits,mdrm_code,BHCK6761,,1997-03-31,Other deposits
+y9c,HI,2.a.(2),"(2) In foreign offices, Edge and Agreement subsidiaries, and IBFs",mdrm_code,BHCK4172,,1976-03-31,Deposits in foreign offices/Edge/IBFs
+y9c,HI,2.a.(2),"(2) In foreign offices, Edge and Agreement subsidiaries, and IBFs",call_mdrm,RIAD4172,,1976-03-31,Deposits in foreign offices/Edge/IBFs
+y9c,HI,2.b.,b. Expense on federal funds purchased and securities sold under agreements to repurchase,mdrm_code,BHCK4180,,1976-03-31,Fed funds purchased and repos
+y9c,HI,2.b.,b. Expense on federal funds purchased and securities sold under agreements to repurchase,call_mdrm,RIAD4180,,1976-03-31,Fed funds purchased and repos
+y9c,HI,2.c.,c. Interest on trading liabilities and other borrowed money (excluding subordinated notes and debentures),mdrm_code,BHCK4185,,1976-03-31,Trading liabilities and other borrowed money (excl sub debt)
+y9c,HI,2.c.,c. Interest on trading liabilities and other borrowed money (excluding subordinated notes and debentures),call_mdrm,RIAD4185,,1976-03-31,Trading liabilities and other borrowed money (excl sub debt)
+y9c,HI,2.d.,d. Interest on subordinated notes and debentures and on mandatory convertible securities,mdrm_code,BHCK4397,,1976-03-31,Subordinated notes/debentures and mandatory convertibles
+y9c,HI,2.d.,d. Interest on subordinated notes and debentures and on mandatory convertible securities,call_mdrm,RIAD4200,,1976-03-31,Subordinated notes/debentures and mandatory convertibles
+y9c,HI,2.e.,e. Other interest expense,mdrm_code,BHCK4398,,1976-03-31,
+y9c,HI,2.f.,f. Total interest expense (sum of items 2.a through 2.e),mdrm_code,BHCK4073,,1976-03-31,Total interest expense
+y9c,HI,2.f.,f. Total interest expense (sum of items 2.a through 2.e),call_mdrm,RIAD4073,,1976-03-31,Total interest expense
+y9c,HI,5.a.,a. Income from fiduciary activities,mdrm_code,BHCK4070,,1976-03-31,Income from fiduciary activities
+y9c,HI,5.a.,a. Income from fiduciary activities,call_mdrm,RIAD4070,,1976-03-31,Income from fiduciary activities
+y9c,HI,5.b.,b. Service charges on deposit accounts in domestic offices,mdrm_code,BHCK4483,,1976-03-31,Service charges on deposit accounts (domestic offices)
+y9c,HI,5.b.,b. Service charges on deposit accounts in domestic offices,call_mdrm,RIAD4483,,1976-03-31,Service charges on deposit accounts (domestic offices)
+y9c,HI,5.c.,c. Trading revenue,mdrm_code,BHCKA220,,2001-03-31,Trading revenue
+y9c,HI,5.c.,c. Trading revenue,call_mdrm,RIADA220,,2001-03-31,Trading revenue
+y9c,HI,5.d.(1),d. (1) Fees and commissions from securities brokerage,mdrm_code,BHCKC886,,2001-03-31,
+y9c,HI,5.d.(1),d. (1) Fees and commissions from securities brokerage,call_mdrm,RIADC886,,2001-03-31,
+y9c,HI,5.d.(2),"(2) Investment banking, advisory, and underwriting fees and commissions",mdrm_code,BHCKC888,,2001-03-31,"Investment banking, advisory, underwriting"
+y9c,HI,5.d.(2),"(2) Investment banking, advisory, and underwriting fees and commissions",call_mdrm,RIADC888,,2001-03-31,"Investment banking, advisory, underwriting"
+y9c,HI,5.d.(3),(3) Fees and commissions from annuity sales,mdrm_code,BHCKC887,,2001-03-31,
+y9c,HI,5.d.(3),(3) Fees and commissions from annuity sales,call_mdrm,RIADC887,,2001-03-31,
+y9c,HI,5.d.(4),(4) Underwriting income from insurance and reinsurance activities,mdrm_code,BHCKC386,,2001-03-31,Insurance and reinsurance underwriting
+y9c,HI,5.d.(4),(4) Underwriting income from insurance and reinsurance activities,call_mdrm,RIADC386,,2001-03-31,Insurance and reinsurance underwriting
+y9c,HI,5.d.(5),(5) Income from other insurance activities,mdrm_code,BHCKC387,,2001-03-31,
+y9c,HI,5.d.(5),(5) Income from other insurance activities,call_mdrm,RIADC387,,2001-03-31,
+y9c,HI,5.d.(6),"(6) Fees and commissions from securities brokerage, investment banking, advisory, and underwriting fees and commissions",mdrm_code,BHCKKX46,,2019-12-31,Combined brokerage/IB/advisory (smaller HCs)
+y9c,HI,5.d.(6),"(6) Fees and commissions from securities brokerage, investment banking, advisory, and underwriting fees and commissions",call_mdrm,RIADC886,,2019-12-31,Combined brokerage/IB/advisory (smaller HCs)
+y9c,HI,5.d.(7),(7) Income from insurance activities,mdrm_code,BHCKKX47,,2019-12-31,Combined insurance activities (smaller HCs)
+y9c,HI,5.e.,e. Venture capital revenue,mdrm_code,BHCKB491,,1997-03-31,Venture capital revenue
+y9c,HI,5.e.,e. Venture capital revenue,call_mdrm,RIADB491,,1997-03-31,Venture capital revenue
+y9c,HI,5.f.,f. Net servicing fees,mdrm_code,BHCKB492,,1997-03-31,Net servicing fees
+y9c,HI,5.f.,f. Net servicing fees,call_mdrm,RIADB492,,1997-03-31,Net servicing fees
+y9c,HI,5.g.,g. Net securitization income,mdrm_code,BHCKB493,,1997-03-31,Net securitization income
+y9c,HI,5.g.,g. Net securitization income,call_mdrm,RIADB493,,1997-03-31,Net securitization income
+y9c,HI,5.i.,i. Net gains (losses) on sales of loans and leases,mdrm_code,BHCK8560,,2001-03-31,Net gains (losses) on sales of loans and leases
+y9c,HI,5.i.,i. Net gains (losses) on sales of loans and leases,call_mdrm,RIAD5416,,2001-03-31,Net gains (losses) on sales of loans and leases
+y9c,HI,5.j.,j. Net gains (losses) on sales of other real estate owned,mdrm_code,BHCK8561,,2001-03-31,Net gains (losses) on sales of OREO
+y9c,HI,5.j.,j. Net gains (losses) on sales of other real estate owned,call_mdrm,RIAD5415,,2001-03-31,Net gains (losses) on sales of OREO
+y9c,HI,5.k.,k. Net gains (losses) on sales of other assets (excluding securities),mdrm_code,BHCKB496,,2001-03-31,Net gains (losses) on sales of other assets (excl securities)
+y9c,HI,5.k.,k. Net gains (losses) on sales of other assets (excluding securities),call_mdrm,RIADB496,,2001-03-31,Net gains (losses) on sales of other assets (excl securities)
+y9c,HI,5.l.,l. Other noninterest income,mdrm_code,BHCKB497,,1997-03-31,Other noninterest income
+y9c,HI,5.l.,l. Other noninterest income,call_mdrm,RIADB497,,1997-03-31,Other noninterest income
+y9c,HI,5.m.,m. Total noninterest income (sum of items 5.a through 5.l),mdrm_code,BHCK4079,,1976-03-31,Total noninterest income
+y9c,HI,5.m.,m. Total noninterest income (sum of items 5.a through 5.l),call_mdrm,RIAD4079,,1976-03-31,Total noninterest income
+y9c,HI,6.a.,6. a. Realized gains (losses) on held-to-maturity securities,mdrm_code,BHCK3521,,1994-03-31,Realized gains (losses) on HTM securities
+y9c,HI,6.a.,6. a. Realized gains (losses) on held-to-maturity securities,call_mdrm,RIAD3521,,1994-03-31,Realized gains (losses) on HTM securities
+y9c,HI,6.b.,b. Realized gains (losses) on available-for-sale debt securities,mdrm_code,BHCK3196,,1994-03-31,Realized gains (losses) on AFS debt securities
+y9c,HI,6.b.,b. Realized gains (losses) on available-for-sale debt securities,call_mdrm,RIAD3196,,1994-03-31,Realized gains (losses) on AFS debt securities
+y9c,HI,7.a.,a. Salaries and employee benefits,mdrm_code,BHCK4135,,1976-03-31,Salaries and employee benefits
+y9c,HI,7.a.,a. Salaries and employee benefits,call_mdrm,RIAD4135,,1976-03-31,Salaries and employee benefits
+y9c,HI,7.b.,b. Expenses of premises and fixed assets (net of rental income) (excluding salaries and employee benefits and mortgage interest),mdrm_code,BHCK4217,,1976-03-31,Premises and fixed assets (net of rental income)
+y9c,HI,7.b.,b. Expenses of premises and fixed assets (net of rental income) (excluding salaries and employee benefits and mortgage interest),call_mdrm,RIAD4217,,1976-03-31,Premises and fixed assets (net of rental income)
+y9c,HI,7.c.(1),c. (1) Goodwill impairment losses,mdrm_code,BHCKC216,,2002-03-31,
+y9c,HI,7.c.(1),c. (1) Goodwill impairment losses,call_mdrm,RIADC216,,2002-03-31,
+y9c,HI,7.c.(2),(2) Amortization expense and impairment losses for other intangible assets,mdrm_code,BHCKC232,,2002-03-31,Amortization/impairment of other intangibles
+y9c,HI,7.c.(2),(2) Amortization expense and impairment losses for other intangible assets,call_mdrm,RIADC232,,2002-03-31,Amortization/impairment of other intangibles
+y9c,HI,7.d.,d. Other noninterest expense,mdrm_code,BHCK4092,,1976-03-31,Other noninterest expense
+y9c,HI,7.d.,d. Other noninterest expense,call_mdrm,RIAD4092,,1976-03-31,Other noninterest expense
+y9c,HI,7.e.,e. Total noninterest expense (sum of items 7.a through 7.d),mdrm_code,BHCK4093,,1976-03-31,Total noninterest expense
+y9c,HI,7.e.,e. Total noninterest expense (sum of items 7.a through 7.d),call_mdrm,RIAD4093,,1976-03-31,Total noninterest expense
+y9c,HI,8.a.,"a. Income (loss) before change in net unrealized holding gains (losses) on equity securities not held for trading, applicable income taxes, and discontinued operations (sum of items 3, 5.m, 6.a, 6.b, minus items 4 and 7.e)",mdrm_code,BHCKHT69,,2018-03-31,"Income before equity-securities holding gains, taxes, discontinued ops"
+y9c,HI,8.a.,"a. Income (loss) before change in net unrealized holding gains (losses) on equity securities not held for trading, applicable income taxes, and discontinued operations (sum of items 3, 5.m, 6.a, 6.b, minus items 4 and 7.e)",call_mdrm,RIADHT69,,2018-03-31,"Income before equity-securities holding gains, taxes, discontinued ops"
+y9c,HI,8.b.,b. Unrealized holding gains (losses) on equity securities not held for trading,mdrm_code,BHCKHT70,,2018-03-31,Unrealized holding gains (losses) on equity securities not held for trading
+y9c,HI,8.b.,b. Unrealized holding gains (losses) on equity securities not held for trading,call_mdrm,RIADHT70,,2018-03-31,Unrealized holding gains (losses) on equity securities not held for trading
+y9c,HI,8.c.,c. Income (loss) before applicable income taxes and discontinued operations (sum of items 8.a and 8.b),mdrm_code,BHCK4301,,1976-03-31,Income before taxes and discontinued operations
+y9c,HI,8.c.,c. Income (loss) before applicable income taxes and discontinued operations (sum of items 8.a and 8.b),call_mdrm,RIAD4301,,1976-03-31,Income before taxes and discontinued operations
+y9c,HI,M.1.,1. Net interest income (item 3 above) on a fully taxable equivalent basis,mdrm_code,BHCK4519,,1976-03-31,Net interest income on fully taxable equivalent basis
+y9c,HI,M.10.a.,a. Net gains (losses) on credit derivatives held for trading,mdrm_code,BHCKC889,,2007-03-31,Net gains (losses) on credit derivatives held for trading
+y9c,HI,M.10.a.,a. Net gains (losses) on credit derivatives held for trading,call_mdrm,RIADC889,,2007-03-31,Net gains (losses) on credit derivatives held for trading
+y9c,HI,M.10.b.,b. Net gains (losses) on credit derivatives held for purposes other than trading,mdrm_code,BHCKC890,,2007-03-31,Net gains (losses) on credit derivatives held for other than trading
+y9c,HI,M.10.b.,b. Net gains (losses) on credit derivatives held for purposes other than trading,call_mdrm,RIADC890,,2007-03-31,Net gains (losses) on credit derivatives held for other than trading
+y9c,HI,M.11.,11. Credit losses on derivatives (see instructions),mdrm_code,BHCKA251,,1997-03-31,
+y9c,HI,M.11.,11. Credit losses on derivatives (see instructions),call_mdrm,RIADA251,,1997-03-31,
+y9c,HI,M.12.a.,12. a. Income from the sale and servicing of mutual funds and annuities (in domestic offices),mdrm_code,BHCK8431,,1997-03-31,Income from sale/servicing of mutual funds and annuities (domestic)
+y9c,HI,M.12.a.,12. a. Income from the sale and servicing of mutual funds and annuities (in domestic offices),call_mdrm,RIAD8431,,1997-03-31,Income from sale/servicing of mutual funds and annuities (domestic)
+y9c,HI,M.12.b.(1),b. (1) Premiums on insurance related to the extension of credit,mdrm_code,BHCKC242,,2001-03-31,Premiums on credit-related insurance
+y9c,HI,M.12.b.(2),(2) All other insurance premiums,mdrm_code,BHCKC243,,2001-03-31,All other insurance premiums
+y9c,HI,M.12.c.,"c. Benefits, losses, and expenses from insurance-related activities",mdrm_code,BHCKB983,,2001-03-31,"Benefits, losses, expenses from insurance activities"
+y9c,HI,M.13.,13. Does the reporting holding company have a Subchapter S election in effect for federal income tax purposes for the current tax year?,mdrm_code,BHCKA530,,1997-03-31,Subchapter S election indicator
+y9c,HI,M.13.,13. Does the reporting holding company have a Subchapter S election in effect for federal income tax purposes for the current tax year?,call_mdrm,RIADA530,,1997-03-31,Subchapter S election indicator
+y9c,HI,M.14.a.,a. Net gains (losses) on assets,mdrm_code,BHCKF551,,2007-03-31,Net gains (losses) on assets (fair value option)
+y9c,HI,M.14.a.,a. Net gains (losses) on assets,call_mdrm,RIADF551,,2007-03-31,Net gains (losses) on assets (fair value option)
+y9c,HI,M.14.a.(1),(1) Estimated net gains (losses) on loans attributable to changes in instrument-specific credit risk,mdrm_code,BHCKF552,,2007-03-31,Estimated net gains (losses) on loans (instrument-specific credit risk)
+y9c,HI,M.14.a.(1),(1) Estimated net gains (losses) on loans attributable to changes in instrument-specific credit risk,call_mdrm,RIADF552,,2007-03-31,Estimated net gains (losses) on loans (instrument-specific credit risk)
+y9c,HI,M.14.b.,b. Net gains (losses) on liabilities,mdrm_code,BHCKF553,,2007-03-31,Net gains (losses) on liabilities (fair value option)
+y9c,HI,M.14.b.,b. Net gains (losses) on liabilities,call_mdrm,RIADF553,,2007-03-31,Net gains (losses) on liabilities (fair value option)
+y9c,HI,M.14.b.(1),(1) Estimated net gains (losses) on liabilities attributable to changes in instrument-specific credit risk,mdrm_code,BHCKF554,,2007-03-31,Estimated net gains (losses) on liabilities (instrument-specific credit risk)
+y9c,HI,M.14.b.(1),(1) Estimated net gains (losses) on liabilities attributable to changes in instrument-specific credit risk,call_mdrm,RIADF554,,2007-03-31,Estimated net gains (losses) on liabilities (instrument-specific credit risk)
+y9c,HI,M.15.,15. Stock-based employee compensation expense (net of tax effects) calculated for all awards under the fair value method,mdrm_code,BHCKC409,,2006-03-31,Stock-based employee compensation expense (fair value method)
+y9c,HI,M.2.,"2. Net income before applicable income taxes, and discontinued operations (item 8.c. above) on a fully taxable equivalent basis",mdrm_code,BHCK4592,,1976-03-31,Pre-tax income on fully taxable equivalent basis
+y9c,HI,M.3.,"3. Income on tax-exempt loans and leases to states and political subdivisions in the U.S. (included in Schedule HI, items 1.a and 1.b, above)",mdrm_code,BHCK4313,,1976-03-31,Income on tax-exempt loans/leases to states/political subdivisions
+y9c,HI,M.3.,"3. Income on tax-exempt loans and leases to states and political subdivisions in the U.S. (included in Schedule HI, items 1.a and 1.b, above)",call_mdrm,RIAD4313,,1976-03-31,Income on tax-exempt loans/leases to states/political subdivisions
+y9c,HI,M.4.,"4. Income on tax-exempt securities issued by states and political subdivisions in the U.S. (included in Schedule HI, item 1.d.(3), above)",mdrm_code,BHCK4507,,1976-03-31,Income on tax-exempt securities of states/political subdivisions
+y9c,HI,M.4.,"4. Income on tax-exempt securities issued by states and political subdivisions in the U.S. (included in Schedule HI, item 1.d.(3), above)",call_mdrm,RIAD4507,,1976-03-31,Income on tax-exempt securities of states/political subdivisions
+y9c,HI,M.5.,5. Number of full-time equivalent employees at end of current period (round to nearest whole number),mdrm_code,BHCK4150,,1976-03-31,Number of full-time equivalent employees
+y9c,HI,M.5.,5. Number of full-time equivalent employees at end of current period (round to nearest whole number),call_mdrm,RIAD4150,,1976-03-31,Number of full-time equivalent employees
+y9c,HI,M.6.a.,a. Income and fees from the printing and sale of checks,mdrm_code,BHCKC013,,1997-03-31,Income/fees from printing and sale of checks
+y9c,HI,M.6.a.,a. Income and fees from the printing and sale of checks,call_mdrm,RIADC013,,1997-03-31,Income/fees from printing and sale of checks
+y9c,HI,M.6.b.,b. Earnings on/increase in value of cash surrender value of life insurance,mdrm_code,BHCKC014,,1997-03-31,Earnings on cash surrender value of life insurance
+y9c,HI,M.6.b.,b. Earnings on/increase in value of cash surrender value of life insurance,call_mdrm,RIADC014,,1997-03-31,Earnings on cash surrender value of life insurance
+y9c,HI,M.6.c.,c. Income and fees from automated teller machines (ATMs),mdrm_code,BHCKC016,,1997-03-31,Income/fees from ATMs
+y9c,HI,M.6.c.,c. Income and fees from automated teller machines (ATMs),call_mdrm,RIADC016,,1997-03-31,Income/fees from ATMs
+y9c,HI,M.6.d.,d. Rent and other income from other real estate owned,mdrm_code,BHCK4042,,1976-03-31,Rent and other income from OREO
+y9c,HI,M.6.d.,d. Rent and other income from other real estate owned,call_mdrm,RIAD4042,,1976-03-31,Rent and other income from OREO
+y9c,HI,M.6.e.,e. Safe deposit box rent,mdrm_code,BHCKC015,,1997-03-31,Safe deposit box rent
+y9c,HI,M.6.e.,e. Safe deposit box rent,call_mdrm,RIADC015,,1997-03-31,Safe deposit box rent
+y9c,HI,M.6.f.,f. Bank card and credit card interchange fees,mdrm_code,BHCKF555,,2007-03-31,Bank/credit card interchange fees
+y9c,HI,M.6.f.,f. Bank card and credit card interchange fees,call_mdrm,RIADF555,,2007-03-31,Bank/credit card interchange fees
+y9c,HI,M.6.g.,g. Income and fees from wire transfers,mdrm_code,BHCKT047,,2013-03-31,Income/fees from wire transfers
+y9c,HI,M.6.g.,g. Income and fees from wire transfers,call_mdrm,RIADT047,,2013-03-31,Income/fees from wire transfers
+y9c,HI,M.6.h.,h. Amount,mdrm_code,BHCK8562,,1997-03-31,Other (description + amount)
+y9c,HI,M.6.i.,i. Amount,mdrm_code,BHCK8563,,1997-03-31,Other (description + amount)
+y9c,HI,M.6.j.,j. Amount,mdrm_code,BHCK8564,,1997-03-31,Other (description + amount)
+y9c,HI,M.7.a.,a. Data processing expenses,mdrm_code,BHCKC017,,2000-03-31,Data processing expenses
+y9c,HI,M.7.a.,a. Data processing expenses,call_mdrm,RIADC017,,2000-03-31,Data processing expenses
+y9c,HI,M.7.b.,b. Advertising and marketing expenses,mdrm_code,BHCK0497,,2000-03-31,Advertising and marketing expenses
+y9c,HI,M.7.b.,b. Advertising and marketing expenses,call_mdrm,RIAD0497,,2000-03-31,Advertising and marketing expenses
+y9c,HI,M.7.c.,c. Directors' fees,mdrm_code,BHCK4136,,1976-03-31,Directors fees
+y9c,HI,M.7.c.,c. Directors' fees,call_mdrm,RIAD4136,,1976-03-31,Directors fees
+y9c,HI,M.7.d.,"d. Printing, stationery, and supplies",mdrm_code,BHCKC018,,2000-03-31,"Printing, stationery, and supplies"
+y9c,HI,M.7.d.,"d. Printing, stationery, and supplies",call_mdrm,RIADC018,,2000-03-31,"Printing, stationery, and supplies"
+y9c,HI,M.7.e.,e. Postage,mdrm_code,BHCK8403,,2000-03-31,Postage
+y9c,HI,M.7.e.,e. Postage,call_mdrm,RIAD8403,,2000-03-31,Postage
+y9c,HI,M.7.f.,f. Legal fees and expenses,mdrm_code,BHCK4141,,1976-03-31,Legal fees and expenses
+y9c,HI,M.7.f.,f. Legal fees and expenses,call_mdrm,RIAD4141,,1976-03-31,Legal fees and expenses
+y9c,HI,M.7.g.,g. FDIC deposit insurance assessments,mdrm_code,BHCK4146,,1976-03-31,FDIC deposit insurance assessments
+y9c,HI,M.7.g.,g. FDIC deposit insurance assessments,call_mdrm,RIAD4146,,1976-03-31,FDIC deposit insurance assessments
+y9c,HI,M.7.h.,h. Accounting and auditing expenses,mdrm_code,BHCKF556,,2007-03-31,Accounting and auditing expenses
+y9c,HI,M.7.h.,h. Accounting and auditing expenses,call_mdrm,RIADF556,,2007-03-31,Accounting and auditing expenses
+y9c,HI,M.7.i.,i. Consulting and advisory expenses,mdrm_code,BHCKF557,,2007-03-31,Consulting and advisory expenses
+y9c,HI,M.7.i.,i. Consulting and advisory expenses,call_mdrm,RIADF557,,2007-03-31,Consulting and advisory expenses
+y9c,HI,M.7.j.,j. Automated teller machine (ATM) and interchange expenses,mdrm_code,BHCKF558,,2007-03-31,ATM and interchange expenses
+y9c,HI,M.7.j.,j. Automated teller machine (ATM) and interchange expenses,call_mdrm,RIADF558,,2007-03-31,ATM and interchange expenses
+y9c,HI,M.7.k.,k. Telecommunications expenses,mdrm_code,BHCKF559,,2007-03-31,Telecommunications expenses
+y9c,HI,M.7.k.,k. Telecommunications expenses,call_mdrm,RIADF559,,2007-03-31,Telecommunications expenses
+y9c,HI,M.7.l.,l. Other real estate owned expenses,mdrm_code,BHCKY923,,2007-03-31,Other real estate owned expenses
+y9c,HI,M.7.l.,l. Other real estate owned expenses,call_mdrm,RIADY923,,2007-03-31,Other real estate owned expenses
+y9c,HI,M.7.m.,"m. Insurance expenses (not included in employee expenses, premises and fixed assets expenses, and other real estate owned expenses)",mdrm_code,BHCKY924,,2007-03-31,Insurance expenses (not in other categories)
+y9c,HI,M.7.m.,"m. Insurance expenses (not included in employee expenses, premises and fixed assets expenses, and other real estate owned expenses)",call_mdrm,RIADY924,,2007-03-31,Insurance expenses (not in other categories)
+y9c,HI,M.7.n,n. Amount,mdrm_code,BHCK8565,,2007-03-31,Other (description + amount)
+y9c,HI,M.7.o.,o. Amount,mdrm_code,BHCK8566,,2007-03-31,Other (description + amount)
+y9c,HI,M.7.p.,p. Amount,mdrm_code,BHCK8567,,2007-03-31,Other (description + amount)
+y9c,HI,M.8.a.(1),a. (1) Amount,mdrm_code,BHCKFT29,,2016-09-30,Discontinued operations detail (description + amount)
+y9c,HI,M.8.a.(1),a. (1) Amount,call_mdrm,RIADFT29,,2016-09-30,Discontinued operations detail (description + amount)
+y9c,HI,M.8.a.(2),(2) Applicable income tax effect,mdrm_code,BHCKFT30,,2016-09-30,Applicable income tax effect
+y9c,HI,M.8.a.(2),(2) Applicable income tax effect,call_mdrm,RIADFT30,,2016-09-30,Applicable income tax effect
+y9c,HI,M.8.b.(1),b. (1) Amount,mdrm_code,BHCKFT31,,2016-09-30,Discontinued operations detail (description + amount)
+y9c,HI,M.8.b.(1),b. (1) Amount,call_mdrm,RIADFT31,,2016-09-30,Discontinued operations detail (description + amount)
+y9c,HI,M.8.b.(2),(2) Applicable income tax effect,mdrm_code,BHCKFT32,,2016-09-30,Applicable income tax effect
+y9c,HI,M.8.b.(2),(2) Applicable income tax effect,call_mdrm,RIADFT32,,2016-09-30,Applicable income tax effect
+y9c,HI,M.9.a.,a. Interest rate exposures,mdrm_code,BHCK8757,,1995-03-31,Interest rate exposures
+y9c,HI,M.9.a.,a. Interest rate exposures,call_mdrm,RIAD8757,,1995-03-31,Interest rate exposures
+y9c,HI,M.9.b.,b. Foreign exchange exposures,mdrm_code,BHCK8758,,1995-03-31,Foreign exchange exposures
+y9c,HI,M.9.b.,b. Foreign exchange exposures,call_mdrm,RIAD8758,,1995-03-31,Foreign exchange exposures
+y9c,HI,M.9.c.,c. Equity security and index exposures,mdrm_code,BHCK8759,,1995-03-31,Equity security and index exposures
+y9c,HI,M.9.c.,c. Equity security and index exposures,call_mdrm,RIAD8759,,1995-03-31,Equity security and index exposures
+y9c,HI,M.9.d.,d. Commodity and other exposures,mdrm_code,BHCK8760,,1995-03-31,Commodity and other exposures
+y9c,HI,M.9.d.,d. Commodity and other exposures,call_mdrm,RIAD8760,,1995-03-31,Commodity and other exposures
+y9c,HI,M.9.e.,e. Credit exposures,mdrm_code,BHCKF186,,2007-03-31,Credit exposures
+y9c,HI,M.9.e.,e. Credit exposures,call_mdrm,RIADF186,,2007-03-31,Credit exposures
+y9c,HI,M.9.f,f. Impact on trading revenue of changes in the creditworthiness of the holding company's derivatives counterparties on the holding company's derivative assets (included in Memorandum items 9.a through 9.e above),mdrm_code,BHCKK090,,2011-03-31,Counterparty creditworthiness impact on derivative assets
+y9c,HI,M.9.f,f. Impact on trading revenue of changes in the creditworthiness of the holding company's derivatives counterparties on the holding company's derivative assets (included in Memorandum items 9.a through 9.e above),call_mdrm,RIADK090,,2011-03-31,Counterparty creditworthiness impact on derivative assets
+y9c,HI,M.9.g.,g. Impact on trading revenue of changes in the creditworthiness of the holding company on the holding company's derivative liabilities (included in Memorandum items 9.a through 9.e above),mdrm_code,BHCKK094,,2011-03-31,Own creditworthiness impact on derivative liabilities
+y9c,HI,M.9.g.,g. Impact on trading revenue of changes in the creditworthiness of the holding company on the holding company's derivative liabilities (included in Memorandum items 9.a through 9.e above),call_mdrm,RIADK094,,2011-03-31,Own creditworthiness impact on derivative liabilities

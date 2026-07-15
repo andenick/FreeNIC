@@ -1,0 +1,59 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-M,1,Total number of holding company common shares outstanding,mdrm_code,BHCK3459,,1986-06-30,"Reported as a number (unrounded), not dollars"
+y9c,HC-M,2,Debt maturing in one year or less issued to unrelated third parties by bank subsidiaries,mdrm_code,BHCK6555,,1990-09-30,Included in Schedule HC items 16 and 19.a
+y9c,HC-M,3,Debt maturing in more than one year issued to unrelated third parties by bank subsidiaries,mdrm_code,BHCK6556,,1990-09-30,Included in Schedule HC items 16 and 19.a
+y9c,HC-M,4,Other assets acquired in satisfaction of debts previously contracted,mdrm_code,BHCK6557,,1990-09-30,DPC assets other than OREO
+y9c,HC-M,5,Securities purchased under agreements to resell offset against securities sold under agreements to repurchase on Schedule HC,mdrm_code,BHCKA288,,1997-03-31,Balance-sheet offsetting of reverse repos against repos
+y9c,HC-M,6,Portion of covered other real estate owned (HC item 7) protected by FDIC loss-sharing agreements,mdrm_code,BHCKK192,,2011-03-31,Completed by holding companies with $5B+ in assets
+y9c,HC-M,6,Portion of covered other real estate owned (HC item 7) protected by FDIC loss-sharing agreements,call_mdrm,RCFDK192,,2011-03-31,Completed by holding companies with $5B+ in assets
+y9c,HC-M,8,"Business combination accounted for by the purchase method during the calendar year? (1=Yes, 0=No)",mdrm_code,BHCKC251,,2002-03-31,Yes/No indicator
+y9c,HC-M,9,"Restated financial statements during the last quarter due to new/revised FAS? (1=Yes, 0=No)",mdrm_code,BHCK6689,,1990-09-30,Yes/No indicator
+y9c,HC-M,11,"All changes in investments/activities reported on FR Y-10? (1=Yes/no changes, 0=No)",mdrm_code,BHCK6416,,1992-03-31,Yes/No indicator; must not be left blank or N/A
+y9c,HC-M,13,Other real estate owned,mdrm_code,BHCT2150,,2001-03-31,Total OREO; component of HC item 7
+y9c,HC-M,13,Other real estate owned,call_mdrm,RCFD2150,,2001-03-31,Total OREO; component of HC item 7
+y9c,HC-M,15,"Does the holding company sell private label or third-party mutual funds and annuities? (1=Yes, 0=No)",mdrm_code,BHCKB569,,2001-03-31,Yes/No indicator
+y9c,HC-M,15,"Does the holding company sell private label or third-party mutual funds and annuities? (1=Yes, 0=No)",call_mdrm,RCFDB569,,2001-03-31,Yes/No indicator
+y9c,HC-M,16,Assets under management in proprietary mutual funds and annuities,mdrm_code,BHCKB570,,2001-03-31,Dollar amount
+y9c,HC-M,16,Assets under management in proprietary mutual funds and annuities,call_mdrm,RCFDB570,,2001-03-31,Dollar amount
+y9c,HC-M,17,"Holds nonfinancial equity investments within SBIC/4(c)(6)/4(c)(7)/merchant-banking/Reg K authority? (1=Yes, 0=No)",mdrm_code,BHCKC161,,2001-09-30,Yes/No indicator; gating question for FR Y-12
+y9c,HC-M,18,"Aggregate nonfinancial equity investments >= lesser of $100M or 10% of Tier 1 capital? (1=Yes, 0=No)",mdrm_code,BHCKC159,,2001-09-30,Yes/No indicator; gating question for FR Y-12
+y9c,HC-M,21,"Net assets of subsidiaries in insurance/reinsurance underwriting (4(k)(4)(B), GLBA)",mdrm_code,BHCKC253,,2002-03-31,Financial holding companies only
+y9c,HC-M,22,Address (URL) for the reporting holding company's web page displaying risk disclosures,mdrm_code,TEXTC497,,2004-03-31,Text field; $30B+ asset filers
+y9c,HC-M,11(text-a),Name of Holding Company Official Verifying FR Y-10 Reporting,mdrm_code,TEXT6428,,2009-06-30,Text field; no dollar amount
+y9c,HC-M,11(text-b),Area Code / Phone Number (FR Y-10 verifying official),mdrm_code,TEXT9009,,1998-06-30,Text field; no dollar amount
+y9c,HC-M,12.a.,Intangible assets - Mortgage servicing assets,mdrm_code,BHCK3164,,1985-06-30,MSAs measured under ASC 860
+y9c,HC-M,12.a.,Intangible assets - Mortgage servicing assets,call_mdrm,RCFD3164,,1985-06-30,MSAs measured under ASC 860
+y9c,HC-M,12.a.(1),Intangible assets - Estimated fair value of mortgage servicing assets,mdrm_code,BHCK6438,,1993-03-31,Memo fair value of MSAs
+y9c,HC-M,12.b.,Intangible assets - Goodwill,mdrm_code,BHCK3163,,1981-06-30,Goodwill from business combinations
+y9c,HC-M,12.b.,Intangible assets - Goodwill,call_mdrm,RCFD3163,,1981-06-30,Goodwill from business combinations
+y9c,HC-M,12.c.,Intangible assets - All other intangible assets,mdrm_code,BHCKJF76,,2018-06-30,"Core deposit intangibles, etc."
+y9c,HC-M,12.c.,Intangible assets - All other intangible assets,call_mdrm,RCFDJF76,,2018-06-30,"Core deposit intangibles, etc."
+y9c,HC-M,12.d.,"Intangible assets - Total (sum of 12.a, 12.b, 12.c)",mdrm_code,BHCT2143,,2018-06-30,Must equal Schedule HC item 10 (sum of goodwill 10.a + other intangibles 10.b)
+y9c,HC-M,12.d.,"Intangible assets - Total (sum of 12.a, 12.b, 12.c)",call_mdrm,RCFD2143,,2018-06-30,Must equal Schedule HC item 10 (sum of goodwill 10.a + other intangibles 10.b)
+y9c,HC-M,14.a.,Other borrowed money - Commercial paper,mdrm_code,BHCK2309,,1981-06-30,Component of HC item 16
+y9c,HC-M,14.b.,Other borrowed money with a remaining maturity of one year or less,mdrm_code,BHCK2332,,1981-06-30,Component of HC item 16
+y9c,HC-M,14.b.,Other borrowed money with a remaining maturity of one year or less,call_mdrm,RCFD2332,,1981-06-30,Component of HC item 16
+y9c,HC-M,14.c.,Other borrowed money with a remaining maturity of more than one year,mdrm_code,BHCK2333,,1981-06-30,Component of HC item 16
+y9c,HC-M,14.c.,Other borrowed money with a remaining maturity of more than one year,call_mdrm,RCFD2333,,1981-06-30,Component of HC item 16
+y9c,HC-M,14.d.,"Other borrowed money - Total (sum of 14.a, 14.b, 14.c)",mdrm_code,BHCT3190,,2001-03-31,Must equal Schedule HC item 16
+y9c,HC-M,14.d.,"Other borrowed money - Total (sum of 14.a, 14.b, 14.c)",call_mdrm,RCFD3190,,2001-03-31,Must equal Schedule HC item 16
+y9c,HC-M,19.a.,"Sold or liquidated any nonfinancial equity investment since prior period? (1=Yes, 0=No)",mdrm_code,BHCKC700,,2005-03-31,Yes/No indicator; not required if filing FR Y-12
+y9c,HC-M,19.b.,"Manage any nonfinancial equity investments for the benefit of others? (1=Yes, 0=No)",mdrm_code,BHCKC701,,2005-03-31,Yes/No indicator
+y9c,HC-M,20.a.,Broker-dealer subsidiaries (4(k)(4)(E)) - Net assets,mdrm_code,BHCKC252,,2002-03-31,Completed by financial holding companies only
+y9c,HC-M,20.b.(1),"Broker-dealer subsidiaries - Due from the holding company (parent only), gross",mdrm_code,BHCK4832,,2003-03-31,Intercompany receivable
+y9c,HC-M,20.b.(2),"Broker-dealer subsidiaries - Due from subsidiary banks of the holding company, gross",mdrm_code,BHCK4833,,2003-03-31,Intercompany receivable
+y9c,HC-M,20.b.(3),"Broker-dealer subsidiaries - Due from nonbank subsidiaries of the holding company, gross",mdrm_code,BHCK4834,,2003-03-31,Intercompany receivable
+y9c,HC-M,20.c.(1),"Broker-dealer subsidiaries - Due to holding company (parent only), gross",mdrm_code,BHCK5041,,2003-03-31,Intercompany payable
+y9c,HC-M,20.c.(2),"Broker-dealer subsidiaries - Due to subsidiary banks of the holding company, gross",mdrm_code,BHCK5043,,2003-03-31,Intercompany payable
+y9c,HC-M,20.c.(3),"Broker-dealer subsidiaries - Due to nonbank subsidiaries of the holding company, gross",mdrm_code,BHCK5045,,2003-03-31,Intercompany payable
+y9c,HC-M,20.d.,Broker-dealer subsidiaries - Intercompany liabilities (20.c) qualifying as subordinated to general creditors,mdrm_code,BHCK5047,,2003-03-31,Subordinated portion of 20.c balances
+y9c,HC-M,23.a.,Secured liabilities - Federal funds purchased in domestic offices that are secured,mdrm_code,BHCKF064,,2006-09-30,Portion of HC item 14.a that is secured
+y9c,HC-M,23.a.,Secured liabilities - Federal funds purchased in domestic offices that are secured,call_mdrm,RCONF064,,2006-09-30,Portion of HC item 14.a that is secured
+y9c,HC-M,23.b.,Secured liabilities - 'Other borrowings' that are secured,mdrm_code,BHCKF065,,2006-09-30,Portion of HC-M item 14.d that is secured
+y9c,HC-M,23.b.,Secured liabilities - 'Other borrowings' that are secured,call_mdrm,RCFDF065,,2006-09-30,Portion of HC-M item 14.d that is secured
+y9c,HC-M,24.a.,U.S. Treasury Capital Purchase Program - Senior perpetual preferred stock or similar items,mdrm_code,BHCKG234,,2009-03-31,TARP CPP issuances
+y9c,HC-M,24.b.,U.S. Treasury Capital Purchase Program - Warrants to purchase common stock or similar items,mdrm_code,BHCKG235,,2009-03-31,TARP CPP warrants
+y9c,HC-M,7.a.,Captive insurance and reinsurance subsidiaries - Total assets of captive insurance subsidiaries,mdrm_code,BHCKK193,,2011-03-31,Completed annually (December); total assets before intercompany elimination
+y9c,HC-M,7.a.,Captive insurance and reinsurance subsidiaries - Total assets of captive insurance subsidiaries,call_mdrm,RCFDK193,,2011-03-31,Completed annually (December); total assets before intercompany elimination
+y9c,HC-M,7.b.,Captive insurance and reinsurance subsidiaries - Total assets of captive reinsurance subsidiaries,mdrm_code,BHCKK194,,2011-03-31,Completed annually (December)
+y9c,HC-M,7.b.,Captive insurance and reinsurance subsidiaries - Total assets of captive reinsurance subsidiaries,call_mdrm,RCFDK194,,2011-03-31,Completed annually (December)

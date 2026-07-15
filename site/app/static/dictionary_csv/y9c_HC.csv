@@ -1,0 +1,92 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC,1,Cash and balances due from depository institutions,call_mdrm,RCFD0081,,-,Caption on current form; no consolidated BHC total code (former BHCK0010 ended 2014-12-31); = 1.a + 1.b.(1) + 1.b.(2)
+y9c,HC,2,Securities,call_mdrm,RCFD8641,,-,Caption; no consolidated BHC code; HC line 2 = 2.a + 2.b + 2.c; Call total = RCFD8641
+y9c,HC,5,Trading assets (from Schedule HC-D),mdrm_code,BHCK3545,,1995-03-31,Equals HC-D Item 12
+y9c,HC,5,Trading assets (from Schedule HC-D),call_mdrm,RCFD3545,,1995-03-31,Equals HC-D Item 12
+y9c,HC,6,Premises and fixed assets (including right-of-use assets),mdrm_code,BHCK2145,,1981-06-30,Includes capitalized leases / ROU assets
+y9c,HC,6,Premises and fixed assets (including right-of-use assets),call_mdrm,RCFD2145,,1981-06-30,Includes capitalized leases / ROU assets
+y9c,HC,7,Other real estate owned (from Schedule HC-M),mdrm_code,BHCK2150,,2001-03-31,Foreclosed real estate
+y9c,HC,7,Other real estate owned (from Schedule HC-M),call_mdrm,RCFD2150,,2001-03-31,Foreclosed real estate
+y9c,HC,8,Investments in unconsolidated subsidiaries and associated companies,mdrm_code,BHCK2130,,1981-06-30,
+y9c,HC,8,Investments in unconsolidated subsidiaries and associated companies,call_mdrm,RCFD2130,,1981-06-30,
+y9c,HC,9,Direct and indirect investments in real estate ventures,mdrm_code,BHCK3656,,1990-09-30,
+y9c,HC,9,Direct and indirect investments in real estate ventures,call_mdrm,RCFD5372,,1990-09-30,
+y9c,HC,10,Intangible assets (from Schedule HC-M),mdrm_code,BHCK2143,,2018-06-30,Goodwill plus other intangibles
+y9c,HC,10,Intangible assets (from Schedule HC-M),call_mdrm,RCFD2143,,2018-06-30,Goodwill plus other intangibles
+y9c,HC,11,Other assets (from Schedule HC-F),mdrm_code,BHCK2160,,1981-06-30,Equals HC-F Item 12
+y9c,HC,11,Other assets (from Schedule HC-F),call_mdrm,RCFD2160,,1981-06-30,Equals HC-F Item 12
+y9c,HC,12,Total assets (sum of items 1 through 11),mdrm_code,BHCK2170,,1981-06-30,Primary size metric
+y9c,HC,12,Total assets (sum of items 1 through 11),call_mdrm,RCFD2170,,1981-06-30,Primary size metric
+y9c,HC,13,Deposits,call_mdrm,RCFD2200,,-,Caption; no consolidated BHC code; = 13.a + 13.b; Call total = RCFD2200
+y9c,HC,15,Trading liabilities (from Schedule HC-D),mdrm_code,BHCK3548,,1994-03-31,Equals HC-D Item 15
+y9c,HC,15,Trading liabilities (from Schedule HC-D),call_mdrm,RCFD3548,,1994-03-31,Equals HC-D Item 15
+y9c,HC,16,Other borrowed money (from Schedule HC-M),mdrm_code,BHCK3190,,2001-03-31,Includes mortgage indebtedness and capitalized-lease obligations
+y9c,HC,16,Other borrowed money (from Schedule HC-M),call_mdrm,RCFD3190,,2001-03-31,Includes mortgage indebtedness and capitalized-lease obligations
+y9c,HC,20,Other liabilities (from Schedule HC-G),mdrm_code,BHCK2750,,1981-06-30,Equals HC-G Item 5
+y9c,HC,20,Other liabilities (from Schedule HC-G),call_mdrm,RCFD2930,,1981-06-30,Equals HC-G Item 5
+y9c,HC,21,Total liabilities (sum of items 13 through 20),mdrm_code,BHCK2948,,1981-06-30,
+y9c,HC,21,Total liabilities (sum of items 13 through 20),call_mdrm,RCFD2948,,1981-06-30,
+y9c,HC,23,Perpetual preferred stock and related surplus,mdrm_code,BHCK3283,,1981-06-30,Includes related surplus
+y9c,HC,23,Perpetual preferred stock and related surplus,call_mdrm,RCFD3283,,1981-06-30,Includes related surplus
+y9c,HC,24,Common stock (par value),mdrm_code,BHCK3230,,1986-06-30,
+y9c,HC,24,Common stock (par value),call_mdrm,RCFD3230,,1986-06-30,
+y9c,HC,25,Surplus (exclude all surplus related to preferred stock),mdrm_code,BHCK3240,,1986-06-30,Capital surplus / APIC on common stock
+y9c,HC,25,Surplus (exclude all surplus related to preferred stock),call_mdrm,RCFD3839,,1986-06-30,Capital surplus / APIC on common stock
+y9c,HC,28,Total equity capital (sum of items 27.a and 27.b),mdrm_code,BHCKG105,,2009-03-31,Total equity including noncontrolling interest
+y9c,HC,28,Total equity capital (sum of items 27.a and 27.b),call_mdrm,RCFDG105,,2009-03-31,Total equity including noncontrolling interest
+y9c,HC,29,Total liabilities and equity capital (sum of items 21 and 28),mdrm_code,BHCK3300,,1986-06-30,Must equal Item 12 (total assets)
+y9c,HC,29,Total liabilities and equity capital (sum of items 21 and 28),call_mdrm,RCFD3300,,1986-06-30,Must equal Item 12 (total assets)
+y9c,HC,1.a,Noninterest-bearing balances and currency and coin,mdrm_code,BHCK0081,,1981-06-30,Cash on hand plus noninterest-bearing due from
+y9c,HC,1.a,Noninterest-bearing balances and currency and coin,call_mdrm,RCFD0081,,1981-06-30,Cash on hand plus noninterest-bearing due from
+y9c,HC,1.b.(1),Interest-bearing balances in U.S. offices,mdrm_code,BHCK0395,,1981-06-30,Interest-bearing balances in U.S. offices
+y9c,HC,1.b.(1),Interest-bearing balances in U.S. offices,call_mdrm,RCON0071,,1981-06-30,Interest-bearing balances in U.S. offices
+y9c,HC,1.b.(2),"Interest-bearing balances in foreign offices, Edge and Agreement subsidiaries, and IBFs",mdrm_code,BHCK0397,,1981-06-30,Interest-bearing balances in foreign offices/Edge/IBFs
+y9c,HC,10.a,Goodwill,mdrm_code,BHCK3163,,1981-06-30,Component of item 10
+y9c,HC,10.a,Goodwill,call_mdrm,RCFD3163,,1981-06-30,Component of item 10
+y9c,HC,10.b,All other intangible assets,mdrm_code,BHCK0426,,2001-03-31,Component of item 10
+y9c,HC,10.b,All other intangible assets,call_mdrm,RCFD0426,,2001-03-31,Component of item 10
+y9c,HC,13.a,In domestic offices,call_mdrm,RCON2200,,-,Caption; domestic deposits = BHDM6631 + BHDM6636; Call = RCON2200
+y9c,HC,13.a.(1),Noninterest-bearing,mdrm_code,BHDM6631,,1981-06-30,Domestic noninterest-bearing deposits
+y9c,HC,13.a.(1),Noninterest-bearing,call_mdrm,RCON6631,,1981-06-30,Domestic noninterest-bearing deposits
+y9c,HC,13.a.(2),Interest-bearing,mdrm_code,BHDM6636,,1981-06-30,Domestic interest-bearing deposits
+y9c,HC,13.a.(2),Interest-bearing,call_mdrm,RCON6636,,1981-06-30,Domestic interest-bearing deposits
+y9c,HC,13.b,"In foreign offices, Edge and Agreement subsidiaries, and IBFs",call_mdrm,RCFNB536,,-,Caption; no consolidated BHC code; = 13.b.(1) + 13.b.(2); Call = RCFNB536
+y9c,HC,13.b.(1),Noninterest-bearing,mdrm_code,BHFN6631,,1986-06-30,Foreign noninterest-bearing deposits
+y9c,HC,13.b.(1),Noninterest-bearing,call_mdrm,RCFNB537,,1986-06-30,Foreign noninterest-bearing deposits
+y9c,HC,13.b.(2),Interest-bearing,mdrm_code,BHFN6636,,1981-06-30,"Foreign interest-bearing deposits (BHFN, not consumer-loan BHCKB538)"
+y9c,HC,13.b.(2),Interest-bearing,call_mdrm,RCFNB538,,1981-06-30,"Foreign interest-bearing deposits (BHFN, not consumer-loan BHCKB538)"
+y9c,HC,14.a,Federal funds purchased in domestic offices,mdrm_code,BHDMB993,,2002-03-31,Domestic offices only (BHDM domestic-office series)
+y9c,HC,14.a,Federal funds purchased in domestic offices,call_mdrm,RCONB993,,2002-03-31,Domestic offices only (BHDM domestic-office series)
+y9c,HC,14.b,Securities sold under agreements to repurchase,mdrm_code,BHCKB995,,2002-03-31,
+y9c,HC,14.b,Securities sold under agreements to repurchase,call_mdrm,RCFDB995,,2002-03-31,
+y9c,HC,19.a,Subordinated notes and debentures,mdrm_code,BHCK4062,,1981-06-30,Qualifies for Tier 2 capital
+y9c,HC,19.a,Subordinated notes and debentures,call_mdrm,RCON3200,,1981-06-30,Qualifies for Tier 2 capital
+y9c,HC,19.b,"Subordinated notes payable to unconsolidated trusts issuing trust preferred securities, and trust preferred securities issued by consolidated special purpose entities",mdrm_code,BHCKC699,,2005-03-31,Trust-preferred-related subordinated debt
+y9c,HC,2.a,"Held-to-maturity securities (from Schedule HC-B, column A)",mdrm_code,BHCKJJ34,,2019-03-31,HTM at amortized cost
+y9c,HC,2.a,"Held-to-maturity securities (from Schedule HC-B, column A)",call_mdrm,RCFDJJ34,,2019-03-31,HTM at amortized cost
+y9c,HC,2.b,"Available-for-sale debt securities (from Schedule HC-B, column D)",mdrm_code,BHCK1773,,1994-03-31,AFS debt securities at fair value
+y9c,HC,2.b,"Available-for-sale debt securities (from Schedule HC-B, column D)",call_mdrm,RCFD1773,,1994-03-31,AFS debt securities at fair value
+y9c,HC,2.c,Equity securities with readily determinable fair values not held for trading,mdrm_code,BHCKJA22,,2018-03-31,Equity securities at FV (ASU 2016-01)
+y9c,HC,2.c,Equity securities with readily determinable fair values not held for trading,call_mdrm,RCFDJA22,,2018-03-31,Equity securities at FV (ASU 2016-01)
+y9c,HC,26.a,Retained earnings,mdrm_code,BHCK3247,,1986-06-30,Undivided profits and capital reserves
+y9c,HC,26.a,Retained earnings,call_mdrm,RCFD3632,,1986-06-30,Undivided profits and capital reserves
+y9c,HC,26.b,Accumulated other comprehensive income,mdrm_code,BHCKB530,,2001-03-31,"AOCI: AFS unrealized gains/losses, FX translation, pension, cash-flow hedges"
+y9c,HC,26.b,Accumulated other comprehensive income,call_mdrm,RCFDB530,,2001-03-31,"AOCI: AFS unrealized gains/losses, FX translation, pension, cash-flow hedges"
+y9c,HC,26.c,Other equity capital components,mdrm_code,BHCKA130,,2001-03-31,"Treasury stock, unearned ESOP shares, etc."
+y9c,HC,26.c,Other equity capital components,call_mdrm,RCFDA130,,2001-03-31,"Treasury stock, unearned ESOP shares, etc."
+y9c,HC,27.a,Total holding company equity capital (sum of items 23 through 26.c),mdrm_code,BHCK3210,,1986-06-30,Total parent-company equity capital
+y9c,HC,27.a,Total holding company equity capital (sum of items 23 through 26.c),call_mdrm,RCFD3210,,1986-06-30,Total parent-company equity capital
+y9c,HC,27.b,Noncontrolling (minority) interests in consolidated subsidiaries,mdrm_code,BHCK3000,,1981-06-30,Noncontrolling interest (moved here from former item 22)
+y9c,HC,27.b,Noncontrolling (minority) interests in consolidated subsidiaries,call_mdrm,RCFD3000,,1981-06-30,Noncontrolling interest (moved here from former item 22)
+y9c,HC,3.a,Federal funds sold in domestic offices,mdrm_code,BHDMB987,,2002-03-31,Domestic offices only (BHDM domestic-office series)
+y9c,HC,3.a,Federal funds sold in domestic offices,call_mdrm,RCONB987,,2002-03-31,Domestic offices only (BHDM domestic-office series)
+y9c,HC,3.b,Securities purchased under agreements to resell,mdrm_code,BHCKB989,,2002-03-31,
+y9c,HC,3.b,Securities purchased under agreements to resell,call_mdrm,RCFDB989,,2002-03-31,
+y9c,HC,4.a,Loans and leases held for sale,mdrm_code,BHCK5369,,1991-03-31,
+y9c,HC,4.a,Loans and leases held for sale,call_mdrm,RCFD5369,,1991-03-31,
+y9c,HC,4.b,Loans and leases held for investment,mdrm_code,BHCKB528,,2001-03-31,"Held for investment, net of unearned income"
+y9c,HC,4.b,Loans and leases held for investment,call_mdrm,RCFDB528,,2001-03-31,"Held for investment, net of unearned income"
+y9c,HC,4.c,LESS: Allowance for credit losses on loans and leases,mdrm_code,BHCK3123,,1981-06-30,ACL on loans and leases (CECL)
+y9c,HC,4.c,LESS: Allowance for credit losses on loans and leases,call_mdrm,RCFD3123,,1981-06-30,ACL on loans and leases (CECL)
+y9c,HC,4.d,"Loans and leases held for investment, net of allowance (item 4.b minus 4.c)",mdrm_code,BHCKB529,,2001-03-31,Net loans carried on balance sheet
+y9c,HC,4.d,"Loans and leases held for investment, net of allowance (item 4.b minus 4.c)",call_mdrm,RCFDB529,,2001-03-31,Net loans carried on balance sheet

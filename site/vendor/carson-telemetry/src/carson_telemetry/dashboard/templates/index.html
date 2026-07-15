@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carson Telemetry{% if d.service %} — {{ d.service }}{% endif %}</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+           margin: 2rem auto; max-width: 1000px; padding: 0 1rem; line-height: 1.45; }
+    h1 { font-size: 1.4rem; }
+    .cards { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
+    .card { border: 1px solid #8884; border-radius: 10px; padding: 0.8rem 1.1rem; min-width: 140px; }
+    .card .n { font-size: 1.6rem; font-weight: 600; }
+    .card .l { font-size: 0.8rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.03em; }
+    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0 1.5rem; }
+    th, td { text-align: left; padding: 0.35rem 0.6rem; border-bottom: 1px solid #8883; font-size: 0.92rem; }
+    th { opacity: 0.7; font-weight: 600; }
+    .surface { font-size: 0.75rem; padding: 0.05rem 0.4rem; border-radius: 6px; background: #8882; }
+    .bar { height: 8px; background: #4a90d9; border-radius: 4px; }
+    .muted { opacity: 0.6; font-size: 0.85rem; }
+    code { background: #8882; padding: 0.05rem 0.3rem; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Carson Telemetry{% if d.service %} — {{ d.service }}{% endif %}</h1>
+  <p class="muted">Read-only admin view over <code>telemetry.db</code>. Tailscale-only — never public.</p>
+
+  <div class="cards">
+    <div class="card"><div class="n">{{ d.total_calls }}</div><div class="l">Total calls</div></div>
+    <div class="card"><div class="n">{{ d.unique_clients }}</div><div class="l">Unique-ish clients</div></div>
+    <div class="card"><div class="n">{{ '%.1f' % (d.error_rate * 100) }}%</div><div class="l">Error rate</div></div>
+    <div class="card"><div class="n">{{ d.p50_latency_ms }} ms</div><div class="l">p50 latency</div></div>
+    <div class="card"><div class="n">{{ d.p95_latency_ms }} ms</div><div class="l">p95 latency</div></div>
+  </div>
+
+  {% if d.services and not d.service %}
+  <h2 style="font-size:1.05rem">Services</h2>
+  <table>
+    <tr><th>Service</th><th>Calls</th></tr>
+    {% for s in d.services %}
+    <tr><td><a href="/?service={{ s.service }}">{{ s.service }}</a></td><td>{{ s.calls }}</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+
+  <h2 style="font-size:1.05rem">Top endpoints / tools</h2>
+  <table>
+    <tr><th>Surface</th><th>Endpoint</th><th>Calls</th></tr>
+    {% for e in d.top_endpoints %}
+    <tr>
+      <td><span class="surface">{{ e.surface }}</span></td>
+      <td><code>{{ e.endpoint }}</code></td>
+      <td>{{ e.calls }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h2 style="font-size:1.05rem">Calls over time</h2>
+  <table>
+    <tr><th>Day (UTC)</th><th>Calls</th><th style="width:50%"></th></tr>
+    {% set maxc = (d.over_time | map(attribute='calls') | list | max) if d.over_time else 1 %}
+    {% for row in d.over_time %}
+    <tr>
+      <td>{{ row.day }}</td>
+      <td>{{ row.calls }}</td>
+      <td><div class="bar" style="width: {{ (row.calls / maxc * 100) if maxc else 0 }}%"></div></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <p class="muted">Carson Telemetry Standard v1.0 — privacy-first, daily-salted hashed clients, no raw IPs.</p>
+</body>
+</html>

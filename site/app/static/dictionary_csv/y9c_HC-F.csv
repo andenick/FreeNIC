@@ -1,0 +1,19 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-F,1,Accrued interest receivable,mdrm_code,BHCKB556,,2001-03-31,Interest earned but not yet collected
+y9c,HC-F,1,Accrued interest receivable,call_mdrm,RCFDB556,,2001-03-31,Interest earned but not yet collected
+y9c,HC-F,2,Net deferred tax assets,mdrm_code,BHCK2148,,2001-03-31,Net deductible temporary differences
+y9c,HC-F,2,Net deferred tax assets,call_mdrm,RCFD2148,,2001-03-31,Net deductible temporary differences
+y9c,HC-F,3,Interest-only strips receivable (not in the form of a security),mdrm_code,BHCKHT80,,2018-06-30,IO strips not held as a security
+y9c,HC-F,3,Interest-only strips receivable (not in the form of a security),call_mdrm,RCFDHT80,,2018-06-30,IO strips not held as a security
+y9c,HC-F,4,Equity investments without readily determinable fair values,mdrm_code,BHCK1752,,1994-03-31,FHLB/FRB stock; cost-method equity (ASU 2016-01)
+y9c,HC-F,4,Equity investments without readily determinable fair values,call_mdrm,RCFD1752,,1994-03-31,FHLB/FRB stock; cost-method equity (ASU 2016-01)
+y9c,HC-F,6,Other,mdrm_code,BHCK2168,,2001-03-31,Residual other assets
+y9c,HC-F,6,Other,call_mdrm,RCFD2168,,2001-03-31,Residual other assets
+y9c,HC-F,7,Total (sum of items 1 through 6),mdrm_code,BHCT2160,,2006-09-30,Must equal Schedule HC item 11
+y9c,HC-F,7,Total (sum of items 1 through 6),call_mdrm,RCFD2160,,2006-09-30,Must equal Schedule HC item 11
+y9c,HC-F,5.a,Life insurance assets - General account,mdrm_code,BHCKK201,,2011-03-31,General account BOLI
+y9c,HC-F,5.a,Life insurance assets - General account,call_mdrm,RCFDK201,,2011-03-31,General account BOLI
+y9c,HC-F,5.b,Life insurance assets - Separate account,mdrm_code,BHCKK202,,2011-03-31,Separate account BOLI
+y9c,HC-F,5.b,Life insurance assets - Separate account,call_mdrm,RCFDK202,,2011-03-31,Separate account BOLI
+y9c,HC-F,5.c,Life insurance assets - Hybrid account,mdrm_code,BHCKK270,,2011-03-31,Hybrid account BOLI
+y9c,HC-F,5.c,Life insurance assets - Hybrid account,call_mdrm,RCFDK270,,2011-03-31,Hybrid account BOLI

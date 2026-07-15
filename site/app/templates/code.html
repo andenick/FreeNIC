@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block title %}Code — FreeNIC{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>Code</h1>
+  <p class="ark-badge-row">
+    <span class="ark-badge reproducible">Reproducible</span>
+    <span class="ark-badge offline">Offline</span>
+    <span class="ark-badge real-data">Real data</span>
+  </p>
+  <p class="lead">Everything you see here — the <a href="/explorer">Explore</a> charts
+     and every <a href="/data">Data</a> download — is produced by the thin
+     <b>FastAPI&nbsp;+&nbsp;DuckDB&nbsp;+&nbsp;Plotly</b> app below, reading the real
+     {{ counts.slice_db_h }} curated sample in <code>app/data/freenic_slice.duckdb</code>.</p>
+  <div class="callout">
+    <p style="margin:0;"><b>Run it, get identical output (over the slice).</b> Every JSON
+       API response and every download is computed <i>deterministically</i> from the
+       read-only slice — no hidden state, no network call, no random seed. Install the
+       pinned deps, run <code>uvicorn app.main:app</code>, and the charts and download
+       bytes regenerate byte-for-byte over the same {{ counts.slice_db_h }} slice. (The full {{ counts.release_size_iec }} parquet
+       release is served separately at data.freenic.org and is not part of this bundle.)</p>
+  </div>
+  <p>
+    <a class="ark-btn" href="/api/code/repro_bundle.zip">Download repro bundle (.zip)</a>
+    <a class="ark-btn ark-btn-outline" href="/api/download/bulk/freenic_slice.zip">Data bundle (.zip)</a>
+  </p>
+</section>
+
+<!-- 1. Read-only access + a JSON API over the slice -------------------- -->
+<section class="prose">
+  <h2>1 · Read-only DuckDB access + the JSON API</h2>
+  <p>Every connection opens <code>read_only=True</code>; the explorer's charts fetch
+     these endpoints, each a parameterized read over a real slice table.</p>
+  <div class="ark-code" data-arkcode data-filename="freenic_json_api">
+    <div class="ark-code-head"><span class="ark-code-path">app/main.py</span></div>
+    <pre data-lang="python"><code>{% filter forceescape %}{% raw %}def _con() -> duckdb.DuckDBPyConnection:
+    """Read-only connection to the baked curated slice."""
+    return duckdb.connect(str(DB_PATH), read_only=True)
+
+
+def _rows(sql: str, params: list | None = None) -> list[dict]:
+    con = _con()
+    try:
+        cur = con.execute(sql, params or [])
+        cols = [d[0] for d in cur.description]
+        return [dict(zip(cols, r)) for r in cur.fetchall()]
+    finally:
+        con.close()
+
+
+@app.get("/api/failures_by_year")
+def api_failures_by_year() -> JSONResponse:
+    return JSONResponse(_rows(
+        "SELECT year, n_failures, total_assets, total_loss "
+        "FROM agg_failures_by_year ORDER BY year"
+    )){% endraw %}{% endfilter %}</code></pre>
+  </div>
+</section>
+
+<!-- 2. The Plotly drawing code (vendored, offline) --------------------- -->
+<section class="prose">
+  <h2>2 · The charts (vendored Plotly, offline)</h2>
+  <p>The explorer draws the fetched series through the Arcanum Site Kit
+     <code>ArkPlotly</code> wrapper over the vendored Plotly build
+     (<code>app/static/vendor/plotly.min.js</code>) — no CDN call at runtime. The kit
+     gives every chart a top-right Download CSV, the slate accent colorway, a
+     legend-below layout, and dark/light re-theming.</p>
+  <div class="ark-code" data-arkcode data-filename="freenic_chart">
+    <div class="ark-code-head"><span class="ark-code-path">app/templates/explorer.html</span></div>
+    <pre data-lang="javascript"><code>{% filter forceescape %}{% raw %}async function j(u){ const r = await fetch(u); return r.json(); }
+
+const fy = await j("/api/failures_by_year");
+ArkPlotly.plot("chart_failyear", [{
+  type:"bar", x: fy.map(d=>d.year), y: fy.map(d=>d.n_failures),
+  hovertemplate:"%{x}: %{y} failures<extra></extra>"
+}], {xaxis:{title:{text:"year"}}, yaxis:{title:{text:"failures"}}},
+   {filename:"freenic_failures_by_year"});
+
+// a real top-right Download CSV button wired to the slice's CSV endpoint
+ArkDownloads.buttons({ csv: "/api/download/agg_failures_by_year.csv" });{% endraw %}{% endfilter %}</code></pre>
+  </div>
+</section>
+
+<!-- 3. The downloads (correct content-types) --------------------------- -->
+<section class="prose">
+  <h2>3 · The downloads (correct content-types)</h2>
+  <p>The <a href="/data">Data</a> page serializes each real slice table to <b>CSV and
+     Parquet</b> (the user-facing formats — no JSON dataset downloads). Each format
+     carries its true media type — the known "CSV-served-as-JSON" failure is avoided by
+     deriving the content-type from the artifact's declared format. Parquet is written
+     natively by DuckDB <code>COPY</code> to a throwaway temp file (the DB stays
+     read-only).</p>
+  <div class="ark-code" data-arkcode data-filename="freenic_downloads">
+    <div class="ark-code-head"><span class="ark-code-path">app/downloads.py</span></div>
+    <pre data-lang="python"><code>{% filter forceescape %}{% raw %}# CSV + Parquet only — no JSON dataset downloads (DOWNLOAD_AND_FORMATS DNA).
+MEDIA = {
+    "csv": "text/csv; charset=utf-8",
+    "parquet": "application/vnd.apache.parquet",
+    "zip": "application/zip",
+}
+
+
+def _parquet_bytes(table: str) -> bytes:
+    """Native Parquet via DuckDB COPY to a throwaway temp file (read-only DB)."""
+    fd, tmp = tempfile.mkstemp(suffix=".parquet")
+    os.close(fd)
+    try:
+        con = _con()
+        try:
+            con.execute(
+                f'COPY (SELECT * FROM "{table}") '
+                f"TO '{Path(tmp).as_posix()}' (FORMAT PARQUET)"
+            )
+        finally:
+            con.close()
+        return Path(tmp).read_bytes()
+    finally:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+
+
+def render_artifact(art: dict) -> tuple[bytes, str, str]:
+    """Return (bytes, media_type, download_filename) for a single artifact."""
+    raw = _bytes_for(art["table"], art["fmt"])
+    fname = f"freenic_{art['table']}.{art['fmt']}"
+    return raw, MEDIA[art["fmt"]], fname{% endraw %}{% endfilter %}</code></pre>
+  </div>
+</section>
+
+<!-- 4. The read packages + remote access (the full dataset) ------------ -->
+<section class="prose">
+  <h2>4 · Beyond the sample — the full dataset</h2>
+  <p>The on-site sample is for browsing and charting. For arbitrary SQL across all 42
+     tables of the complete dataset, point the <code>freenic_py</code> /
+     <code>freenic_r</code> packages — or a plain DuckDB <code>httpfs</code> client — at
+     the published parquet release; only the row-groups a query touches are fetched.</p>
+  <div class="ark-code" data-arkcode data-filename="freenic_httpfs" data-default="python">
+    <div class="ark-code-head"><span class="ark-code-path">DuckDB · remote httpfs (full release)</span></div>
+    <pre data-lang="python"><code>{% filter forceescape %}{% raw %}import duckdb
+con = duckdb.connect()
+con.execute("INSTALL httpfs; LOAD httpfs;")
+
+# query the remote parquet in place — only the row-groups touched are fetched
+con.execute("""
+    SELECT bank_name, failure_year, total_assets
+    FROM 'https://data.freenic.org/bank_failures.parquet'
+    ORDER BY total_assets DESC LIMIT 10
+""").df(){% endraw %}{% endfilter %}</code></pre>
+    <pre data-lang="r"><code>{% filter forceescape %}{% raw %}library(duckdb)
+library(DBI)
+con <- dbConnect(duckdb())
+dbExecute(con, "INSTALL httpfs; LOAD httpfs;")
+
+# query the remote parquet in place — only the row-groups touched are fetched
+dbGetQuery(con, "
+    SELECT bank_name, failure_year, total_assets
+    FROM 'https://data.freenic.org/bank_failures.parquet'
+    ORDER BY total_assets DESC LIMIT 10
+")
+dbDisconnect(con, shutdown = TRUE){% endraw %}{% endfilter %}</code></pre>
+  </div>
+  <p class="note">See the <a href="/api-docs">API</a> page for the full access matrix
+     (Python / R / MCP / httpfs) and <a href="/methodology">Methodology</a> for the
+     sample provenance.</p>
+</section>
+
+{% endblock %}

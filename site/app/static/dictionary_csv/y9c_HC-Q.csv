@@ -1,0 +1,156 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-Q,1,Available-for-sale debt and equity securities with readily determinable fair values not held for trading,mdrm_netting,BHCKG474,,2009-06-30,Column A code BHCYJA36 effective 2018-03-31 (ASU 2016-01 revision); columns B-E G-series effective 2009-06-30
+y9c,HC-Q,1,Available-for-sale debt and equity securities with readily determinable fair values not held for trading,mdrm_level_1,BHCKG475,,2009-06-30,Column A code BHCYJA36 effective 2018-03-31 (ASU 2016-01 revision); columns B-E G-series effective 2009-06-30
+y9c,HC-Q,1,Available-for-sale debt and equity securities with readily determinable fair values not held for trading,mdrm_level_2,BHCKG476,,2009-06-30,Column A code BHCYJA36 effective 2018-03-31 (ASU 2016-01 revision); columns B-E G-series effective 2009-06-30
+y9c,HC-Q,1,Available-for-sale debt and equity securities with readily determinable fair values not held for trading,mdrm_level_3,BHCKG477,,2009-06-30,Column A code BHCYJA36 effective 2018-03-31 (ASU 2016-01 revision); columns B-E G-series effective 2009-06-30
+y9c,HC-Q,1,Available-for-sale debt and equity securities with readily determinable fair values not held for trading,mdrm_total_fv,BHCYJA36,,2009-06-30,Column A code BHCYJA36 effective 2018-03-31 (ASU 2016-01 revision); columns B-E G-series effective 2009-06-30
+y9c,HC-Q,2,Federal funds sold and securities purchased under agreements to resell,mdrm_total_fv,BHCKG478,,2009-06-30,
+y9c,HC-Q,2,Federal funds sold and securities purchased under agreements to resell,mdrm_netting,BHCKG479,,2009-06-30,
+y9c,HC-Q,2,Federal funds sold and securities purchased under agreements to resell,mdrm_level_1,BHCKG480,,2009-06-30,
+y9c,HC-Q,2,Federal funds sold and securities purchased under agreements to resell,mdrm_level_2,BHCKG481,,2009-06-30,
+y9c,HC-Q,2,Federal funds sold and securities purchased under agreements to resell,mdrm_level_3,BHCKG482,,2009-06-30,
+y9c,HC-Q,3,Loans and leases held for sale,mdrm_total_fv,BHCKG483,,2009-06-30,
+y9c,HC-Q,3,Loans and leases held for sale,mdrm_netting,BHCKG484,,2009-06-30,
+y9c,HC-Q,3,Loans and leases held for sale,mdrm_level_1,BHCKG485,,2009-06-30,
+y9c,HC-Q,3,Loans and leases held for sale,mdrm_level_2,BHCKG486,,2009-06-30,
+y9c,HC-Q,3,Loans and leases held for sale,mdrm_level_3,BHCKG487,,2009-06-30,
+y9c,HC-Q,4,Loans and leases held for investment,mdrm_total_fv,BHCKG488,,2009-06-30,Fair value option loans
+y9c,HC-Q,4,Loans and leases held for investment,mdrm_netting,BHCKG489,,2009-06-30,Fair value option loans
+y9c,HC-Q,4,Loans and leases held for investment,mdrm_level_1,BHCKG490,,2009-06-30,Fair value option loans
+y9c,HC-Q,4,Loans and leases held for investment,mdrm_level_2,BHCKG491,,2009-06-30,Fair value option loans
+y9c,HC-Q,4,Loans and leases held for investment,mdrm_level_3,BHCKG492,,2009-06-30,Fair value option loans
+y9c,HC-Q,6,All other assets,mdrm_total_fv,BHCKG391,,2009-06-30,
+y9c,HC-Q,6,All other assets,mdrm_netting,BHCKG392,,2009-06-30,
+y9c,HC-Q,6,All other assets,mdrm_level_1,BHCKG395,,2009-06-30,
+y9c,HC-Q,6,All other assets,mdrm_level_2,BHCKG396,,2009-06-30,
+y9c,HC-Q,6,All other assets,mdrm_level_3,BHCKG804,,2009-06-30,
+y9c,HC-Q,7,Total assets measured at fair value on a recurring basis,mdrm_total_fv,BHCKG502,,2009-06-30,Per-column sum of items 1 through 6
+y9c,HC-Q,7,Total assets measured at fair value on a recurring basis,mdrm_netting,BHCKG503,,2009-06-30,Per-column sum of items 1 through 6
+y9c,HC-Q,7,Total assets measured at fair value on a recurring basis,mdrm_level_1,BHCKG504,,2009-06-30,Per-column sum of items 1 through 6
+y9c,HC-Q,7,Total assets measured at fair value on a recurring basis,mdrm_level_2,BHCKG505,,2009-06-30,Per-column sum of items 1 through 6
+y9c,HC-Q,7,Total assets measured at fair value on a recurring basis,mdrm_level_3,BHCKG506,,2009-06-30,Per-column sum of items 1 through 6
+y9c,HC-Q,8,Deposits,mdrm_total_fv,BHCKF252,,2007-03-31,F-series codes effective 2007
+y9c,HC-Q,8,Deposits,mdrm_level_2,BHCKF253,,2007-03-31,F-series codes effective 2007
+y9c,HC-Q,8,Deposits,mdrm_level_3,BHCKF254,,2007-03-31,F-series codes effective 2007
+y9c,HC-Q,8,Deposits,mdrm_netting,BHCKF686,,2007-03-31,F-series codes effective 2007
+y9c,HC-Q,8,Deposits,mdrm_level_1,BHCKF694,,2007-03-31,F-series codes effective 2007
+y9c,HC-Q,9,Federal funds purchased and securities sold under agreements to repurchase,mdrm_total_fv,BHCKG507,,2009-06-30,
+y9c,HC-Q,9,Federal funds purchased and securities sold under agreements to repurchase,mdrm_netting,BHCKG508,,2009-06-30,
+y9c,HC-Q,9,Federal funds purchased and securities sold under agreements to repurchase,mdrm_level_1,BHCKG509,,2009-06-30,
+y9c,HC-Q,9,Federal funds purchased and securities sold under agreements to repurchase,mdrm_level_2,BHCKG510,,2009-06-30,
+y9c,HC-Q,9,Federal funds purchased and securities sold under agreements to repurchase,mdrm_level_3,BHCKG511,,2009-06-30,
+y9c,HC-Q,11,Other borrowed money,mdrm_total_fv,BHCKG521,,2009-06-30,
+y9c,HC-Q,11,Other borrowed money,mdrm_netting,BHCKG522,,2009-06-30,
+y9c,HC-Q,11,Other borrowed money,mdrm_level_1,BHCKG523,,2009-06-30,
+y9c,HC-Q,11,Other borrowed money,mdrm_level_2,BHCKG524,,2009-06-30,
+y9c,HC-Q,11,Other borrowed money,mdrm_level_3,BHCKG525,,2009-06-30,
+y9c,HC-Q,12,Subordinated notes and debentures,mdrm_total_fv,BHCKG526,,2009-06-30,
+y9c,HC-Q,12,Subordinated notes and debentures,mdrm_netting,BHCKG527,,2009-06-30,
+y9c,HC-Q,12,Subordinated notes and debentures,mdrm_level_1,BHCKG528,,2009-06-30,
+y9c,HC-Q,12,Subordinated notes and debentures,mdrm_level_2,BHCKG529,,2009-06-30,
+y9c,HC-Q,12,Subordinated notes and debentures,mdrm_level_3,BHCKG530,,2009-06-30,
+y9c,HC-Q,13,All other liabilities,mdrm_total_fv,BHCKG805,,2009-06-30,
+y9c,HC-Q,13,All other liabilities,mdrm_netting,BHCKG806,,2009-06-30,
+y9c,HC-Q,13,All other liabilities,mdrm_level_1,BHCKG807,,2009-06-30,
+y9c,HC-Q,13,All other liabilities,mdrm_level_2,BHCKG808,,2009-06-30,
+y9c,HC-Q,13,All other liabilities,mdrm_level_3,BHCKG809,,2009-06-30,
+y9c,HC-Q,14,Total liabilities measured at fair value on a recurring basis,mdrm_total_fv,BHCKG531,,2009-06-30,Per-column sum of items 8 through 13
+y9c,HC-Q,14,Total liabilities measured at fair value on a recurring basis,mdrm_netting,BHCKG532,,2009-06-30,Per-column sum of items 8 through 13
+y9c,HC-Q,14,Total liabilities measured at fair value on a recurring basis,mdrm_level_1,BHCKG533,,2009-06-30,Per-column sum of items 8 through 13
+y9c,HC-Q,14,Total liabilities measured at fair value on a recurring basis,mdrm_level_2,BHCKG534,,2009-06-30,Per-column sum of items 8 through 13
+y9c,HC-Q,14,Total liabilities measured at fair value on a recurring basis,mdrm_level_3,BHCKG535,,2009-06-30,Per-column sum of items 8 through 13
+y9c,HC-Q,10.a,Trading liabilities: Derivative liabilities,mdrm_netting,BHCKG512,,2009-06-30,Column A reuses BHCT3547 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-liabilities total
+y9c,HC-Q,10.a,Trading liabilities: Derivative liabilities,mdrm_level_1,BHCKG513,,2009-06-30,Column A reuses BHCT3547 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-liabilities total
+y9c,HC-Q,10.a,Trading liabilities: Derivative liabilities,mdrm_level_2,BHCKG514,,2009-06-30,Column A reuses BHCT3547 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-liabilities total
+y9c,HC-Q,10.a,Trading liabilities: Derivative liabilities,mdrm_level_3,BHCKG515,,2009-06-30,Column A reuses BHCT3547 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-liabilities total
+y9c,HC-Q,10.a,Trading liabilities: Derivative liabilities,mdrm_total_fv,BHCT3547,,2009-06-30,Column A reuses BHCT3547 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-liabilities total
+y9c,HC-Q,10.b,Trading liabilities: Other trading liabilities,mdrm_total_fv,BHCKG516,,2009-06-30,
+y9c,HC-Q,10.b,Trading liabilities: Other trading liabilities,mdrm_netting,BHCKG517,,2009-06-30,
+y9c,HC-Q,10.b,Trading liabilities: Other trading liabilities,mdrm_level_1,BHCKG518,,2009-06-30,
+y9c,HC-Q,10.b,Trading liabilities: Other trading liabilities,mdrm_level_2,BHCKG519,,2009-06-30,
+y9c,HC-Q,10.b,Trading liabilities: Other trading liabilities,mdrm_level_3,BHCKG520,,2009-06-30,
+y9c,HC-Q,5.a,Trading assets: Derivative assets,mdrm_netting,BHCKG493,,2009-06-30,Column A reuses BHCT3543 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-assets total
+y9c,HC-Q,5.a,Trading assets: Derivative assets,mdrm_level_1,BHCKG494,,2009-06-30,Column A reuses BHCT3543 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-assets total
+y9c,HC-Q,5.a,Trading assets: Derivative assets,mdrm_level_2,BHCKG495,,2009-06-30,Column A reuses BHCT3543 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-assets total
+y9c,HC-Q,5.a,Trading assets: Derivative assets,mdrm_level_3,BHCKG496,,2009-06-30,Column A reuses BHCT3543 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-assets total
+y9c,HC-Q,5.a,Trading assets: Derivative assets,mdrm_total_fv,BHCT3543,,2009-06-30,Column A reuses BHCT3543 (MDRM name reflects its HC-D usage); HC-Q uses it as the derivative-assets total
+y9c,HC-Q,5.b,Trading assets: Other trading assets,mdrm_total_fv,BHCKG497,,2009-06-30,
+y9c,HC-Q,5.b,Trading assets: Other trading assets,mdrm_netting,BHCKG498,,2009-06-30,
+y9c,HC-Q,5.b,Trading assets: Other trading assets,mdrm_level_1,BHCKG499,,2009-06-30,
+y9c,HC-Q,5.b,Trading assets: Other trading assets,mdrm_level_2,BHCKG500,,2009-06-30,
+y9c,HC-Q,5.b,Trading assets: Other trading assets,mdrm_level_3,BHCKG501,,2009-06-30,
+y9c,HC-Q,5.b.1,Nontrading securities at fair value with changes in fair value reported in current earnings,mdrm_total_fv,BHCKF240,,2007-03-31,Memorandum-style sub-item of 5.b; F-series codes effective 2008
+y9c,HC-Q,5.b.1,Nontrading securities at fair value with changes in fair value reported in current earnings,mdrm_level_2,BHCKF241,,2007-03-31,Memorandum-style sub-item of 5.b; F-series codes effective 2008
+y9c,HC-Q,5.b.1,Nontrading securities at fair value with changes in fair value reported in current earnings,mdrm_level_3,BHCKF242,,2007-03-31,Memorandum-style sub-item of 5.b; F-series codes effective 2008
+y9c,HC-Q,5.b.1,Nontrading securities at fair value with changes in fair value reported in current earnings,mdrm_netting,BHCKF684,,2007-03-31,Memorandum-style sub-item of 5.b; F-series codes effective 2008
+y9c,HC-Q,5.b.1,Nontrading securities at fair value with changes in fair value reported in current earnings,mdrm_level_1,BHCKF692,,2007-03-31,Memorandum-style sub-item of 5.b; F-series codes effective 2008
+y9c,HC-Q,M.1.a,All other assets: Mortgage servicing assets,mdrm_total_fv,BHCKG536,,2009-06-30,
+y9c,HC-Q,M.1.a,All other assets: Mortgage servicing assets,mdrm_netting,BHCKG537,,2009-06-30,
+y9c,HC-Q,M.1.a,All other assets: Mortgage servicing assets,mdrm_level_1,BHCKG538,,2009-06-30,
+y9c,HC-Q,M.1.a,All other assets: Mortgage servicing assets,mdrm_level_2,BHCKG539,,2009-06-30,
+y9c,HC-Q,M.1.a,All other assets: Mortgage servicing assets,mdrm_level_3,BHCKG540,,2009-06-30,
+y9c,HC-Q,M.1.b,All other assets: Nontrading derivative assets,mdrm_total_fv,BHCKG541,,2009-06-30,
+y9c,HC-Q,M.1.b,All other assets: Nontrading derivative assets,mdrm_netting,BHCKG542,,2009-06-30,
+y9c,HC-Q,M.1.b,All other assets: Nontrading derivative assets,mdrm_level_1,BHCKG543,,2009-06-30,
+y9c,HC-Q,M.1.b,All other assets: Nontrading derivative assets,mdrm_level_2,BHCKG544,,2009-06-30,
+y9c,HC-Q,M.1.b,All other assets: Nontrading derivative assets,mdrm_level_3,BHCKG545,,2009-06-30,
+y9c,HC-Q,M.1.c,All other assets: Itemized component c,mdrm_total_fv,BHCKG546,,2009-06-30,Itemize with text code BHTXG546
+y9c,HC-Q,M.1.c,All other assets: Itemized component c,mdrm_netting,BHCKG547,,2009-06-30,Itemize with text code BHTXG546
+y9c,HC-Q,M.1.c,All other assets: Itemized component c,mdrm_level_1,BHCKG548,,2009-06-30,Itemize with text code BHTXG546
+y9c,HC-Q,M.1.c,All other assets: Itemized component c,mdrm_level_2,BHCKG549,,2009-06-30,Itemize with text code BHTXG546
+y9c,HC-Q,M.1.c,All other assets: Itemized component c,mdrm_level_3,BHCKG550,,2009-06-30,Itemize with text code BHTXG546
+y9c,HC-Q,M.1.d,All other assets: Itemized component d,mdrm_total_fv,BHCKG551,,2009-06-30,Itemize with text code BHTXG551
+y9c,HC-Q,M.1.d,All other assets: Itemized component d,mdrm_netting,BHCKG552,,2009-06-30,Itemize with text code BHTXG551
+y9c,HC-Q,M.1.d,All other assets: Itemized component d,mdrm_level_1,BHCKG553,,2009-06-30,Itemize with text code BHTXG551
+y9c,HC-Q,M.1.d,All other assets: Itemized component d,mdrm_level_2,BHCKG554,,2009-06-30,Itemize with text code BHTXG551
+y9c,HC-Q,M.1.d,All other assets: Itemized component d,mdrm_level_3,BHCKG555,,2009-06-30,Itemize with text code BHTXG551
+y9c,HC-Q,M.1.e,All other assets: Itemized component e,mdrm_total_fv,BHCKG556,,2009-06-30,Itemize with text code BHTXG556
+y9c,HC-Q,M.1.e,All other assets: Itemized component e,mdrm_netting,BHCKG557,,2009-06-30,Itemize with text code BHTXG556
+y9c,HC-Q,M.1.e,All other assets: Itemized component e,mdrm_level_1,BHCKG558,,2009-06-30,Itemize with text code BHTXG556
+y9c,HC-Q,M.1.e,All other assets: Itemized component e,mdrm_level_2,BHCKG559,,2009-06-30,Itemize with text code BHTXG556
+y9c,HC-Q,M.1.e,All other assets: Itemized component e,mdrm_level_3,BHCKG560,,2009-06-30,Itemize with text code BHTXG556
+y9c,HC-Q,M.1.f,All other assets: Itemized component f,mdrm_total_fv,BHCKG561,,2009-06-30,Itemize with text code BHTXG561
+y9c,HC-Q,M.1.f,All other assets: Itemized component f,mdrm_netting,BHCKG562,,2009-06-30,Itemize with text code BHTXG561
+y9c,HC-Q,M.1.f,All other assets: Itemized component f,mdrm_level_1,BHCKG563,,2009-06-30,Itemize with text code BHTXG561
+y9c,HC-Q,M.1.f,All other assets: Itemized component f,mdrm_level_2,BHCKG564,,2009-06-30,Itemize with text code BHTXG561
+y9c,HC-Q,M.1.f,All other assets: Itemized component f,mdrm_level_3,BHCKG565,,2009-06-30,Itemize with text code BHTXG561
+y9c,HC-Q,M.2.a,All other liabilities: Loan commitments (not accounted for as derivatives),mdrm_total_fv,BHCKF261,,2007-03-31,F-series codes effective 2007/2008
+y9c,HC-Q,M.2.a,All other liabilities: Loan commitments (not accounted for as derivatives),mdrm_level_2,BHCKF262,,2007-03-31,F-series codes effective 2007/2008
+y9c,HC-Q,M.2.a,All other liabilities: Loan commitments (not accounted for as derivatives),mdrm_level_3,BHCKF263,,2007-03-31,F-series codes effective 2007/2008
+y9c,HC-Q,M.2.a,All other liabilities: Loan commitments (not accounted for as derivatives),mdrm_netting,BHCKF689,,2007-03-31,F-series codes effective 2007/2008
+y9c,HC-Q,M.2.a,All other liabilities: Loan commitments (not accounted for as derivatives),mdrm_level_1,BHCKF697,,2007-03-31,F-series codes effective 2007/2008
+y9c,HC-Q,M.2.b,All other liabilities: Nontrading derivative liabilities,mdrm_total_fv,BHCKG566,,2009-06-30,
+y9c,HC-Q,M.2.b,All other liabilities: Nontrading derivative liabilities,mdrm_netting,BHCKG567,,2009-06-30,
+y9c,HC-Q,M.2.b,All other liabilities: Nontrading derivative liabilities,mdrm_level_1,BHCKG568,,2009-06-30,
+y9c,HC-Q,M.2.b,All other liabilities: Nontrading derivative liabilities,mdrm_level_2,BHCKG569,,2009-06-30,
+y9c,HC-Q,M.2.b,All other liabilities: Nontrading derivative liabilities,mdrm_level_3,BHCKG570,,2009-06-30,
+y9c,HC-Q,M.2.c,All other liabilities: Itemized component c,mdrm_total_fv,BHCKG571,,2009-06-30,Itemize with text code BHTXG571
+y9c,HC-Q,M.2.c,All other liabilities: Itemized component c,mdrm_netting,BHCKG572,,2009-06-30,Itemize with text code BHTXG571
+y9c,HC-Q,M.2.c,All other liabilities: Itemized component c,mdrm_level_1,BHCKG573,,2009-06-30,Itemize with text code BHTXG571
+y9c,HC-Q,M.2.c,All other liabilities: Itemized component c,mdrm_level_2,BHCKG574,,2009-06-30,Itemize with text code BHTXG571
+y9c,HC-Q,M.2.c,All other liabilities: Itemized component c,mdrm_level_3,BHCKG575,,2009-06-30,Itemize with text code BHTXG571
+y9c,HC-Q,M.2.d,All other liabilities: Itemized component d,mdrm_total_fv,BHCKG576,,2009-06-30,Itemize with text code BHTXG576
+y9c,HC-Q,M.2.d,All other liabilities: Itemized component d,mdrm_netting,BHCKG577,,2009-06-30,Itemize with text code BHTXG576
+y9c,HC-Q,M.2.d,All other liabilities: Itemized component d,mdrm_level_1,BHCKG578,,2009-06-30,Itemize with text code BHTXG576
+y9c,HC-Q,M.2.d,All other liabilities: Itemized component d,mdrm_level_2,BHCKG579,,2009-06-30,Itemize with text code BHTXG576
+y9c,HC-Q,M.2.d,All other liabilities: Itemized component d,mdrm_level_3,BHCKG580,,2009-06-30,Itemize with text code BHTXG576
+y9c,HC-Q,M.2.e,All other liabilities: Itemized component e,mdrm_total_fv,BHCKG581,,2009-06-30,Itemize with text code BHTXG581
+y9c,HC-Q,M.2.e,All other liabilities: Itemized component e,mdrm_netting,BHCKG582,,2009-06-30,Itemize with text code BHTXG581
+y9c,HC-Q,M.2.e,All other liabilities: Itemized component e,mdrm_level_1,BHCKG583,,2009-06-30,Itemize with text code BHTXG581
+y9c,HC-Q,M.2.e,All other liabilities: Itemized component e,mdrm_level_2,BHCKG584,,2009-06-30,Itemize with text code BHTXG581
+y9c,HC-Q,M.2.e,All other liabilities: Itemized component e,mdrm_level_3,BHCKG585,,2009-06-30,Itemize with text code BHTXG581
+y9c,HC-Q,M.2.f,All other liabilities: Itemized component f,mdrm_total_fv,BHCKG586,,2009-06-30,Itemize with text code BHTXG586
+y9c,HC-Q,M.2.f,All other liabilities: Itemized component f,mdrm_netting,BHCKG587,,2009-06-30,Itemize with text code BHTXG586
+y9c,HC-Q,M.2.f,All other liabilities: Itemized component f,mdrm_level_1,BHCKG588,,2009-06-30,Itemize with text code BHTXG586
+y9c,HC-Q,M.2.f,All other liabilities: Itemized component f,mdrm_level_2,BHCKG589,,2009-06-30,Itemize with text code BHTXG586
+y9c,HC-Q,M.2.f,All other liabilities: Itemized component f,mdrm_level_3,BHCKG590,,2009-06-30,Itemize with text code BHTXG586
+y9c,HC-Q,M.3.a.1,Loans at fair value: Secured by 1-4 family residential properties,mdrm_total_fv,BHCKHT87,,2018-06-30,Effective 2018-03-31
+y9c,HC-Q,M.3.a.2,Loans at fair value: All other loans secured by real estate,mdrm_total_fv,BHCKHT88,,2018-06-30,Effective 2018-03-31
+y9c,HC-Q,M.3.b,Loans at fair value: Commercial and industrial loans,mdrm_total_fv,BHCKF585,,2008-03-31,
+y9c,HC-Q,M.3.c,Loans at fair value: Consumer loans,mdrm_total_fv,BHCKHT89,,2018-06-30,Includes purchased paper; effective 2018-03-31
+y9c,HC-Q,M.3.d,Loans at fair value: Other loans,mdrm_total_fv,BHCKF589,,2008-03-31,
+y9c,HC-Q,M.4.a.1,Unpaid principal balance of loans at fair value: Secured by 1-4 family residential properties,mdrm_total_fv,BHCKHT91,,2018-06-30,Effective 2018-03-31
+y9c,HC-Q,M.4.a.2,Unpaid principal balance of loans at fair value: All other loans secured by real estate,mdrm_total_fv,BHCKHT92,,2018-06-30,Effective 2018-03-31
+y9c,HC-Q,M.4.b,Unpaid principal balance of loans at fair value: Commercial and industrial loans,mdrm_total_fv,BHCKF597,,2008-03-31,
+y9c,HC-Q,M.4.c,Unpaid principal balance of loans at fair value: Consumer loans,mdrm_total_fv,BHCKHT93,,2018-06-30,Effective 2018-03-31
+y9c,HC-Q,M.4.d,Unpaid principal balance of loans at fair value: Other loans,mdrm_total_fv,BHCKF601,,2008-03-31,

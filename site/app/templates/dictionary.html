@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block title %}Variable dictionary — FreeNIC{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>Variable dictionary</h1>
+  <p class="ark-badge-row">
+    <span class="ark-badge real-data">Real taxonomy</span>
+    {% if meta.dictionary_version %}<span class="ark-badge reproducible">bank-data-dictionary {{ meta.dictionary_version }}</span>{% endif %}
+  </p>
+  <p class="lead">A taxonomized guide to the harmonized US bank-regulatory variable universe: the
+     FFIEC/Fed <b>MDRM</b> report line-items (FR&nbsp;Y-9C and Call Report schedules), the derived
+     <b>UBPR</b> ratios, the <b>FDIC</b> financials layer, and the long-run <b>historical</b> panel.
+     Browse by source family below, or jump straight to a code.</p>
+  <p class="note">Version-pinned
+     {% if meta.dictionary_version %}<b>{{ meta.dictionary_version }}</b>{% endif %} import of the public
+     <a href="{{ meta.dictionary_repo | default('https://github.com/andenick/bank-data-dictionary', true) }}">bank-data-dictionary</a>;
+     each reconciliation identity carries an empirical verdict tested against billions of real filings.
+     The full taxonomy guides live at the canonical reference site, <a href="{{ ref_base }}">{{ ref_base }}</a>.</p>
+</section>
+
+<!-- Headline numbers (preserved + extended) ------------------------------ -->
+<section class="stats">
+  <div class="stat"><span class="num">{{ n_schedules }}</span><span class="lbl">schedules</span></div>
+  <div class="stat"><span class="num">{{ "{:,}".format(n_codes) }}</span><span class="lbl">variable codes</span></div>
+  <div class="stat"><span class="num">{{ "{:,}".format(n_rels) }}</span><span class="lbl">edit relationships</span></div>
+  <div class="stat"><span class="num">{{ families | length }}</span><span class="lbl">source families</span></div>
+</section>
+
+<!-- Server-side search (GET, no JS required) ----------------------------- -->
+<section class="prose">
+  <form method="get" action="/dictionary" class="controls" role="search">
+    <label>Search codes / captions / schedules
+      <input type="search" name="q" value="{{ q }}" placeholder="e.g. 2170, total assets, RC-K, UBPR"
+             style="min-width:22rem;padding:8px 12px;border:1px solid var(--line);border-radius:10px;
+                    font-size:.95rem;">
+    </label>
+    <button type="submit" class="ark-btn ark-btn-sm">Search</button>
+    {% if q %}<a class="ark-btn ark-btn-sm ark-btn-outline" href="/dictionary">Clear</a>{% endif %}
+  </form>
+  {% if q %}
+  <p class="note">{{ "{:,}".format(total) }} match(es) for <code>{{ q }}</code>.
+    Showing page {{ page }} of {{ n_pages }} (up to {{ page_size }} per page).</p>
+  {% endif %}
+</section>
+
+<!-- Search results (only when a query is present) ------------------------ -->
+{% if q %}
+<section class="prose">
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead>
+        <tr><th>Code</th><th>Family</th><th>Schedule</th><th>Line</th><th>Caption</th>
+            <th>Validated rels</th></tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td><a href="/dictionary/variable/{{ r.code }}"><code>{{ r.code }}</code></a></td>
+          <td class="mono">{{ (r.family or "—") | upper }}</td>
+          <td class="mono">{{ r.schedule or "—" }}</td>
+          <td class="mono">{{ r.line or "—" }}</td>
+          <td style="white-space:normal;max-width:40ch;">{{ r.caption or "—" }}</td>
+          <td class="num">{{ r.n_validated }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6" class="note">No codes match that search.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% if n_pages > 1 %}
+<section class="prose">
+  <div class="controls">
+    {% if page > 1 %}<a class="ark-btn ark-btn-sm ark-btn-outline" href="/dictionary?q={{ q | urlencode }}&amp;page={{ page - 1 }}">&larr; Prev</a>{% endif %}
+    <span class="note">Page {{ page }} / {{ n_pages }}</span>
+    {% if page < n_pages %}<a class="ark-btn ark-btn-sm ark-btn-outline" href="/dictionary?q={{ q | urlencode }}&amp;page={{ page + 1 }}">Next &rarr;</a>{% endif %}
+  </div>
+</section>
+{% endif %}
+{% endif %}
+
+<!-- Taxonomy tree: source families -> schedules -------------------------- -->
+{% for fam in families %}
+<section class="prose">
+  <h2 id="{{ fam.key }}">{{ fam.label }}</h2>
+  {% if fam.category and fam.category.text %}
+  <p>{{ fam.category.text }}</p>
+  {% elif fam.layer and fam.layer.what_it_measures %}
+  <p>{{ fam.layer.what_it_measures }}</p>
+  {% endif %}
+
+  {% if fam.kind == 'schedules' %}
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead>
+        <tr><th>Schedule</th><th>What it covers</th><th>Line items</th><th>Codes</th></tr>
+      </thead>
+      <tbody>
+        {% for s in fam.schedules %}
+        <tr>
+          <td style="white-space:nowrap;"><a href="/dictionary/schedule/{{ s.code }}"><b>{{ s.schedule }}</b></a></td>
+          <td style="white-space:normal;max-width:46ch;">{{ s.title or "—" }}</td>
+          <td class="num">{{ "{:,}".format(s.n_items) }}</td>
+          <td class="num">{{ "{:,}".format(s.n_codes) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <!-- derivation / historical layer: one well-made card, no forced grid -->
+  <div class="callout">
+    <h3>{{ fam.layer.title or fam.label }}</h3>
+    {% if fam.layer.why_it_exists %}<p>{{ fam.layer.why_it_exists }}</p>{% endif %}
+    {% if fam.layer.what_you_can_answer %}<p>{{ fam.layer.what_you_can_answer }}</p>{% endif %}
+    {% if fam.layer_key == 'luck_historical' %}
+    <p class="src"><b>Citation required.</b> Any use of the historical layer must cite
+       Correia, Luck &amp; Verner (2025), "Failing Banks," <i>Quarterly Journal of Economics</i>,
+       DOI&nbsp;10.1093/qje/qjaf044.</p>
+    {% endif %}
+    {% if fam.layer.key_items %}
+    <p class="note">Representative items:
+      {% for it in fam.layer.key_items %}<a href="/dictionary/variable/{{ it.item }}"><code>{{ it.item }}</code></a>{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+{% endfor %}
+
+<section class="prose">
+  <h2>Download the dictionary</h2>
+  <p>The harmonized MDRM/UBPR schedule line-items — the core of this dictionary —
+     as a real, verbatim serialization of the <code>dict_schedule_lineitems</code> slice
+     table (CSV or Parquet, never JSON).</p>
+  <div class="dl-row" id="dict_dl"></div>
+  <p class="src">The dictionary sample also ships the real
+     <code>dict_ubpr_concepts</code>, <code>dict_variable_access_map</code>,
+     <code>dict_meta</code> and a compact <code>dict_relationships_summary</code> —
+     all downloadable per-table from <a href="/data">Data</a> (and as parquet from
+     <a href="https://data.freenic.org/">data.freenic.org</a>). The official forms,
+     instructions, and identifier systems behind the taxonomy are catalogued on
+     <a href="/sources">Sources</a>.</p>
+</section>
+
+<script>
+// Real data-dictionary download (DNA DOWNLOAD_AND_FORMATS_STANDARD: CSV/Parquet
+// only, no JSON). Both endpoints are faithful serializations of the same real
+// dict_schedule_lineitems slice table (app/downloads.py serializers).
+if (window.ArkDownloads) {
+  document.getElementById('dict_dl').appendChild(
+    ArkDownloads.buttons({
+      csv: '/api/download/dict_schedule_lineitems.csv',
+      parquet: '/api/download/dict_schedule_lineitems.parquet'
+    }, { label: 'Download dictionary:' })
+  );
+}
+</script>
+
+{% endblock %}

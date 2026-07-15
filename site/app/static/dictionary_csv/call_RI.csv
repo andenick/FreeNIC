@@ -1,0 +1,199 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+call,RI,3,Net interest income (item 1.h minus 2.e),mdrm_031,RIAD4074,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,3,Net interest income (item 1.h minus 2.e),mdrm_041,RIAD4074,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,3,Net interest income (item 1.h minus 2.e),mdrm_051,RIAD4074,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,4,Provisions for credit losses,mdrm_031,RIADJJ33,031/041/051,2019-03-31,Income-statement item (RIAD).
+call,RI,4,Provisions for credit losses,mdrm_041,RIADJJ33,031/041/051,2019-03-31,Income-statement item (RIAD).
+call,RI,4,Provisions for credit losses,mdrm_051,RIADJJ33,031/041/051,2019-03-31,Income-statement item (RIAD).
+call,RI,9,Applicable income taxes (on item 8.c),mdrm_051,RIAD4300,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4300.
+call,RI,9,Applicable income taxes (on item 8.c),mdrm_041,RIAD4302,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4300.
+call,RI,9,Applicable income taxes (on item 8.c),mdrm_031,RIAD4302,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4300.
+call,RI,10,Income (loss) before discontinued operations (item 8.c minus item 9),mdrm_031,RIAD4300,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADFT28.
+call,RI,10,Income (loss) before discontinued operations (item 8.c minus item 9),mdrm_041,RIAD4300,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADFT28.
+call,RI,10,Income (loss) before discontinued operations (item 8.c minus item 9),mdrm_051,RIADFT28,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADFT28.
+call,RI,11,"Discontinued operations, net of applicable income taxes",mdrm_041,RIADFT28,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADG104.
+call,RI,11,"Discontinued operations, net of applicable income taxes",mdrm_031,RIADFT28,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADG104.
+call,RI,11,"Discontinued operations, net of applicable income taxes",mdrm_051,RIADG104,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADG104.
+call,RI,12,Net income (loss) attributable to bank and noncontrolling (minority) interests (sum of items 10 and 11),mdrm_051,RIAD4340,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4340.
+call,RI,12,Net income (loss) attributable to bank and noncontrolling (minority) interests (sum of items 10 and 11),mdrm_041,RIADG104,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4340.
+call,RI,12,Net income (loss) attributable to bank and noncontrolling (minority) interests (sum of items 10 and 11),mdrm_031,RIADG104,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4340.
+call,RI,13,LESS: Net income (loss) attributable to noncontrolling (minority) interests,mdrm_031,RIADG103,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,13,LESS: Net income (loss) attributable to noncontrolling (minority) interests,mdrm_041,RIADG103,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,14,Net income (loss) attributable to bank (item 12 minus item 13),mdrm_031,RIAD4340,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,14,Net income (loss) attributable to bank (item 12 minus item 13),mdrm_041,RIAD4340,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,051-2.f,Other interest expense,mdrm_051,RIADGW44,051,2017-03-31,Form 051 only (small-bank schedule); income-statement item (RIAD).
+call,RI,051-5.d,"Investment banking, advisory, brokerage, and underwriting fees and commissions",mdrm_051,RIADHT74,051,2018-06-30,Form 051 only (small-bank schedule); income-statement item (RIAD).
+call,RI,1.a.(1)(a),Loans secured by 1-4 family residential properties,mdrm_041,RIAD4435,041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(a)(1),Loans secured by 1-4 family residential properties,mdrm_031,RIAD4435,031,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(a)(2),All other loans secured by real estate,mdrm_031,RIAD4436,031,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(b),Loans to finance agricultural production and other loans to farmers,mdrm_031,RIAD4024,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(b),Loans to finance agricultural production and other loans to farmers,mdrm_041,RIAD4436,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(c),Commercial and industrial loans,mdrm_031,RIAD4012,031/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(c),Commercial and industrial loans,mdrm_051,RIAD4012,031/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(d)(1),Credit cards,mdrm_031,RIADB485,031,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(d)(2),"Other (includes revolving credit plans other than credit cards, automobile loans, and other consumer loans)",mdrm_031,RIADB486,031,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(e),Loans to foreign governments and official institutions,mdrm_031,RIAD4056,031,2001-03-31,Income-statement item (RIAD).
+call,RI,1.a.(1)(f),All other loans in domestic offices,mdrm_031,RIADB487,031,2001-03-31,Income-statement item (RIAD).
+call,RI,1.a.(2),"In foreign offices, Edge and Agreement subsidiaries, and IBFs",mdrm_041,RIAD4012,031/041,1984-03-31,Income-statement item (RIAD).
+call,RI,1.a.(2),"In foreign offices, Edge and Agreement subsidiaries, and IBFs",mdrm_031,RIAD4059,031/041,1984-03-31,Income-statement item (RIAD).
+call,RI,1.a.(3),Total interest and fee income on loans (sum of items 1.a.(1)(a) through 1.a.(2)),mdrm_031,RIAD4010,031,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(3)(a),Credit cards,mdrm_041,RIADB485,041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(3)(b),"Other (includes revolving credit plans other than credit cards, automobile loans, and other consumer loans)",mdrm_041,RIADB486,041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(5),All other loans,mdrm_041,RIAD4058,041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(5),All other loans,mdrm_051,RIAD4058,041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.a.(6),Total interest and fee income on loans (sum of items 1.a.(1)(a) through 1.a.(5)),mdrm_041,RIAD4010,041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.b,Income from lease financing receivables,mdrm_031,RIAD4065,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.b,Income from lease financing receivables,mdrm_041,RIAD4065,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.b,Income from lease financing receivables,mdrm_051,RIAD4065,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.c,Interest income on balances due from depository institutions,mdrm_031,RIAD4115,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.c,Interest income on balances due from depository institutions,mdrm_041,RIAD4115,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.d.(1),U.S. Treasury securities and U.S. Government agency obligations (excluding mortgage-backed securities),mdrm_031,RIADB488,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.d.(1),U.S. Treasury securities and U.S. Government agency obligations (excluding mortgage-backed securities),mdrm_041,RIADB488,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.d.(2),Mortgage-backed securities,mdrm_031,RIADB489,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.d.(2),Mortgage-backed securities,mdrm_041,RIADB489,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.d.(2),Mortgage-backed securities,mdrm_051,RIADB489,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.d.(3),All other securities (includes securities issued by states and political subdivisions in the U.S.),mdrm_031,RIAD4060,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.d.(3),All other securities (includes securities issued by states and political subdivisions in the U.S.),mdrm_041,RIAD4060,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.d.(3),All other securities (includes securities issued by states and political subdivisions in the U.S.),mdrm_051,RIAD4060,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.e,Interest income from trading assets,mdrm_031,RIAD4069,031,2001-03-31,Income-statement item (RIAD).
+call,RI,1.f,Interest income on federal funds sold and securities purchased under agreements to resell,mdrm_031,RIAD4020,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.f,Interest income on federal funds sold and securities purchased under agreements to resell,mdrm_041,RIAD4020,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.f,Interest income on federal funds sold and securities purchased under agreements to resell,mdrm_051,RIAD4020,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.g,Other interest income,mdrm_031,RIAD4518,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.g,Other interest income,mdrm_041,RIAD4518,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.g,Other interest income,mdrm_051,RIAD4518,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,1.h,Total interest income (sum of items 1.a.(3) through 1.g),mdrm_031,RIAD4107,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,1.h,Total interest income (sum of items 1.a.(3) through 1.g),mdrm_041,RIAD4107,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,2.a.(1),"Transaction accounts (interest-bearing demand deposits, NOW accounts, ATS accounts, and telephone and preauthorized transfer accounts)",mdrm_041,RIAD4508,041,2017-03-31,Income-statement item (RIAD).
+call,RI,2.a.(1)(a),"Transaction accounts (interest-bearing demand deposits, NOW accounts, ATS accounts, and telephone and preauthorized transfer accounts)",mdrm_031,RIAD4508,031,2017-03-31,Income-statement item (RIAD).
+call,RI,2.a.(1)(b)(1),Savings deposits (includes MMDAs),mdrm_031,RIAD0093,031,2017-03-31,Income-statement item (RIAD).
+call,RI,2.a.(1)(b)(2),"Time deposits of $250,000 or less",mdrm_031,RIADHK03,031,2017-03-31,Income-statement item (RIAD).
+call,RI,2.a.(1)(b)(3),"Time deposits of more than $250,000",mdrm_031,RIADHK04,031,2017-03-31,Income-statement item (RIAD).
+call,RI,2.a.(2),"Interest on deposits in foreign offices, Edge and Agreement subsidiaries, and IBFs",mdrm_031,RIAD4172,031,1984-03-31,Income-statement item (RIAD).
+call,RI,2.a.(2)(a),Savings deposits (includes MMDAs),mdrm_041,RIAD0093,041,2017-03-31,Income-statement item (RIAD).
+call,RI,2.a.(2)(b),"Time deposits of $250,000 or less",mdrm_041,RIADHK03,041,2017-03-31,Income-statement item (RIAD).
+call,RI,2.a.(2)(c),"Time deposits of more than $250,000",mdrm_041,RIADHK04,041,2017-03-31,Income-statement item (RIAD).
+call,RI,2.b,Expense of federal funds purchased and securities sold under agreements to repurchase,mdrm_031,RIAD4180,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,2.b,Expense of federal funds purchased and securities sold under agreements to repurchase,mdrm_041,RIAD4180,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,2.c,Interest on trading liabilities and other borrowed money,mdrm_031,RIAD4185,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,2.c,Interest on trading liabilities and other borrowed money,mdrm_041,RIAD4185,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,2.d,Interest on subordinated notes and debentures,mdrm_031,RIAD4200,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,2.d,Interest on subordinated notes and debentures,mdrm_041,RIAD4200,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,2.e,Total interest expense (sum of items 2.a through 2.d),mdrm_031,RIAD4073,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,2.e,Total interest expense (sum of items 2.a through 2.d),mdrm_041,RIAD4073,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,2.e,Total interest expense (sum of items 2.a through 2.d),mdrm_051,RIAD4073,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,5.a,Income from fiduciary activities,mdrm_031,RIAD4070,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,5.a,Income from fiduciary activities,mdrm_041,RIAD4070,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,5.a,Income from fiduciary activities,mdrm_051,RIAD4070,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,5.b,Service charges on deposit accounts,mdrm_031,RIAD4080,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.b,Service charges on deposit accounts,mdrm_041,RIAD4080,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.c,Trading revenue,mdrm_031,RIADA220,031/041/051,2001-03-31,Income-statement item (RIAD). Form 051 reports as RIADHT73.
+call,RI,5.c,Trading revenue,mdrm_041,RIADA220,031/041/051,2001-03-31,Income-statement item (RIAD). Form 051 reports as RIADHT73.
+call,RI,5.c,Trading revenue,mdrm_051,RIADHT73,031/041/051,2001-03-31,Income-statement item (RIAD). Form 051 reports as RIADHT73.
+call,RI,5.d.(1),Fees and commissions from securities brokerage,mdrm_031,RIADC886,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(1),Fees and commissions from securities brokerage,mdrm_041,RIADC886,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(2),"Investment banking, advisory, and underwriting fees and commissions",mdrm_031,RIADC888,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(2),"Investment banking, advisory, and underwriting fees and commissions",mdrm_041,RIADC888,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(3),Fees and commissions from annuity sales,mdrm_031,RIADC887,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(3),Fees and commissions from annuity sales,mdrm_041,RIADC887,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(4),Underwriting income from insurance and reinsurance activities,mdrm_031,RIADC386,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(4),Underwriting income from insurance and reinsurance activities,mdrm_041,RIADC386,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(5),Income from other insurance activities,mdrm_031,RIADC387,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.d.(5),Income from other insurance activities,mdrm_041,RIADC387,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.e,Venture capital revenue,mdrm_031,RIADB491,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,5.e,Venture capital revenue,mdrm_041,RIADB491,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,5.f,Net servicing fees,mdrm_031,RIADB492,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,5.f,Net servicing fees,mdrm_041,RIADB492,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,5.f,Net servicing fees,mdrm_051,RIADB492,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,5.g,Net securitization income,mdrm_051,RIAD5416,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD5416.
+call,RI,5.g,Net securitization income,mdrm_031,RIADB493,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD5416.
+call,RI,5.g,Net securitization income,mdrm_041,RIADB493,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD5416.
+call,RI,5.i,Net gains (losses) on sales of loans and leases,mdrm_031,RIAD5416,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADB496.
+call,RI,5.i,Net gains (losses) on sales of loans and leases,mdrm_041,RIAD5416,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADB496.
+call,RI,5.i,Net gains (losses) on sales of loans and leases,mdrm_051,RIADB496,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADB496.
+call,RI,5.j,Net gains (losses) on sales of other real estate owned,mdrm_041,RIAD5415,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADB497.
+call,RI,5.j,Net gains (losses) on sales of other real estate owned,mdrm_031,RIAD5415,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADB497.
+call,RI,5.j,Net gains (losses) on sales of other real estate owned,mdrm_051,RIADB497,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADB497.
+call,RI,5.k,Net gains (losses) on sales of other assets,mdrm_041,RIADB496,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.k,Net gains (losses) on sales of other assets,mdrm_031,RIADB496,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.l,Other noninterest income,mdrm_051,RIAD4079,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4079.
+call,RI,5.l,Other noninterest income,mdrm_041,RIADB497,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4079.
+call,RI,5.l,Other noninterest income,mdrm_031,RIADB497,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4079.
+call,RI,5.m,Total noninterest income (sum of items 5.a through 5.l),mdrm_031,RIAD4079,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,5.m,Total noninterest income (sum of items 5.a through 5.l),mdrm_041,RIAD4079,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,6.a,Realized gains (losses) on held-to-maturity securities,mdrm_031,RIAD3521,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,6.a,Realized gains (losses) on held-to-maturity securities,mdrm_041,RIAD3521,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,6.b,Realized gains (losses) on available-for-sale debt securities,mdrm_031,RIAD3196,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,6.b,Realized gains (losses) on available-for-sale debt securities,mdrm_041,RIAD3196,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,7.a,Salaries and employee benefits,mdrm_031,RIAD4135,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,7.a,Salaries and employee benefits,mdrm_051,RIAD4135,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,7.a,Salaries and employee benefits,mdrm_041,RIAD4135,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,7.b,Expenses of premises and fixed assets (net of rental income) (excluding salaries and employee benefits and mortgage interest),mdrm_041,RIAD4217,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,7.b,Expenses of premises and fixed assets (net of rental income) (excluding salaries and employee benefits and mortgage interest),mdrm_031,RIAD4217,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,7.b,Expenses of premises and fixed assets (net of rental income) (excluding salaries and employee benefits and mortgage interest),mdrm_051,RIAD4217,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,7.c.(1),Goodwill impairment losses,mdrm_031,RIADC216,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADC232.
+call,RI,7.c.(1),Goodwill impairment losses,mdrm_041,RIADC216,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADC232.
+call,RI,7.c.(1),Goodwill impairment losses,mdrm_051,RIADC232,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADC232.
+call,RI,7.c.(2),Amortization expense and impairment losses for other intangible assets,mdrm_051,RIAD4092,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4092.
+call,RI,7.c.(2),Amortization expense and impairment losses for other intangible assets,mdrm_031,RIADC232,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4092.
+call,RI,7.c.(2),Amortization expense and impairment losses for other intangible assets,mdrm_041,RIADC232,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4092.
+call,RI,7.d,Other noninterest expense,mdrm_041,RIAD4092,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4093.
+call,RI,7.d,Other noninterest expense,mdrm_031,RIAD4092,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4093.
+call,RI,7.d,Other noninterest expense,mdrm_051,RIAD4093,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIAD4093.
+call,RI,7.e,Total noninterest expense (sum of items 7.a through 7.d),mdrm_031,RIAD4093,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADHT69.
+call,RI,7.e,Total noninterest expense (sum of items 7.a through 7.d),mdrm_041,RIAD4093,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADHT69.
+call,RI,7.e,Total noninterest expense (sum of items 7.a through 7.d),mdrm_051,RIADHT69,031/041/051,2017-03-31,Income-statement item (RIAD). Form 051 reports as RIADHT69.
+call,RI,8.a,"Income (loss) before change in net unrealized holding gains (losses) on equity securities not held for trading, applicable income taxes, and discontinued operations (item 3 plus or minus items 4, 5.m, 6.a, 6.b, and 7.e)",mdrm_041,RIADHT69,031/041,2018-03-31,Income-statement item (RIAD).
+call,RI,8.a,"Income (loss) before change in net unrealized holding gains (losses) on equity securities not held for trading, applicable income taxes, and discontinued operations (item 3 plus or minus items 4, 5.m, 6.a, 6.b, and 7.e)",mdrm_031,RIADHT69,031/041,2018-03-31,Income-statement item (RIAD).
+call,RI,8.b,Change in net unrealized holding gains (losses) on equity securities not held for trading,mdrm_031,RIAD4301,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,8.b,Change in net unrealized holding gains (losses) on equity securities not held for trading,mdrm_041,RIAD4301,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,8.c,Income (loss) before applicable income taxes and discontinued operations (sum of items 8.a and 8.b),mdrm_031,RIADHT70,031/041,2018-03-31,Income-statement item (RIAD).
+call,RI,8.c,Income (loss) before applicable income taxes and discontinued operations (sum of items 8.a and 8.b),mdrm_041,RIADHT70,031/041,2018-03-31,Income-statement item (RIAD).
+call,RI,M.1,"Interest expense incurred to carry tax-exempt securities, loans, and leases acquired after August 7, 1986, that is not deductible for federal income tax purposes",mdrm_041,RIAD4513,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.1,"Interest expense incurred to carry tax-exempt securities, loans, and leases acquired after August 7, 1986, that is not deductible for federal income tax purposes",mdrm_031,RIAD4513,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.10,Credit losses on derivatives (see instructions),mdrm_041,RIADA251,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,M.10,Credit losses on derivatives (see instructions),mdrm_031,RIADA251,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,M.11,Does the reporting bank have a Subchapter S election in effect for federal income tax purposes for the current tax year?,mdrm_031,RIADA530,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.11,Does the reporting bank have a Subchapter S election in effect for federal income tax purposes for the current tax year?,mdrm_041,RIADA530,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.13.a,Net gains (losses) on assets,mdrm_031,RIADF551,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.13.a,Net gains (losses) on assets,mdrm_041,RIADF551,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.13.a.(1),Estimated net gains (losses) on loans attributable to changes in instrument-specific credit risk,mdrm_041,RIADF552,031/041,2008-03-31,Income-statement item (RIAD).
+call,RI,M.13.a.(1),Estimated net gains (losses) on loans attributable to changes in instrument-specific credit risk,mdrm_031,RIADF552,031/041,2008-03-31,Income-statement item (RIAD).
+call,RI,M.13.b,Net gains (losses) on liabilities,mdrm_031,RIADF553,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.13.b,Net gains (losses) on liabilities,mdrm_041,RIADF553,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.13.b.(1),Estimated net gains (losses) on liabilities attributable to changes in instrument-specific credit risk,mdrm_031,RIADF554,031/041,2008-03-31,Income-statement item (RIAD).
+call,RI,M.13.b.(1),Estimated net gains (losses) on liabilities attributable to changes in instrument-specific credit risk,mdrm_041,RIADF554,031/041,2008-03-31,Income-statement item (RIAD).
+call,RI,M.15.a,"Consumer overdraft-related service charges levied on those transaction account and nontransaction savings account deposit products intended primarily for individuals for personal, household, or family use",mdrm_041,RIADH032,031/041,2019-09-30,Income-statement item (RIAD).
+call,RI,M.15.a,"Consumer overdraft-related service charges levied on those transaction account and nontransaction savings account deposit products intended primarily for individuals for personal, household, or family use",mdrm_031,RIADH032,031/041,2019-09-30,Income-statement item (RIAD).
+call,RI,M.15.b,"Consumer account periodic maintenance charges levied on those transaction account and nontransaction savings account deposit products intended primarily for individuals for personal, household, or family use",mdrm_031,RIADH033,031/041,2019-09-30,Income-statement item (RIAD).
+call,RI,M.15.b,"Consumer account periodic maintenance charges levied on those transaction account and nontransaction savings account deposit products intended primarily for individuals for personal, household, or family use",mdrm_041,RIADH033,031/041,2019-09-30,Income-statement item (RIAD).
+call,RI,M.15.c,"Consumer customer automated teller machine (ATM) fees levied on those transaction account and nontransaction savings account deposit products intended primarily for individuals for personal, household, or family use",mdrm_041,RIADH034,031/041,2019-09-30,Income-statement item (RIAD).
+call,RI,M.15.c,"Consumer customer automated teller machine (ATM) fees levied on those transaction account and nontransaction savings account deposit products intended primarily for individuals for personal, household, or family use",mdrm_031,RIADH034,031/041,2019-09-30,Income-statement item (RIAD).
+call,RI,M.15.d,All other service charges on deposit accounts,mdrm_031,RIADH035,031/041,2019-09-30,Income-statement item (RIAD).
+call,RI,M.15.d,All other service charges on deposit accounts,mdrm_041,RIADH035,031/041,2019-09-30,Income-statement item (RIAD).
+call,RI,M.2,"Income from the sale and servicing of mutual funds and annuities in domestic offices (included in Schedule RI, item 8)",mdrm_041,RIAD8431,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,M.2,"Income from the sale and servicing of mutual funds and annuities in domestic offices (included in Schedule RI, item 8)",mdrm_031,RIAD8431,031/041,2001-03-31,Income-statement item (RIAD).
+call,RI,M.3,"Income on tax-exempt loans and leases to states and political subdivisions in the U.S. (included in Schedule RI, items 1.a and 1.b)",mdrm_031,RIAD4313,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.3,"Income on tax-exempt loans and leases to states and political subdivisions in the U.S. (included in Schedule RI, items 1.a and 1.b)",mdrm_041,RIAD4313,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.4,"Income on tax-exempt securities issued by states and political subdivisions in the U.S. (included in Schedule RI, item 1.d.(3))",mdrm_041,RIAD4507,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.4,"Income on tax-exempt securities issued by states and political subdivisions in the U.S. (included in Schedule RI, item 1.d.(3))",mdrm_031,RIAD4507,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.5,Number of full-time equivalent employees at end of current period (round to nearest whole number),mdrm_041,RIAD4150,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,M.5,Number of full-time equivalent employees at end of current period (round to nearest whole number),mdrm_051,RIAD4150,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,M.5,Number of full-time equivalent employees at end of current period (round to nearest whole number),mdrm_031,RIAD4150,031/041/051,2017-03-31,Income-statement item (RIAD).
+call,RI,M.6,Not applicable,mdrm_041,RIAD4024,041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.7,"If the reporting institution has applied push down accounting this calendar year, report the date of the institution's acquisition",mdrm_041,RIAD9106,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.7,"If the reporting institution has applied push down accounting this calendar year, report the date of the institution's acquisition",mdrm_031,RIAD9106,031/041,2017-03-31,Income-statement item (RIAD).
+call,RI,M.8.a,Trading revenue: Interest rate exposures,mdrm_031,RIAD8757,031,2001-03-31,Income-statement item (RIAD).
+call,RI,M.8.b,Trading revenue: Foreign exchange exposures,mdrm_031,RIAD8758,031,2001-03-31,Income-statement item (RIAD).
+call,RI,M.8.c,Trading revenue: Equity security and index exposures,mdrm_031,RIAD8759,031,2001-03-31,Income-statement item (RIAD).
+call,RI,M.8.d,Trading revenue: Commodity and other exposures,mdrm_031,RIAD8760,031,2001-03-31,Income-statement item (RIAD).
+call,RI,M.8.e,Trading revenue: Credit exposures,mdrm_031,RIADF186,031,2007-03-31,Income-statement item (RIAD).
+call,RI,M.8.f.(1),Gross credit valuation adjustment (CVA),mdrm_031,RIADFT36,031,2017-03-31,Income-statement item (RIAD).
+call,RI,M.8.f.(2),CVA hedge,mdrm_031,RIADFT37,031,2017-03-31,Income-statement item (RIAD).
+call,RI,M.8.g.(1),Gross debit valuation adjustment (DVA),mdrm_031,RIADFT38,031,2017-03-31,Income-statement item (RIAD).
+call,RI,M.8.g.(2),DVA hedge,mdrm_031,RIADFT39,031,2017-03-31,Income-statement item (RIAD).
+call,RI,M.8.h,"Gross trading revenue, before including positive or negative net CVA and net DVA",mdrm_031,RIADFT40,031,2017-03-31,Income-statement item (RIAD).
+call,RI,M.9.a,Net gains (losses) on credit derivatives held for trading,mdrm_031,RIADC889,031/041,2007-03-31,Income-statement item (RIAD).
+call,RI,M.9.a,Net gains (losses) on credit derivatives held for trading,mdrm_041,RIADC889,031/041,2007-03-31,Income-statement item (RIAD).
+call,RI,M.9.b,Net gains (losses) on credit derivatives held for purposes other than trading,mdrm_031,RIADC890,031/041,2007-03-31,Income-statement item (RIAD).
+call,RI,M.9.b,Net gains (losses) on credit derivatives held for purposes other than trading,mdrm_041,RIADC890,031/041,2007-03-31,Income-statement item (RIAD).

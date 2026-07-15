@@ -1,0 +1,6 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-H,1,Earning assets that are repriceable within one year or mature within one year,mdrm_code,BHCK3197,,1986-06-30,All repriceable/maturing-within-1yr earning assets
+y9c,HC-H,2,Interest-bearing deposit liabilities that reprice or mature within one year,mdrm_code,BHCK3296,,1986-06-30,Included in HC items 13.a.(2) and 13.b.(2)
+y9c,HC-H,3,Long-term debt that reprices within one year,mdrm_code,BHCK3298,,1986-06-30,Included in HC items 16 and 19.a
+y9c,HC-H,4,Variable-rate preferred stock,mdrm_code,BHCK3408,,1986-06-30,Includes both limited-life and perpetual preferred stock
+y9c,HC-H,5,Long-term debt scheduled to mature within one year,mdrm_code,BHCK3409,,1981-06-30,Reported in HC item 19.a

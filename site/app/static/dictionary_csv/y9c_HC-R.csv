@@ -1,0 +1,320 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-R,1.,Common stock plus related surplus (net of treasury stock and unearned ESOP),mdrm_code,BHCAP742,,2014-03-31,
+y9c,HC-R,1.,On-balance sheet: Cash and balances due from depository institutions,mdrm_code,BHCKD957,,2014-03-31,Grid line; other columns present: BCGHIJ
+y9c,HC-R,1.,Common stock plus related surplus (net of treasury stock and unearned ESOP),call_mdrm,RCFAP742,,2014-03-31,
+y9c,HC-R,1.,On-balance sheet: Cash and balances due from depository institutions,call_mdrm,RCFDD957,,2014-03-31,Grid line; other columns present: BCGHIJ
+y9c,HC-R,2.,Retained earnings,mdrm_code,BHCAKW00,,2014-03-31,
+y9c,HC-R,2.,Retained earnings,call_mdrm,RCFAKW00,,2014-03-31,
+y9c,HC-R,3.,Accumulated other comprehensive income (AOCI),mdrm_code,BHCAB530,,2014-03-31,
+y9c,HC-R,3.,Accumulated other comprehensive income (AOCI),call_mdrm,RCFAB530,,2014-03-31,
+y9c,HC-R,4.,CET1 minority interest includable in CET1,mdrm_code,BHCAP839,,2014-03-31,
+y9c,HC-R,4.,CET1 minority interest includable in CET1,call_mdrm,RCFAP839,,2014-03-31,
+y9c,HC-R,5.,CET1 capital before adjustments and deductions (sum of items 1-4),mdrm_code,BHCAP840,,2014-03-31,
+y9c,HC-R,5.,CET1 capital before adjustments and deductions (sum of items 1-4),call_mdrm,RCFAP840,,2014-03-31,
+y9c,HC-R,6.,LESS: Goodwill net of associated DTLs,mdrm_code,BHCAP841,,2014-03-31,
+y9c,HC-R,6.,LESS: Allowance for loan and lease losses,mdrm_code,BHCX3123,,2014-03-31,Grid line; other columns present: B
+y9c,HC-R,6.,LESS: Goodwill net of associated DTLs,call_mdrm,RCFAP841,,2014-03-31,
+y9c,HC-R,6.,LESS: Allowance for loan and lease losses,call_mdrm,RCFD3123,,2014-03-31,Grid line; other columns present: B
+y9c,HC-R,7.,"LESS: Intangible assets (other than goodwill and MSAs), net of DTLs",mdrm_code,BHCAP842,,2014-03-31,
+y9c,HC-R,7.,On-balance sheet: Trading assets,mdrm_code,BHCKD976,,2014-03-31,Grid line; other columns present: BCDEFGHIJKLMNO
+y9c,HC-R,7.,"LESS: Intangible assets (other than goodwill and MSAs), net of DTLs",call_mdrm,RCFAP842,,2014-03-31,
+y9c,HC-R,7.,On-balance sheet: Trading assets,call_mdrm,RCFDD976,,2014-03-31,Grid line; other columns present: BCDEFGHIJKLMNO
+y9c,HC-R,8.,"LESS: DTAs from net operating loss and tax credit carryforwards, net of DTLs",mdrm_code,BHCAP843,,2014-03-31,
+y9c,HC-R,8.,On-balance sheet: All other assets,mdrm_code,BHCKD981,,2014-03-31,Grid line; other columns present: BCDEFGHIJKLMNO
+y9c,HC-R,8.,"LESS: DTAs from net operating loss and tax credit carryforwards, net of DTLs",call_mdrm,RCFAP843,,2014-03-31,
+y9c,HC-R,8.,On-balance sheet: All other assets,call_mdrm,RCFDD981,,2014-03-31,Grid line; other columns present: BCDEFGHIJKLMNO
+y9c,HC-R,10.,Securitization (SSFA): Off-balance sheet exposures,mdrm_code,BHCKS495,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,10.,Securitization (SSFA): Off-balance sheet exposures,call_mdrm,RCFDS495,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,11.,Total balance sheet assets,mdrm_code,BHCT2170,,2014-03-31,Grid line; other columns present: BCDEGHIJKLMNQR
+y9c,HC-R,11.,LESS: Non-significant investments in unconsolidated FIs (common stock) > 10% threshold,mdrm_code,BHCWP851,,2014-03-31,
+y9c,HC-R,11.,Total balance sheet assets,call_mdrm,RCFD2170,,2014-03-31,Grid line; other columns present: BCDEGHIJKLMNQR
+y9c,HC-R,11.,LESS: Non-significant investments in unconsolidated FIs (common stock) > 10% threshold,call_mdrm,RCFWP851,,2014-03-31,
+y9c,HC-R,12.,Subtotal (item 5 minus items 6-10.b col A; minus 6-11 col B),mdrm_code,BHCAP852,,2014-03-31,
+y9c,HC-R,12.,Off-balance sheet: Financial standby letters of credit,mdrm_code,BHCKD991,,2014-03-31,Grid line; other columns present: BCDEGHIJ
+y9c,HC-R,12.,Subtotal (item 5 minus items 6-10.b col A; minus 6-11 col B),mdrm_code,BHCWP852,,2014-03-31,
+y9c,HC-R,12.,Subtotal (item 5 minus items 6-10.b col A; minus 6-11 col B),call_mdrm,RCFAP852,,2014-03-31,
+y9c,HC-R,12.,Off-balance sheet: Financial standby letters of credit,call_mdrm,RCFDD991,,2014-03-31,Grid line; other columns present: BCDEGHIJ
+y9c,HC-R,12.,Subtotal (item 5 minus items 6-10.b col A; minus 6-11 col B),call_mdrm,RCFWP852,,2014-03-31,
+y9c,HC-R,13.,Off-balance sheet: Performance SBLCs and transaction-related contingencies,mdrm_code,BHCKD997,,2014-03-31,Grid line; other columns present: BCGHIJ
+y9c,HC-R,13.,Off-balance sheet: Performance SBLCs and transaction-related contingencies,call_mdrm,RCFDD997,,2014-03-31,Grid line; other columns present: BCGHIJ
+y9c,HC-R,14.,Off-balance sheet: Commercial/similar LCs (original maturity <= 1 year),mdrm_code,BHCKG606,,2014-03-31,Grid line; other columns present: BCDEGHIJ
+y9c,HC-R,14.,Off-balance sheet: Commercial/similar LCs (original maturity <= 1 year),call_mdrm,RCFDG606,,2014-03-31,Grid line; other columns present: BCDEGHIJ
+y9c,HC-R,15.,Off-balance sheet: Retained recourse on small business obligations sold,mdrm_code,BHCKG612,,2014-03-31,Grid line; other columns present: BCGHIJ
+y9c,HC-R,15.,Off-balance sheet: Retained recourse on small business obligations sold,call_mdrm,RCFDG612,,2014-03-31,Grid line; other columns present: BCGHIJ
+y9c,HC-R,16.,Off-balance sheet: Repo-style transactions,mdrm_code,BHCKS515,,2014-03-31,Grid line; other columns present: BCDEGHIJ
+y9c,HC-R,16.,LESS: Significant investments + MSAs + DTAs > 15% aggregate CET1 threshold,mdrm_code,BHCWP856,,2014-03-31,
+y9c,HC-R,16.,Off-balance sheet: Repo-style transactions,call_mdrm,RCFDS515,,2014-03-31,Grid line; other columns present: BCDEGHIJ
+y9c,HC-R,16.,LESS: Significant investments + MSAs + DTAs > 15% aggregate CET1 threshold,call_mdrm,RCFWP856,,2014-03-31,
+y9c,HC-R,17.,LESS: Deductions to CET1 due to insufficient AT1/Tier2 to cover deductions,mdrm_code,BHCAP857,,2014-03-31,
+y9c,HC-R,17.,Off-balance sheet: All other off-balance sheet liabilities,mdrm_code,BHCKG618,,2014-03-31,Grid line; other columns present: BCGHIJ
+y9c,HC-R,17.,LESS: Deductions to CET1 due to insufficient AT1/Tier2 to cover deductions,mdrm_code,BHCWP857,,2014-03-31,
+y9c,HC-R,17.,LESS: Deductions to CET1 due to insufficient AT1/Tier2 to cover deductions,call_mdrm,RCFAP857,,2014-03-31,
+y9c,HC-R,17.,Off-balance sheet: All other off-balance sheet liabilities,call_mdrm,RCFDG618,,2014-03-31,Grid line; other columns present: BCGHIJ
+y9c,HC-R,17.,LESS: Deductions to CET1 due to insufficient AT1/Tier2 to cover deductions,call_mdrm,RCFWP857,,2014-03-31,
+y9c,HC-R,18.,Total adjustments and deductions for CET1 (sum of items 13-17),mdrm_code,BHCAP858,,2014-03-31,
+y9c,HC-R,18.,Total adjustments and deductions for CET1 (sum of items 13-17),mdrm_code,BHCWP858,,2014-03-31,
+y9c,HC-R,18.,Total adjustments and deductions for CET1 (sum of items 13-17),call_mdrm,RCFAP858,,2014-03-31,
+y9c,HC-R,18.,Total adjustments and deductions for CET1 (sum of items 13-17),call_mdrm,RCFWP858,,2014-03-31,
+y9c,HC-R,19.,Common equity tier 1 capital (item 12 minus item 18),mdrm_code,BHCAP859,,2014-03-31,
+y9c,HC-R,19.,Off-balance sheet: Unconditionally cancelable commitments,mdrm_code,BHCKS540,,2014-03-31,Grid line; other columns present: B
+y9c,HC-R,19.,Common equity tier 1 capital (item 12 minus item 18),mdrm_code,BHCWP859,,2014-03-31,
+y9c,HC-R,19.,Common equity tier 1 capital (item 12 minus item 18),call_mdrm,RCFAP859,,2014-03-31,
+y9c,HC-R,19.,Off-balance sheet: Unconditionally cancelable commitments,call_mdrm,RCFDS540,,2014-03-31,Grid line; other columns present: B
+y9c,HC-R,19.,Common equity tier 1 capital (item 12 minus item 18),call_mdrm,RCFWP859,,2014-03-31,
+y9c,HC-R,20.,Additional tier 1 capital instruments plus related surplus,mdrm_code,BHCAP860,,2014-03-31,
+y9c,HC-R,20.,Derivatives: Over-the-counter derivatives,mdrm_code,BHCKS542,,2014-03-31,Grid line; other columns present: CDEFGHIJRS
+y9c,HC-R,20.,Additional tier 1 capital instruments plus related surplus,call_mdrm,RCFAP860,,2014-03-31,
+y9c,HC-R,20.,Derivatives: Over-the-counter derivatives,call_mdrm,RCFDS542,,2014-03-31,Grid line; other columns present: CDEFGHIJRS
+y9c,HC-R,21.,Non-qualifying capital instruments subject to phase-out from AT1,mdrm_code,BHCAP861,,2014-03-31,
+y9c,HC-R,21.,Derivatives: Centrally cleared derivatives,mdrm_code,BHCKS549,,2014-03-31,Grid line; other columns present: CDEGHIJ
+y9c,HC-R,21.,Non-qualifying capital instruments subject to phase-out from AT1,call_mdrm,RCFAP861,,2014-03-31,
+y9c,HC-R,21.,Derivatives: Centrally cleared derivatives,call_mdrm,RCFDS549,,2014-03-31,Grid line; other columns present: CDEGHIJ
+y9c,HC-R,22.,Tier 1 minority interest not included in CET1,mdrm_code,BHCAP862,,2014-03-31,
+y9c,HC-R,22.,Unsettled transactions (failed trades),mdrm_code,BHCKH191,,2014-03-31,Grid line; other columns present: CGHIJOPQ
+y9c,HC-R,22.,Tier 1 minority interest not included in CET1,call_mdrm,RCFAP862,,2014-03-31,
+y9c,HC-R,22.,Unsettled transactions (failed trades),call_mdrm,RCFDH191,,2014-03-31,Grid line; other columns present: CGHIJOPQ
+y9c,HC-R,23.,"Additional tier 1 capital before deductions (sum of items 20,21,22)",mdrm_code,BHCAP863,,2014-03-31,
+y9c,HC-R,23.,Total exposures subject to risk weighting by risk-weight category,mdrm_code,BHCKG630,,2014-03-31,Grid line; other columns present: DEFGHIJKLMNOPQ
+y9c,HC-R,23.,"Additional tier 1 capital before deductions (sum of items 20,21,22)",call_mdrm,RCFAP863,,2014-03-31,
+y9c,HC-R,23.,Total exposures subject to risk weighting by risk-weight category,call_mdrm,RCFDG630,,2014-03-31,Grid line; other columns present: DEFGHIJKLMNOPQ
+y9c,HC-R,24.,LESS: Additional tier 1 capital deductions,mdrm_code,BHCAP864,,2014-03-31,
+y9c,HC-R,24.,LESS: Additional tier 1 capital deductions,call_mdrm,RCFAP864,,2014-03-31,
+y9c,HC-R,25.,"Additional tier 1 capital (greater of item 23 minus 24, or zero)",mdrm_code,BHCAP865,,2014-03-31,
+y9c,HC-R,25.,Risk-weighted assets by risk-weight category (item 23 x risk weight),mdrm_code,BHCKG634,,2014-03-31,Grid line; other columns present: DEFGHIJKLMNOPQ
+y9c,HC-R,25.,"Additional tier 1 capital (greater of item 23 minus 24, or zero)",call_mdrm,RCFAP865,,2014-03-31,
+y9c,HC-R,25.,Risk-weighted assets by risk-weight category (item 23 x risk weight),call_mdrm,RCFDG634,,2014-03-31,Grid line; other columns present: DEFGHIJKLMNOPQ
+y9c,HC-R,26.,Tier 1 capital (item 19 col A + item 25; advanced: item 19 col B + item 25),mdrm_code,BHCA8274,,2014-03-31,
+y9c,HC-R,26.,RWA for AACL 1.25% threshold,mdrm_code,BHCKS580,,2014-03-31,
+y9c,HC-R,26.,Tier 1 capital (item 19 col A + item 25; advanced: item 19 col B + item 25),call_mdrm,RCFA8274,,2014-03-31,
+y9c,HC-R,26.,RWA for AACL 1.25% threshold,call_mdrm,RCFDS580,,2014-03-31,
+y9c,HC-R,27.,Average total consolidated assets,mdrm_code,BHCAKW03,,2014-03-31,
+y9c,HC-R,27.,Standardized market-risk weighted assets (market risk rule banks),mdrm_code,BHCKS581,,2014-03-31,
+y9c,HC-R,27.,Average total consolidated assets,call_mdrm,RCFAKW03,,2014-03-31,
+y9c,HC-R,27.,Standardized market-risk weighted assets (market risk rule banks),call_mdrm,RCFDS581,,2014-03-31,
+y9c,HC-R,28.,LESS: Deductions from CET1 and AT1 for leverage ratio,mdrm_code,BHCAP875,,2014-03-31,
+y9c,HC-R,28.,RWA before deductions for excess AACL and allocated transfer risk reserve,mdrm_code,BHCKB704,,2014-03-31,
+y9c,HC-R,28.,LESS: Deductions from CET1 and AT1 for leverage ratio,call_mdrm,RCFAP875,,2014-03-31,
+y9c,HC-R,28.,RWA before deductions for excess AACL and allocated transfer risk reserve,call_mdrm,RCFDB704,,2014-03-31,
+y9c,HC-R,29.,LESS: Other deductions from (additions to) assets for leverage ratio,mdrm_code,BHCAB596,,2014-03-31,
+y9c,HC-R,29.,LESS: Excess adjusted allowance for credit losses,mdrm_code,BHCKA222,,2014-03-31,
+y9c,HC-R,29.,LESS: Other deductions from (additions to) assets for leverage ratio,call_mdrm,RCFAB596,,2014-03-31,
+y9c,HC-R,29.,LESS: Excess adjusted allowance for credit losses,call_mdrm,RCFDA222,,2014-03-31,
+y9c,HC-R,30.,Total assets for the leverage ratio,mdrm_code,BHCAA224,,2014-03-31,
+y9c,HC-R,30.,LESS: Allocated transfer risk reserve,mdrm_code,BHCK3128,,2014-03-31,
+y9c,HC-R,30.,Total assets for the leverage ratio,call_mdrm,RCFAA224,,2014-03-31,
+y9c,HC-R,30.,LESS: Allocated transfer risk reserve,call_mdrm,RCFD3128,,2014-03-31,
+y9c,HC-R,31.,Leverage ratio (item 26 divided by item 30),mdrm_code,BHCA7204,,2014-03-31,
+y9c,HC-R,31.,Total risk-weighted assets (item 28 minus items 29 and 30),mdrm_code,BHCKG641,,2014-03-31,
+y9c,HC-R,31.,Leverage ratio (item 26 divided by item 30),call_mdrm,RCFA7204,,2014-03-31,
+y9c,HC-R,31.,Total risk-weighted assets (item 28 minus items 29 and 30),call_mdrm,RCFDG641,,2014-03-31,
+y9c,HC-R,32.,Total assets,mdrm_code,BHCA2170,,2014-03-31,
+y9c,HC-R,32.,Total assets,call_mdrm,RCFA2170,,2014-03-31,
+y9c,HC-R,33.,Trading assets and trading liabilities (HC items 5 + 15),mdrm_code,BHCAKX77,,2014-03-31,Col A dollar; col B percent (5% limit)
+y9c,HC-R,33.,Trading assets and trading liabilities (HC items 5 + 15),mdrm_code,BHCAKX78,,2014-03-31,Col A dollar; col B percent (5% limit)
+y9c,HC-R,33.,Trading assets and trading liabilities (HC items 5 + 15),call_mdrm,RCFAKX77,,2014-03-31,Col A dollar; col B percent (5% limit)
+y9c,HC-R,33.,Trading assets and trading liabilities (HC items 5 + 15),call_mdrm,RCFAKX78,,2014-03-31,Col A dollar; col B percent (5% limit)
+y9c,HC-R,35.,Unconditionally cancellable commitments,mdrm_code,BHCAS540,,2014-03-31,
+y9c,HC-R,35.,Unconditionally cancellable commitments,call_mdrm,RCFAS540,,2014-03-31,
+y9c,HC-R,36.,Investments in the tier 2 capital of unconsolidated FIs,mdrm_code,BHCALB61,,2014-03-31,
+y9c,HC-R,36.,Investments in the tier 2 capital of unconsolidated FIs,call_mdrm,RCFALB61,,2014-03-31,
+y9c,HC-R,37.,Tier 2 capital instruments plus related surplus,mdrm_code,BHCAP866,,2014-03-31,
+y9c,HC-R,37.,Tier 2 capital instruments plus related surplus,call_mdrm,RCFAP866,,2014-03-31,
+y9c,HC-R,38.,Non-qualifying capital instruments subject to phase-out from tier 2,mdrm_code,BHCAP867,,2014-03-31,
+y9c,HC-R,38.,Non-qualifying capital instruments subject to phase-out from tier 2,call_mdrm,RCFAP867,,2014-03-31,
+y9c,HC-R,39.,Total capital minority interest not included in tier 1,mdrm_code,BHCAP868,,2014-03-31,
+y9c,HC-R,39.,Total capital minority interest not included in tier 1,call_mdrm,RCFAP868,,2014-03-31,
+y9c,HC-R,43.,LESS: Tier 2 capital deductions,mdrm_code,BHCAP872,,2014-03-31,
+y9c,HC-R,43.,LESS: Tier 2 capital deductions,call_mdrm,RCFAP872,,2014-03-31,
+y9c,HC-R,47.,Common equity tier 1 capital ratio (item 19 / item 46),mdrm_code,BHCAP793,,2014-03-31,
+y9c,HC-R,47.,Common equity tier 1 capital ratio (item 19 / item 46),mdrm_code,BHCWP793,,2014-03-31,
+y9c,HC-R,47.,Common equity tier 1 capital ratio (item 19 / item 46),call_mdrm,RCFAP793,,2014-03-31,
+y9c,HC-R,47.,Common equity tier 1 capital ratio (item 19 / item 46),call_mdrm,RCFWP793,,2014-03-31,
+y9c,HC-R,48.,Tier 1 capital ratio (item 26 / item 46),mdrm_code,BHCA7206,,2014-03-31,
+y9c,HC-R,48.,Tier 1 capital ratio (item 26 / item 46),mdrm_code,BHCW7206,,2014-03-31,
+y9c,HC-R,48.,Tier 1 capital ratio (item 26 / item 46),call_mdrm,RCFA7206,,2014-03-31,
+y9c,HC-R,48.,Tier 1 capital ratio (item 26 / item 46),call_mdrm,RCFW7206,,2014-03-31,
+y9c,HC-R,49.,Total capital ratio (item 45 / item 46),mdrm_code,BHCA7205,,2014-03-31,
+y9c,HC-R,49.,Total capital ratio (item 45 / item 46),mdrm_code,BHCW7205,,2014-03-31,
+y9c,HC-R,49.,Total capital ratio (item 45 / item 46),call_mdrm,RCFA7205,,2014-03-31,
+y9c,HC-R,49.,Total capital ratio (item 45 / item 46),call_mdrm,RCFW7205,,2014-03-31,
+y9c,HC-R,50.,Capital conservation buffer,mdrm_code,BHCAH311,,2014-03-31,
+y9c,HC-R,50.,Capital conservation buffer,call_mdrm,RCFAH311,,2014-03-31,
+y9c,HC-R,51.,Eligible retained income,mdrm_code,BHCAH313,,2014-03-31,
+y9c,HC-R,51.,Eligible retained income,call_mdrm,RCFAH313,,2014-03-31,
+y9c,HC-R,52.,Distributions and discretionary bonus payments,mdrm_code,BHCAH314,,2014-03-31,
+y9c,HC-R,52.,Distributions and discretionary bonus payments,call_mdrm,RCFAH314,,2014-03-31,
+y9c,HC-R,53.,Supplementary leverage ratio (advanced approaches),mdrm_code,BHCAH036,,2014-03-31,
+y9c,HC-R,53.,Supplementary leverage ratio (advanced approaches),call_mdrm,RCFAH036,,2014-03-31,
+y9c,HC-R,54.,Outstanding eligible long-term debt,mdrm_code,BHCALF21,,2014-03-31,
+y9c,HC-R,55.,Total loss absorbing capacity,mdrm_code,BHCALF22,,2014-03-31,
+y9c,HC-R,56.,LTD and TLAC total risk-weighted assets ratios,mdrm_code,BHCALF23,,2014-03-31,
+y9c,HC-R,56.,LTD and TLAC total risk-weighted assets ratios,mdrm_code,BHCWLF23,,2014-03-31,
+y9c,HC-R,57.,GSIBs: LTD and TLAC RWA ratios using advanced approaches,mdrm_code,BHCAMK66,,2014-03-31,
+y9c,HC-R,57.,GSIBs: LTD and TLAC RWA ratios using advanced approaches,mdrm_code,BHCWMK66,,2014-03-31,
+y9c,HC-R,58.,IHCs of foreign GSIBs: LTD and TLAC leverage ratios,mdrm_code,BHCALF24,,2014-03-31,
+y9c,HC-R,58.,IHCs of foreign GSIBs: LTD and TLAC leverage ratios,mdrm_code,BHCWLF24,,2014-03-31,
+y9c,HC-R,59.,Category I/II/III: LTD and TLAC supplementary leverage ratios,mdrm_code,BHCALF25,,2014-03-31,
+y9c,HC-R,59.,Category I/II/III: LTD and TLAC supplementary leverage ratios,mdrm_code,BHCWLF25,,2014-03-31,
+y9c,HC-R,61.,Capital conservation buffer,mdrm_code,BHCAMK76,,2014-03-31,
+y9c,HC-R,61.,Capital conservation buffer,mdrm_code,BHCWH311,,2014-03-31,
+y9c,HC-R,61.,Capital conservation buffer,call_mdrm,RCFAH311,,2014-03-31,
+y9c,HC-R,61.,Capital conservation buffer,call_mdrm,RCFWH312,,2014-03-31,
+y9c,HC-R,63.,Total leverage exposure for the SLR (if applicable),mdrm_code,BHCALE88,,2014-03-31,
+y9c,HC-R,63.,Total leverage exposure for the SLR (if applicable),call_mdrm,RCFAH015,,2014-03-31,
+y9c,HC-R,64.,Leverage buffer requirement (if applicable),mdrm_code,BHCALE89,,2014-03-31,
+y9c,HC-R,64.,Leverage buffer requirement (if applicable),call_mdrm,RCFALE89,,2014-03-31,
+y9c,HC-R,65.,Leverage ratio buffer (if applicable),mdrm_code,BHCALE90,,2014-03-31,
+y9c,HC-R,65.,Leverage ratio buffer (if applicable),call_mdrm,RCFALE90,,2014-03-31,
+y9c,HC-R,66.,Eligible retained income,mdrm_code,BHCAMK77,,2014-03-31,
+y9c,HC-R,66.,Eligible retained income,call_mdrm,RCFAH313,,2014-03-31,
+y9c,HC-R,67.,Maximum payout ratio,mdrm_code,BHCALE91,,2014-03-31,
+y9c,HC-R,68.,Maximum payout amount,mdrm_code,BHCALE92,,2014-03-31,
+y9c,HC-R,69.,Distributions and discretionary bonus payments during the quarter,mdrm_code,BHCAMK78,,2014-03-31,
+y9c,HC-R,69.,Distributions and discretionary bonus payments during the quarter,call_mdrm,RCFAH314,,2014-03-31,
+y9c,HC-R,10.a.,LESS: Unrealized gain/loss on liabilities due to own credit risk,mdrm_code,BHCAQ258,,2014-03-31,
+y9c,HC-R,10.a.,LESS: Unrealized gain/loss on liabilities due to own credit risk,call_mdrm,RCFAQ258,,2014-03-31,
+y9c,HC-R,10.b.,LESS: All other deductions from (additions to) CET1 before threshold deductions,mdrm_code,BHCAP850,,2014-03-31,
+y9c,HC-R,10.b.,LESS: All other deductions from (additions to) CET1 before threshold deductions,call_mdrm,RCFAP850,,2014-03-31,
+y9c,HC-R,13.a.,"LESS: Investments in unconsolidated FIs, net of DTLs, > 25% of line 12",mdrm_code,BHCALB58,,2014-03-31,
+y9c,HC-R,13.a.,"LESS: Investments in unconsolidated FIs, net of DTLs, > 25% of line 12",call_mdrm,RCFALB58,,2014-03-31,
+y9c,HC-R,13.b.,LESS: Significant investments (common stock) > 10% CET1 deduction threshold,mdrm_code,BHCWP853,,2014-03-31,
+y9c,HC-R,13.b.,LESS: Significant investments (common stock) > 10% CET1 deduction threshold,call_mdrm,RCFWP853,,2014-03-31,
+y9c,HC-R,14.a.,"LESS: MSAs, net of DTLs, > 25% of line 12",mdrm_code,BHCALB59,,2014-03-31,
+y9c,HC-R,14.a.,"LESS: MSAs, net of DTLs, > 25% of line 12",call_mdrm,RCFALB59,,2014-03-31,
+y9c,HC-R,14.b.,"LESS: MSAs, net of DTLs, > 10% CET1 deduction threshold",mdrm_code,BHCWP854,,2014-03-31,
+y9c,HC-R,14.b.,"LESS: MSAs, net of DTLs, > 10% CET1 deduction threshold",call_mdrm,RCFWP854,,2014-03-31,
+y9c,HC-R,15.a.,"LESS: DTAs from temporary differences, net of DTLs, > 25% of line 12",mdrm_code,BHCALB60,,2014-03-31,
+y9c,HC-R,15.a.,"LESS: DTAs from temporary differences, net of DTLs, > 25% of line 12",call_mdrm,RCFALB60,,2014-03-31,
+y9c,HC-R,15.b.,LESS: DTAs from temporary differences > 10% CET1 deduction threshold,mdrm_code,BHCWP855,,2014-03-31,
+y9c,HC-R,15.b.,LESS: DTAs from temporary differences > 10% CET1 deduction threshold,call_mdrm,RCFWP855,,2014-03-31,
+y9c,HC-R,18.a,Commitments: Original maturity of one year or less,mdrm_code,BHCKS525,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,18.a,Commitments: Original maturity of one year or less,call_mdrm,RCFDS525,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,18.b.,Commitments: Original maturity exceeding one year,mdrm_code,BHCKG624,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,18.b.,Commitments: Original maturity exceeding one year,call_mdrm,RCFDG624,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,2.a.,CECL transition election indicator,mdrm_code,BHCAJJ29,,2014-03-31,0=No; 1=3-yr; 2=5-yr 2020 CECL transition
+y9c,HC-R,2.a.,On-balance sheet: Held-to-maturity securities,mdrm_code,BHCKD961,,2014-03-31,Grid line; other columns present: BCDEFGHI
+y9c,HC-R,2.a.,On-balance sheet: Held-to-maturity securities,call_mdrm,RCFDD961,,2014-03-31,Grid line; other columns present: BCDEFGHI
+y9c,HC-R,2.a.,CECL transition election indicator,call_mdrm,RCOAJJ29,,2014-03-31,0=No; 1=3-yr; 2=5-yr 2020 CECL transition
+y9c,HC-R,2.b.,On-balance sheet: Available-for-sale debt & equity securities,mdrm_code,BHCKJA21,,2014-03-31,Grid line; other columns present: BCDEGHIJKLNRS
+y9c,HC-R,2.b.,On-balance sheet: Available-for-sale debt & equity securities,call_mdrm,RCFDJA21,,2014-03-31,Grid line; other columns present: BCDEGHIJKLNRS
+y9c,HC-R,3.a.,AOCI opt-out election (advanced approaches must enter 0),mdrm_code,BHCAP838,,2014-03-31,
+y9c,HC-R,3.a.,On-balance sheet: Federal funds sold (domestic offices),mdrm_code,BHCKD971,,2014-03-31,Grid line; other columns present: CGHIJ
+y9c,HC-R,3.a.,AOCI opt-out election (advanced approaches must enter 0),call_mdrm,RCOAP838,,2014-03-31,
+y9c,HC-R,3.a.,On-balance sheet: Federal funds sold (domestic offices),call_mdrm,RCOND971,,2014-03-31,Grid line; other columns present: CGHIJ
+y9c,HC-R,3.b.,On-balance sheet: Securities purchased under agreements to resell,mdrm_code,BHCKH171,,2014-03-31,Grid line; other columns present: B
+y9c,HC-R,3.b.,On-balance sheet: Securities purchased under agreements to resell,call_mdrm,RCFDH171,,2014-03-31,Grid line; other columns present: B
+y9c,HC-R,31.a.,CBLR framework election (1=Yes; 0=No),mdrm_code,BHCALE74,,2014-03-31,
+y9c,HC-R,31.a.,CBLR framework election (1=Yes; 0=No),call_mdrm,RCOALE74,,2014-03-31,
+y9c,HC-R,31.b.,SA-CCR opt-in election (1=Yes; blank=No),mdrm_code,BHCANC99,,2014-03-31,
+y9c,HC-R,31.b.,SA-CCR opt-in election (1=Yes; blank=No),call_mdrm,RCOANC99,,2014-03-31,
+y9c,HC-R,34.a.,Unused portion of conditionally cancellable commitments,mdrm_code,BHCAKX79,,2014-03-31,
+y9c,HC-R,34.a.,Unused portion of conditionally cancellable commitments,call_mdrm,RCFAKX79,,2014-03-31,
+y9c,HC-R,34.b.,Securities lent and borrowed (HC-L items 6.a + 6.b),mdrm_code,BHCAKX80,,2014-03-31,
+y9c,HC-R,34.b.,Securities lent and borrowed (HC-L items 6.a + 6.b),call_mdrm,RCFAKX80,,2014-03-31,
+y9c,HC-R,34.c.,Other off-balance sheet exposures,mdrm_code,BHCAKX81,,2014-03-31,
+y9c,HC-R,34.c.,Other off-balance sheet exposures,call_mdrm,RCFAKX81,,2014-03-31,
+y9c,HC-R,34.d.,Total off-balance sheet exposures (sum 34.a-34.c),mdrm_code,BHCAKX82,,2014-03-31,Col A dollar; col B percent (25% limit)
+y9c,HC-R,34.d.,Total off-balance sheet exposures (sum 34.a-34.c),mdrm_code,BHCAKX83,,2014-03-31,Col A dollar; col B percent (25% limit)
+y9c,HC-R,34.d.,Total off-balance sheet exposures (sum 34.a-34.c),call_mdrm,RCFAKX82,,2014-03-31,Col A dollar; col B percent (25% limit)
+y9c,HC-R,34.d.,Total off-balance sheet exposures (sum 34.a-34.c),call_mdrm,RCFAKX83,,2014-03-31,Col A dollar; col B percent (25% limit)
+y9c,HC-R,4.a.,Past-due/SSFA RW: Residential mortgage exposures,mdrm_code,BHCKS413,,2014-03-31,Grid line; other columns present: BCGHIRS
+y9c,HC-R,4.a.,Past-due/SSFA RW: Residential mortgage exposures,call_mdrm,RCFDS413,,2014-03-31,Grid line; other columns present: BCGHIRS
+y9c,HC-R,4.b.,Past-due/SSFA RW: High volatility CRE (HVCRE) exposures,mdrm_code,BHCKS419,,2014-03-31,Grid line; other columns present: BCGHIJRS
+y9c,HC-R,4.b.,Past-due/SSFA RW: High volatility CRE (HVCRE) exposures,call_mdrm,RCFDS419,,2014-03-31,Grid line; other columns present: BCGHIJRS
+y9c,HC-R,4.c.,Past-due/SSFA RW: Exposures past due 90+ days or nonaccrual,mdrm_code,BHCKS431,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,4.c.,Past-due/SSFA RW: Exposures past due 90+ days or nonaccrual,call_mdrm,RCFDS431,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,40.a.,Adjusted allowances for credit losses (AACL) includable in tier 2,mdrm_code,BHCA5310,,2014-03-31,Limited to 1.25% of RWA
+y9c,HC-R,40.a.,Adjusted allowances for credit losses (AACL) includable in tier 2,call_mdrm,RCFA5310,,2014-03-31,Limited to 1.25% of RWA
+y9c,HC-R,40.b.,"Eligible credit reserves includable in tier 2 (advanced, parallel-run exit)",mdrm_code,BHCW5310,,2014-03-31,
+y9c,HC-R,40.b.,"Eligible credit reserves includable in tier 2 (advanced, parallel-run exit)",call_mdrm,RCFW5310,,2014-03-31,
+y9c,HC-R,42.a.,Tier 2 capital before deductions (sum of items 37-40),mdrm_code,BHCAP870,,2014-03-31,
+y9c,HC-R,42.a.,Tier 2 capital before deductions (sum of items 37-40),call_mdrm,RCFAP870,,2014-03-31,
+y9c,HC-R,42.b.,"Tier 2 capital before deductions (advanced, parallel-run exit)",mdrm_code,BHCWP870,,2014-03-31,
+y9c,HC-R,42.b.,"Tier 2 capital before deductions (advanced, parallel-run exit)",call_mdrm,RCFWP870,,2014-03-31,
+y9c,HC-R,44.a.,"Tier 2 capital (greater of item 42.a minus 43, or zero)",mdrm_code,BHCA5311,,2014-03-31,
+y9c,HC-R,44.a.,"Tier 2 capital (greater of item 42.a minus 43, or zero)",call_mdrm,RCFA5311,,2014-03-31,
+y9c,HC-R,44.b.,"Tier 2 capital (advanced, parallel-run exit)",mdrm_code,BHCW5311,,2014-03-31,
+y9c,HC-R,44.b.,"Tier 2 capital (advanced, parallel-run exit)",call_mdrm,RCFW5311,,2014-03-31,
+y9c,HC-R,45.a.,Total capital (sum of items 26 and 44.a),mdrm_code,BHCA3792,,2014-03-31,
+y9c,HC-R,45.a.,Total capital (sum of items 26 and 44.a),call_mdrm,RCFA3792,,2014-03-31,
+y9c,HC-R,45.b.,"Total capital (advanced, parallel-run exit)",mdrm_code,BHCW3792,,2014-03-31,
+y9c,HC-R,45.b.,"Total capital (advanced, parallel-run exit)",call_mdrm,RCFW3792,,2014-03-31,
+y9c,HC-R,46.a.,Total risk-weighted assets (from Part II item 31),mdrm_code,BHCAA223,,2014-03-31,
+y9c,HC-R,46.a.,Total risk-weighted assets (from Part II item 31),call_mdrm,RCFAA223,,2014-03-31,
+y9c,HC-R,46.b.,Total RWA using advanced approaches (FFIEC 101 Sch A item 60),mdrm_code,BHCWA223,,2014-03-31,
+y9c,HC-R,46.b.,Total RWA using advanced approaches (FFIEC 101 Sch A item 60),call_mdrm,RCFWA223,,2014-03-31,
+y9c,HC-R,5.a.,Other RW: Residential mortgage exposures,mdrm_code,BHCKS439,,2014-03-31,Grid line; other columns present: BCGHIRS
+y9c,HC-R,5.a.,Other RW: Residential mortgage exposures,call_mdrm,RCFDS439,,2014-03-31,Grid line; other columns present: BCGHIRS
+y9c,HC-R,5.b.,Other RW: High volatility CRE (HVCRE) exposures,mdrm_code,BHCKS445,,2014-03-31,Grid line; other columns present: BCGHIJRS
+y9c,HC-R,5.b.,Other RW: High volatility CRE (HVCRE) exposures,call_mdrm,RCFDS445,,2014-03-31,Grid line; other columns present: BCGHIJRS
+y9c,HC-R,5.c.,Other RW: Exposures past due 90+ days or nonaccrual,mdrm_code,BHCKS449,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,5.c.,Other RW: Exposures past due 90+ days or nonaccrual,call_mdrm,RCFDS449,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,5.d.,Other RW: All other exposures,mdrm_code,BHCKS457,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,5.d.,Other RW: All other exposures,call_mdrm,RCFDS457,,2014-03-31,Grid line; other columns present: BCDEGHIJRS
+y9c,HC-R,60.a,of which: Stress capital buffer or 2.500% (advanced approaches),mdrm_code,BHCALE85,,2014-03-31,
+y9c,HC-R,60.a,of which: Stress capital buffer or 2.500% (advanced approaches),mdrm_code,BHCWLE85,,2014-03-31,
+y9c,HC-R,60.b,of which: GSIB surcharge (if applicable),mdrm_code,BHCALE86,,2014-03-31,
+y9c,HC-R,60.b,of which: GSIB surcharge (if applicable),mdrm_code,BHCWLE86,,2014-03-31,
+y9c,HC-R,60.c,of which: Countercyclical capital buffer amount (if applicable),mdrm_code,BHCALE87,,2014-03-31,
+y9c,HC-R,60.c,of which: Countercyclical capital buffer amount (if applicable),mdrm_code,BHCWLE87,,2014-03-31,
+y9c,HC-R,62.a,TLAC risk-weighted asset buffer,mdrm_code,BHCALF27,,2014-03-31,
+y9c,HC-R,62.b,TLAC leverage buffer,mdrm_code,BHCALF28,,2014-03-31,
+y9c,HC-R,8.a.,All other assets: Separate account bank-owned life insurance,mdrm_code,BHCKH296,,2014-03-31,Grid line; other columns present: S
+y9c,HC-R,8.a.,All other assets: Separate account bank-owned life insurance,call_mdrm,RCFDH296,,2014-03-31,Grid line; other columns present: S
+y9c,HC-R,8.b.,All other assets: Default fund contributions to central counterparties,mdrm_code,BHCKH298,,2014-03-31,Grid line; other columns present: S
+y9c,HC-R,8.b.,All other assets: Default fund contributions to central counterparties,call_mdrm,RCFDH298,,2014-03-31,Grid line; other columns present: S
+y9c,HC-R,9.a.,LESS: Net unrealized gains (losses) on AFS debt securities,mdrm_code,BHCAP844,,2014-03-31,
+y9c,HC-R,9.a.,Securitization (SSFA): Held-to-maturity securities,mdrm_code,BHCKS475,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,9.a.,LESS: Net unrealized gains (losses) on AFS debt securities,call_mdrm,RCFAP844,,2014-03-31,
+y9c,HC-R,9.a.,Securitization (SSFA): Held-to-maturity securities,call_mdrm,RCFDS475,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,9.b.,Securitization (SSFA): Available-for-sale securities,mdrm_code,BHCKS480,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,9.b.,Securitization (SSFA): Available-for-sale securities,call_mdrm,RCFDS480,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,9.c.,LESS: Accumulated net gains (losses) on cash flow hedges,mdrm_code,BHCAP846,,2014-03-31,
+y9c,HC-R,9.c.,Securitization (SSFA): Trading assets,mdrm_code,BHCKS485,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,9.c.,LESS: Accumulated net gains (losses) on cash flow hedges,call_mdrm,RCFAP846,,2014-03-31,
+y9c,HC-R,9.c.,Securitization (SSFA): Trading assets,call_mdrm,RCFDS485,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,9.d.,LESS: AOCI from defined benefit postretirement plans,mdrm_code,BHCAP847,,2014-03-31,
+y9c,HC-R,9.d.,Securitization (SSFA): All other on-balance sheet exposures,mdrm_code,BHCKS490,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,9.d.,LESS: AOCI from defined benefit postretirement plans,call_mdrm,RCFAP847,,2014-03-31,
+y9c,HC-R,9.d.,Securitization (SSFA): All other on-balance sheet exposures,call_mdrm,RCFDS490,,2014-03-31,Grid line; other columns present: BQTU
+y9c,HC-R,9.e.,LESS: Net unrealized gains (losses) on HTM securities in AOCI,mdrm_code,BHCAP848,,2014-03-31,
+y9c,HC-R,9.e.,LESS: Net unrealized gains (losses) on HTM securities in AOCI,call_mdrm,RCFAP848,,2014-03-31,
+y9c,HC-R,9.f.,LESS: Cash flow hedge gain/loss on non-fair-value items (opt-out=0 only),mdrm_code,BHCAP849,,2014-03-31,
+y9c,HC-R,9.f.,LESS: Cash flow hedge gain/loss on non-fair-value items (opt-out=0 only),call_mdrm,RCFAP849,,2014-03-31,
+y9c,HC-R,M.1.,Memo: Current credit exposure across all derivative contracts,mdrm_code,BHCKG642,,2014-03-31,
+y9c,HC-R,M.1.,Memo: Current credit exposure across all derivative contracts,call_mdrm,RCFDG642,,2014-03-31,
+y9c,HC-R,M.2.a.,Memo: Notional - interest rate (remaining maturity),mdrm_code,BHCKS582,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.a.,Memo: Notional - interest rate (remaining maturity),call_mdrm,RCFDS582,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.b.,Memo: Notional - foreign exchange rate and gold,mdrm_code,BHCKS585,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.b.,Memo: Notional - foreign exchange rate and gold,call_mdrm,RCFDS585,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.c.,Memo: Notional - credit (investment grade reference asset),mdrm_code,BHCKS588,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.c.,Memo: Notional - credit (investment grade reference asset),call_mdrm,RCFDS588,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.d.,Memo: Notional - credit (non-investment grade reference asset),mdrm_code,BHCKS591,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.d.,Memo: Notional - credit (non-investment grade reference asset),call_mdrm,RCFDS591,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.e.,Memo: Notional - equity,mdrm_code,BHCKS594,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.e.,Memo: Notional - equity,call_mdrm,RCFDS594,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.f.,Memo: Notional - precious metals (except gold),mdrm_code,BHCKS597,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.f.,Memo: Notional - precious metals (except gold),call_mdrm,RCFDS597,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.g.,Memo: Notional - other,mdrm_code,BHCKS600,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.2.g.,Memo: Notional - other,call_mdrm,RCFDS600,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.a.,Memo: Notional by maturity band - interest rate,mdrm_code,BHCKS603,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.a.,Memo: Notional by maturity band - interest rate,call_mdrm,RCFDS603,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.b.,Memo: Notional by maturity band - foreign exchange rate and gold,mdrm_code,BHCKS606,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.b.,Memo: Notional by maturity band - foreign exchange rate and gold,call_mdrm,RCFDS606,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.c.,Memo: Notional by maturity band - credit (investment grade),mdrm_code,BHCKS609,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.c.,Memo: Notional by maturity band - credit (investment grade),call_mdrm,RCFDS609,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.d.,Memo: Notional by maturity band - credit (non-investment grade),mdrm_code,BHCKS612,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.d.,Memo: Notional by maturity band - credit (non-investment grade),call_mdrm,RCFDS612,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.e.,Memo: Notional by maturity band - equity,mdrm_code,BHCKS615,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.e.,Memo: Notional by maturity band - equity,call_mdrm,RCFDS615,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.f.,Memo: Notional by maturity band - precious metals (except gold),mdrm_code,BHCKS618,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.f.,Memo: Notional by maturity band - precious metals (except gold),call_mdrm,RCFDS618,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.g.,Memo: Notional by maturity band - other,mdrm_code,BHCKS621,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.3.g.,Memo: Notional by maturity band - other,call_mdrm,RCFDS621,,2014-03-31,Grid line; other columns present: BC
+y9c,HC-R,M.4.,Memo: Standardized market RWA attributable to specific risk,mdrm_code,BHCKS624,,2014-03-31,
+y9c,HC-R,M.5.a.,Memo: AACL - loans and leases held for investment,mdrm_code,BHCKJJ30,,2014-03-31,
+y9c,HC-R,M.5.a.,Memo: AACL - loans and leases held for investment,call_mdrm,RCFDJJ30,,2014-03-31,
+y9c,HC-R,M.5.b.,Memo: AACL - held-to-maturity debt securities,mdrm_code,BHCKJJ31,,2014-03-31,
+y9c,HC-R,M.5.b.,Memo: AACL - held-to-maturity debt securities,call_mdrm,RCFDJJ31,,2014-03-31,
+y9c,HC-R,M.5.c.,Memo: AACL - other financial assets measured at amortized cost,mdrm_code,BHCKJJ32,,2014-03-31,
+y9c,HC-R,M.5.c.,Memo: AACL - other financial assets measured at amortized cost,call_mdrm,RCFDJJ32,,2014-03-31,

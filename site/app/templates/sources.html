@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Data sources — FreeNIC{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>Data sources</h1>
+  <p class="ark-badge-row">
+    <span class="ark-badge real-data">Official suppliers</span>
+    <span class="ark-badge">{{ sources | length }} supplier entries</span>
+  </p>
+  <p class="lead">An annotated directory of the public data suppliers behind FreeNIC — every official
+     regulator and archive whose filings, definitions, and identifiers feed the harmonized warehouse,
+     with what each one provides, the span it covers, and what we use it for.</p>
+  <p class="note">This directory lists <b>{{ counts.supplier_directory }} supplier entries</b>
+     ({{ counts.external_suppliers }} external regulators/archives, plus FreeNIC's own two access surfaces),
+     which together provide the <b>{{ counts.source_datasets }} upstream datasets</b> that compose the
+     complete warehouse (the full dataset composition is on <a href="/methodology">Methodology</a>).
+     Each links straight to the authoritative source; where a supplier requires a citation, that
+     requirement is noted on its entry.</p>
+</section>
+
+{% for s in sources %}
+<section class="prose">
+  <h2 id="{{ s.id }}">{{ s.name }}</h2>
+  <p><a class="src-url" href="{{ s.url }}" rel="noopener">{{ s.url }}</a></p>
+  {% if s.provides %}<p>{{ s.provides }}</p>{% endif %}
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <tbody>
+        {% if s.coverage %}<tr><th style="width:11rem;">Coverage</th><td style="white-space:normal;">{{ s.coverage }}</td></tr>{% endif %}
+        {% if s.use_for %}<tr><th>Use for</th><td style="white-space:normal;">{{ s.use_for }}</td></tr>{% endif %}
+      </tbody>
+    </table>
+  </div>
+  {% if s.citation_note %}
+  <div class="callout">
+    <h3>Citation required</h3>
+    <p>{{ s.citation_note }}</p>
+  </div>
+  {% endif %}
+</section>
+{% endfor %}
+
+<section class="prose">
+  <p class="src">FreeNIC harmonizes these public sources into one queryable warehouse — explore the
+     variable taxonomy on the <a href="/dictionary">Dictionary</a>, browse and download the data on
+     <a href="/data">Data</a>, and read how the layers reconcile in the
+     <a href="https://andenick.github.io/bank-data-dictionary/">bank-data-dictionary</a>. The companion
+     reference and research surfaces are linked in the footer below.</p>
+</section>
+
+{% endblock %}

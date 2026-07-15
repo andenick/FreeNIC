@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block title %}{{ fam_label }} {{ schedule }} — Variable dictionary — FreeNIC{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <p class="note"><a href="/dictionary">&larr; Variable dictionary</a> /
+     <a href="/dictionary#{{ form_family }}">{{ fam_label }}</a></p>
+  <h1>{{ schedule }}{% if explain.title %} — {{ explain.title }}{% endif %}</h1>
+  <p class="ark-badge-row">
+    <span class="ark-badge real-data">{{ fam_label }}</span>
+    <span class="ark-badge">{{ "{:,}".format(n_items) }} line items</span>
+    <span class="ark-badge">{{ "{:,}".format(n_codes) }} codes</span>
+    {% if meta.dictionary_version %}<span class="ark-badge reproducible">bank-data-dictionary {{ meta.dictionary_version }}</span>{% endif %}
+  </p>
+</section>
+
+<!-- Explanation block ---------------------------------------------------- -->
+{% if explain %}
+<section class="prose">
+  {% if explain.what_it_measures %}
+  <h2>What it measures</h2>
+  {% for para in explain.what_it_measures.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
+  {% endif %}
+  {% if explain.why_it_exists %}
+  <h2>Why it exists</h2>
+  <p>{{ explain.why_it_exists }}</p>
+  {% endif %}
+  {% if explain.what_you_can_answer %}
+  <h2>What you can answer</h2>
+  <p>{{ explain.what_you_can_answer }}</p>
+  {% endif %}
+  {% if explain.key_items %}
+  <h2>Key line items, in plain English</h2>
+  <ul>
+    {% for it in explain.key_items %}
+    <li><a href="/dictionary/variable/{{ it.item }}"><code>{{ it.item }}</code></a> — {{ it.plain }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if explain.pitfalls %}
+  <div class="callout">
+    <h3>Pitfalls</h3>
+    <p>{{ explain.pitfalls }}</p>
+  </div>
+  {% endif %}
+</section>
+{% endif %}
+
+<!-- Relationship highlights ---------------------------------------------- -->
+{% if rels %}
+<section class="prose">
+  <h2>Key relationship highlights</h2>
+  <p class="note">Reconciliation identities and edit checks that touch this schedule, with their
+     empirical pass rate measured against the real filings (highest-coverage first).</p>
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead>
+        <tr><th>Relationship</th><th>Kind</th><th>Status</th><th>Pass rate</th><th>n filings</th></tr>
+      </thead>
+      <tbody>
+        {% for r in rels %}
+        <tr>
+          <td style="white-space:normal;max-width:52ch;"><code style="font-size:.8rem;">{{ r.expression }}</code></td>
+          <td class="mono">{{ r.kind }}</td>
+          <td class="mono" style="white-space:nowrap;">{{ r.status }}</td>
+          <td class="num">{{ r.pass_pct }}</td>
+          <td class="num">{{ r.n_h }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
+
+<!-- Full line-item grid -------------------------------------------------- -->
+<section class="prose">
+  <h2>Line items</h2>
+  <p class="note">The full schedule line-item grid as carried in the dictionary slice.</p>
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead>
+        <tr><th>Line</th><th>MDRM code</th><th>Item description</th><th>Column</th>
+            <th>Forms</th><th>Since</th></tr>
+      </thead>
+      <tbody>
+        {% for it in items %}
+        <tr>
+          <td class="mono">{{ it.line_number or "—" }}</td>
+          <td style="white-space:nowrap;">{% if it.mdrm_code %}<a href="/dictionary/variable/{{ it.mdrm_code }}"><code>{{ it.mdrm_code }}</code></a>{% else %}—{% endif %}</td>
+          <td style="white-space:normal;max-width:44ch;">{{ it.item_description or "—" }}</td>
+          <td class="mono">{{ it.column_role or "—" }}</td>
+          <td class="mono" style="white-space:nowrap;">{{ it.forms or "—" }}</td>
+          <td class="mono" style="white-space:nowrap;">{{ it.start_date or "—" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Access + download corner --------------------------------------------- -->
+<section class="prose">
+  <h2>Access &amp; download</h2>
+  <div class="callout">
+    <h3>Where this schedule lives</h3>
+    <ul>
+      {% if view %}<li><b>Warehouse view</b> — this schedule is exposed shaped as
+        <code>{{ view }}</code> in the FreeNIC warehouse (one row per filing, columns per line item).</li>{% endif %}
+      <li><b>Raw filings</b> — the underlying values sit in the
+        {% if form_family == 'call' %}<code>call_report_filings</code>{% else %}<code>bhcf_filings</code>{% endif %}
+        long table (one row per institution-period-variable).</li>
+      <li><b>Reference guide</b> — the canonical narrative guide is at
+        <a href="{{ ref_url }}" rel="noopener">the bank-data-dictionary reference site &rarr;</a></li>
+    </ul>
+    <p>
+      <a class="ark-btn" href="{{ csv_url }}">Download {{ schedule }} line items (CSV)</a>
+      <a class="ark-btn ark-btn-outline" href="{{ dict_parquet }}">All line items (parquet)</a>
+      <a class="ark-btn ark-btn-outline" href="/data">All dictionary tables</a>
+    </p>
+  </div>
+</section>
+
+{% endblock %}

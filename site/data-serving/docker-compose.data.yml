@@ -1,0 +1,42 @@
+# FreeNIC data endpoint — compose addition (freenic-data).
+#
+# Serves the full v1.0 parquet release read-only with byte-range + CORS so
+# DuckDB httpfs clients query https://data.freenic.org/ remotely.
+#
+# Intended route: data.freenic.org -> freenic-data:80 (Cloudflare Tunnel / NPM on
+# homelab_default). No host ports — the tunnel/proxy owns :80/:443.
+#
+# Deploy alongside the web app:
+#   docker compose -f docker-compose.yml -f data-serving/docker-compose.data.yml up -d
+#
+# The parquet release is bind-mounted read-only from the host. rsync the
+# ~13 GB release to the host path below BEFORE starting (see DATA_SERVING.md),
+# then verify against SHA256SUMS.txt.
+services:
+  freenic-data:
+    image: caddy:2-alpine
+    container_name: freenic-data
+    restart: unless-stopped
+    volumes:
+      # The Caddyfile (read-only).
+      - ./data-serving/Caddyfile:/etc/caddy/Caddyfile:ro
+      # The full parquet release + integrity/provenance/license files (read-only).
+      # Host path is where you rsync'd the FreeNIC Outputs/parquet export dir
+      # plus SHA256SUMS.txt / PROVENANCE.csv / DATA_LICENSE.md.
+      # Can live under $HOME if the host has no passwordless sudo for /srv;
+      # the container path is unchanged. Edit the host path below for your box.
+      - ${FREENIC_DATA_DIR:-/srv/freenic-data}:/srv/freenic:ro
+      # Persist Caddy's data/config (certs not needed when TLS is upstream, but
+      # keeps Caddy happy across restarts).
+      - freenic_caddy_data:/data
+      - freenic_caddy_config:/config
+    networks:
+      - homelab_default
+
+networks:
+  homelab_default:
+    external: true
+
+volumes:
+  freenic_caddy_data:
+  freenic_caddy_config:

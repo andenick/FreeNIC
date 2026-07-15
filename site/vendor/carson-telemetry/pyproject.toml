@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "carson-telemetry"
+version = "1.0.0"
+description = "Shared, privacy-first usage telemetry for every Carson-hosted API/MCP/website (Carson Telemetry Standard v1.0)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Carson Telemetry" }]
+keywords = ["telemetry", "usage", "mcp", "fastapi", "privacy", "sqlite"]
+classifiers = [
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Intended Audience :: Developers",
+  "Topic :: System :: Monitoring",
+]
+# Core is STDLIB ONLY (sqlite3, hashlib, http.server, json, datetime, threading).
+dependencies = []
+
+[project.optional-dependencies]
+# Web/REST integration + the read-only dashboard.
+fastapi = [
+  "fastapi>=0.110,<1.0",
+  "starlette>=0.36,<1.0",
+  "uvicorn>=0.27,<1.0",
+  "jinja2>=3.1,<4.0",
+]
+# FastMCP instrumentation.
+mcp = [
+  "mcp>=1.0,<2.0",
+]
+# Test/dev tooling.
+dev = [
+  "pytest>=8.0,<9.0",
+  "httpx>=0.27,<1.0",
+]
+
+[project.scripts]
+carson-telemetry-ingest = "carson_telemetry.ingest:main"
+carson-telemetry-dash = "carson_telemetry.dashboard.app:main"
+carson-telemetry-rollup = "carson_telemetry.rollup:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"carson_telemetry.dashboard" = ["templates/*.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,25 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-K,2,Federal funds sold and securities purchased under agreements to resell,mdrm_code,BHCK3365,,1990-09-30,
+y9c,HC-K,5,Total consolidated assets,mdrm_code,BHCK3368,,1981-06-30,NOT the sum of items 1 through 4.b (per instructions); Fed edit 2770 requires > 0
+y9c,HC-K,6,Interest-bearing deposits (domestic),mdrm_code,BHCK3517,,1981-06-30,Includes interest-bearing demand deposits
+y9c,HC-K,7,Interest-bearing deposits (foreign),mdrm_code,BHCK3404,,1981-06-30,
+y9c,HC-K,8,Federal funds purchased and securities sold under agreements to repurchase,mdrm_code,BHCK3353,,1990-09-30,
+y9c,HC-K,9,All other borrowed money,mdrm_code,BHCK2635,,1981-06-30,Includes commercial paper regardless of maturity
+y9c,HC-K,11,Total equity capital,mdrm_code,BHCK3519,,1981-06-30,Excludes limited-life preferred stock
+y9c,HC-K,1.a,Securities: U.S. Treasury and U.S. government agency obligations (excluding MBS),mdrm_code,BHCKB558,,2011-03-31,Amortized cost basis
+y9c,HC-K,1.b,Securities: Mortgage-backed securities,mdrm_code,BHCKB559,,2011-03-31,Amortized cost basis
+y9c,HC-K,1.c,Securities: All other debt securities and equity securities with readily determinable fair values not held for trading,mdrm_code,BHCKB560,,2011-03-31,
+y9c,HC-K,3.a,Total loans and leases in domestic offices,mdrm_code,BHDM3516,,2010-03-31,Held for investment
+y9c,HC-K,3.a.1,Loans secured by 1-4 family residential properties,mdrm_code,BHDM3465,,2008-03-31,Excludes 1-4 family residential construction loans
+y9c,HC-K,3.a.2,All other loans secured by real estate,mdrm_code,BHDM3466,,2008-03-31,
+y9c,HC-K,3.a.3,Loans to finance agricultural production and other loans to farmers,mdrm_code,BHDM3386,,2011-03-31,
+y9c,HC-K,3.a.4,Commercial and industrial loans,mdrm_code,BHDM3387,,2011-03-31,
+y9c,HC-K,3.a.5.a,Loans to individuals: Credit cards,mdrm_code,BHDMB561,,2011-03-31,
+y9c,HC-K,3.a.5.b,Loans to individuals: Other,mdrm_code,BHDMB562,,2011-03-31,
+y9c,HC-K,3.b,"Total loans and leases in foreign offices, Edge and Agreement subsidiaries, and IBFs",mdrm_code,BHFN3360,,2010-03-31,
+y9c,HC-K,4.a,Trading assets,mdrm_code,BHCK3401,,2001-03-31,Completed if trading assets >= $10M in any of 4 preceding quarters
+y9c,HC-K,4.b,Other earning assets,mdrm_code,BHCKB985,,2001-03-31,
+y9c,HC-K,H.1,Securities (combined quarterly average; superseded by items 1.a-1.c),mdrm_code,BHCK3515,,1981-06-30,
+y9c,HC-K,H.2,"Loans and leases, consolidated (quarterly average; superseded by items 3.a/3.b)",mdrm_code,BHCK3516,,1981-06-30,Reported on the form 1981-2009; from 2010-03-31 continues as an MDRM-derived consolidated series (domestic + foreign)
+y9c,HC-K,H.3,Total earning assets (quarterly average; dropped from the form),mdrm_code,BHCK3402,,1981-06-30,
+y9c,HC-K,H.4,Limited-life preferred stock (quarterly average; dropped from the form),mdrm_code,BHCK3518,,1981-06-30,

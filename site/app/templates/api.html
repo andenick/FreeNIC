@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block title %}API & access layers — FreeNIC{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>API &amp; access layers</h1>
+  <p class="ark-badge-row">
+    <span class="ark-badge real-data">Real data</span>
+    <span class="ark-badge reproducible">Open code</span>
+    <span class="ark-badge reproducible">Full release live</span>
+  </p>
+  <p class="lead">FreeNIC is reachable four ways: the on-site JSON endpoints over the browsable
+     sample, remote DuckDB <code>httpfs</code> over the full parquet release, the
+     <code>freenic_py</code> / <code>freenic_r</code> packages, and an MCP server for AI agents.
+     This page is the access matrix.</p>
+</section>
+
+<!-- 1 · On-site REST/JSON over the slice -------------------------------- -->
+<section class="prose">
+  <h2>1 · On-site JSON endpoints (the browsable slice)</h2>
+  <p>The explorer's charts are drawn from these read-only JSON endpoints. Each is a parameterized
+     read over a real slice table — no auth, no key, GET-only. They serve the {{ counts.slice_db_h }} slice, not
+     the full warehouse.</p>
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead><tr><th>Endpoint</th><th>Returns</th><th>Params</th></tr></thead>
+      <tbody>
+        <tr><td><code>GET /api/failures_by_year</code></td><td>failures + assets + loss per year</td><td class="mono note">—</td></tr>
+        <tr><td><code>GET /api/failures_by_state</code></td><td>failures + assets per state</td><td class="mono note">limit (1–60)</td></tr>
+        <tr><td><code>GET /api/top_failures</code></td><td>largest failures by assets</td><td class="mono note">limit (1–100)</td></tr>
+        <tr><td><code>GET /api/institutions_by_type</code></td><td>active institutions per entity type</td><td class="mono note">—</td></tr>
+        <tr><td><code>GET /api/institutions_by_state</code></td><td>active institutions per state</td><td class="mono note">limit (1–60)</td></tr>
+        <tr><td><code>GET /api/fred_catalog</code></td><td>one row per FRED series</td><td class="mono note">—</td></tr>
+        <tr><td><code>GET /api/fred_series</code></td><td>observations for one series</td><td class="mono note">series_id (required)</td></tr>
+        <tr><td><code>GET /api/lookup_institution</code></td><td>name search over active institutions</td><td class="mono note">q, limit (1–200)</td></tr>
+        <tr><td><code>GET /api/download/&lt;table&gt;.&lt;fmt&gt;</code></td><td>one slice table as csv / parquet</td><td class="mono note">—</td></tr>
+        <tr><td><code>GET /healthz</code></td><td>liveness probe → <code>ok</code></td><td class="mono note">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ark-code">
+    <div class="ark-code-head"><span class="ark-code-path">curl · on-site JSON</span>
+      <button class="ark-copy" type="button">Copy</button></div>
+    <pre><code>{% filter forceescape %}{% raw %}curl https://freenic.org/api/failures_by_year
+curl "https://freenic.org/api/fred_series?series_id=TOTBKCR"
+curl "https://freenic.org/api/lookup_institution?q=jpmorgan&limit=5"{% endraw %}{% endfilter %}</code></pre>
+  </div>
+</section>
+
+<!-- 2 · DuckDB httpfs against the full release -------------------------- -->
+<section class="prose">
+  <h2>2 · DuckDB <code>httpfs</code> — the full release, remotely</h2>
+  <p>The full parquet release is served read-only with HTTP byte-range support at
+     <a href="https://data.freenic.org/"><code>https://data.freenic.org/</code></a> (<b>live</b>).
+     DuckDB reads parquet over HTTP and fetches only the row-groups a query touches — so you can
+     join multi-GB tables without downloading them.</p>
+  <div class="ark-code">
+    <div class="ark-code-head"><span class="ark-code-path">DuckDB · remote httpfs</span>
+      <button class="ark-copy" type="button">Copy</button></div>
+    <pre><code>{% filter forceescape %}{% raw %}import duckdb
+con = duckdb.connect()
+con.execute("INSTALL httpfs; LOAD httpfs;")
+
+BASE = "https://data.freenic.org"
+
+# count rows in a remote table (only metadata + needed row-groups fetched)
+con.execute(f"SELECT COUNT(*) FROM '{BASE}/institutions.parquet'").fetchone()
+
+# the CC0 historical OCC layer, queried in place
+con.execute(f"""
+    SELECT year, COUNT(*) AS n_banks
+    FROM '{BASE}/occ_historical.parquet'
+    GROUP BY year ORDER BY year
+""").df()
+
+# join two remote tables
+con.execute(f"""
+    SELECT bf.bank_name, bf.failure_year, bf.total_assets
+    FROM '{BASE}/bank_failures.parquet' bf
+    ORDER BY bf.total_assets DESC LIMIT 10
+""").df(){% endraw %}{% endfilter %}</code></pre>
+  </div>
+  <p class="src">Verify integrity against <code>SHA256SUMS.txt</code> (also served at
+     <code>data.freenic.org</code>) after any local mirror. See <a href="/data">Data</a> for the
+     full per-file URL catalog.</p>
+</section>
+
+<!-- 3 · Python / R quickstarts ------------------------------------------ -->
+<section class="prose">
+  <h2>3 · The <code>freenic_py</code> &amp; <code>freenic_r</code> packages</h2>
+  <p>The read layers wrap DuckDB with banking-aware helpers (institution lookup, financial time
+     series, hierarchy, failures, variable search). Point them at a local parquet dir or the remote
+     URL once, then query in one line.</p>
+  <div class="ark-code">
+    <div class="ark-code-head"><span class="ark-code-path">Python · freenic</span>
+      <button class="ark-copy" type="button">Copy</button></div>
+    <pre><code>{% filter forceescape %}{% raw %}pip install freenic        # (or: pip install -e . from the repo)
+
+import freenic
+# local mirror …
+freenic.set_data_dir("/path/to/freenic/parquet")
+# … or the remote release (env: FREENIC_DATA_DIR=https://data.freenic.org)
+freenic.set_data_dir("https://data.freenic.org")
+
+freenic.list_tables()
+freenic.lookup_institution("jpmorgan")
+freenic.get_financials(1039502, "BHCK2170")          # JPMorgan total assets
+freenic.get_failures(start_year=2008, end_year=2010)
+freenic.query("""
+    SELECT i.name_legal, bf.failure_year, bf.total_assets
+    FROM bank_failures bf
+    JOIN institutions i ON bf.cert = i.fdic_cert
+    WHERE bf.failure_year >= 2008
+    ORDER BY bf.total_assets DESC LIMIT 10
+"""){% endraw %}{% endfilter %}</code></pre>
+  </div>
+  <div class="ark-code">
+    <div class="ark-code-head"><span class="ark-code-path">R · freenic</span>
+      <button class="ark-copy" type="button">Copy</button></div>
+    <pre><code>{% filter forceescape %}{% raw %}library(freenic)
+freenic_set_data_dir("https://data.freenic.org")   # or a local/mounted path
+freenic_list_tables()
+freenic_get_failures(start_year = 2008, end_year = 2010){% endraw %}{% endfilter %}</code></pre>
+  </div>
+  <p class="src">API reference: <code>set_data_dir</code>, <code>query</code>, <code>list_tables</code>,
+     <code>describe</code>, <code>lookup_institution</code>, <code>get_financials</code>,
+     <code>search_variables</code>, <code>get_hierarchy</code>, <code>get_failures</code>. Packages
+     ship in the repo under <code>Outputs/freenic_py</code> and <code>Outputs/freenic_r</code>.</p>
+</section>
+
+<!-- 4 · MCP for AI agents ----------------------------------------------- -->
+<section class="prose">
+  <h2>4 · MCP server (AI agents)</h2>
+  <p>An MCP (Model Context Protocol) server exposes the same read layer to AI agents — an agent can
+     list tables, look up institutions, pull financial series, and run SQL against the configured
+     parquet dir or remote URL. Set <code>FREENIC_DATA_DIR</code> and run the server from
+     <code>Technical/freenic_mcp/</code> in the repo.</p>
+  <div class="ark-code">
+    <div class="ark-code-head"><span class="ark-code-path">shell · MCP server</span>
+      <button class="ark-copy" type="button">Copy</button></div>
+    <pre><code>{% filter forceescape %}{% raw %}export FREENIC_DATA_DIR=https://data.freenic.org   # or a local mirror
+python Technical/freenic_mcp/server.py{% endraw %}{% endfilter %}</code></pre>
+  </div>
+</section>
+
+<!-- Robin relationship -------------------------------------------------- -->
+<section class="prose">
+  <h2>FreeNIC and Robin</h2>
+  <p class="note">FreeNIC sits alongside <b>Robin</b>, the heterodata series API. The division of
+     labour: <b>Robin is the series API</b> — curated, versioned individual data series with
+     citation/provenance, fetched one series at a time; <b>FreeNIC is the banking-data bulk / SQL
+     layer</b> — the full regulatory microdata warehouse you query relationally (joins across call
+     reports, filings, failures, identity crosswalks). They are complementary: Robin for "give me this
+     series with its lineage," FreeNIC for "let me run SQL across the whole banking panel." A future
+     Robin↔FreeNIC bridge (FreeNIC's banking series surfaced through the Robin API) is anticipated but
+     is not part of this release.</p>
+</section>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-E,1.a.,Commercial bank subsidiaries - Noninterest-bearing balances,mdrm_code,BHCB2210,,1981-06-30,"Includes noninterest-bearing demand, time, and savings deposits held in domestic offices of commercial bank subsidiaries"
+y9c,HC-E,1.a.,Commercial bank subsidiaries - Noninterest-bearing balances,call_mdrm,RCFD2210,,1981-06-30,"Includes noninterest-bearing demand, time, and savings deposits held in domestic offices of commercial bank subsidiaries"
+y9c,HC-E,1.b.,"Commercial bank subsidiaries - Interest-bearing demand deposits, NOW, ATS, and other transaction accounts",mdrm_code,BHCB3187,,1986-06-30,Domestic-office interest-bearing transaction accounts of commercial bank subsidiaries
+y9c,HC-E,1.c.,Commercial bank subsidiaries - Money market deposit accounts and other savings accounts,mdrm_code,BHCB2389,,1981-06-30,MMDAs and other savings (nontransaction) accounts
+y9c,HC-E,1.c.,Commercial bank subsidiaries - Money market deposit accounts and other savings accounts,call_mdrm,RCON2389,,1981-06-30,MMDAs and other savings (nontransaction) accounts
+y9c,HC-E,1.d.,"Commercial bank subsidiaries - Time deposits of $250,000 or less",mdrm_code,BHCBHK29,,2017-03-31,Time deposits at or below the FDIC insurance limit
+y9c,HC-E,1.e.,"Commercial bank subsidiaries - Time deposits of more than $250,000",mdrm_code,BHCBJ474,,2017-03-31,Time deposits above the FDIC insurance limit
+y9c,HC-E,1.e.,"Commercial bank subsidiaries - Time deposits of more than $250,000",call_mdrm,RCONJ474,,2017-03-31,Time deposits above the FDIC insurance limit
+y9c,HC-E,2.a.,Other depository institution subsidiaries - Noninterest-bearing balances,mdrm_code,BHOD3189,,1986-06-30,Noninterest-bearing deposits in domestic offices of thrift/other depository subsidiaries
+y9c,HC-E,2.b.,"Other depository institution subsidiaries - Interest-bearing demand deposits, NOW, ATS, and other transaction accounts",mdrm_code,BHOD3187,,1986-06-30,Interest-bearing transaction accounts at other depository subsidiaries
+y9c,HC-E,2.c.,Other depository institution subsidiaries - Money market deposit accounts and other savings accounts,mdrm_code,BHOD2389,,1986-06-30,MMDAs and other savings accounts at other depository subsidiaries
+y9c,HC-E,2.c.,Other depository institution subsidiaries - Money market deposit accounts and other savings accounts,call_mdrm,RCON2389,,1986-06-30,MMDAs and other savings accounts at other depository subsidiaries
+y9c,HC-E,2.d.,"Other depository institution subsidiaries - Time deposits of $250,000 or less",mdrm_code,BHODHK29,,2017-03-31,Time deposits at or below the insurance limit
+y9c,HC-E,2.e.,"Other depository institution subsidiaries - Time deposits of more than $250,000",mdrm_code,BHODJ474,,2017-03-31,Time deposits above the insurance limit
+y9c,HC-E,2.e.,"Other depository institution subsidiaries - Time deposits of more than $250,000",call_mdrm,RCONJ474,,2017-03-31,Time deposits above the insurance limit
+y9c,HC-E,M.1.,"Memoranda: Brokered deposits of $250,000 or less with a remaining maturity of one year or less",mdrm_code,BHDMHK06,,2017-03-31,Brokered deposit detail; not additive to items 1-2
+y9c,HC-E,M.1.,"Memoranda: Brokered deposits of $250,000 or less with a remaining maturity of one year or less",call_mdrm,RCONHK06,,2017-03-31,Brokered deposit detail; not additive to items 1-2
+y9c,HC-E,M.2.,"Memoranda: Brokered deposits of $250,000 or less with a remaining maturity of more than one year",mdrm_code,BHDMHK31,,2017-03-31,Brokered deposit detail; not additive to items 1-2
+y9c,HC-E,M.3.,"Memoranda: Time deposits of more than $250,000 with a remaining maturity of one year or less",mdrm_code,BHDMHK32,,2017-03-31,Maturity detail on large time deposits
+y9c,HC-E,M.4.,Memoranda: Foreign office time deposits with a remaining maturity of one year or less,mdrm_code,BHFNA245,,2001-03-31,Foreign-office time-deposit maturity detail
+y9c,HC-E,M.4.,Memoranda: Foreign office time deposits with a remaining maturity of one year or less,call_mdrm,RCFNA245,,2001-03-31,Foreign-office time-deposit maturity detail

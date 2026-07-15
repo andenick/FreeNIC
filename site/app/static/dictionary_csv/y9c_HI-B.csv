@@ -1,0 +1,80 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HI-B,PI.1.a.(1),Part I: RE - 1-4 family residential construction loans (domestic offices),mdrm_col_a,BHCKC891,,2007-03-31,"Col A=Charge-offs, Col B=Recoveries"
+y9c,HI-B,PI.1.a.(1),Part I: RE - 1-4 family residential construction loans (domestic offices),mdrm_col_b,BHCKC892,,2007-03-31,"Col A=Charge-offs, Col B=Recoveries"
+y9c,HI-B,PI.1.a.(2),Part I: RE - Other construction loans and all land development and other land loans,mdrm_col_a,BHCKC893,,2007-03-31,-
+y9c,HI-B,PI.1.a.(2),Part I: RE - Other construction loans and all land development and other land loans,mdrm_col_b,BHCKC894,,2007-03-31,-
+y9c,HI-B,PI.1.b.,Part I: RE - Secured by farmland in domestic offices,mdrm_col_a,BHCK3584,,1990-09-30,-
+y9c,HI-B,PI.1.b.,Part I: RE - Secured by farmland in domestic offices,mdrm_col_b,BHCK3585,,1990-09-30,-
+y9c,HI-B,PI.1.c.(1),"Part I: RE - Revolving, open-end loans secured by 1-4 family residential properties (HELOCs)",mdrm_col_a,BHCK5411,,1991-03-31,-
+y9c,HI-B,PI.1.c.(1),"Part I: RE - Revolving, open-end loans secured by 1-4 family residential properties (HELOCs)",mdrm_col_b,BHCK5412,,1991-03-31,-
+y9c,HI-B,PI.1.c.(2)(a),"Part I: RE - Closed-end 1-4 family, secured by first liens",mdrm_col_b,BHCKC217,,2002-03-31,-
+y9c,HI-B,PI.1.c.(2)(a),"Part I: RE - Closed-end 1-4 family, secured by first liens",mdrm_col_a,BHCKC234,,2002-03-31,-
+y9c,HI-B,PI.1.c.(2)(b),"Part I: RE - Closed-end 1-4 family, secured by junior liens",mdrm_col_b,BHCKC218,,2002-03-31,-
+y9c,HI-B,PI.1.c.(2)(b),"Part I: RE - Closed-end 1-4 family, secured by junior liens",mdrm_col_a,BHCKC235,,2002-03-31,-
+y9c,HI-B,PI.1.d.,Part I: RE - Secured by multifamily (5 or more) residential properties (domestic offices),mdrm_col_a,BHCK3588,,1990-09-30,-
+y9c,HI-B,PI.1.d.,Part I: RE - Secured by multifamily (5 or more) residential properties (domestic offices),mdrm_col_b,BHCK3589,,1990-09-30,-
+y9c,HI-B,PI.1.e.(1),Part I: RE - Loans secured by owner-occupied nonfarm nonresidential properties,mdrm_col_a,BHCKC895,,2007-03-31,-
+y9c,HI-B,PI.1.e.(1),Part I: RE - Loans secured by owner-occupied nonfarm nonresidential properties,mdrm_col_b,BHCKC896,,2007-03-31,-
+y9c,HI-B,PI.1.e.(2),Part I: RE - Loans secured by other nonfarm nonresidential properties,mdrm_col_a,BHCKC897,,2007-03-31,-
+y9c,HI-B,PI.1.e.(2),Part I: RE - Loans secured by other nonfarm nonresidential properties,mdrm_col_b,BHCKC898,,2007-03-31,-
+y9c,HI-B,PI.1.f.,Part I: RE - Loans secured by real estate in foreign offices,mdrm_col_a,BHCKB512,,2001-03-31,-
+y9c,HI-B,PI.1.f.,Part I: RE - Loans secured by real estate in foreign offices,mdrm_col_b,BHCKB513,,2001-03-31,-
+y9c,HI-B,PI.3,Part I: Loans to finance agricultural production and other loans to farmers,mdrm_col_a,BHCK4655,,1986-06-30,Item 2 not applicable
+y9c,HI-B,PI.3,Part I: Loans to finance agricultural production and other loans to farmers,mdrm_col_b,BHCK4665,,1986-06-30,Item 2 not applicable
+y9c,HI-B,PI.4.a.,Part I: Commercial and industrial loans to U.S. addressees (domicile),mdrm_col_b,BHCK4617,,1986-06-30,$5B+ filers split 4.a/4.b
+y9c,HI-B,PI.4.a.,Part I: Commercial and industrial loans to U.S. addressees (domicile),mdrm_col_a,BHCK4645,,1986-06-30,$5B+ filers split 4.a/4.b
+y9c,HI-B,PI.4.b.,Part I: Commercial and industrial loans to non-U.S. addressees (domicile),mdrm_col_b,BHCK4618,,1986-06-30,-
+y9c,HI-B,PI.4.b.,Part I: Commercial and industrial loans to non-U.S. addressees (domicile),mdrm_col_a,BHCK4646,,1986-06-30,-
+y9c,HI-B,PI.4.c.,Part I: Commercial and industrial loans to U.S. and non-U.S. addressees (domicile),mdrm_col_a,BHCKKX48,,2019-12-31,Filers < $5B report 4.c only
+y9c,HI-B,PI.4.c.,Part I: Commercial and industrial loans to U.S. and non-U.S. addressees (domicile),mdrm_col_b,BHCKKX49,,2019-12-31,Filers < $5B report 4.c only
+y9c,HI-B,PI.5.a.,Part I: Loans to individuals - Credit cards,mdrm_col_a,BHCKB514,,2001-03-31,-
+y9c,HI-B,PI.5.a.,Part I: Loans to individuals - Credit cards,mdrm_col_b,BHCKB515,,2001-03-31,-
+y9c,HI-B,PI.5.b.,Part I: Loans to individuals - Automobile loans,mdrm_col_a,BHCKK129,,2011-03-31,-
+y9c,HI-B,PI.5.b.,Part I: Loans to individuals - Automobile loans,mdrm_col_b,BHCKK133,,2011-03-31,-
+y9c,HI-B,PI.5.c.,Part I: Loans to individuals - Other consumer loans,mdrm_col_a,BHCKK205,,2011-03-31,"Single payment, installment, student loans, revolving plans other than credit cards"
+y9c,HI-B,PI.5.c.,Part I: Loans to individuals - Other consumer loans,mdrm_col_b,BHCKK206,,2011-03-31,"Single payment, installment, student loans, revolving plans other than credit cards"
+y9c,HI-B,PI.6,Part I: Loans to foreign governments and official institutions,mdrm_col_b,BHCK4627,,1986-06-30,$5B+ filers
+y9c,HI-B,PI.6,Part I: Loans to foreign governments and official institutions,mdrm_col_a,BHCK4643,,1986-06-30,$5B+ filers
+y9c,HI-B,PI.7,Part I: All other loans,mdrm_col_b,BHCK4628,,1991-03-31,-
+y9c,HI-B,PI.7,Part I: All other loans,mdrm_col_a,BHCK4644,,1991-03-31,-
+y9c,HI-B,PI.8.a.,"Part I: Lease financing - Leases to individuals for household, family, and other personal expenditures",mdrm_col_a,BHCKF185,,2007-03-31,-
+y9c,HI-B,PI.8.a.,"Part I: Lease financing - Leases to individuals for household, family, and other personal expenditures",mdrm_col_b,BHCKF187,,2007-03-31,-
+y9c,HI-B,PI.8.b.,Part I: Lease financing - All other leases,mdrm_col_a,BHCKC880,,2007-03-31,-
+y9c,HI-B,PI.8.b.,Part I: Lease financing - All other leases,mdrm_col_b,BHCKF188,,2007-03-31,-
+y9c,HI-B,PI.8.c.,Part I: Lease financing - Leases to individuals and all other leases (combined),mdrm_col_a,BHCKKX50,,2019-12-31,Filers < $5B report 8.c only
+y9c,HI-B,PI.8.c.,Part I: Lease financing - Leases to individuals and all other leases (combined),mdrm_col_b,BHCKKX51,,2019-12-31,Filers < $5B report 8.c only
+y9c,HI-B,PI.9,Part I: Total (sum of items 1 through 8),mdrm_col_b,BHCK4605,,1981-06-30,"Col A=total charge-offs, Col B=total recoveries"
+y9c,HI-B,PI.9,Part I: Total (sum of items 1 through 8),mdrm_col_a,BHCK4635,,1981-06-30,"Col A=total charge-offs, Col B=total recoveries"
+y9c,HI-B,PI.M.1,"Part I Memoranda: Loans to finance commercial real estate, construction, and land development activities (not secured by RE) included in items 4 and 7",mdrm_col_a,BHCK5409,,1991-03-31,$5B+ filers
+y9c,HI-B,PI.M.1,"Part I Memoranda: Loans to finance commercial real estate, construction, and land development activities (not secured by RE) included in items 4 and 7",mdrm_col_b,BHCK5410,,1991-03-31,$5B+ filers
+y9c,HI-B,PI.M.2,Part I Memoranda: Loans secured by real estate to non-U.S. addressees (domicile) included in item 1,mdrm_col_a,BHCK4652,,1986-06-30,-
+y9c,HI-B,PI.M.2,Part I Memoranda: Loans secured by real estate to non-U.S. addressees (domicile) included in item 1,mdrm_col_b,BHCK4662,,1986-06-30,-
+y9c,HI-B,PI.M.3,Part I Memoranda: Uncollectible retail credit card fees and finance charges reversed against income,mdrm_col_a,BHCKC388,,2003-03-31,Year-to-date; not included in charge-offs against the allowance
+y9c,HI-B,PII.1,Part II: Balance most recently reported at end of previous year,mdrm_col_a,BHCKB522,,2001-03-31,After adjustments from amended Reports of Income
+y9c,HI-B,PII.1,Part II: Balance most recently reported at end of previous year,mdrm_col_b,BHCKJH88,,2001-03-31,After adjustments from amended Reports of Income
+y9c,HI-B,PII.1,Part II: Balance most recently reported at end of previous year,mdrm_col_c,BHCKJH94,,2001-03-31,After adjustments from amended Reports of Income
+y9c,HI-B,PII.2,Part II: Recoveries,mdrm_col_b,BHCKJH89,,2001-03-31,Col A must equal Part I item 9 col B
+y9c,HI-B,PII.2,Part II: Recoveries,mdrm_col_c,BHCKJH95,,2001-03-31,Col A must equal Part I item 9 col B
+y9c,HI-B,PII.2,Part II: Recoveries,mdrm_col_a,BHCT4605,,2001-03-31,Col A must equal Part I item 9 col B
+y9c,HI-B,PII.3,Part II: LESS: Charge-offs,mdrm_col_a,BHCKC079,,2001-06-30,Col A = Part I item 9 col A less Part II item 4 col A
+y9c,HI-B,PII.3,Part II: LESS: Charge-offs,mdrm_col_b,BHCKJH92,,2001-06-30,Col A = Part I item 9 col A less Part II item 4 col A
+y9c,HI-B,PII.3,Part II: LESS: Charge-offs,mdrm_col_c,BHCKJH98,,2001-06-30,Col A = Part I item 9 col A less Part II item 4 col A
+y9c,HI-B,PII.4,Part II: LESS: Write-downs arising from transfers of financial assets,mdrm_col_a,BHCK5523,,2001-06-30,-
+y9c,HI-B,PII.4,Part II: LESS: Write-downs arising from transfers of financial assets,mdrm_col_b,BHCKJJ00,,2001-06-30,-
+y9c,HI-B,PII.4,Part II: LESS: Write-downs arising from transfers of financial assets,mdrm_col_c,BHCKJJ01,,2001-06-30,-
+y9c,HI-B,PII.5,Part II: Provisions for credit losses,mdrm_col_a,BHCK4230,,1981-06-30,Sum of cols A-C plus memos 5 and 7 must equal Schedule HI item 4
+y9c,HI-B,PII.5,Part II: Provisions for credit losses,mdrm_col_b,BHCKJH90,,1981-06-30,Sum of cols A-C plus memos 5 and 7 must equal Schedule HI item 4
+y9c,HI-B,PII.5,Part II: Provisions for credit losses,mdrm_col_c,BHCKJH96,,1981-06-30,Sum of cols A-C plus memos 5 and 7 must equal Schedule HI item 4
+y9c,HI-B,PII.6,Part II: Adjustments,mdrm_col_a,BHCKC233,,2002-03-31,See schedule instructions
+y9c,HI-B,PII.6,Part II: Adjustments,mdrm_col_b,BHCKJH91,,2002-03-31,See schedule instructions
+y9c,HI-B,PII.6,Part II: Adjustments,mdrm_col_c,BHCKJH97,,2002-03-31,See schedule instructions
+y9c,HI-B,PII.7,Part II: Balance end of current period,mdrm_col_b,BHCKJH93,,2002-12-31,"Sum of items 1,2,5,6 less items 3,4; col A must equal Schedule HC item 4.c"
+y9c,HI-B,PII.7,Part II: Balance end of current period,mdrm_col_c,BHCKJH99,,2002-12-31,"Sum of items 1,2,5,6 less items 3,4; col A must equal Schedule HC item 4.c"
+y9c,HI-B,PII.7,Part II: Balance end of current period,mdrm_col_a,BHCT3123,,2002-12-31,"Sum of items 1,2,5,6 less items 3,4; col A must equal Schedule HC item 4.c"
+y9c,HI-B,PII.M.1,Part II Memoranda: Allocated transfer risk reserve included in item 7 col A,mdrm_col_a,BHCKC435,,2003-03-31,$5B+ filers
+y9c,HI-B,PII.M.2,Part II Memoranda: Separate valuation allowance for uncollectible retail credit card fees and finance charges,mdrm_col_a,BHCKC389,,2003-03-31,Credit-card specialty filers
+y9c,HI-B,PII.M.3,Part II Memoranda: Amount of allowance for credit losses on loans/leases attributable to retail credit card fees and finance charges,mdrm_col_a,BHCKC390,,2003-03-31,-
+y9c,HI-B,PII.M.5,Part II Memoranda: Provisions for credit losses on other financial assets measured at amortized cost (not in item 5),mdrm_col_a,BHCKJJ02,,2019-03-31,-
+y9c,HI-B,PII.M.6,Part II Memoranda: Allowance for credit losses on other financial assets measured at amortized cost (not in item 7),mdrm_col_a,BHCKJJ03,,2019-03-31,-
+y9c,HI-B,PII.M.7,Part II Memoranda: Provisions for credit losses on off-balance-sheet credit exposures,mdrm_col_a,BHCKMG93,,2021-03-31,-
+y9c,HI-B,PII.M.8,Part II Memoranda: Estimated amount of expected recoveries of amounts previously written off included within ACL on loans/leases HFI,mdrm_col_a,BHCKMG94,,2021-03-31,$5B+ filers

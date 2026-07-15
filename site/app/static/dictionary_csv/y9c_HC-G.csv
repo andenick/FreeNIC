@@ -1,0 +1,9 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-G,2,Net deferred tax liabilities,mdrm_code,BHCK3049,,2001-03-31,Net credit balance per tax jurisdiction; debit balances go to HC-F item 2
+y9c,HC-G,2,Net deferred tax liabilities,call_mdrm,RCFD3049,,2001-03-31,Net credit balance per tax jurisdiction; debit balances go to HC-F item 2
+y9c,HC-G,3,Allowance for credit losses on off-balance sheet credit exposures,mdrm_code,BHCKB557,,2001-03-31,Reserve for unfunded commitments; under ASU 2016-13 excludes unconditionally cancellable exposures
+y9c,HC-G,3,Allowance for credit losses on off-balance sheet credit exposures,call_mdrm,RCFDB557,,2001-03-31,Reserve for unfunded commitments; under ASU 2016-13 excludes unconditionally cancellable exposures
+y9c,HC-G,4,Other (all other liabilities),mdrm_code,BHCKB984,,2001-03-31,Includes accrued interest payable; accounts payable; deferred compensation; dividends declared but not yet payable - no separate MDRM codes for these components
+y9c,HC-G,4,Other (all other liabilities),call_mdrm,RCFD2938,,2001-03-31,Includes accrued interest payable; accounts payable; deferred compensation; dividends declared but not yet payable - no separate MDRM codes for these components
+y9c,HC-G,5,Total other liabilities,mdrm_code,BHCT2750,,2001-03-31,Schedule total cell is BHCT2750 (per official field spec); must equal HC item 20 = BHCK2750; sum of items 2 through 4
+y9c,HC-G,5,Total other liabilities,call_mdrm,RCFD2930,,2001-03-31,Schedule total cell is BHCT2750 (per official field spec); must equal HC item 20 = BHCK2750; sum of items 2 through 4

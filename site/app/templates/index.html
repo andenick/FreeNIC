@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %}FreeNIC — free, unified US banking regulatory data{% endblock %}
+{% block content %}
+
+<!-- HERO — crisp, one line of framing only. The long prose now lives on
+     /methodology ("What FreeNIC is" + "How to get the data" + the CC0 layer). -->
+<section class="hero">
+  <h1>FreeNIC</h1>
+  <p class="tagline">Free, unified US banking regulatory data.</p>
+  <p class="meta">A century and a half of US banking — call reports, holding-company
+     filings, failures, deposits, stress tests, credit unions and SEC identity —
+     harmonized into one queryable schema. All public sources, open code.
+     <b>1863–2026.</b></p>
+</section>
+
+<section class="stats">
+  <div class="stat"><span class="num">{{ counts.base_rows_approx }}</span><span class="lbl">observations</span></div>
+  <div class="stat"><span class="num">{{ counts.institutions_h }}</span><span class="lbl">institutions</span></div>
+  <div class="stat"><span class="num">{{ counts.base_tables }}</span><span class="lbl">base tables</span></div>
+  <div class="stat"><span class="num">{{ counts.source_datasets }}</span><span class="lbl">public datasets</span></div>
+  <div class="stat"><span class="num">{{ counts.time_span }}</span><span class="lbl">time span</span></div>
+</section>
+
+<!-- RESEARCH TRIAD (kit ark-triad) — the CDF hero action row: Data · Code ·
+     Outputs. Hrefs + sublabels hydrate from ecosystem.json's freenic `cdf`
+     block (ark-triad.js). Two-tier Data button (curated slice zip + bulk host). -->
+{% include "_shared/triad.html" %}
+
+<!-- v1.0 ANNOUNCEMENT — placed directly under the CDF triad. Short + honest; every
+     figure is a counts.json template variable (never a hand-typed literal), wired to
+     the make_freenic_counts.py generation mechanism so it can never drift. -->
+<section class="prose">
+  <div class="callout" style="border-left:3px solid var(--ark-accent,#64748b)">
+    <h3 style="margin-top:0">FreeNIC {{ counts.version }} is here</h3>
+    <p style="margin:.2em 0 0">The first stable release harmonizes <b>{{ counts.base_rows_approx }} observations</b>
+       across <b>{{ counts.base_tables }} base tables</b> and {{ counts.source_datasets }} public
+       datasets — {{ "{:,}".format(counts.institutions) }} institutions, {{ counts.time_span }} — into one
+       queryable schema, published as a <b>{{ counts.release_files }}-file, {{ counts.release_size_iec }}
+       parquet release</b> at <a href="https://data.freenic.org/">data.freenic.org</a>. New in
+       {{ counts.version }}: a two-explorer browse surface —
+       <a href="/institutions">institution lookup</a> over the {{ counts.active_inst_h }} active
+       institutions and a <a href="/failures">bank-failure explorer</a> over the
+       {{ counts.failure_records_h }} FDIC failure records. Everything shipped is real published data;
+       nothing is fabricated. See <a href="/methodology">what's in the release</a>.</p>
+  </div>
+</section>
+
+<!-- EXPLORE CTA — the centerpiece, like a price-explorer landing. Lead straight
+     into the on-site explorer; everything else is one click away. -->
+<section class="prose" style="text-align:center;margin:34px 0 18px">
+  <h2 style="border-bottom:none;font-size:1.9rem">Explore the data</h2>
+  <p class="lead" style="max-width:640px;margin:.4em auto .9em">
+     Interactive charts over real, published FreeNIC tables — bank failures, FRED
+     banking series and active institutions — each with a top-right
+     <b>Download CSV</b>. Browse and chart in your browser, no install.</p>
+  <p style="margin:.2em 0 0">
+     <a class="ark-btn" href="/explorer" style="font-size:1.05rem;padding:.7rem 1.6rem">
+        Open the explorer →</a></p>
+  <p class="note" style="margin-top:1.1em">
+     The browsable explorer shows a <b>curated sample</b> ({{ counts.slice_db_h }}) of the FreeNIC
+     database; the <b>complete dataset</b> ({{ counts.base_rows_approx }} rows, {{ counts.base_tables }} base tables, {{ counts.time_span }}) is
+     available via the R/Python package and API over the parquet release at
+     <a href="https://data.freenic.org/">data.freenic.org</a>.</p>
+</section>
+
+<!-- DATA-DICTIONARY DOWNLOAD — surfaced prominently, one real CSV/Parquet pair
+     (the same dict_schedule_lineitems endpoints the /dictionary page serves).
+     DNA DOWNLOAD_AND_FORMATS: CSV/Parquet only, never JSON. -->
+<section class="prose">
+  <div class="callout">
+    <h3>Data dictionary</h3>
+    <p>The harmonized MDRM/UBPR schedule line-items — the version-pinned
+       <a href="https://github.com/andenick/bank-data-dictionary">bank-data-dictionary</a>
+       taxonomy mapping codes to schedules, captions and edit relationships.
+       Download the core table, or
+       <a href="/dictionary">browse and search the full dictionary →</a></p>
+    <div class="dl-row" id="dict_dl"></div>
+  </div>
+</section>
+
+<!-- COMPACT ACCESS ROW — the 4 ways in, as one terse row (not verbose cards).
+     The full "how to get the data" walkthrough + httpfs example moved to
+     /methodology. -->
+<section class="prose">
+  <h2>Four ways in</h2>
+  <p class="note">Pick the smallest one that answers your question.</p>
+  <div class="card-grid">
+    <a class="card" href="/explorer">
+      <h3>Explorer →</h3>
+      <p>Browse + chart the curated sample in the browser.
+         <span class="ark-badge in-slice">curated sample</span></p>
+    </a>
+    <a class="card" href="/data">
+      <h3>Data download →</h3>
+      <p>The full {{ counts.version }} parquet release — {{ counts.release_files }} files, {{ counts.release_size_iec }} — and per-table
+         CSV/Parquet. <span class="ark-badge reproducible">live</span></p>
+    </a>
+    <a class="card" href="/api-docs">
+      <h3>Python / R / API →</h3>
+      <p>The <code>freenic_py</code> / <code>freenic_r</code> packages + MCP server;
+         remote DuckDB <code>httpfs</code> over the parquet release.
+         <span class="ark-badge reproducible">read layers</span></p>
+    </a>
+    <a class="card" href="https://github.com/andenick/FreeNIC">
+      <h3>GitHub →</h3>
+      <p>The full ingestion pipeline and read packages — MIT code, reproducible
+         from public sources.</p>
+    </a>
+  </div>
+  <p class="src">More on what FreeNIC is, how to query the full release remotely, and
+     the public-domain (CC0) historical layer →
+     <a href="/methodology">Methodology &amp; provenance</a>.</p>
+</section>
+
+<script>
+// Real data-dictionary download (DNA DOWNLOAD_AND_FORMATS_STANDARD: CSV/Parquet
+// only, never JSON). Both endpoints are faithful serializations of the same real
+// dict_schedule_lineitems slice table (app/downloads.py serializers) — the exact
+// pair the /dictionary page exposes.
+if (window.ArkDownloads) {
+  document.getElementById('dict_dl').appendChild(
+    ArkDownloads.buttons({
+      csv: '/api/download/dict_schedule_lineitems.csv',
+      parquet: '/api/download/dict_schedule_lineitems.parquet'
+    }, { label: 'Download dictionary:' })
+  );
+}
+</script>
+
+{% endblock %}

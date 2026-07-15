@@ -1,0 +1,98 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+call,RC,5,Trading assets (from Schedule RC-D),mdrm_consolidated,RCFD3545,031/041/051,2009-03-31,Cash/balance-sheet item.
+call,RC,5,Trading assets (from Schedule RC-D),mdrm_domestic_051,RCON3545,031/041/051,2009-03-31,Cash/balance-sheet item.
+call,RC,5,Trading assets (from Schedule RC-D),mdrm_domestic,RCON3545,031/041/051,2009-03-31,Cash/balance-sheet item.
+call,RC,6,Premises and fixed assets (including right-of-use assets),mdrm_consolidated,RCFD2145,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,6,Premises and fixed assets (including right-of-use assets),mdrm_domestic_051,RCON2145,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,6,Premises and fixed assets (including right-of-use assets),mdrm_domestic,RCON2145,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,7,Other real estate owned (from Schedule RC-M),mdrm_consolidated,RCFD2150,031/041/051,1994-03-31,Cash/balance-sheet item.
+call,RC,7,Other real estate owned (from Schedule RC-M),mdrm_domestic_051,RCON2150,031/041/051,1994-03-31,Cash/balance-sheet item.
+call,RC,7,Other real estate owned (from Schedule RC-M),mdrm_domestic,RCON2150,031/041/051,1994-03-31,Cash/balance-sheet item.
+call,RC,8,Investments in unconsolidated subsidiaries and associated companies,mdrm_consolidated,RCFD2130,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,8,Investments in unconsolidated subsidiaries and associated companies,mdrm_domestic_051,RCON2130,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,8,Investments in unconsolidated subsidiaries and associated companies,mdrm_domestic,RCON2130,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,9,Direct and indirect investments in real estate ventures,mdrm_consolidated,RCFD3656,031/041/051,2009-06-30,Cash/balance-sheet item.
+call,RC,9,Direct and indirect investments in real estate ventures,mdrm_domestic_051,RCON3656,031/041/051,2009-06-30,Cash/balance-sheet item.
+call,RC,9,Direct and indirect investments in real estate ventures,mdrm_domestic,RCON3656,031/041/051,2009-06-30,Cash/balance-sheet item.
+call,RC,10,Intangible assets (from Schedule RC-M),mdrm_consolidated,RCFD2143,031/041,2018-06-30,Cash/balance-sheet item.
+call,RC,10,Intangible assets (from Schedule RC-M),mdrm_domestic,RCON2143,031/041,2018-06-30,Cash/balance-sheet item.
+call,RC,11,Other assets (from Schedule RC-F),mdrm_consolidated,RCFD2160,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,11,Other assets (from Schedule RC-F),mdrm_domestic_051,RCON2160,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,11,Other assets (from Schedule RC-F),mdrm_domestic,RCON2160,031/041/051,1984-03-31,Cash/balance-sheet item.
+call,RC,12,Total assets (sum of items 1 through 11),mdrm_consolidated,RCFD2170,031/041/051,1985-12-31,Cash/balance-sheet item.
+call,RC,12,Total assets (sum of items 1 through 11),mdrm_domestic,RCON2170,031/041/051,1985-12-31,Cash/balance-sheet item.
+call,RC,12,Total assets (sum of items 1 through 11),mdrm_domestic_051,RCON2170,031/041/051,1985-12-31,Cash/balance-sheet item.
+call,RC,15,Trading liabilities (from Schedule RC-D),mdrm_consolidated,RCFD3548,031/041/051,1997-09-30,Cash/balance-sheet item.
+call,RC,15,Trading liabilities (from Schedule RC-D),mdrm_domestic,RCON3548,031/041/051,1997-09-30,Cash/balance-sheet item.
+call,RC,15,Trading liabilities (from Schedule RC-D),mdrm_domestic_051,RCON3548,031/041/051,1997-09-30,Cash/balance-sheet item.
+call,RC,16,Other borrowed money (includes mortgage indebtedness) (from Schedule RC-M),mdrm_consolidated,RCFD3190,031/041/051,2001-03-31,Cash/balance-sheet item.
+call,RC,16,Other borrowed money (includes mortgage indebtedness) (from Schedule RC-M),mdrm_domestic,RCON3190,031/041/051,2001-03-31,Cash/balance-sheet item.
+call,RC,16,Other borrowed money (includes mortgage indebtedness) (from Schedule RC-M),mdrm_domestic_051,RCON3190,031/041/051,2001-03-31,Cash/balance-sheet item.
+call,RC,19,Subordinated notes and debentures,mdrm_domestic,RCON3200,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,19,Subordinated notes and debentures,mdrm_domestic_051,RCON3200,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,20,Other liabilities (from Schedule RC-G),mdrm_domestic_051,RCON2930,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,20,Other liabilities (from Schedule RC-G),mdrm_domestic,RCON2930,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,21,Total liabilities (sum of items 13 through 20),mdrm_domestic,RCON2948,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,21,Total liabilities (sum of items 13 through 20),mdrm_domestic_051,RCON2948,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,23,Perpetual preferred stock and related surplus,mdrm_domestic,RCON3838,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,23,Perpetual preferred stock and related surplus,mdrm_domestic_051,RCON3838,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,24,Common stock,mdrm_domestic,RCON3230,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,24,Common stock,mdrm_domestic_051,RCON3230,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,25,Surplus (exclude all surplus related to preferred stock),mdrm_domestic,RCON3839,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,25,Surplus (exclude all surplus related to preferred stock),mdrm_domestic_051,RCON3839,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,28,Total equity capital (sum of items 27.a and 27.b),mdrm_domestic,RCONG105,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,28,Total equity capital (sum of items 27.a and 27.b),mdrm_domestic_051,RCONG105,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,29,Total liabilities and equity capital (sum of items 21 and 28),mdrm_domestic,RCON3300,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,29,Total liabilities and equity capital (sum of items 21 and 28),mdrm_domestic_051,RCON3300,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,051-11.b,Intangible assets: Other intangible assets,mdrm_domestic_051,RCON0426,051,2017-03-31,Form 051 only (small-bank schedule); reported in domestic offices (RCON).
+call,RC,1.a,Noninterest-bearing balances and currency and coin (from Schedule RC-A),mdrm_consolidated,RCFD0081,031/041,1984-03-31,Cash/balance-sheet item.
+call,RC,1.a,Noninterest-bearing balances and currency and coin (from Schedule RC-A),mdrm_domestic,RCON0081,031/041,1984-03-31,Cash/balance-sheet item.
+call,RC,1.b,Interest-bearing balances (from Schedule RC-A),mdrm_consolidated,RCFD0071,031/041,1984-03-31,Cash/balance-sheet item.
+call,RC,1.b,Interest-bearing balances (from Schedule RC-A),mdrm_domestic,RCON0071,031/041,1984-03-31,Cash/balance-sheet item.
+call,RC,13.a,"Deposits: In domestic offices (sum of totals of columns A and C from Schedule RC-E, Part I)",mdrm_domestic,RCON2200,031/041,2017-03-31,Cash/balance-sheet item.
+call,RC,13.a.(1),Deposits in domestic offices: Noninterest-bearing,mdrm_domestic_051,RCON6631,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,13.a.(1),Deposits in domestic offices: Noninterest-bearing,mdrm_domestic,RCON6631,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,13.a.(2),Deposits in domestic offices: Interest-bearing,mdrm_domestic_051,RCON6636,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,13.a.(2),Deposits in domestic offices: Interest-bearing,mdrm_domestic,RCON6636,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,13.b,"Deposits: In foreign offices, Edge and Agreement subsidiaries, and IBFs (from Schedule RC-E, Part II)",mdrm_foreign,RCFN2200,031/041,-,Cash/balance-sheet item.
+call,RC,13.b.(1),Deposits in foreign offices: Noninterest-bearing,mdrm_foreign,RCFN6631,031,-,Cash/balance-sheet item.
+call,RC,13.b.(2),Deposits in foreign offices: Interest-bearing,mdrm_foreign,RCFN6636,031,-,Cash/balance-sheet item.
+call,RC,14.a,Federal funds purchased in domestic offices,mdrm_domestic,RCONB993,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,14.a,Federal funds purchased in domestic offices,mdrm_domestic_051,RCONB993,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,14.b,Securities sold under agreements to repurchase,mdrm_consolidated,RCFDB995,031/041/051,2003-03-31,Cash/balance-sheet item.
+call,RC,14.b,Securities sold under agreements to repurchase,mdrm_domestic_051,RCONB995,031/041/051,2003-03-31,Cash/balance-sheet item.
+call,RC,14.b,Securities sold under agreements to repurchase,mdrm_domestic,RCONB995,031/041/051,2003-03-31,Cash/balance-sheet item.
+call,RC,2.a,"Held-to-maturity securities (from Schedule RC-B, column A)",mdrm_consolidated,RCFDJJ34,031/041,2019-03-31,Cash/balance-sheet item.
+call,RC,2.a,"Held-to-maturity securities (from Schedule RC-B, column A)",mdrm_domestic,RCONJJ34,031/041,2019-03-31,Cash/balance-sheet item.
+call,RC,2.b,"Available-for-sale debt securities (from Schedule RC-B, column D)",mdrm_consolidated,RCFD1773,031/041,1997-09-30,Cash/balance-sheet item.
+call,RC,2.b,"Available-for-sale debt securities (from Schedule RC-B, column D)",mdrm_domestic,RCON1773,031/041,1997-09-30,Cash/balance-sheet item.
+call,RC,2.c,Equity securities with readily determinable fair values not held for trading,mdrm_consolidated,RCFDJA22,031/041,2018-03-31,Cash/balance-sheet item.
+call,RC,2.c,Equity securities with readily determinable fair values not held for trading,mdrm_domestic,RCONJA22,031/041,2018-03-31,Cash/balance-sheet item.
+call,RC,26.a,Retained earnings,mdrm_domestic_051,RCON3632,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,26.a,Retained earnings,mdrm_domestic,RCON3632,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,26.b,Accumulated other comprehensive income,mdrm_domestic_051,RCONB530,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,26.b,Accumulated other comprehensive income,mdrm_domestic,RCONB530,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,26.c,Other equity capital components,mdrm_domestic,RCONA130,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,26.c,Other equity capital components,mdrm_domestic_051,RCONA130,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,27.a,Total bank equity capital (sum of items 23 through 26.c),mdrm_domestic_051,RCON3210,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,27.a,Total bank equity capital (sum of items 23 through 26.c),mdrm_domestic,RCON3210,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,27.b,Noncontrolling (minority) interests in consolidated subsidiaries,mdrm_domestic,RCON3000,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,27.b,Noncontrolling (minority) interests in consolidated subsidiaries,mdrm_domestic_051,RCON3000,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,3.a,Federal funds sold in domestic offices,mdrm_domestic,RCONB987,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,3.a,Federal funds sold in domestic offices,mdrm_domestic_051,RCONB987,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,3.b,Securities purchased under agreements to resell,mdrm_consolidated,RCFDB989,031/041/051,2003-03-31,Cash/balance-sheet item.
+call,RC,3.b,Securities purchased under agreements to resell,mdrm_domestic,RCONB989,031/041/051,2003-03-31,Cash/balance-sheet item.
+call,RC,3.b,Securities purchased under agreements to resell,mdrm_domestic_051,RCONB989,031/041/051,2003-03-31,Cash/balance-sheet item.
+call,RC,4.a,Loans and leases held for sale (from Schedule RC-C),mdrm_consolidated,RCFD5369,031/041/051,1991-03-31,Cash/balance-sheet item.
+call,RC,4.a,Loans and leases held for sale (from Schedule RC-C),mdrm_domestic_051,RCON5369,031/041/051,1991-03-31,Cash/balance-sheet item.
+call,RC,4.a,Loans and leases held for sale (from Schedule RC-C),mdrm_domestic,RCON5369,031/041/051,1991-03-31,Cash/balance-sheet item.
+call,RC,4.b,Loans and leases held for investment,mdrm_consolidated,RCFDB528,031/041,2001-03-31,Cash/balance-sheet item.
+call,RC,4.b,Loans and leases held for investment,mdrm_domestic,RCONB528,031/041,2001-03-31,Cash/balance-sheet item.
+call,RC,4.c,LESS: Allowance for credit losses on loans and leases,mdrm_consolidated,RCFD3123,031/041,1984-03-31,Cash/balance-sheet item.
+call,RC,4.c,LESS: Allowance for credit losses on loans and leases,mdrm_domestic,RCON3123,031/041,1984-03-31,Cash/balance-sheet item.
+call,RC,4.d,"Loans and leases held for investment, net of allowance (item 4.b minus 4.c)",mdrm_consolidated,RCFDB529,031/041,2001-03-31,Cash/balance-sheet item.
+call,RC,4.d,"Loans and leases held for investment, net of allowance (item 4.b minus 4.c)",mdrm_domestic,RCONB529,031/041,2001-03-31,Cash/balance-sheet item.
+call,RC,M.1,Indicate the number that best describes the most comprehensive level of auditing work performed for the bank by independent external auditors as of any date during 2024,mdrm_consolidated,RCFD6724,031/041,1993-03-31,Cash/balance-sheet item.
+call,RC,M.1,Indicate the number that best describes the most comprehensive level of auditing work performed for the bank by independent external auditors as of any date during 2024,mdrm_domestic,RCON6724,031/041,1993-03-31,Cash/balance-sheet item.
+call,RC,M.2,Bank's fiscal year-end date (report the date in MMDD format),mdrm_domestic,RCON8678,031/041/051,2017-03-31,Cash/balance-sheet item.
+call,RC,M.2,Bank's fiscal year-end date (report the date in MMDD format),mdrm_domestic_051,RCON8678,031/041/051,2017-03-31,Cash/balance-sheet item.

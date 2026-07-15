@@ -1,0 +1,156 @@
+{
+  "schedules": {
+    "RC": {
+      "title": "Schedule RC — Balance Sheet",
+      "what_it_measures": "The bank's full balance sheet as of the last day of the quarter: every asset it holds, every liability it owes, and the equity capital left over. It is the lead schedule of the Report of Condition and the anchor that all the other RC-letter schedules feed into.",
+      "why_it_exists": "Regulators need a single, comparable snapshot of what each bank owns and owes so they can size the institution, track its growth, and check that the rest of the filing ties out. Most line items are summary totals that are broken down in detail elsewhere (for example, securities in RC-B, loans in RC-C, deposits in RC-E).",
+      "what_you_can_answer": "How large is this bank? How is it funded — deposits versus borrowings? How much equity cushion does it carry? Is it growing or shrinking quarter over quarter? Because RC is the entry point, it is also where you confirm the headline identity total assets = total liabilities + total equity.",
+      "key_items": [
+        {"item": "RCFD2170", "plain": "Total assets (line 12) — the whole institution, consolidated. The single most-used number in the filing; everything else is a slice of it."},
+        {"item": "RCON2948", "plain": "Total liabilities (line 21) — everything the bank owes, dominated by deposits."},
+        {"item": "RCON3210", "plain": "Total bank equity capital (line 27.a) — the owners' cushion that stands between losses and depositors."}
+      ],
+      "pitfalls": "Watch the office scope encoded in the code prefix. RCFD is the consolidated value (domestic + foreign offices); RCON is domestic offices only; RCFN is foreign offices only. On the FFIEC 031, RCFD = RCON + RCFN. For a domestic-only bank there is no foreign column, so use RCON (or its consolidated equivalent) rather than mixing prefixes within one calculation.",
+      "sources": ["FFIEC 031/041/051 Call Report Instructions", "Federal Reserve MDRM"]
+    },
+    "RC-B": {
+      "title": "Schedule RC-B — Securities",
+      "what_it_measures": "The bank's investment securities portfolio, broken out by type of security (Treasuries, agency and GSE obligations, municipals, mortgage-backed securities, asset-backed and structured products, other debt) and, within each, by accounting bucket.",
+      "why_it_exists": "Securities are a major use of bank funds and a key source of interest-rate and liquidity risk, so the schedule separates them by accounting intent and reports both cost and fair value. Each line carries a four-column grid: held-to-maturity at amortized cost (A) and at fair value (B), and available-for-sale at amortized cost (C) and at fair value (D).",
+      "what_you_can_answer": "How much of the bank's balance sheet is in bonds rather than loans? What is its concentration in mortgage-backed securities? How large is the gap between amortized cost and fair value — the unrealized gain or loss that signals interest-rate exposure (the dynamic at the center of the 2023 regional-bank stress)?",
+      "key_items": [
+        {"item": "RCFD0211", "plain": "U.S. Treasury securities, held-to-maturity at amortized cost (line 1, column A). The lowest-risk, most-liquid line of the portfolio."},
+        {"item": "RCFD1754", "plain": "Total held-to-maturity securities at amortized cost (line 8, column A) — the sum across all security types in the HTM book."}
+      ],
+      "pitfalls": "Do not add amortized cost and fair value together — they are different views of the same holdings across the four columns, not separate amounts. The amortized-cost-versus-fair-value spread is the unrealized gain/loss; held-to-maturity securities sit on the books at cost even when their fair value has fallen, so cost alone understates rate risk.",
+      "sources": ["FFIEC 031/041/051 Call Report Instructions"]
+    },
+    "RC-C": {
+      "title": "Schedule RC-C — Loans and Leases",
+      "what_it_measures": "The loan and lease book, categorized by what the money was lent for: real estate (construction, farmland, 1–4 family residential, multifamily, commercial), agricultural, commercial and industrial, consumer (credit cards, auto, other), loans to other financial institutions, municipal obligations, and lease financing.",
+      "why_it_exists": "Lending is the core banking business and its largest risk concentration, so regulators require a detailed map of where credit is extended. The category breakdown is what makes it possible to spot concentration risk — for example, heavy commercial-real-estate exposure — long before it shows up as losses.",
+      "what_you_can_answer": "What kind of lender is this bank — a mortgage shop, a commercial lender, a credit-card specialist? How concentrated is it in any one loan type? RC-C is the denominator behind most asset-quality and loan-mix ratios in the UBPR.",
+      "key_items": [
+        {"item": "RCFD1410", "plain": "Loans secured by real estate (line 1) — usually the single largest loan category for a community bank."},
+        {"item": "RCFDB538", "plain": "Credit-card loans to individuals (line 6.a) — the consumer-revolving line that drives card-specialist banks."},
+        {"item": "RCFD2122", "plain": "Total loans and leases, held for investment and held for sale (line 12) — the grand total, which must tie to the loan lines on Schedule RC."}
+      ],
+      "pitfalls": "RC-C reports loans gross, before subtracting the allowance for credit losses; net loans appear on Schedule RC. Column A (RCFD) is consolidated, column B (RCON) is domestic offices only — use the one that matches the scope of your other figures. Total RC-C must reconcile to RC items 4.a + 4.b.",
+      "sources": ["FFIEC 031/041/051 Call Report Instructions"]
+    },
+    "RC-E": {
+      "title": "Schedule RC-E — Deposit Liabilities",
+      "what_it_measures": "The deposit base, split by depositor type (individuals/partnerships/corporations, U.S. government, states and political subdivisions, banks, foreign governments) and by account type — transaction accounts (column A) versus nontransaction accounts including money-market and savings (column C). A memoranda section adds detail on IRAs, brokered deposits, reciprocal and sweep deposits.",
+      "why_it_exists": "Deposits are how most banks fund themselves, and not all deposits are equally sticky. The schedule separates stable retail core deposits from rate-sensitive, flight-prone funding (brokered, large time, uninsured), which is exactly what a deposit-run analysis needs.",
+      "what_you_can_answer": "How does this bank fund its assets? What share of deposits is core and stable versus brokered or wholesale? How reliant is it on large time deposits that can leave when rates move? The brokered-deposit memoranda are a standard early-warning indicator.",
+      "key_items": [
+        {"item": "RCON2215", "plain": "Total transaction accounts (line 7, column A) — checking-type balances that can be moved on demand."},
+        {"item": "RCON2385", "plain": "Total nontransaction accounts (line 7, column C) — savings, money-market, and time deposits; usually the larger and stickier share."}
+      ],
+      "pitfalls": "RC-E is domestic-office deposits (RCON); foreign-office deposits live in Part II / Schedule RC item 13.b, so RC-E alone undercounts total deposits for an FFIEC 031 filer with foreign offices. Brokered and reciprocal deposits are reported in the memoranda, not as a separate top-line category — you have to pull the memo items to measure funding fragility.",
+      "sources": ["FFIEC 031/041/051 Call Report Instructions"]
+    },
+    "RC-N": {
+      "title": "Schedule RC-N — Past Due and Nonaccrual Loans, Leases, and Other Assets",
+      "what_it_measures": "Troubled credit, by loan category and by severity. Each loan type is reported across three delinquency columns: 30–89 days past due and still accruing, 90+ days past due and still accruing, and nonaccrual (no longer recognizing interest because repayment is doubtful).",
+      "why_it_exists": "Delinquency is the leading indicator of future loan losses, so regulators capture it at fine grain and well before a loan is charged off. The three-bucket structure lets analysts distinguish early-stage stress (30–89 days) from serious impairment (90+ and nonaccrual).",
+      "what_you_can_answer": "Is the bank's credit quality deteriorating, and in which loan categories? What is the noncurrent loan rate (90+ days past due plus nonaccrual, over total loans) — the headline asset-quality metric? Is trouble concentrated in, say, commercial real estate or consumer credit?",
+      "key_items": [
+        {"item": "RCONF172", "plain": "1–4 family residential construction loans, 30–89 days past due (line 1.a.(1)) — early-stage delinquency on the riskiest residential RE bucket."},
+        {"item": "RCONF174", "plain": "Same category, 90+ days past due and still accruing — serious but not yet on nonaccrual."},
+        {"item": "RCONF176", "plain": "Same category, nonaccrual — the bank has stopped accruing interest because full repayment is in doubt."}
+      ],
+      "pitfalls": "The 30–89 and 90+ columns are accruing past-due loans; nonaccrual is reported separately, so do not double-count by adding all three columns indiscriminately when you only want noncurrent (which is 90+ accruing plus nonaccrual). Reporting prefix and column availability vary by form (031 carries foreign-office and consolidated RCFD lines that the 041/051 collapse to RCON), so match the prefix to the form.",
+      "sources": ["FFIEC 031/041/051 Call Report Instructions"]
+    },
+    "RC-R": {
+      "title": "Schedule RC-R — Regulatory Capital",
+      "what_it_measures": "The regulatory-capital calculation. Part I builds the numerators — common equity tier 1, additional tier 1, and tier 2 capital — starting from common stock, retained earnings and AOCI and then applying the regulatory adjustments and deductions (goodwill, certain intangibles, deferred-tax assets). Part II builds the risk-weighted-assets denominator.",
+      "why_it_exists": "Capital adequacy is the heart of bank supervision: the rules require minimum ratios of regulatory capital to risk-weighted assets and to total assets (the leverage ratio). RC-R is where those numerators and denominators are assembled from the raw balance sheet under the Basel-based U.S. capital framework.",
+      "what_you_can_answer": "Is the bank well capitalized? What are its CET1, tier 1, total risk-based, and leverage ratios? How much loss-absorbing capital stands behind its risk exposures — and how do the regulatory adjustments (goodwill, DTA deductions) shrink book equity down to regulatory capital?",
+      "key_items": [
+        {"item": "RCFAP840", "plain": "Common equity tier 1 capital before adjustments and deductions (Part I, line 5) — the starting point: common stock plus retained earnings plus AOCI plus includable minority interest, before goodwill and other deductions are subtracted."}
+      ],
+      "pitfalls": "Regulatory capital is not book equity — RC-R deducts goodwill and certain intangibles and DTAs and applies AOCI opt-out elections, so the CET1 number is materially different from Schedule RC equity. Column prefixes differ by form (RCFA on the consolidated 031, RCOA on the 041/051), and some items are election flags (CECL transition, AOCI opt-out) rather than dollar amounts. Risk-weighted assets are a complex regulatory computation, not a simple sum of the balance sheet.",
+      "sources": ["FFIEC 031/041/051 Call Report Instructions", "U.S. Basel III regulatory capital framework"]
+    },
+    "RI": {
+      "title": "Schedule RI — Income Statement",
+      "what_it_measures": "The Report of Income: the bank's earnings for the year to date. It runs from interest income (on loans, leases, securities, balances due, fed funds) down through interest expense, net interest income, provision for credit losses, noninterest income and expense, gains and losses, taxes, and finally net income.",
+      "why_it_exists": "The balance sheet shows what a bank holds; the income statement shows whether holding it makes money. RI is the source of profitability analysis and the numerator behind nearly every earnings ratio — return on assets, return on equity, net interest margin, and the efficiency ratio.",
+      "what_you_can_answer": "Is the bank profitable, and where do its profits come from — spread income or fees? How wide is its interest margin? How much is it setting aside for loan losses? Is it efficient (low overhead relative to revenue)?",
+      "key_items": [
+        {"item": "RIAD4107", "plain": "Total interest income (line 1.h) — everything the bank earned on its earning assets."},
+        {"item": "RIAD4340", "plain": "Net income attributable to the bank (line 14) — the bottom line; the numerator of ROA and ROE."}
+      ],
+      "pitfalls": "RI items (the RIAD prefix) are year-to-date, not quarterly — a Q3 figure is nine months cumulative, so to get a single quarter you difference consecutive quarters (and to annualize a YTD flow you scale by the quarter index, the convention the UBPR uses). Provision for credit losses is an expense that can swing income sharply between quarters; do not read a single quarter's net income as a run rate without checking the provision.",
+      "sources": ["FFIEC 031/041/051 Call Report Instructions"]
+    }
+  },
+  "layers": {
+    "ubpr": {
+      "title": "UBPR — Uniform Bank Performance Report",
+      "what_it_measures": "The FFIEC's analytical report that turns each bank's raw Call Report into a standardized set of derived ratios, percentages, and dollar figures — every value also shown against its peer-group average and percentile rank. UBPR items are computed from Call Report items by official formula, not filed directly.",
+      "why_it_exists": "Raw Call Report dollars are not comparable across banks of different sizes. The UBPR normalizes them into ratios and benchmarks each bank against peers, which is exactly what an examiner or analyst needs to judge performance and spot outliers. It is the FFIEC's own derivation layer, so the formulas are authoritative.",
+      "what_you_can_answer": "How profitable, efficient, well-capitalized, and well-funded is this bank relative to its peers? Where does it rank? The headline ratios cover earnings (ROA, ROE, net interest margin, efficiency), asset quality (noncurrent and net-charge-off rates), capital adequacy, and liquidity (loans to deposits).",
+      "key_items": [
+        {"item": "UBPRE013", "plain": "Return on assets — annualized net income over average total assets. The single most-cited profitability measure; validated at 99.79% agreement against published values."},
+        {"item": "UBPRE018", "plain": "Net interest margin (tax-equivalent) — tax-equivalent net interest income over average earning assets, annualized; validated at 99.77%."},
+        {"item": "UBPRE088", "plain": "Efficiency ratio — overhead expense over (net interest income plus noninterest income); lower is better. Validated at 100.0%."},
+        {"item": "UBPR7414", "plain": "Noncurrent loans and leases to gross loans — the headline asset-quality ratio (90+ days past due plus nonaccrual). Validated at 100.0%."},
+        {"item": "UBPRE024", "plain": "Net loans and leases to total assets — how loan-heavy the balance sheet is. Validated at 100.0%."},
+        {"item": "UBPRD488", "plain": "Total risk-based capital to risk-weighted assets — the headline capital-adequacy ratio (regulator-reported, validated within the rounding band)."}
+      ],
+      "pitfalls": "Mind the units when reading a formula: Call dollar items are in thousands, while UBPR average/level concepts are published in dollars, so a ratio mixing the two divides the UBPR value by 1,000 to align. Year-to-date flows are annualized by a quarter-dependent factor (Q1 ×4, Q2 ×2, Q3 ×4/3, Q4 ×1). Capital-adequacy ratios are regulator-reported, not recomputed from RC-R primitives; risk-weighted assets and CET1 are carried as Call passthroughs. Only the headline ratios are independently re-validated — the broader concept universe is cataloged with its parsed formula but not all re-derived. The peer-statistic (UBPS) and peer-percentile (UBPK) siblings are separate codes from the base ratio.",
+      "sources": ["FFIEC UBPR User's Guide", "CDR XBRL UBPR taxonomy"]
+    },
+    "fdic": {
+      "title": "FDIC Financials (Statistics on Depository Institutions)",
+      "what_it_measures": "The FDIC's quarterly financial and structural statistics for every FDIC-insured institution — balance sheet, income statement, capital, and computed performance metrics — repackaged from Call Report and thrift data into standardized, queryable variables. It is the FDIC's analog and companion to the FFIEC UBPR, served through the BankFind Suite API.",
+      "why_it_exists": "The FDIC needs a single comparable financial picture across its entire insured universe, including savings institutions and thrifts that the bank Call Report family does not fully cover. SDI presents that picture in clean, named fields keyed to the FDIC certificate number, with history downloadable back to 1984.",
+      "what_you_can_answer": "How is any FDIC-insured bank or thrift performing on standard measures (assets, deposits, net income, ROA, ROE, net interest margin, capital ratios)? Because it is keyed by FDIC cert and spans the whole insured universe, it is the natural layer for cross-institution comparison, insured-versus-uninsured deposit splits, and tying into the failures and Summary-of-Deposits datasets.",
+      "key_items": [
+        {"item": "ASSET", "plain": "Total assets — the institution-level size measure, the FDIC counterpart to Call RCFD2170."},
+        {"item": "NETINC", "plain": "Net income — the bottom line, counterpart to Call RIAD4340."},
+        {"item": "ROA", "plain": "Return on assets — the FDIC's own computed profitability ratio."},
+        {"item": "DEPUNINS", "plain": "Uninsured deposits — the run-prone funding measure that drove the 2023 regional-bank failures."}
+      ],
+      "pitfalls": "SDI is keyed by FDIC certificate number, not RSSD ID, so cross-source joins go through an identifier crosswalk. Its universe is FDIC-insured institutions, which includes savings institutions and thrifts — so an FDIC aggregate is broader than a commercial-bank Call Report aggregate, and the two will not match exactly. The exact field count per period varies; the default API projection returns a subset, so consult the SDI data dictionary for the full variable set. The canonical API host is api.fdic.gov/banks/.",
+      "sources": ["FDIC BankFind Suite API documentation", "FDIC SDI data dictionary"]
+    },
+    "luck_historical": {
+      "title": "Historical Call Reports (Correia–Luck–Verner) and OCC National-Bank Reports",
+      "what_it_measures": "The longest consistent bank-level balance-sheet and income panel for U.S. banks ever published: OCC national-bank condition tables for the 1863–1941 era spliced to FFIEC Reports of Condition and Income for commercial banks from 1959Q4 onward, harmonized so each economic variable maps to one or more FFIEC field codes with era-specific validity windows.",
+      "why_it_exists": "Modern regulatory data only goes back so far, but bank-failure and financial-crisis research needs a century-plus of comparable bank-level history. Correia, Luck and Verner assembled and harmonized that history — the basis for their finding that bank failures are predictable from funding structure and asset quality decades in advance — and the Federal Reserve Bank of New York distributes the harmonized product.",
+      "what_you_can_answer": "How did individual banks look on the eve of historical crises — the 1893 and 1907 panics, the Great Depression, the savings-and-loan era? How do funding structure and asset quality evolve before failures across very different regulatory regimes? What did the national-banking-era balance sheet (specie, legal-tender notes, circulation) actually contain?",
+      "key_items": [
+        {"item": "assets", "plain": "Total assets in the OCC historical layer (raw dollars in the pre-1942 era; thousands in the modern era) — the size measure that runs continuously across the splice."},
+        {"item": "deposits", "plain": "Total deposits — a headline aggregate validated at 99%+ against an independent Federal-Reserve-direct reconstruction over the 1976+ overlap."}
+      ],
+      "pitfalls": "Units change across the splice: raw dollars in the OCC era (1863–1941) versus thousands of dollars in the modern FFIEC era — do not mix them. The modern panel is harmonized commercial-bank Call Reports, so it covers a narrower universe than FDIC (which adds thrifts); a Luck/FDIC asset ratio modestly below 1.0 is expected, not an error. The securities aggregate carries a documented public-data ceiling (~98.7% on the 1976+ overlap) because the upstream raw-MDRM securities construction is not in the shipped code. Pre-1994 time deposits diverge from a naive public reconstruction due to a FFIEC bulk-vintage difference. A quarter with no reporting entity is absent, not zero — there is no synthetic fill.",
+      "sources": ["Correia, S., Luck, S., & Verner, E. (2025), \"Failing Banks,\" Quarterly Journal of Economics, DOI 10.1093/qje/qjaf044", "Federal Reserve Bank of New York, Historical Call Report Data", "Harvard Dataverse DOI 10.7910/DVN/Q22XR1", "OCC Annual Report of the Comptroller of the Currency (FRASER)"]
+    }
+  },
+  "categories": {
+    "y9c": {
+      "text": "The FR Y-9C is the Consolidated Financial Statements for Holding Companies — it reports at the bank holding company level, consolidating the parent and all of its bank and nonbank subsidiaries into one set of statements. Its schedules and item numbers deliberately parallel the bank Call Report (RC ↔ HC for the balance sheet, RC-C ↔ HC-C for loans, RI ↔ HI for income), but the code prefix changes: BHCK for consolidated, BHCM for domestic. Use the Y-9C when your unit of analysis is the whole banking organization — the entity that issues stock, raises capital, and is supervised by the Federal Reserve at the top of the structure. A single large company such as JPMorgan files one Y-9C at the holding-company level while its lead bank files a separate Call Report; the holding company is the larger entity because it consolidates everything the lead bank does not. Critically, never casually join Y-9C and Call Report figures for the \"same\" institution as if they were interchangeable: they describe different consolidation scopes (holding company versus one chartered bank), so their totals legitimately differ and adding or comparing them naively double-counts or mismatches the entity.",
+      "sources": ["FR Y-9C Instructions", "Federal Reserve MDRM"]
+    },
+    "call": {
+      "text": "The Call Report (Consolidated Reports of Condition and Income, FFIEC 031/041/051) is filed quarterly by every individual FDIC-insured commercial bank and savings association — it reports at the chartered-bank level, not the holding-company level. It has two halves: the Report of Condition (balance sheet Schedule RC plus supporting schedules RC-A through RC-V) and the Report of Income (Schedule RI plus RI-A through RI-E). Three form variants scale with the bank: the 031 for banks with foreign offices or very large banks, the 041 for domestic-only banks under $100 billion, and the streamlined 051 for small domestic banks under $5 billion. Code prefixes encode office scope — RCFD (consolidated, domestic + foreign), RCON (domestic only), RCFN (foreign only), RIAD (income, year-to-date) — and on the 031, RCFD = RCON + RCFN. Use the Call Report when your unit of analysis is a specific bank charter: its assets, loans, deposits, capital, and earnings. Because the Call Report is the bank-level analogue of the holding-company Y-9C, the two line up schedule-for-schedule but must not be casually joined — a holding company can own several banks, so its Y-9C is not the same entity as any one bank's Call Report.",
+      "sources": ["FFIEC 031/041/051 Call Report Instructions", "Federal Reserve MDRM"]
+    },
+    "ubpr": {
+      "text": "The UBPR (Uniform Bank Performance Report) is not a separate filing — it is the FFIEC's analytical derivation layer computed from each bank's Call Report. It converts raw Call Report dollars into standardized ratios, percentages, and dollar figures, and shows each value alongside a peer-group average and a percentile rank. Because it is built on the Call Report, it covers the same entity scope: the individual chartered bank, quarterly. Use the UBPR when you want comparability — to judge a bank's profitability, efficiency, asset quality, capital, and funding relative to peers, rather than reading raw dollars that are not comparable across banks of different sizes. Each item carries a UBPR#### code defined by an official formula over Call Report items; sibling namespaces UBPS (peer-group statistic) and UBPK (peer percentile) hold the benchmark values. Treat the UBPR as the ratio companion to the Call Report for the same bank, not as a different data source about a different entity.",
+      "sources": ["FFIEC UBPR User's Guide"]
+    },
+    "fdic": {
+      "text": "The FDIC Statistics on Depository Institutions (SDI) is the FDIC's quarterly presentation layer over Call Report and thrift data, served through the BankFind Suite API and keyed to the FDIC certificate number. Like the Call Report and UBPR, it reports at the individual insured-institution level — but its universe is every FDIC-insured institution, which includes savings institutions and thrifts in addition to commercial banks. Use the FDIC layer when you want clean, named, comparable financial fields across the whole insured universe, when you are working from FDIC cert as the identifier, or when you need to tie financials to the FDIC's structure, failures, and Summary-of-Deposits datasets. Because its universe is broader than the commercial-bank Call Report population, an FDIC aggregate will legitimately exceed a Call-Report-only aggregate, and joining FDIC data to RSSD-keyed sources requires an identifier crosswalk (FDIC cert ↔ RSSD). It is the FDIC analog of the FFIEC UBPR — same idea, different agency and a wider insured-institution scope.",
+      "sources": ["FDIC BankFind Suite API documentation", "FDIC SDI data dictionary"]
+    },
+    "historical": {
+      "text": "The historical layer is the long-run bank-level panel assembled by Correia, Luck and Verner: OCC national-bank condition tables for 1863–1941 spliced to harmonized FFIEC commercial-bank Call Reports from 1959Q4 onward, distributed by the Federal Reserve Bank of New York. It reports at the individual-bank level, like the modern Call Report, but stretches the history back more than a century by mapping each economic variable to FFIEC field codes with era-specific validity windows. Use this layer when your question spans regulatory regimes that modern data cannot reach — the national-banking era, the panics of 1893 and 1907, the Great Depression — or when you study how funding structure and asset quality evolve before failures across a century-plus panel. Two cautions define its scope: units change across the splice (raw dollars in the OCC era, thousands in the modern era), and the modern panel is commercial-bank Call Reports only, so it covers a narrower universe than FDIC and its aggregates sit modestly below the FDIC universe by design. Any use must cite Correia, Luck & Verner (2025), \"Failing Banks,\" Quarterly Journal of Economics, DOI 10.1093/qje/qjaf044.",
+      "sources": ["Correia, S., Luck, S., & Verner, E. (2025), \"Failing Banks,\" Quarterly Journal of Economics, DOI 10.1093/qje/qjaf044", "Federal Reserve Bank of New York, Historical Call Report Data", "OCC Annual Report of the Comptroller of the Currency (FRASER)"]
+    }
+  }
+}

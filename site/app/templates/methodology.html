@@ -1,0 +1,356 @@
+{% extends "base.html" %}
+{% block title %}Methodology &amp; provenance — FreeNIC{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>Methodology &amp; provenance</h1>
+  <p class="ark-badge-row">
+    <span class="ark-badge real-data">Real data</span>
+    <span class="ark-badge offline">Public sources</span>
+    <span class="ark-badge reproducible">Reproducible</span>
+  </p>
+  <p class="lead">Every row on this site is a real subset of the published FreeNIC
+     data — nothing is fabricated or synthetically sampled. This page is the Data
+     Provenance Record (DPR): <b>sources · construction · units · scope ·
+     last-updated · citations</b>.</p>
+  <div class="callout">
+    <p style="margin:0;">The browsable explorer shows a <b>curated sample</b> of the
+       FreeNIC database ({{ counts.slice_db_h }} of real, published tables); the <b>complete dataset</b>
+       ({{ counts.base_rows_approx }} rows, {{ counts.base_tables }} base tables, {{ "{:,}".format(counts.institutions) }} institutions, {{ counts.source_datasets }} datasets, {{ counts.time_span }}) is available
+       via the R/Python package and API over the <b>{{ counts.release_size_iec }} / {{ counts.release_files }}-file parquet release</b>,
+       served at <a href="https://data.freenic.org/">data.freenic.org</a>.</p>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- Prose relocated from the landing page (kept verbatim, not deleted):    -->
+<!-- "what FreeNIC is", "how to get the data" + httpfs callout, the CC0      -->
+<!-- historical layer, and the curated-sample disclosure. The landing now   -->
+<!-- leads straight into the explorer; the explanatory text lives here.     -->
+<!-- ===================================================================== -->
+
+<!-- (a) WHAT FREENIC IS ------------------------------------------------- -->
+<section class="prose">
+  <h2>What FreeNIC is</h2>
+  <p class="lead">Empirical banking research means stitching together call reports, holding-company
+     filings, failure records, stress-test results, and deposit data — each in a different format
+     with a different identifier. <b>FreeNIC</b> harmonizes these public regulatory sources (FFIEC,
+     FDIC, Federal Reserve, OCC, FRED, NCUA, SEC) plus freely available academic databases into a
+     single relational schema with Python, R, and AI-agent (MCP) read layers. No proprietary data,
+     no paywalls; the code is MIT and the data terms travel per source.</p>
+  <p>FreeNIC is its own standalone project in the heterodata domainspace: the bulk / SQL layer for
+     US banking-regulatory microdata. The full warehouse runs to <b>{{ counts.base_rows_h }} observations
+     across {{ counts.base_tables }} base tables</b> from {{ counts.source_datasets }} public datasets, covering ~217,000 institutions (banks,
+     thrifts, holding companies, and credit unions) from 1863 to 2026 — including three billion-row
+     fact panels (call reports, UBPR ratios, NCUA 5300 credit-union filings).</p>
+</section>
+
+<!-- (b) THE DATA ACCESS STORY ------------------------------------------- -->
+<section class="prose">
+  <h2>How to get the data</h2>
+  <p class="note">Four ways in — from a click-and-browse slice to remote SQL over the full
+     {{ counts.release_size_iec }} parquet release. Pick the smallest one that answers your question.</p>
+
+  <div class="card-grid">
+    <a class="card" href="/explorer">
+      <h3>1 · On-site explorer →</h3>
+      <p>Real Plotly charts — each with a top-right Download CSV — over a curated sample
+         ({{ counts.slice_db_h }}) of real, published tables: bank failures, FRED banking series, active
+         institutions. Browse and chart with zero install.
+         <span class="ark-badge in-slice">curated sample</span></p>
+    </a>
+    <a class="card" href="/data">
+      <h3>2 · Full parquet release →</h3>
+      <p>The complete {{ counts.version }} release — {{ counts.release_files }} parquet files, {{ counts.release_size_iec }} — served with HTTP byte-range so
+         DuckDB <code>httpfs</code> clients query it remotely without downloading it all.
+         <span class="ark-badge reproducible">live</span></p>
+    </a>
+    <a class="card" href="/api-docs">
+      <h3>3 · Python / R / MCP →</h3>
+      <p>The <code>freenic_py</code> (pip) and <code>freenic_r</code> read layers, plus an MCP
+         server for AI agents. Point them at a local parquet dir or the remote URL and query in one
+         line. <span class="ark-badge reproducible">read layers</span></p>
+    </a>
+    <a class="card" href="https://github.com/andenick/FreeNIC">
+      <h3>4 · GitHub →</h3>
+      <p>The full ingestion pipeline, the read packages, integrity files, and licensing — MIT code,
+         reproducible from public sources. <code>github.com/andenick/FreeNIC</code></p>
+    </a>
+  </div>
+
+  <div class="callout">
+    <h3>Query the full release remotely — no {{ counts.release_size_iec }} download</h3>
+    <p>The full parquet release is served read-only with HTTP byte-range support at
+       <a href="https://data.freenic.org/"><code>https://data.freenic.org/</code></a> (<b>live</b>).
+       DuckDB reads parquet directly over HTTP via <code>httpfs</code>, fetching only the row-groups
+       a query needs:</p>
+    <div class="ark-code" data-arkcode data-filename="freenic_httpfs_sql">
+      <div class="ark-code-head"><span class="ark-code-path">DuckDB · remote httpfs</span></div>
+      <pre data-lang="sql"><code>{% filter forceescape %}{% raw %}INSTALL httpfs; LOAD httpfs;
+
+-- the CC0 historical OCC layer, 1863-1941, queried in place
+SELECT year, COUNT(*) AS n_banks
+FROM 'https://data.freenic.org/occ_historical.parquet'
+GROUP BY year ORDER BY year;
+
+-- join two remote tables without downloading either in full
+SELECT bf.bank_name, bf.failure_year, bf.total_assets
+FROM 'https://data.freenic.org/bank_failures.parquet' bf
+ORDER BY bf.total_assets DESC
+LIMIT 10;{% endraw %}{% endfilter %}</code></pre>
+    </div>
+    <p class="src">The same files install locally for the pip/R packages:
+       <code>pip install freenic</code> → <code>freenic.set_data_dir("https://data.freenic.org")</code>.
+       See <a href="/api-docs">API</a> for the full access matrix and <a href="/data">Data</a> for the
+       per-file catalog with direct URLs.</p>
+  </div>
+</section>
+
+<!-- (c) THE FINHIST / OCC CC0 LAYER ------------------------------------- -->
+<section class="prose">
+  <h2>The historical layer is public domain (CC0)</h2>
+  <p class="lead">FreeNIC carries the <b>finhist / OCC historical layer</b> —
+     <code>occ_historical</code>, bank balance sheets digitized from the primary U.S. Office of the
+     Comptroller of the Currency <i>Annual Report to Congress</i> volumes, <b>1863–1941</b>.</p>
+  <p>This slice is released under <b>CC0 1.0 Universal (public-domain dedication)</b> via the Harvard
+     Dataverse deposit (Correia, Luck &amp; Verner, <i>Replication Data for: Failing Banks</i>, DOI
+     <code>10.7910/DVN/Q22XR1</code>). Redistribution, modification, and commercial use are permitted
+     with no legal conditions; the underlying OCC reports are U.S. federal government works in the
+     public domain. Hosting FreeNIC therefore also satisfies "host a version of the finhist data" —
+     it is already inside the release as <code>occ_historical.parquet</code>. A courtesy citation is
+     requested but not required.</p>
+</section>
+
+<!-- The honest-slice disclosure (relocated from the landing) ------------- -->
+<section class="prose">
+  <div class="callout">
+    <h3>This site browses a small slice — the full release is the parquet layer</h3>
+    <p>So you can chart and query in the browser with no install, this site ships only a
+       <b>{{ counts.slice_db_h }} curated slice</b> of three real, published tables. Everything browsable here is
+       a real subset — nothing is fabricated or synthetically sampled:</p>
+    <ul>
+      <li><b>FDIC bank failures</b> — {{ counts.failure_records_h }} real failure records (1934–{{ counts.failure_end_year }}).</li>
+      <li><b>FRED banking series</b> — {{ counts.fred_obs_h }} observations across {{ "{:,}".format(counts.fred_series) }} series.</li>
+      <li><b>Active institutions</b> — {{ counts.active_inst_h }} currently-active institutions (real subset of {{ counts.institutions_h }}).</li>
+      <li><b>Precomputed aggregates</b> — failures by year/state, institutions by state/type.</li>
+      <li><b>Variable dictionary</b> — the version-pinned bank-data-dictionary taxonomy: 6,797
+          searchable MDRM/UBPR codes mapped to schedules, captions and edit relationships
+          (<a href="/dictionary">Dictionary</a>).</li>
+    </ul>
+    <p class="note">Every one of FreeNIC's <b>{{ "{:,}".format(counts.reachable_vars) }} reported variables is reachable through a generated
+       view</b>, and <b>2,931</b> are shaped into analysis-ready long views; the harmonized variable
+       taxonomy comes from the public, version-pinned
+       <a href="https://github.com/andenick/bank-data-dictionary">bank-data-dictionary</a> (browse it on the
+       <a href="/dictionary">Dictionary</a> page).</p>
+    <p class="src">The complete dataset ({{ counts.base_rows_approx }} rows, {{ counts.base_tables }} base tables) lives in the full parquet release —
+       {{ counts.release_files }} files, {{ counts.release_size_iec }} — live at <a href="https://data.freenic.org/"><code>https://data.freenic.org/</code></a>
+       or downloadable from <a href="/data">Data</a>.</p>
+  </div>
+</section>
+
+<!-- Validation transparency --------------------------------------------- -->
+<!-- Every figure here is a counts.json template variable (generated by
+     make_freenic_counts.py, never hand-typed). The integration agent fills the
+     real generation of validate_* / pytest_* / last_validated; these slots render
+     honestly (an em-dash) until then, so the page never shows a fabricated pass. -->
+<section class="prose">
+  <h2>Validation &amp; test transparency</h2>
+  <p class="lead">FreeNIC is built and republished by an automated pipeline with two
+     independent gates: a <b>data-validation suite</b> (schema, provenance, row-count and
+     coverage checks over the release) and a <b>Python test suite</b> (<code>pytest</code>
+     over the ingestion + read code). The latest results:</p>
+  <div class="stats">
+    <div class="stat">
+      <span class="num">{{ counts.validate_pass if counts.validate_pass is not none else "—" }}{% if counts.validate_total %} / {{ counts.validate_total }}{% endif %}</span>
+      <span class="lbl">validation checks passed</span>
+    </div>
+    <div class="stat">
+      <span class="num">{{ counts.pytest_passed if counts.pytest_passed is not none else "—" }}</span>
+      <span class="lbl">pytest passed</span>
+    </div>
+    <div class="stat">
+      <span class="num">{{ counts.pytest_failed if counts.pytest_failed is not none else "—" }}</span>
+      <span class="lbl">pytest failed</span>
+    </div>
+    <div class="stat">
+      <span class="num">{{ counts.last_validated if counts.last_validated else "—" }}</span>
+      <span class="lbl">last validated</span>
+    </div>
+  </div>
+  <p class="note">Counts are generated from the CI run by <code>make_freenic_counts.py</code>
+     (the same single-source-of-truth mechanism that feeds every headline figure on this site) —
+     they are never hand-entered. A dash means the figure has not yet been wired into the current
+     build's <code>freenic_counts.json</code>. Source + test code:
+     <a href="https://github.com/andenick/FreeNIC"><code>github.com/andenick/FreeNIC</code></a>
+     (see also <a href="/code">Code</a>).</p>
+</section>
+
+<!-- Standard DPR / provenance panel ------------------------------------- -->
+<section class="ark-provenance">
+  <h2>Data Provenance Record</h2>
+  <dl>
+    <dt>Sources</dt>
+    <dd>
+      The slice is built from the published FreeNIC parquet release — FDIC + Robin bank
+      failures, FRED banking macro series, and the NIC active-institutions table. Those
+      exports derive from public regulatory and cited academic sources (FFIEC, FDIC,
+      Federal Reserve, OCC, plus freely available academic banking databases). The full
+      {{ counts.source_datasets }}-dataset composition of the complete dataset is listed below. Public code +
+      provenance: <a href="https://github.com/andenick/FreeNIC"><code>github.com/andenick/FreeNIC</code></a>.
+    </dd>
+
+    <dt>Construction</dt>
+    <dd>
+      <code>build_slice.py</code> reads the offline parquet exports and writes the
+      compact read-only DuckDB shipped here (<code>app/data/freenic_slice.duckdb</code>,
+      {{ counts.slice_db_h }}). The core tables (<code>bank_failures</code>, <code>fred_series</code>) are
+      copied verbatim; <code>institutions_active</code> is the real active-only subset
+      with trimmed columns; the <code>agg_*</code> tables and <code>fred_catalog</code>
+      are precomputed real aggregates (GROUP-BY rollups, no imputation). Tables in this
+      slice ({{ slice_tables | length }}):
+      <div class="ark-table-wrap" style="margin-top:.6em;">
+        <table class="ark-table">
+          <thead><tr><th>Table</th><th>Rows</th><th>Cols</th><th>What it is</th></tr></thead>
+          <tbody>
+            {% for t in slice_tables %}
+            <tr><td><code>{{ t.table }}</code></td>
+                <td class="mono">{{ "{:,}".format(t.n_rows) }}</td>
+                <td class="mono">{{ t.n_cols }}</td>
+                <td style="white-space:normal;text-align:left;">{{ t.desc }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      Charts on <a href="/explorer">Explore</a> and downloads on <a href="/data">Data</a>
+      all read this same slice — see <a href="/code">Code</a>. For the complete dataset,
+      use the R/Python package and API over the full parquet release.
+    </dd>
+
+    <dt>Units</dt>
+    <dd>
+      Monetary fields (<code>total_assets</code>, <code>total_deposits</code>,
+      <code>estimated_loss</code> in <code>bank_failures</code>) are reported in
+      US-dollar thousands ($000s) as published by FDIC. <code>fred_series.value</code>
+      carries each FRED series' own native unit (level, percent, index — see the series
+      name in <code>fred_catalog</code>). Dates are calendar dates; counts
+      (<code>n_failures</code>, <code>n</code>, <code>n_obs</code>) are integers.
+    </dd>
+
+    <dt>Scope</dt>
+    <dd>
+      <ul style="margin:.2em 0 0;padding-left:1.1em;">
+        <li><b>Curated browsable sample.</b> The on-site explorer ships failures, FRED
+            banking series and active institutions (+ aggregates) — a {{ counts.slice_db_h }} curated
+            subset of the published tables, for browsing and charting without the full
+            corpus.</li>
+        <li><b>Complete dataset via package + API.</b> The multi-GB harmonised panels
+            (call reports, Y-9C, SOD, etc.) and the full {{ counts.base_rows_approx }}-row warehouse are
+            available via the <code>freenic_py</code> / <code>freenic_r</code> packages
+            and remote DuckDB <code>httpfs</code> over the parquet release — see
+            <a href="/api-docs">API</a>.</li>
+        <li><b>Active-only institutions.</b> <code>institutions_active</code> is the
+            real active subset (of 217,210 total), with a trimmed column set — not the
+            full institution history.</li>
+        <li><b>No imputation.</b> Aggregates are straight GROUP-BY rollups of the real
+            rows; null source values are excluded, never invented.</li>
+      </ul>
+    </dd>
+
+    <dt>Read-only access</dt>
+    <dd>
+      The on-site JSON APIs that feed the explorer charts are <b>read-only</b> — every
+      DuckDB connection opens <code>read_only=True</code> and the DB cannot be written —
+      and every query is <b>parameterized</b> (<code>?</code> bind), never string
+      interpolation of user input. The browsable slice covers these tables:
+      {% for t in allowed_tables %}<code>{{ t }}</code>{% if not loop.last %}, {% endif %}{% endfor %}.
+      For arbitrary SQL across all {{ counts.base_tables }} base tables, use the R/Python package or the remote
+      <code>httpfs</code> pattern (see <a href="/api-docs">API</a>).
+    </dd>
+
+    <dt>Downloads</dt>
+    <dd>
+      Every slice table and the full release are downloadable as
+      <b>CSV and Parquet</b> (Parquet preferred for analysts; no JSON dataset
+      downloads) from the <a href="/data">Data</a> page; the complete {{ counts.release_size_iec }}
+      parquet release is also queryable remotely over DuckDB
+      <code>httpfs</code> at <a href="https://data.freenic.org/">data.freenic.org</a>.
+      Bulk slice: <a href="/api/download/bulk/freenic_slice.zip">freenic_slice.zip</a>.
+      Release metadata co-hosted at <code>data.freenic.org</code>:
+      <a href="https://data.freenic.org/CODEBOOK.md"><code>CODEBOOK.md</code></a> +
+      per-table <code>codebook/&lt;table&gt;.csv</code> column codebooks,
+      <a href="https://data.freenic.org/data_dictionary.csv"><code>data_dictionary.csv</code></a>,
+      <a href="https://data.freenic.org/CHANGELOG.md"><code>CHANGELOG.md</code></a>, and
+      <a href="https://data.freenic.org/CITATION.cff"><code>CITATION.cff</code></a>.
+    </dd>
+
+    <dt>Refresh cadence</dt>
+    <dd>
+      <b>Quarterly</b>, on FFIEC release. The FFIEC publishes new Call Report,
+      UBPR, FR&nbsp;Y-9C and NCUA&nbsp;5300 quarters roughly 75 days after each
+      quarter-end; FDIC SDI and FRED follow their own quarterly/ongoing schedules.
+      FreeNIC is refreshed by the automated <code>freenic-refresh</code> protocol
+      (acquire&nbsp;&rarr;&nbsp;ingest&nbsp;&rarr;&nbsp;validate&nbsp;&rarr;&nbsp;regenerate&nbsp;&rarr;&nbsp;republish).
+      The CC0 historical OCC layer (1863–1941) is fixed and does not refresh.
+    </dd>
+
+    <dt>Citations</dt>
+    <dd>
+      FDIC — bank failures &amp; SDI financials (public). Board of Governors of the
+      Federal Reserve System — FRED banking series (public). FFIEC — call reports
+      (NIC / structure data, public). OCC — historical national-bank records (public).
+      Robin failing-banks panel — academic compilation (cited). All sources are public
+      regulatory data or cited academic databases; no proprietary feeds.
+    </dd>
+  </dl>
+  <p class="ark-prov-updated">
+    Last updated — DPR <b>2026-06-09</b>; data current through the
+    <b>2026&nbsp;Q1</b> FFIEC/FDIC reporting quarter (latest published vintage in
+    the release); browsable slice rebuilt by <code>build_slice.py</code> from the
+    published parquet exports. {{ provenance }}
+  </p>
+</section>
+
+<!-- Full-dataset source composition (real published figures) ------------ -->
+<section class="prose">
+  <h2>Full dataset — {{ counts.source_datasets }}-dataset composition</h2>
+  <p class="note">The complete FreeNIC dataset. The browsable sample above draws
+     from a few of these; full row counts shown for context.</p>
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead><tr><th>#</th><th>Source</th><th>Rows</th><th>Coverage</th></tr></thead>
+      <tbody>
+        {% set in_slice = [8, 10, 16] %}{# FDIC Bank Failures, NIC Structure (active), FRED #}
+        {% for s in sources %}
+        <tr><td class="mono">{{ s.n }}</td>
+            <td style="text-align:left;">{{ s.source }}{% if s.n in in_slice %} <span class="ark-badge in-slice" title="Shipped in the {{ counts.slice_db_h }} browsable sample">in slice</span>{% endif %}</td>
+            <td class="mono">{{ s.rows }}</td><td class="mono">{{ s.coverage }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="src">Source: FreeNIC published data-sources table (real published figures).
+     The <span class="ark-badge in-slice">in slice</span> rows (FDIC Bank Failures,
+     NIC Structure&nbsp;Data&nbsp;&rarr;&nbsp;active institutions, FRED Banking Series)
+     are the ~3 real tables shipped in the {{ counts.slice_db_h }} slice above.</p>
+  <p class="note"><b>FRED figures reconciled:</b> the ~75K shown for "FRED Banking
+     Series" is the source-row estimate; the shipped <code>fred_series</code> slice
+     (see the construction table above) holds the exact <b>{{ counts.fred_obs_h }}</b> real
+     observations across <b>{{ "{:,}".format(counts.fred_series) }}</b> series — the same source, reported here as
+     the larger, precise live count.</p>
+</section>
+
+{% if dpr_text %}
+<section class="prose">
+  <h2>Full Deployment Provenance Record (DPR.md)</h2>
+  <p class="note">The complete on-disk DPR for this deployment, verbatim.</p>
+  <details>
+    <summary>Show DPR.md</summary>
+    <div class="ark-code" data-arkcode data-filename="freenic_DPR">
+      <div class="ark-code-head"><span class="ark-code-path">deploy/freenic/DPR.md</span></div>
+      <pre data-lang="text"><code>{{ dpr_text }}</code></pre>
+    </div>
+  </details>
+</section>
+{% endif %}
+
+{% endblock %}

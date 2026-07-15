@@ -1,0 +1,13 @@
+**/__pycache__
+**/*.pyc
+**/*.bak-*
+_render_test.py
+build_slice.py
+build_content.py
+smoke_dictionary.py
+.venv-smoke
+content/staging
+_fn_*.txt
+_qfn_*.txt
+README.md
+DPR.md

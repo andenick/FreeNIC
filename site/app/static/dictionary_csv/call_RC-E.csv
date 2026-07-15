@@ -1,0 +1,56 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+call,RC-E,1,"Deposits of individuals, partnerships, and corporations",mdrm_code,RCONB549,031/041/051,2017-03-31,col A Total transaction accounts (incl total demand deposits)
+call,RC-E,1,"Deposits of individuals, partnerships, and corporations",mdrm_code,RCONB550,031/041/051,2017-03-31,col C Total nontransaction accounts (incl MMDAs)
+call,RC-E,2,Deposits of U.S. Government,mdrm_code,RCON2202,031/041/051,2017-03-31,col A Total transaction accounts (incl total demand deposits)
+call,RC-E,2,Deposits of U.S. Government,mdrm_code,RCON2520,031/041/051,2017-03-31,col C Total nontransaction accounts (incl MMDAs)
+call,RC-E,3,Deposits of states and political subdivisions in the U.S.,mdrm_code,RCON2203,031/041/051,2017-03-31,col A Total transaction accounts (incl total demand deposits)
+call,RC-E,3,Deposits of states and political subdivisions in the U.S.,mdrm_code,RCON2530,031/041/051,2017-03-31,col C Total nontransaction accounts (incl MMDAs)
+call,RC-E,4,Deposits of commercial banks and other depository institutions in the U.S.,mdrm_code,RCONB551,031/041/051,2017-03-31,col A Total transaction accounts (incl total demand deposits)
+call,RC-E,4,Deposits of commercial banks and other depository institutions in the U.S.,mdrm_code,RCONB552,031/041/051,2017-03-31,col C Total nontransaction accounts (incl MMDAs)
+call,RC-E,5,Deposits of banks in foreign countries,mdrm_code,RCON2213,031/041/051,2017-03-31,col A Total transaction accounts (incl total demand deposits)
+call,RC-E,5,Deposits of banks in foreign countries,mdrm_code,RCON2236,031/041/051,2017-03-31,col C Total nontransaction accounts (incl MMDAs)
+call,RC-E,6,Deposits of foreign governments and official institutions (incl foreign central banks),mdrm_code,RCON2216,031/041/051,2017-03-31,col A Total transaction accounts (incl total demand deposits)
+call,RC-E,6,Deposits of foreign governments and official institutions (incl foreign central banks),mdrm_code,RCON2377,031/041/051,2017-03-31,col C Total nontransaction accounts (incl MMDAs)
+call,RC-E,7,Total (sum of items 1 through 6),mdrm_code,RCON2210,031/041/051,2017-03-31,col B Memo: Total demand deposits (included in column A)
+call,RC-E,7,Total (sum of items 1 through 6),mdrm_code,RCON2215,031/041/051,2017-03-31,col A Total transaction accounts (incl total demand deposits)
+call,RC-E,7,Total (sum of items 1 through 6),mdrm_code,RCON2385,031/041/051,2017-03-31,col C Total nontransaction accounts (incl MMDAs)
+call,RC-E,M.1.a,RC-E Memoranda: Selected components of total deposits: Total IRAs and Keogh Plan accounts,mdrm_code,RCON6835,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.1.b,RC-E Memoranda: Total brokered deposits,mdrm_code,RCON2365,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.1.c,"RC-E Memoranda: Brokered deposits of $250,000 or less (fully insured brokered deposits)",mdrm_code,RCONHK05,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.1.d.(1),"RC-E Memoranda: Maturity data for brokered deposits: $250,000 or less with remaining maturity of one year or less",mdrm_code,RCONHK06,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.1.d.(3),"RC-E Memoranda: Maturity data for brokered deposits: More than $250,000 with remaining maturity of one year or less",mdrm_code,RCONK220,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.1.e,RC-E Memoranda: Preferred deposits (uninsured deposits of states and political subdivisions; December only),mdrm_code,RCON5590,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.1.f,RC-E Memoranda: Estimated amount of deposits obtained through deposit listing services (not brokered),mdrm_code,RCONK223,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.1.g,RC-E Memoranda: Total reciprocal deposits,mdrm_code,RCONJH83,031/041/051,2018-09-30,from Schedule RC-E Memoranda; single column
+call,RC-E,M.1.h.(1),"RC-E Memoranda: Sweep deposits: Fully insured, affiliate sweep deposits",mdrm_code,RCONMT87,031/041/051,2021-09-30,from Schedule RC-E Memoranda; sweep deposits
+call,RC-E,M.1.h.(1)(a),"RC-E Memoranda: Sweep deposits: Fully insured, affiliate, retail sweep deposits",mdrm_code,RCONMT88,031,2021-09-30,from Schedule RC-E Memoranda; sweep deposits
+call,RC-E,M.1.h.(2),"RC-E Memoranda: Sweep deposits: Not fully insured, affiliate sweep deposits",mdrm_code,RCONMT89,031/041/051,2021-09-30,from Schedule RC-E Memoranda; sweep deposits
+call,RC-E,M.1.h.(2)(a),"RC-E Memoranda: Sweep deposits: Not fully insured, affiliate, retail sweep deposits",mdrm_code,RCONMT90,031,2021-09-30,from Schedule RC-E Memoranda; sweep deposits
+call,RC-E,M.1.h.(3),"RC-E Memoranda: Sweep deposits: Fully insured, non-affiliate sweep deposits",mdrm_code,RCONMT91,031/041/051,2021-09-30,from Schedule RC-E Memoranda; sweep deposits
+call,RC-E,M.1.h.(3)(a),"RC-E Memoranda: Sweep deposits: Fully insured, non-affiliate, retail sweep deposits",mdrm_code,RCONMT92,031,2021-09-30,from Schedule RC-E Memoranda; sweep deposits
+call,RC-E,M.1.h.(4),"RC-E Memoranda: Sweep deposits: Not fully insured, non-affiliate sweep deposits",mdrm_code,RCONMT93,031/041/051,2021-09-30,from Schedule RC-E Memoranda; sweep deposits
+call,RC-E,M.1.h.(4)(a),"RC-E Memoranda: Sweep deposits: Not fully insured, non-affiliate, retail sweep deposits",mdrm_code,RCONMT94,031,2021-09-30,from Schedule RC-E Memoranda; sweep deposits
+call,RC-E,M.1.i,RC-E Memoranda: Total sweep deposits that are not brokered deposits,mdrm_code,RCONMT95,031/041/051,2021-09-30,from Schedule RC-E Memoranda; single column
+call,RC-E,M.2.a.(1),RC-E Memoranda: Components of total nontransaction accounts: Savings deposits: Money market deposit accounts (MMDAs),mdrm_code,RCON6810,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.2.a.(2),RC-E Memoranda: Savings deposits: Other savings deposits (excludes MMDAs),mdrm_code,RCON0352,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.2.b,"RC-E Memoranda: Total time deposits of less than $100,000",mdrm_code,RCON6648,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.2.c,"RC-E Memoranda: Total time deposits of $100,000 through $250,000",mdrm_code,RCONJ473,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.2.d,"RC-E Memoranda: Total time deposits of more than $250,000",mdrm_code,RCONJ474,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.2.e,"RC-E Memoranda: IRAs and Keogh Plan accounts of $100,000 or more (incl in M.2.c and 2.d)",mdrm_code,RCONF233,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.3.a.(1),"RC-E Memoranda: Maturity/repricing time deposits $250,000 or less: Three months or less",mdrm_code,RCONHK07,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.3.a.(2),"RC-E Memoranda: Maturity/repricing time deposits $250,000 or less: Over three months through 12 months",mdrm_code,RCONHK08,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.3.a.(3),"RC-E Memoranda: Maturity/repricing time deposits $250,000 or less: Over one year through three years",mdrm_code,RCONHK09,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.3.a.(4),"RC-E Memoranda: Maturity/repricing time deposits $250,000 or less: Over three years",mdrm_code,RCONHK10,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.3.b,"RC-E Memoranda: Time deposits $250,000 or less with REMAINING MATURITY of one year or less",mdrm_code,RCONHK11,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.4.a.(1),"RC-E Memoranda: Maturity/repricing time deposits more than $250,000: Three months or less",mdrm_code,RCONHK12,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.4.a.(2),"RC-E Memoranda: Maturity/repricing time deposits more than $250,000: Over three months through 12 months",mdrm_code,RCONHK13,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.4.a.(3),"RC-E Memoranda: Maturity/repricing time deposits more than $250,000: Over one year through three years",mdrm_code,RCONHK14,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.4.a.(4),"RC-E Memoranda: Maturity/repricing time deposits more than $250,000: Over three years",mdrm_code,RCONHK15,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.4.b,"RC-E Memoranda: Time deposits more than $250,000 with REMAINING MATURITY of one year or less",mdrm_code,RCONK222,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.5,RC-E Memoranda: Does institution offer consumer deposit account products? (Yes=P752/No indicator),mdrm_code,RCONP752,031/041/051,2017-03-31,from Schedule RC-E Memoranda; single column
+call,RC-E,M.6.a,RC-E Memoranda: Components of transaction account deposits of IPC: Noninterest-bearing consumer products,mdrm_code,RCONP753,031/041/051,2019-09-30,from Schedule RC-E Memoranda; single column
+call,RC-E,M.6.b,RC-E Memoranda: Components of transaction account deposits of IPC: Interest-bearing consumer products,mdrm_code,RCONP754,031/041/051,2019-09-30,from Schedule RC-E Memoranda; single column
+call,RC-E,M.7.a.(1),RC-E Memoranda: Components of nontransaction deposits of IPC: MMDA consumer products,mdrm_code,RCONP756,031/041/051,2019-09-30,from Schedule RC-E Memoranda; single column
+call,RC-E,M.7.a.(2),RC-E Memoranda: Components of nontransaction deposits of IPC: All other MMDAs,mdrm_code,RCONP757,031/041/051,2019-09-30,from Schedule RC-E Memoranda; single column
+call,RC-E,M.7.b.(1),RC-E Memoranda: Components of nontransaction deposits of IPC: Other savings consumer products,mdrm_code,RCONP758,031/041/051,2019-09-30,from Schedule RC-E Memoranda; single column
+call,RC-E,M.7.b.(2),RC-E Memoranda: Components of nontransaction deposits of IPC: All other savings deposits,mdrm_code,RCONP759,031/041/051,2019-09-30,from Schedule RC-E Memoranda; single column

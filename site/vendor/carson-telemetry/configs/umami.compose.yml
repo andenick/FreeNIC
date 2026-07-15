@@ -1,0 +1,74 @@
+# Umami — privacy-friendly, cookieless web analytics (Carson Telemetry Standard
+# Layer 2, websites only). Default Layer-2 choice; bind/expose Tailscale-only.
+#
+# Image is PINNED. Generate APP_SECRET once (openssl rand -base64 32) and put it,
+# plus a strong DB password, in a sibling .env file (NEVER commit secrets).
+#
+#   docker compose -f umami.compose.yml up -d
+#
+# Then reverse-proxy it behind Caddy on the tailnet only, or bind the published
+# port to the box's Tailscale IP (e.g. 100.x.y.z:3000) — never 0.0.0.0.
+
+services:
+  umami:
+    # PINNED: Umami v2 on PostgreSQL.
+    image: ghcr.io/umami-software/umami:postgresql-v2.13.2
+    restart: unless-stopped
+    # Bind to the Tailscale interface only. Replace 127.0.0.1 with the box's
+    # tailnet IP (100.x.y.z) to reach it from other tailnet devices.
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD}@umami-db:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: ${UMAMI_APP_SECRET}
+    depends_on:
+      umami-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/heartbeat || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  umami-db:
+    # PINNED Postgres.
+    image: postgres:16.4-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${UMAMI_DB_PASSWORD}
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  umami-db-data:
+
+# ---------------------------------------------------------------------------
+# LIGHTER ALTERNATIVE — GoatCounter (single Go binary + SQLite, no Postgres).
+# Preferred when RAM is tight (per §2). One analytics choice per box; document
+# the swap in sites_registry.json (telemetry_policy). Example service:
+#
+#   goatcounter:
+#     image: arp242/goatcounter:v2.5.0          # PINNED single-binary image
+#     restart: unless-stopped
+#     command: ["serve", "-listen", "0.0.0.0:8081", "-tls", "none",
+#               "-db", "sqlite+/data/goatcounter.sqlite3"]
+#     ports:
+#       - "127.0.0.1:8081:8081"                 # Tailscale-only; swap to 100.x.y.z
+#     volumes:
+#       - goatcounter-data:/data
+#
+# volumes:
+#   goatcounter-data:
+#
+# GoatCounter stores everything in one SQLite file (trivially backed up to
+# ArcArchive alongside telemetry.db) and is cookieless like Umami — same §6
+# privacy posture, far lighter footprint.
+# ---------------------------------------------------------------------------

@@ -1,0 +1,151 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,mdrm_code,BHCKB705,,2001-06-30,Originator (1-4 Family Residential Loans)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,mdrm_code,BHCKB706,,2001-06-30,Originator (Home Equity Lines)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,mdrm_code,BHCKB707,,2001-06-30,Originator (Credit Card Receivables)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,mdrm_code,BHCKB708,,2001-06-30,Originator (Auto Loans)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,mdrm_code,BHCKB709,,2001-06-30,Originator (Other Consumer Loans)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,mdrm_code,BHCKB710,,2001-06-30,Originator (Commercial and Industrial Loans)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,mdrm_code,BHCKB711,,2001-06-30,"Originator (All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,call_mdrm,RCFDB705,,2001-06-30,Originator (1-4 Family Residential Loans)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,call_mdrm,RCFDB706,,2001-06-30,Originator (Home Equity Lines)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,call_mdrm,RCFDB707,,2001-06-30,Originator (Credit Card Receivables)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,call_mdrm,RCFDB708,,2001-06-30,Originator (Auto Loans)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,call_mdrm,RCFDB709,,2001-06-30,Originator (Other Consumer Loans)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,call_mdrm,RCFDB710,,2001-06-30,Originator (Commercial and Industrial Loans)
+y9c,HC-S,1,Outstanding principal balance of assets sold and securitized with servicing retained or with recourse/seller-provided credit enhancements,call_mdrm,RCFDB711,,2001-06-30,"Originator (All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,mdrm_code,BHCKHU09,,2018-06-30,Retained risk (1-4 Family Residential Loans)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,mdrm_code,BHCKHU10,,2018-06-30,Retained risk (Home Equity Lines)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,mdrm_code,BHCKHU11,,2018-06-30,Retained risk (Credit Card Receivables)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,mdrm_code,BHCKHU12,,2018-06-30,Retained risk (Auto Loans)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,mdrm_code,BHCKHU13,,2018-06-30,Retained risk (Other Consumer Loans)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,mdrm_code,BHCKHU14,,2018-06-30,Retained risk (Commercial and Industrial Loans)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,mdrm_code,BHCKHU15,,2018-06-30,"Retained risk (All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,call_mdrm,RCFDHU09,,2018-06-30,Retained risk (1-4 Family Residential Loans)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,call_mdrm,RCFDHU10,,2018-06-30,Retained risk (Home Equity Lines)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,call_mdrm,RCFDHU11,,2018-06-30,Retained risk (Credit Card Receivables)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,call_mdrm,RCFDHU12,,2018-06-30,Retained risk (Auto Loans)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,call_mdrm,RCFDHU13,,2018-06-30,Retained risk (Other Consumer Loans)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,call_mdrm,RCFDHU14,,2018-06-30,Retained risk (Commercial and Industrial Loans)
+y9c,HC-S,2,Maximum credit exposure from recourse or seller-provided credit enhancements for structures in item 1,call_mdrm,RCFDHU15,,2018-06-30,"Retained risk (All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,mdrm_code,BHCKB726,,2001-06-30,$100B+ filers (1-4 Family Residential Loans)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,mdrm_code,BHCKB727,,2001-06-30,$100B+ filers (Home Equity Lines)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,mdrm_code,BHCKB728,,2001-06-30,$100B+ filers (Credit Card Receivables)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,mdrm_code,BHCKB729,,2001-06-30,$100B+ filers (Auto Loans)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,mdrm_code,BHCKB730,,2001-06-30,$100B+ filers (Other Consumer Loans)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,mdrm_code,BHCKB731,,2001-06-30,$100B+ filers (Commercial and Industrial Loans)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,mdrm_code,BHCKB732,,2001-06-30,"$100B+ filers (All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,call_mdrm,RCFDB726,,2001-06-30,$100B+ filers (1-4 Family Residential Loans)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,call_mdrm,RCFDB727,,2001-06-30,$100B+ filers (Home Equity Lines)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,call_mdrm,RCFDB728,,2001-06-30,$100B+ filers (Credit Card Receivables)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,call_mdrm,RCFDB729,,2001-06-30,$100B+ filers (Auto Loans)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,call_mdrm,RCFDB730,,2001-06-30,$100B+ filers (Other Consumer Loans)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,call_mdrm,RCFDB731,,2001-06-30,$100B+ filers (Commercial and Industrial Loans)
+y9c,HC-S,3,Unused commitments to provide liquidity to structures in item 1,call_mdrm,RCFDB732,,2001-06-30,"$100B+ filers (All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,6,Total amount of ownership (or seller’s) interest carried as securities or loans,mdrm_code,BHCKHU16,,2018-06-30,$10B+ filers; cols A-C only (1-4 Family Residential Loans)
+y9c,HC-S,6,Total amount of ownership (or seller’s) interest carried as securities or loans,mdrm_code,BHCKHU17,,2018-06-30,$10B+ filers; cols A-C only (Home Equity Lines)
+y9c,HC-S,6,Total amount of ownership (or seller’s) interest carried as securities or loans,mdrm_code,BHCKHU18,,2018-06-30,$10B+ filers; cols A-C only (Credit Card Receivables)
+y9c,HC-S,6,Total amount of ownership (or seller’s) interest carried as securities or loans,call_mdrm,RCFDHU16,,2018-06-30,$10B+ filers; cols A-C only (1-4 Family Residential Loans)
+y9c,HC-S,6,Total amount of ownership (or seller’s) interest carried as securities or loans,call_mdrm,RCFDHU17,,2018-06-30,$10B+ filers; cols A-C only (Home Equity Lines)
+y9c,HC-S,6,Total amount of ownership (or seller’s) interest carried as securities or loans,call_mdrm,RCFDHU18,,2018-06-30,$10B+ filers; cols A-C only (Credit Card Receivables)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",mdrm_code,BHCKB776,,2001-06-30,cols A-E only (1-4 Family Residential Loans)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",mdrm_code,BHCKB779,,2001-06-30,cols A-E only (Home Equity Lines)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",mdrm_code,BHCKB780,,2001-06-30,cols A-E only (Credit Card Receivables)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",mdrm_code,BHCKB781,,2001-06-30,cols A-E only (Auto Loans)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",mdrm_code,BHCKB782,,2001-06-30,cols A-E only (Other Consumer Loans)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",call_mdrm,RCFDB776,,2001-06-30,cols A-E only (1-4 Family Residential Loans)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",call_mdrm,RCFDB779,,2001-06-30,cols A-E only (Home Equity Lines)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",call_mdrm,RCFDB780,,2001-06-30,cols A-E only (Credit Card Receivables)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",call_mdrm,RCFDB781,,2001-06-30,cols A-E only (Auto Loans)
+y9c,HC-S,9,"Maximum credit exposure from credit enhancements provided to OTHER institutions’ securitization structures (SLOCs, purchased subordinated securities, other)",call_mdrm,RCFDB782,,2001-06-30,cols A-E only (Other Consumer Loans)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,mdrm_code,BHCKB783,,2001-06-30,$10B+ filers; cols A-E only (1-4 Family Residential Loans)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,mdrm_code,BHCKB786,,2001-06-30,$10B+ filers; cols A-E only (Home Equity Lines)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,mdrm_code,BHCKB787,,2001-06-30,$10B+ filers; cols A-E only (Credit Card Receivables)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,mdrm_code,BHCKB788,,2001-06-30,$10B+ filers; cols A-E only (Auto Loans)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,mdrm_code,BHCKB789,,2001-06-30,$10B+ filers; cols A-E only (Other Consumer Loans)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,call_mdrm,RCFDB783,,2001-06-30,$10B+ filers; cols A-E only (1-4 Family Residential Loans)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,call_mdrm,RCFDB786,,2001-06-30,$10B+ filers; cols A-E only (Home Equity Lines)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,call_mdrm,RCFDB787,,2001-06-30,$10B+ filers; cols A-E only (Credit Card Receivables)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,call_mdrm,RCFDB788,,2001-06-30,$10B+ filers; cols A-E only (Auto Loans)
+y9c,HC-S,10,Unused commitments to provide liquidity to OTHER institutions’ securitization structures,call_mdrm,RCFDB789,,2001-06-30,$10B+ filers; cols A-E only (Other Consumer Loans)
+y9c,HC-S,11,Assets sold with recourse or other seller-provided credit enhancements and not securitized,mdrm_code,BHCKB790,,2001-06-30,Asset sales (1-4 Family Residential Loans)
+y9c,HC-S,11,Assets sold with recourse or other seller-provided credit enhancements and not securitized,mdrm_code,BHCKB796,,2001-06-30,Asset sales (Home Equity Lines)
+y9c,HC-S,11,Assets sold with recourse or other seller-provided credit enhancements and not securitized,call_mdrm,RCFDB790,,2001-06-30,Asset sales (1-4 Family Residential Loans)
+y9c,HC-S,11,Assets sold with recourse or other seller-provided credit enhancements and not securitized,call_mdrm,RCFDB796,,2001-06-30,Asset sales (Home Equity Lines)
+y9c,HC-S,12,Maximum credit exposure from recourse/seller-provided credit enhancements for assets in item 11,mdrm_code,BHCKB797,,2001-06-30,Asset sales (1-4 Family Residential Loans)
+y9c,HC-S,12,Maximum credit exposure from recourse/seller-provided credit enhancements for assets in item 11,mdrm_code,BHCKB803,,2001-06-30,Asset sales (Home Equity Lines)
+y9c,HC-S,12,Maximum credit exposure from recourse/seller-provided credit enhancements for assets in item 11,call_mdrm,RCFDB797,,2001-06-30,Asset sales (1-4 Family Residential Loans)
+y9c,HC-S,12,Maximum credit exposure from recourse/seller-provided credit enhancements for assets in item 11,call_mdrm,RCFDB803,,2001-06-30,Asset sales (Home Equity Lines)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),mdrm_code,BHCKB733,,2001-03-31,(1-4 Family Residential Loans)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),mdrm_code,BHCKB734,,2001-03-31,(Home Equity Lines)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),mdrm_code,BHCKB735,,2001-03-31,(Credit Card Receivables)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),mdrm_code,BHCKB736,,2001-03-31,(Auto Loans)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),mdrm_code,BHCKB737,,2001-03-31,(Other Consumer Loans)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),mdrm_code,BHCKB738,,2001-03-31,(Commercial and Industrial Loans)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),mdrm_code,BHCKB739,,2001-03-31,"(All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),call_mdrm,RCFDB733,,2001-03-31,(1-4 Family Residential Loans)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),call_mdrm,RCFDB734,,2001-03-31,(Home Equity Lines)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),call_mdrm,RCFDB735,,2001-03-31,(Credit Card Receivables)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),call_mdrm,RCFDB736,,2001-03-31,(Auto Loans)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),call_mdrm,RCFDB737,,2001-03-31,(Other Consumer Loans)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),call_mdrm,RCFDB738,,2001-03-31,(Commercial and Industrial Loans)
+y9c,HC-S,4.a,Past due 30-89 days (included in item 1),call_mdrm,RCFDB739,,2001-03-31,"(All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),mdrm_code,BHCKB740,,2001-03-31,(1-4 Family Residential Loans)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),mdrm_code,BHCKB741,,2001-03-31,(Home Equity Lines)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),mdrm_code,BHCKB742,,2001-03-31,(Credit Card Receivables)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),mdrm_code,BHCKB743,,2001-03-31,(Auto Loans)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),mdrm_code,BHCKB744,,2001-03-31,(Other Consumer Loans)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),mdrm_code,BHCKB745,,2001-03-31,(Commercial and Industrial Loans)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),mdrm_code,BHCKB746,,2001-03-31,"(All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),call_mdrm,RCFDB740,,2001-03-31,(1-4 Family Residential Loans)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),call_mdrm,RCFDB741,,2001-03-31,(Home Equity Lines)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),call_mdrm,RCFDB742,,2001-03-31,(Credit Card Receivables)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),call_mdrm,RCFDB743,,2001-03-31,(Auto Loans)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),call_mdrm,RCFDB744,,2001-03-31,(Other Consumer Loans)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),call_mdrm,RCFDB745,,2001-03-31,(Commercial and Industrial Loans)
+y9c,HC-S,4.b,Past due 90 days or more (included in item 1),call_mdrm,RCFDB746,,2001-03-31,"(All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),mdrm_code,BHCKB747,,2001-03-31,(1-4 Family Residential Loans)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),mdrm_code,BHCKB748,,2001-03-31,(Home Equity Lines)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),mdrm_code,BHCKB749,,2001-03-31,(Credit Card Receivables)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),mdrm_code,BHCKB750,,2001-03-31,(Auto Loans)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),mdrm_code,BHCKB751,,2001-03-31,(Other Consumer Loans)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),mdrm_code,BHCKB752,,2001-03-31,(Commercial and Industrial Loans)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),mdrm_code,BHCKB753,,2001-03-31,"(All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),call_mdrm,RIADB747,,2001-03-31,(1-4 Family Residential Loans)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),call_mdrm,RIADB748,,2001-03-31,(Home Equity Lines)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),call_mdrm,RIADB749,,2001-03-31,(Credit Card Receivables)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),call_mdrm,RIADB750,,2001-03-31,(Auto Loans)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),call_mdrm,RIADB751,,2001-03-31,(Other Consumer Loans)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),call_mdrm,RIADB752,,2001-03-31,(Commercial and Industrial Loans)
+y9c,HC-S,5.a,Charge-offs on assets sold and securitized (YTD),call_mdrm,RIADB753,,2001-03-31,"(All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),mdrm_code,BHCKB754,,2001-03-31,(1-4 Family Residential Loans)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),mdrm_code,BHCKB755,,2001-03-31,(Home Equity Lines)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),mdrm_code,BHCKB756,,2001-03-31,(Credit Card Receivables)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),mdrm_code,BHCKB757,,2001-03-31,(Auto Loans)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),mdrm_code,BHCKB758,,2001-03-31,(Other Consumer Loans)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),mdrm_code,BHCKB759,,2001-03-31,(Commercial and Industrial Loans)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),mdrm_code,BHCKB760,,2001-03-31,"(All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),call_mdrm,RIADB754,,2001-03-31,(1-4 Family Residential Loans)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),call_mdrm,RIADB755,,2001-03-31,(Home Equity Lines)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),call_mdrm,RIADB756,,2001-03-31,(Credit Card Receivables)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),call_mdrm,RIADB757,,2001-03-31,(Auto Loans)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),call_mdrm,RIADB758,,2001-03-31,(Other Consumer Loans)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),call_mdrm,RIADB759,,2001-03-31,(Commercial and Industrial Loans)
+y9c,HC-S,5.b,Recoveries on assets sold and securitized (YTD),call_mdrm,RIADB760,,2001-03-31,"(All Other Loans, All Leases, and All Other Assets)"
+y9c,HC-S,M.2.a,1-4 family residential mortgages serviced WITH recourse/servicer-provided credit enhancements,mdrm_code,BHCKB804,,2001-06-30,
+y9c,HC-S,M.2.a,1-4 family residential mortgages serviced WITH recourse/servicer-provided credit enhancements,call_mdrm,RCFDB804,,2001-06-30,
+y9c,HC-S,M.2.b,1-4 family residential mortgages serviced with NO recourse/servicer-provided credit enhancements,mdrm_code,BHCKB805,,2001-06-30,
+y9c,HC-S,M.2.b,1-4 family residential mortgages serviced with NO recourse/servicer-provided credit enhancements,call_mdrm,RCFDB805,,2001-06-30,
+y9c,HC-S,M.2.c,Other financial assets serviced for others,mdrm_code,BHCKA591,,2001-03-31,
+y9c,HC-S,M.2.c,Other financial assets serviced for others,call_mdrm,RCFDA591,,2001-03-31,
+y9c,HC-S,M.2.d,1-4 family residential mortgages serviced for others in process of foreclosure at quarter-end,mdrm_code,BHCKF699,,2008-03-31,
+y9c,HC-S,M.2.d,1-4 family residential mortgages serviced for others in process of foreclosure at quarter-end,call_mdrm,RCFDF699,,2008-03-31,
+y9c,HC-S,M.3.a.(1),ABCP credit enhancement exposure - Conduits sponsored by bank/affiliate/holding company,mdrm_code,BHCKB806,,2004-03-31,
+y9c,HC-S,M.3.a.(1),ABCP credit enhancement exposure - Conduits sponsored by bank/affiliate/holding company,call_mdrm,RCFDB806,,2004-03-31,
+y9c,HC-S,M.3.a.(2),ABCP credit enhancement exposure - Conduits sponsored by other unrelated institutions,mdrm_code,BHCKB807,,2004-03-31,
+y9c,HC-S,M.3.a.(2),ABCP credit enhancement exposure - Conduits sponsored by other unrelated institutions,call_mdrm,RCFDB807,,2004-03-31,
+y9c,HC-S,M.3.b.(1),ABCP unused liquidity commitments - Conduits sponsored by bank/affiliate/holding company,mdrm_code,BHCKB808,,2004-03-31,
+y9c,HC-S,M.3.b.(1),ABCP unused liquidity commitments - Conduits sponsored by bank/affiliate/holding company,call_mdrm,RCFDB808,,2004-03-31,
+y9c,HC-S,M.3.b.(2),ABCP unused liquidity commitments - Conduits sponsored by other unrelated institutions,mdrm_code,BHCKB809,,2004-03-31,
+y9c,HC-S,M.3.b.(2),ABCP unused liquidity commitments - Conduits sponsored by other unrelated institutions,call_mdrm,RCFDB809,,2004-03-31,
+y9c,HC-S,M.4,"Outstanding credit card fees and finance charges (included in item 1, column G)",mdrm_code,BHCKC407,,2003-03-31,
+y9c,HC-S,M.4,"Outstanding credit card fees and finance charges (included in item 1, column G)",call_mdrm,RCFDC407,,2003-03-31,

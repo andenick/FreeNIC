@@ -1,0 +1,26 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HI-A,1,Total holding company equity capital most recently reported for end of previous calendar year,mdrm_code,BHCK3217,,1981-06-30,After adjustments from amended Reports of Income
+y9c,HI-A,1,Total holding company equity capital most recently reported for end of previous calendar year,call_mdrm,RIAD3217,,1981-06-30,After adjustments from amended Reports of Income
+y9c,HI-A,2,Cumulative effect of changes in accounting principles and corrections of material accounting errors,mdrm_code,BHCKB507,,2001-03-31,-
+y9c,HI-A,2,Cumulative effect of changes in accounting principles and corrections of material accounting errors,call_mdrm,RIADB507,,2001-03-31,-
+y9c,HI-A,3,Balance end of previous calendar year as restated (sum of items 1 and 2),mdrm_code,BHCKB508,,2001-03-31,= item 1 + item 2
+y9c,HI-A,3,Balance end of previous calendar year as restated (sum of items 1 and 2),call_mdrm,RIADB508,,2001-03-31,= item 1 + item 2
+y9c,HI-A,4,Net income (loss) attributable to holding company,mdrm_code,BHCT4340,,2002-12-31,Must equal Schedule HI item 14
+y9c,HI-A,4,Net income (loss) attributable to holding company,call_mdrm,RIAD4340,,2002-12-31,Must equal Schedule HI item 14
+y9c,HI-A,7,Sale of treasury stock,mdrm_code,BHCK4782,,1986-06-30,-
+y9c,HI-A,8,LESS: Purchase of treasury stock,mdrm_code,BHCK4783,,1986-06-30,Subtracted in the item-15 total
+y9c,HI-A,9,"Changes incident to business combinations, net",mdrm_code,BHCK4356,,1986-06-30,-
+y9c,HI-A,9,"Changes incident to business combinations, net",call_mdrm,RIAD4356,,1986-06-30,-
+y9c,HI-A,10,LESS: Cash dividends declared on preferred stock,mdrm_code,BHCK4598,,1986-06-30,Subtracted in the item-15 total
+y9c,HI-A,11,LESS: Cash dividends declared on common stock,mdrm_code,BHCK4460,,1986-06-30,Subtracted in the item-15 total
+y9c,HI-A,11,LESS: Cash dividends declared on common stock,call_mdrm,RIAD4460,,1986-06-30,Subtracted in the item-15 total
+y9c,HI-A,12,Other comprehensive income,mdrm_code,BHCKB511,,2001-03-31,"AFS gains/losses, cash-flow hedges, FX translation, pension adjustments"
+y9c,HI-A,12,Other comprehensive income,call_mdrm,RIADB511,,2001-03-31,"AFS gains/losses, cash-flow hedges, FX translation, pension adjustments"
+y9c,HI-A,13,Change in offsetting debit to the liability for ESOP debt guaranteed by the holding company,mdrm_code,BHCK4591,,1987-09-30,-
+y9c,HI-A,14,Other adjustments to equity capital (not included above),mdrm_code,BHCK3581,,1990-09-30,-
+y9c,HI-A,15,Total holding company equity capital end of current period,mdrm_code,BHCT3210,,2002-12-31,"Sum of items 3,4,5,6,7,9,12,13,14 less items 8,10,11; must equal Schedule HC item 27.a"
+y9c,HI-A,15,Total holding company equity capital end of current period,call_mdrm,RIAD3210,,2002-12-31,"Sum of items 3,4,5,6,7,9,12,13,14 less items 8,10,11; must equal Schedule HC item 27.a"
+y9c,HI-A,5.a.,"Sale of perpetual preferred stock, gross",mdrm_code,BHCK3577,,1990-09-30,-
+y9c,HI-A,5.b.,Conversion or retirement of perpetual preferred stock,mdrm_code,BHCK3578,,1990-09-30,-
+y9c,HI-A,6.a.,"Sale of common stock, gross",mdrm_code,BHCK3579,,1990-09-30,-
+y9c,HI-A,6.b.,Conversion or retirement of common stock,mdrm_code,BHCK3580,,1990-09-30,-

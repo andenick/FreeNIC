@@ -1,0 +1,19 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-P,1,Retail originations during the quarter of 1-4 family residential mortgage loans for sale,mdrm_code,BHCKHT81,,2018-06-30,Excludes loans held for investment; $5B+ filers
+y9c,HC-P,1,Retail originations during the quarter of 1-4 family residential mortgage loans for sale,call_mdrm,RCONHT81,,2018-06-30,Excludes loans held for investment; $5B+ filers
+y9c,HC-P,2,Wholesale originations and purchases during the quarter of 1-4 family residential mortgage loans for sale,mdrm_code,BHCKHT82,,2018-06-30,Excludes loans held for investment
+y9c,HC-P,2,Wholesale originations and purchases during the quarter of 1-4 family residential mortgage loans for sale,call_mdrm,RCONHT82,,2018-06-30,Excludes loans held for investment
+y9c,HC-P,3,1-4 family residential mortgages sold during the quarter,mdrm_code,BHCKFT04,,2019-03-31,Loans sold during the quarter
+y9c,HC-P,3,1-4 family residential mortgages sold during the quarter,call_mdrm,RCONFT04,,2019-03-31,Loans sold during the quarter
+y9c,HC-P,4,1-4 family residential mortgages held for sale or trading at quarter-end,mdrm_code,BHCKFT05,,2019-03-31,Included in Schedule HC items 4.a and 5
+y9c,HC-P,4,1-4 family residential mortgages held for sale or trading at quarter-end,call_mdrm,RCONFT05,,2019-03-31,Included in Schedule HC items 4.a and 5
+y9c,HC-P,5,"Noninterest income for the quarter from the sale, securitization, and servicing of 1-4 family residential mortgage loans",mdrm_code,BHCKHT85,,2018-06-30,"Included in Schedule HI items 5.c, 5.f, 5.g, and 5.i"
+y9c,HC-P,5,"Noninterest income for the quarter from the sale, securitization, and servicing of 1-4 family residential mortgage loans",call_mdrm,RIADHT85,,2018-06-30,"Included in Schedule HI items 5.c, 5.f, 5.g, and 5.i"
+y9c,HC-P,6,Repurchases and indemnifications of 1-4 family residential mortgage loans during the quarter,mdrm_code,BHCKHT86,,2018-06-30,Buybacks and indemnification payments
+y9c,HC-P,6,Repurchases and indemnifications of 1-4 family residential mortgage loans during the quarter,call_mdrm,RCONHT86,,2018-06-30,Buybacks and indemnification payments
+y9c,HC-P,7.a.,Representation and warranty reserves for reps/warranties made to U.S. government agencies and government-sponsored agencies,mdrm_code,BHCKL191,,2012-06-30,Reserve component; not separately carried in public BHCF bulk data
+y9c,HC-P,7.a.,Representation and warranty reserves for reps/warranties made to U.S. government agencies and government-sponsored agencies,call_mdrm,RCONL191,,2012-06-30,Reserve component; not separately carried in public BHCF bulk data
+y9c,HC-P,7.b.,Representation and warranty reserves for reps/warranties made to other parties,mdrm_code,BHCKL192,,2012-06-30,Reserve component; not separately carried in public BHCF bulk data
+y9c,HC-P,7.b.,Representation and warranty reserves for reps/warranties made to other parties,call_mdrm,RCONL192,,2012-06-30,Reserve component; not separately carried in public BHCF bulk data
+y9c,HC-P,7.c.,Total representation and warranty reserves (sum of 7.a and 7.b),mdrm_code,BHCKM288,,2012-09-30,Total rep & warranty reserve
+y9c,HC-P,7.c.,Total representation and warranty reserves (sum of 7.a and 7.b),call_mdrm,RCONM288,,2012-09-30,Total rep & warranty reserve

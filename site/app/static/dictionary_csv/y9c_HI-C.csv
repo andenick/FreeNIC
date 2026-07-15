@@ -1,0 +1,21 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HI-C,2,Loans HFI: Commercial loans,mdrm_col_a_amortized_cost,BHCKJJ07,,2019-03-31,"All loans/leases not reported as RE, credit cards, or other consumer"
+y9c,HI-C,2,Loans HFI: Commercial loans,mdrm_col_b_allowance,BHCKJJ15,,2019-03-31,"All loans/leases not reported as RE, credit cards, or other consumer"
+y9c,HI-C,3,Loans HFI: Credit cards,mdrm_col_a_amortized_cost,BHCKJJ08,,2019-03-31,-
+y9c,HI-C,3,Loans HFI: Credit cards,mdrm_col_b_allowance,BHCKJJ16,,2019-03-31,-
+y9c,HI-C,4,Loans HFI: Other consumer loans,mdrm_col_a_amortized_cost,BHCKJJ09,,2019-03-31,-
+y9c,HI-C,4,Loans HFI: Other consumer loans,mdrm_col_b_allowance,BHCKJJ17,,2019-03-31,-
+y9c,HI-C,5,"Loans HFI: Unallocated, if any",mdrm_col_a_amortized_cost,BHCKJJ18,,2019-03-31,Allowance Balance only (no amortized-cost column)
+y9c,HI-C,6,Loans HFI: Total (sum of items 1.a through 5),mdrm_col_a_amortized_cost,BHCKJJ11,,2019-03-31,Col B must equal Schedule HC item 4.c
+y9c,HI-C,6,Loans HFI: Total (sum of items 1.a through 5),mdrm_col_b_allowance,BHCKJJ19,,2019-03-31,Col B must equal Schedule HC item 4.c
+y9c,HI-C,7,HTM Securities: Securities issued by states and political subdivisions in the U.S.,mdrm_col_a_amortized_cost,BHCKJJ20,,2019-03-31,Allowance Balance
+y9c,HI-C,8,"HTM Securities: Total mortgage-backed securities (MBS) (incl CMOs, REMICs, stripped MBS)",mdrm_col_a_amortized_cost,BHCKJJ21,,2019-03-31,Allowance Balance
+y9c,HI-C,9,HTM Securities: Asset-backed securities and structured financial products,mdrm_col_a_amortized_cost,BHCKJJ23,,2019-03-31,Allowance Balance
+y9c,HI-C,10,HTM Securities: Other debt securities,mdrm_col_a_amortized_cost,BHCKJJ24,,2019-03-31,Allowance Balance
+y9c,HI-C,11,HTM Securities: Total (sum of items 7 through 10),mdrm_col_a_amortized_cost,BHCKJJ25,,2019-03-31,Must equal Schedule HI-B Part II item 7 col B
+y9c,HI-C,1.a.,Loans HFI: Real estate loans - Construction loans,mdrm_col_a_amortized_cost,BHCKJJ04,,2019-03-31,"Col A=Amortized Cost, Col B=Allowance Balance"
+y9c,HI-C,1.a.,Loans HFI: Real estate loans - Construction loans,mdrm_col_b_allowance,BHCKJJ12,,2019-03-31,"Col A=Amortized Cost, Col B=Allowance Balance"
+y9c,HI-C,1.b.,Loans HFI: Real estate loans - Commercial real estate loans,mdrm_col_a_amortized_cost,BHCKJJ05,,2019-03-31,-
+y9c,HI-C,1.b.,Loans HFI: Real estate loans - Commercial real estate loans,mdrm_col_b_allowance,BHCKJJ13,,2019-03-31,-
+y9c,HI-C,1.c.,Loans HFI: Real estate loans - Residential real estate loans,mdrm_col_a_amortized_cost,BHCKJJ06,,2019-03-31,-
+y9c,HI-C,1.c.,Loans HFI: Real estate loans - Residential real estate loans,mdrm_col_b_allowance,BHCKJJ14,,2019-03-31,-

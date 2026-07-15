@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}FreeNIC{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}FreeNIC — free, unified US banking regulatory data: FFIEC Call Reports, NCUA 5300, FDIC structure and failure data as open parquet downloads for research and replication.{% endblock %}">
+
+  <!-- Arcanum Site Kit (ASK) v1 — shared chrome + freenic slate theme (vendored, no CDN) -->
+  <link rel="stylesheet" href="/static/_shared/arcanum.css?v={{ asset_ver }}">
+  <link rel="stylesheet" href="/static/_shared/themes/freenic.css?v={{ asset_ver }}">
+  <link rel="icon" href="/static/_shared/favicon.svg" type="image/svg+xml">
+
+  <!-- Site stylesheet (page-body + prose/cards/tables/plots; kit owns header/footer chrome) -->
+  <link rel="stylesheet" href="/static/css/site.css?v={{ asset_ver }}">
+
+  <!-- Arcanum Site Kit v1.1 — shared Plotly theming + download buttons (defer; only
+       define ArkPlotly/ArkDownloads globally. The Plotly LIBRARY and the chart code
+       load ONLY on /explorer via that page's head block + inline script; these
+       helpers reference window.Plotly lazily at call-time, so they are inert here). -->
+  <script defer src="/static/_shared/ark-plotly.js?v={{ asset_ver }}"></script>
+  <script defer src="/static/_shared/ark-downloads.js?v={{ asset_ver }}"></script>
+  <script defer src="/static/_shared/ark-code.js?v={{ asset_ver }}"></script>
+
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- ------------------------------------------------------------------ -->
+<!-- Shared chrome: ASK header (mark + ecosystem switcher + nav)           -->
+<!-- ------------------------------------------------------------------ -->
+{% include "_shared/header.html" %}
+
+<!-- ------------------------------------------------------------------ -->
+<!-- Page content (#ark-main = skip-link target)                          -->
+<!-- ------------------------------------------------------------------ -->
+<main id="ark-main" class="wrap">
+  {% block content %}{% endblock %}
+</main>
+
+<!-- ------------------------------------------------------------------ -->
+<!-- Shared chrome: CDF action footer (compact triad + Website source +   -->
+<!-- Cite) ABOVE the mandated dual-anchor colophon (preserved byte-for-byte)-->
+<!-- ------------------------------------------------------------------ -->
+{% include "_shared/action-footer.html" %}
+
+{% block body_scripts %}{% endblock %}
+
+<!-- ASK chrome enhancer (no-JS-degradable switcher + copy buttons) -->
+<script>
+  window.ARK_CONFIG = {
+    site_key: "{{ site_key }}",
+    dpr_url: "{{ dpr_url | default('/', true) }}",
+    ecosystem_url: "/static/_shared/ecosystem.json"
+  };
+  // Triad-click telemetry (Layer-3): reuse the ark-track transport.
+  window.ARK_TRACK = { site: "{{ site_key }}", endpoint: "/__track" };
+</script>
+<script src="/static/_shared/arcanum-chrome.js?v={{ asset_ver }}" defer></script>
+<!-- CDF Research Triad + Action Footer hydration (fills hrefs/sublabels from
+     ecosystem.json cdf block; graceful no-op if absent). -->
+<script src="/static/_shared/ark-triad.js?v={{ asset_ver }}" defer></script>
+</body>
+</html>

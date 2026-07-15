@@ -1,0 +1,5 @@
+/* Arcanum Site Kit v1.2 — theme: freenic (freenic)
+   Link AFTER arcanum.css. The ONLY visual override a site needs.
+   --ark-on-accent: white (accent #64748b is dark enough). */
+:root{--ark-accent:#64748b;--ark-accent-soft:#242b34;--ark-on-accent:#ffffff;}
+@media (prefers-color-scheme: light){:root{--ark-accent:#64748b;--ark-accent-soft:#e6e9ec;--ark-on-accent:#ffffff;}}

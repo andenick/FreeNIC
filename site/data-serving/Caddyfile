@@ -1,0 +1,58 @@
+# FreeNIC data endpoint — Caddyfile
+# Serves the full v1.0 parquet release (read-only, byte-range, CORS) so DuckDB
+# httpfs clients can query https://data.freenic.org/<table>.parquet remotely.
+#
+# Intended route (Cloudflare Tunnel / NPM): data.freenic.org -> freenic-data:80
+# Caddy listens on :80 inside the container; TLS is terminated upstream by the
+# tunnel / reverse proxy (same pattern as freenic-web). No host ports.
+
+:80 {
+	root * /srv/freenic
+
+	# Native HTTP range requests: Caddy's file_server honours Range headers and
+	# emits Accept-Ranges: bytes + 206 Partial Content automatically — this is
+	# exactly what DuckDB httpfs needs to fetch only the row-groups a query touches.
+	file_server {
+		# Show a plain directory index so the catalog (and SHA256SUMS/PROVENANCE/
+		# DATA_LICENSE) are discoverable by humans and tooling.
+		browse
+	}
+
+	# CORS — allow browser-based DuckDB-Wasm / fetch clients from any origin.
+	# Range + the preflight bits are explicitly allowed so 206 responses work
+	# cross-origin.
+	header {
+		Access-Control-Allow-Origin "*"
+		Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+		Access-Control-Allow-Headers "Range, Content-Type"
+		Access-Control-Expose-Headers "Content-Length, Content-Range, Accept-Ranges, ETag"
+		Access-Control-Max-Age "86400"
+		Accept-Ranges "bytes"
+		# Lock down ambient capabilities for any HTML index served from here.
+		Permissions-Policy "geolocation=(), microphone=(), camera=(), browsing-topics=()"
+		# Defensive headers (the dir is static data only).
+		X-Content-Type-Options "nosniff"
+		-Server
+	}
+
+	# Answer CORS preflight directly.
+	@options method OPTIONS
+	respond @options 204
+
+	# Correct content-type so clients/proxies treat .parquet as a binary blob,
+	# not text (Caddy would otherwise guess application/octet-stream already, but
+	# we make it explicit for parquet specifically).
+	@parquet path *.parquet
+	header @parquet Content-Type "application/octet-stream"
+
+	# Integrity / provenance / license files as plain text for easy reading.
+	@meta path *.txt *.csv *.md
+	header @meta Content-Type "text/plain; charset=utf-8"
+
+	encode gzip
+
+	log {
+		output stdout
+		format console
+	}
+}

@@ -1,0 +1,33 @@
+{#- Arcanum Site Kit — triad.html (the Research Triad hero action row).
+    Data · Code · Outputs. Ships hidden; ark-triad.js fills hrefs + sublabels
+    from ecosystem.json's `cdf` block (looked up by ARK_CONFIG.site_key) and
+    reveals it. Graceful no-op if the site has no cdf block. (Doc/usage block
+    stripped from the kit source: its HTML-comment example contained a live
+    `{% include %}` that Jinja executes -> self-recursion.) -#}
+<section class="ark-triad ark-triad--pending" data-ark-triad hidden
+         aria-label="Get the data and the code for this research">
+  <a class="ark-triad-btn ark-triad-data" data-cdf="data" href="#"
+     aria-label="Download the data for this site">
+    <span class="ark-triad-icon" aria-hidden="true">&#8595;</span>
+    <span class="ark-triad-text">
+      <span class="ark-triad-label">Download the Data</span>
+      <span class="ark-triad-sub" data-cdf-sub="data"></span>
+    </span>
+  </a>
+  <a class="ark-triad-btn ark-triad-code" data-cdf="code" href="#"
+     aria-label="Download the research code for this site">
+    <span class="ark-triad-icon" aria-hidden="true">&#8595;</span>
+    <span class="ark-triad-text">
+      <span class="ark-triad-label">Download the Code</span>
+      <span class="ark-triad-sub" data-cdf-sub="code"></span>
+    </span>
+  </a>
+  <a class="ark-triad-btn ark-triad-outputs ark-triad-secondary" data-cdf="outputs" href="#"
+     aria-label="Explore the finished outputs of this site">
+    <span class="ark-triad-icon" aria-hidden="true">&#8594;</span>
+    <span class="ark-triad-text">
+      <span class="ark-triad-label">Explore the Outputs</span>
+      <span class="ark-triad-sub" data-cdf-sub="outputs"></span>
+    </span>
+  </a>
+</section>

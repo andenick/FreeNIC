@@ -1,0 +1,26 @@
+# FreeNIC (freenic.org) — FastAPI/gunicorn on :8080, UNROUTED (draft).
+# Intended route (later): freenic.org -> freenic-web:8080 via NPM on homelab_default.
+# No host ports — NPM owns :80/:443.
+services:
+  freenic-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: freenic-web:local
+    container_name: freenic-web
+    restart: unless-stopped
+    environment:
+      # Carson telemetry — shared first-party usage DB (no host ports; Layer-3 events).
+      - CARSON_TELEMETRY_DB=/var/lib/carson/telemetry.db
+      - CARSON_TELEMETRY_SALT_DIR=/var/lib/carson
+    volumes:
+      - freenic_telemetry:/var/lib/carson
+    networks:
+      - homelab_default
+
+networks:
+  homelab_default:
+    external: true
+
+volumes:
+  freenic_telemetry:

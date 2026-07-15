@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+{% block title %}Data explorer — FreeNIC{% endblock %}
+{% block head %}
+  <script src="/static/vendor/plotly.min.js"></script>
+{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>Data explorer</h1>
+  <p>Interactive charts over a <b>real, curated sample</b> of FreeNIC ({{ counts.slice_db_h }}) — real
+     subsets of the published tables. Every chart has a <b>Download CSV</b> of the exact
+     data it plots. The complete dataset (call reports, UBPR, NCUA 5300 and more) is
+     available via the R/Python package and API — see <a href="/api-docs">API</a>.</p>
+</section>
+
+<!-- FLAGSHIP narrative chart: the replicated 163-year bank-aggregate spine.
+     Each `definition` is a SEPARATE trace so a definitional break is never a
+     silent splice; junction years 1896/1914/1934 are marked with vertical lines +
+     annotations; units DIFFER BY definition (honest caption below). -->
+<section class="prose">
+  <h2>163 Years of U.S. Banking, 1863–2026</h2>
+  <p>The replicated long spine of U.S. banking aggregates, from the real
+     <code>long_bank_aggregates_1863_2026</code> table. Each line is a distinct
+     <b>statistical definition</b> of "the banking system" — they are plotted
+     separately because the universe of banks counted changes at the junction years
+     <b>1896</b>, <b>1914</b> and <b>1934</b> (marked below). Pick a metric:</p>
+  <div class="controls">
+    <label>Metric
+      <select id="spine_metric">
+        <option value="num_banks" selected>Number of banks</option>
+        <option value="total_deposits">Total deposits</option>
+        <option value="total_loans">Total loans</option>
+        <option value="total_assets">Total assets</option>
+      </select>
+    </label>
+  </div>
+  <div class="dl-row" id="dl_spine"></div>
+  <div id="chart_spine" class="plot"></div>
+  <p class="note" id="spine_units"></p>
+  <p class="note"><b>Units differ by definition — do not splice across them.</b>
+     National-bank figures are in <b>$ millions</b>, the FDIC all-insured series in
+     <b>$ thousands</b>, and the modern all-commercial series in <b>$ billions</b>;
+     unit harmonization is deliberately deferred. Gaps (e.g. the national-only series
+     after 1941) are genuine gaps in the source — they are shown as gaps, never
+     interpolated.</p>
+</section>
+
+<section class="prose">
+  <h2>FDIC bank failures per year</h2>
+  <p>Count of bank failures by year (1934–{{ counts.failure_end_year }}), from the real <code>bank_failures</code> table.</p>
+  <div class="dl-row" id="dl_failyear"></div>
+  <div id="chart_failyear" class="plot"></div>
+</section>
+
+<section class="prose">
+  <h2>Largest failures by total assets</h2>
+  <p>Top failures in the sample, ranked by total assets ($000s as reported).</p>
+  <div class="controls">
+    <label>Show top
+      <select id="topn"><option>10</option><option selected>25</option><option>50</option></select>
+    </label>
+  </div>
+  <div class="dl-row" id="dl_topfail"></div>
+  <!-- ArkTable scroll-region + §18 mobile card-reflow: matches the freenic
+       table convention (.ark-table-wrap > table.ark-table) used by data/api/
+       dictionary/etc. data-arktable opts the table in for ArkTable too. The
+       former bespoke .table-scroll/.data wrapper overflowed at mobile widths. -->
+  <div class="ark-table-wrap" role="region" tabindex="0" aria-label="Largest failures by total assets">
+    <table class="ark-table data" id="top_failures" data-arktable>
+      <thead><tr><th>Bank</th><th>City</th><th>State</th><th>Year</th>
+        <th>Total assets</th><th>Est. loss</th><th>Resolution</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="prose">
+  <h2>Failures by state</h2>
+  <div class="dl-row" id="dl_failstate"></div>
+  <div id="chart_failstate" class="plot"></div>
+</section>
+
+<section class="prose">
+  <h2>Active institutions by entity type</h2>
+  <p>Composition of the 59,824 active institutions in the sample.</p>
+  <div class="dl-row" id="dl_insttype"></div>
+  <div id="chart_insttype" class="plot"></div>
+</section>
+
+<section class="prose">
+  <h2>Fed banking time series (FRED)</h2>
+  <p>Pick a real FRED banking series from the slice and plot its full history.</p>
+  <div class="controls">
+    <label>Series <select id="fredsel"></select></label>
+  </div>
+  <div class="dl-row" id="fred_dl"></div>
+  <div id="chart_fred" class="plot"></div>
+</section>
+
+<script>
+/* v1.1: charts routed through the Arcanum Site Kit ArkPlotly standard
+   (/static/_shared/ark-plotly.js). Backgrounds are transparent; font/grid/colorway
+   come from the kit --ark-* tokens (slate accent from --ark-accent, replacing the
+   former hardcoded teal); the layout is dark-aware (no near-black font); the modebar
+   is re-enabled+trimmed (PNG + per-chart "Download data (CSV)"); every chart
+   auto-re-themes on the light/dark toggle. Per-trace marker/line colors are dropped
+   so the accent colorway drives the hue. */
+async function j(u){ const r = await fetch(u); return r.json(); }
+function fmt(n){ return n==null ? "" : Number(n).toLocaleString(); }
+
+// DNA Universal Graph Contract (A1): every chart gets a top-right Download CSV
+// wired to a REAL slice CSV endpoint (app/downloads.py serializers). These are
+// faithful serializations of the exact slice tables the charts plot.
+function wireDownload(elId, csvUrl){
+  if (!window.ArkDownloads) return;
+  const el = document.getElementById(elId);
+  if (el) el.appendChild(ArkDownloads.buttons({ csv: csvUrl }));
+}
+
+async function loadTop(){
+  const n = document.querySelector("#topn").value;
+  const rows = await j("/api/top_failures?limit="+n);
+  const tb = document.querySelector("#top_failures tbody");
+  tb.innerHTML = "";
+  rows.forEach(r => {
+    const tr = document.createElement("tr");
+    // data-label per cell drives the §18 ArkTable mobile card-reflow (the column
+    // header appears beside each value when the table stacks at narrow widths).
+    tr.innerHTML = `<td data-label="Bank">${r.bank_name||""}</td><td data-label="City">${r.city||""}</td>`+
+      `<td class="mono" data-label="State">${r.state_code||""}</td><td class="mono" data-label="Year">${r.failure_year||""}</td>`+
+      `<td class="num" data-label="Total assets">${fmt(r.total_assets)}</td><td class="num" data-label="Est. loss">${fmt(r.estimated_loss)}</td>`+
+      `<td data-label="Resolution">${r.resolution_type||""}</td>`;
+    tb.appendChild(tr);
+  });
+}
+document.querySelector("#topn").addEventListener("change", loadTop);
+
+// ---- Flagship: the replicated 163-year bank-aggregate spine -------------------
+// One trace per `definition` (national_only / member_banks / all_insured /
+// all_commercial); junction years 1896/1914/1934 drawn as vertical lines +
+// annotations via Plotly layout shapes so the definitional break is explicit.
+async function drawSpine(metric){
+  const d = await j("/api/bank_aggregates?metric=" + encodeURIComponent(metric));
+  const traces = d.series.map(s => ({
+    type:"scatter", mode:"lines+markers", name: s.label,
+    x: s.x, y: s.y, connectgaps:false,            // honest gaps — never interpolate
+    line:{width:1.8}, marker:{size:3},
+    hovertemplate:"%{x}: %{y:,} · "+s.label+"<extra></extra>"
+  }));
+  // junction vertical lines + top annotations (definitional changes)
+  const shapes = (d.junctions||[]).map(jn => ({
+    type:"line", xref:"x", yref:"paper", x0:jn.year, x1:jn.year, y0:0, y1:1,
+    line:{color:"rgba(120,120,120,0.55)", width:1, dash:"dot"}
+  }));
+  const annotations = (d.junctions||[]).map(jn => ({
+    x:jn.year, y:1, xref:"x", yref:"paper", text:jn.label, showarrow:false,
+    textangle:-90, xanchor:"left", yanchor:"top", font:{size:10},
+    xshift:3, opacity:0.85
+  }));
+  const ylab = d.is_count ? "number of banks" : "value (units differ — see caption)";
+  ArkPlotly.plot("chart_spine", traces, {
+    title:{text:"163 Years of U.S. Banking, 1863–2026"},
+    xaxis:{title:{text:"year"}, range:[1860, 2030]},
+    yaxis:{title:{text:ylab}},
+    shapes: shapes, annotations: annotations
+  }, {filename:"freenic_bank_aggregates_"+metric});
+
+  // per-definition unit note under the chart
+  const u = document.getElementById("spine_units");
+  if (u) {
+    if (d.is_count) {
+      u.textContent = "Number of banks is a count for every definition (no dollar unit).";
+    } else {
+      u.innerHTML = "Plotted units by series: " + d.series.map(s =>
+        "<b>"+s.label+"</b> ("+(s.dollar_unit||"—")+")").join(" · ") + ".";
+    }
+  }
+
+  // top-right downloads: CSV + Parquet of the FULL spine table (faithful slice
+  // serializers in app/downloads.py) — DNA DOWNLOAD_AND_FORMATS (no JSON).
+  const dl = document.getElementById("dl_spine");
+  dl.innerHTML = "";
+  if (window.ArkDownloads) {
+    dl.appendChild(ArkDownloads.buttons({
+      csv:     "/api/download/long_bank_aggregates_1863_2026.csv",
+      parquet: "/api/download/long_bank_aggregates_1863_2026.parquet"
+    }, { label: "Download spine:" }));
+  }
+}
+
+(async () => {
+  await drawSpine("num_banks");
+  document.querySelector("#spine_metric").addEventListener("change", e => drawSpine(e.target.value));
+
+  const fy = await j("/api/failures_by_year");
+  ArkPlotly.plot("chart_failyear", [{
+    type:"bar", x: fy.map(d=>d.year), y: fy.map(d=>d.n_failures),
+    hovertemplate:"%{x}: %{y} failures<extra></extra>"
+  }], {xaxis:{title:{text:"year"}}, yaxis:{title:{text:"failures"}}},
+      {filename:"freenic_failures_by_year"});
+  wireDownload("dl_failyear", "/api/download/agg_failures_by_year.csv");
+
+  await loadTop();
+  // top failures are ranked from the real bank_failures slice table
+  wireDownload("dl_topfail", "/api/download/bank_failures.csv");
+
+  const fs = await j("/api/failures_by_state?limit=20");
+  ArkPlotly.plot("chart_failstate", [{
+    type:"bar", orientation:"h",
+    y: fs.map(d=>d.state_code).reverse(), x: fs.map(d=>d.n_failures).reverse(),
+    hovertemplate:"%{y}: %{x} failures<extra></extra>"
+  }], {margin:{l:60}, xaxis:{title:{text:"failures"}}},
+      {filename:"freenic_failures_by_state"});
+  wireDownload("dl_failstate", "/api/download/agg_failures_by_state.csv");
+
+  const it = await j("/api/institutions_by_type");
+  ArkPlotly.plot("chart_insttype", [{
+    type:"bar", orientation:"h",
+    y: it.map(d=>d.entity_type).reverse(), x: it.map(d=>d.n).reverse(),
+    hovertemplate:"%{y}: %{x}<extra></extra>"
+  }], {margin:{l:160}, xaxis:{title:{text:"active institutions"}}},
+      {filename:"freenic_institutions_by_type"});
+  wireDownload("dl_insttype", "/api/download/agg_institutions_by_type.csv");
+
+  const cat = await j("/api/fred_catalog");
+  const sel = document.querySelector("#fredsel");
+  cat.forEach(c => {
+    const o = document.createElement("option");
+    o.value = c.series_id;
+    o.textContent = c.series_id + (c.series_name ? " — " + c.series_name : "");
+    sel.appendChild(o);
+  });
+  async function drawFred(){
+    const d = await j("/api/fred_series?series_id="+encodeURIComponent(sel.value));
+    ArkPlotly.plot("chart_fred", [{
+      type:"scatter", mode:"lines", name: d.series_name||d.series_id,
+      x: d.points.map(p=>p.date), y: d.points.map(p=>p.value),
+      line:{width:1.5}, hovertemplate:"%{x|%Y-%m-%d}: %{y}<extra></extra>"
+    }], {title:{text:d.series_name||d.series_id, font:{size:14}},
+        xaxis:{title:{text:"date"}}, yaxis:{title:{text:"value"}}},
+        {filename:"freenic_fred_"+d.series_id});
+
+    // Per-series CSV download (was whole-table only on /data). The selected FRED
+    // series' real observations -> CSV via the kit ArkDownloads helper. The chart
+    // modebar also exposes a "Download data (CSV)" of the plotted trace.
+    const dl = document.querySelector("#fred_dl");
+    dl.innerHTML = "";
+    const label = document.createElement("span");
+    label.className = "note"; label.textContent = "This series:";
+    dl.appendChild(label);
+    dl.appendChild(ArkDownloads.csvButton(
+      d.points.map(p => ({series_id: d.series_id, date: p.date, value: p.value})),
+      "freenic_fred_" + d.series_id, "Download CSV"
+    ));
+  }
+  sel.addEventListener("change", drawFred);
+  if (cat.length) drawFred();
+})();
+</script>
+
+{% endblock %}

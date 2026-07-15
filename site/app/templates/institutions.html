@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% block title %}Institution lookup — FreeNIC{% endblock %}
+{% block head %}
+  <script src="/static/vendor/plotly.min.js"></script>
+{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>Institution lookup</h1>
+  <p>Search the <b>{{ "{:,}".format(n_active) }} active institutions</b> in the curated slice
+     (a real subset of FreeNIC's {{ counts.institutions_h }} total, drawn from the FFIEC NIC
+     entity master) by <b>name</b>, <b>RSSD id</b>, or <b>FDIC certificate</b>, and filter by
+     entity type or state. Every field shown is real, published NIC data — nothing derived
+     or fabricated.</p>
+  <div class="callout">
+    <p style="margin:0"><b>What the slice carries.</b> This lookup ships the trimmed
+       active-institution attributes: RSSD id, legal/short name, entity type, charter type,
+       city, state and FDIC certificate. <b>Filing history, UBPR ratios, establishment dates,
+       ownership hierarchies and the full institution history are not in the {{ counts.slice_db_h }}
+       slice</b> — they live in the full {{ counts.version }} release and are reachable through the
+       <a href="/api-docs">R/Python packages and API</a> over the parquet warehouse. Absent
+       fields are shown as <code>—</code>, never invented.</p>
+  </div>
+</section>
+
+<!-- OVERVIEW chart (Universal Graph Contract: Download CSV top-right, legend below,
+     single chart). Composition of the active slice by entity type. -->
+<section class="prose">
+  <h2>Active institutions by entity type</h2>
+  <p>Composition of the {{ "{:,}".format(n_active) }} active institutions in the slice.
+     <span class="note">Entity-type values are FFIEC&nbsp;NIC domain codes (e.g. <code>DEO</code>,
+     <code>BHC</code>, <code>FCU</code>); see the
+     <a href="https://www.ffiec.gov/npw/FinancialReport/DataDownload">NIC data dictionary</a>
+     for the full code expansions.</span></p>
+  <div class="dl-row" id="dl_insttype"></div>
+  <div id="chart_insttype" class="plot"></div>
+</section>
+
+<!-- LOOKUP tool -->
+<section class="prose">
+  <h2>Find an institution</h2>
+  <div class="controls">
+    <label>Search
+      <input type="search" id="q" placeholder="name, RSSD id, or FDIC cert…" style="min-width:16rem">
+    </label>
+    <label>Entity type
+      <select id="etype"><option value="">All types</option></select>
+    </label>
+    <label>State
+      <select id="state"><option value="">All states</option></select>
+    </label>
+    <button type="button" class="ark-btn" id="go">Search</button>
+  </div>
+  <p class="note" id="result_note">Enter a name, RSSD id or FDIC cert (or pick a filter) and
+     press Search. Up to 200 matches are shown; download the CSV for the full result set.</p>
+  <div class="dl-row" id="dl_results"></div>
+  <div class="ark-table-wrap" role="region" tabindex="0" aria-label="Institution search results">
+    <table class="ark-table data" id="results" data-arktable>
+      <thead><tr>
+        <th>Name</th><th>RSSD</th><th>Entity type</th><th>Charter type</th>
+        <th>City</th><th>State</th><th>FDIC cert</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="src" style="margin-top:.8em">Download the full active-institutions table:
+     <span class="dl-row" id="dl_full" style="display:inline-flex"></span></p>
+</section>
+
+<script>
+async function j(u){ const r = await fetch(u); return r.json(); }
+function esc(s){ return s==null ? "" : String(s); }
+
+let LAST_ROWS = [];
+
+// Universal Graph Contract: overview chart with a top-right Download CSV wired to
+// the real precomputed aggregate serializer (agg_institutions_by_type).
+async function drawOverview(){
+  const it = await j("/api/institutions_by_type");
+  ArkPlotly.plot("chart_insttype", [{
+    type:"bar", orientation:"h",
+    y: it.map(d=>d.entity_type).reverse(), x: it.map(d=>d.n).reverse(),
+    hovertemplate:"%{y}: %{x:,}<extra></extra>"
+  }], {margin:{l:160}, xaxis:{title:{text:"active institutions"}}},
+      {filename:"freenic_institutions_by_type"});
+  if (window.ArkDownloads) {
+    const el = document.getElementById("dl_insttype");
+    el.innerHTML = "";
+    el.appendChild(ArkDownloads.buttons({ csv: "/api/download/agg_institutions_by_type.csv" }));
+  }
+}
+
+async function loadFacets(){
+  const f = await j("/api/institution_facets");
+  const et = document.getElementById("etype");
+  f.entity_types.forEach(r => {
+    const o = document.createElement("option");
+    o.value = r.value; o.textContent = r.value + " (" + r.n.toLocaleString() + ")";
+    et.appendChild(o);
+  });
+  const st = document.getElementById("state");
+  f.states.forEach(r => {
+    const o = document.createElement("option");
+    o.value = r.value; o.textContent = r.value + " (" + r.n.toLocaleString() + ")";
+    st.appendChild(o);
+  });
+}
+
+function renderRows(rows){
+  const tb = document.querySelector("#results tbody");
+  tb.innerHTML = "";
+  rows.forEach(r => {
+    const cert = (r.fdic_cert && r.fdic_cert !== 0) ? r.fdic_cert : "—";
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      `<td data-label="Name" style="text-align:left">${esc(r.name_legal)}</td>`+
+      `<td class="mono" data-label="RSSD">${esc(r.rssd_id)}</td>`+
+      `<td class="mono" data-label="Entity type">${esc(r.entity_type)}</td>`+
+      `<td class="mono" data-label="Charter type">${esc(r.charter_type)}</td>`+
+      `<td data-label="City">${esc(r.city)}</td>`+
+      `<td class="mono" data-label="State">${esc(r.state_code)}</td>`+
+      `<td class="mono" data-label="FDIC cert">${cert}</td>`;
+    tb.appendChild(tr);
+  });
+}
+
+async function search(){
+  const q = document.getElementById("q").value.trim();
+  const et = document.getElementById("etype").value;
+  const st = document.getElementById("state").value;
+  if (!q && !et && !st){
+    document.getElementById("result_note").textContent =
+      "Enter a name, RSSD id or FDIC cert, or pick a filter, then press Search.";
+    return;
+  }
+  const params = new URLSearchParams();
+  if (q) params.set("q", q);
+  if (et) params.set("entity_type", et);
+  if (st) params.set("state", st);
+  params.set("limit", "200");
+  const rows = await j("/api/lookup_institution?" + params.toString());
+  LAST_ROWS = rows;
+  renderRows(rows);
+  const note = document.getElementById("result_note");
+  note.textContent = rows.length
+    ? (rows.length + (rows.length === 200 ? "+ matches shown (capped at 200 — narrow the search or download the full table)." : " match" + (rows.length===1?"":"es") + "."))
+    : "No matching active institutions in the slice.";
+  // Universal Graph Contract download for the table: CSV of the exact result set.
+  const dl = document.getElementById("dl_results");
+  dl.innerHTML = "";
+  if (rows.length && window.ArkDownloads) {
+    dl.appendChild(ArkDownloads.csvButton(
+      rows.map(r => ({
+        rssd_id: r.rssd_id, name_legal: r.name_legal, name_short: r.name_short,
+        entity_type: r.entity_type, charter_type: r.charter_type,
+        city: r.city, state_code: r.state_code, fdic_cert: r.fdic_cert
+      })),
+      "freenic_institution_search", "Download results CSV"
+    ));
+  }
+}
+
+(async () => {
+  await drawOverview();
+  await loadFacets();
+  document.getElementById("go").addEventListener("click", search);
+  document.getElementById("q").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
+  document.getElementById("etype").addEventListener("change", search);
+  document.getElementById("state").addEventListener("change", search);
+  // Full-table downloads (real institutions_active slice, CSV + Parquet).
+  if (window.ArkDownloads) {
+    document.getElementById("dl_full").appendChild(ArkDownloads.buttons({
+      csv:     "/api/download/institutions_active.csv",
+      parquet: "/api/download/institutions_active.parquet"
+    }));
+  }
+})();
+</script>
+
+{% endblock %}

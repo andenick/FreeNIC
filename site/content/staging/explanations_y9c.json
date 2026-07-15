@@ -1,0 +1,459 @@
+{
+  "schedules": {
+    "HC": {
+      "title": "Consolidated Balance Sheet",
+      "what_it_measures": "Schedule HC is the master balance sheet for a bank holding company on a fully consolidated basis: every subsidiary's assets, liabilities, and equity rolled into one statement. It runs from cash and securities through loans, trading assets, and premises on the asset side, to deposits, borrowings, and subordinated debt on the liability side, ending in the equity capital section.\n\nIt is also the reconciliation hub for the whole report. Its summary lines tie out to the detailed sub-schedules: securities to HC-B, loans to HC-C, trading positions to HC-D, other assets to HC-F, other liabilities to HC-G, and equity into the regulatory-capital build-up on HC-R.",
+      "why_it_exists": "A consolidated balance sheet is the single clearest picture of a firm's size, funding mix, and solvency, and it is the anchor every other schedule reconciles against. Total assets here drive the regulatory size thresholds that determine which enhanced standards and stress tests a firm faces. The form has been restructured several times to keep pace with accounting standards, notably the available-for-sale/held-to-maturity securities split (1994), the introduction of accumulated other comprehensive income (1998), the Basel III capital restructuring (2014), and current expected credit loss accounting (2020).",
+      "what_you_can_answer": "How big is a holding company and how is it funded — deposit-heavy or reliant on wholesale borrowing? How leveraged is it, and how does its asset mix (loans versus securities versus trading) compare to peers or shift over time? Because total assets here set regulatory tiers, you can also identify which supervisory category a firm falls into.",
+      "key_items": [
+        {"item": "BHCK2170", "plain": "Total assets — the headline size metric and the primary trigger for regulatory size thresholds."},
+        {"item": "BHCK2948", "plain": "Total liabilities — everything the holding company owes, from deposits to subordinated debt."},
+        {"item": "BHCKG105", "plain": "Total equity capital including noncontrolling (minority) interest — the firm's loss-absorbing cushion."},
+        {"item": "BHCK3210", "plain": "Total holding-company equity capital, the parent-only figure that excludes minority interest."},
+        {"item": "BHCKB528", "plain": "Loans and leases held for investment, net of unearned income — the core lending book that ties to Schedule HC-C."},
+        {"item": "BHCK3123", "plain": "The allowance for credit losses on loans and leases — a reserve subtracted to reach net loans."},
+        {"item": "BHCK3545", "plain": "Total trading assets, carried at fair value, which tie to Schedule HC-D."},
+        {"item": "BHCK3300", "plain": "Total liabilities plus equity — the balancing line that must equal total assets, an identity confirmed across filers when validated against the public FR Y-9C bulk data."}
+      ],
+      "pitfalls": "The FR Y-9C reports the holding company on a fully consolidated basis, not a single subsidiary bank, and only bank holding companies with $3 billion or more in total assets file it — so these figures are the whole organization, not one chartered bank. Mind the two equity totals: BHCKG105 includes noncontrolling (minority) interest while BHCK3210 is parent-only, and the textbook 'assets = liabilities + equity' identity holds exactly only against the all-in BHCK3300 form (validated against the public FR Y-9C bulk data); the bare 'liabilities + holding-company equity' version omits minority interest and so misses in a minority of filings. Several headline lines (cash, total securities, total deposits, federal funds) are caption-only on the current form, with no single consolidated code, because legacy total codes were retired (for example the old cash and fed-funds totals ended in 2014); use the sub-item components instead.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    },
+    "HC-B": {
+      "title": "Securities",
+      "what_it_measures": "Schedule HC-B is a full breakdown of the holding company's investment securities portfolio. It reports each security type — U.S. Treasuries, government-agency obligations, municipals, mortgage-backed securities, asset-backed and structured products, and other debt — across four columns: held-to-maturity (HTM) at amortized cost and at fair value, and available-for-sale (AFS) at amortized cost and at fair value.\n\nReporting both the cost basis and the fair value for every line lets you see unrealized gains and losses directly. A set of memoranda adds detail on pledged securities, maturity buckets, structured notes, and the collateral behind asset-backed and structured products.",
+      "why_it_exists": "How a bank classifies and values its securities drives both its reported capital and its hidden risk, so regulators require the cost-versus-fair-value detail. Unrealized losses on available-for-sale securities flow through accumulated other comprehensive income and reduce equity, while held-to-maturity losses stay off the books unless sold — a distinction that became acutely important in the 2023 deposit-run episodes. The schedule's granularity also feeds the risk-weighting of securities for capital purposes. Reporting expanded over time, adding the AFS/HTM split (1994), granular mortgage-backed and structured-product detail (2009–2011), and equity securities at fair value (2018).",
+      "what_you_can_answer": "How exposed is a firm to interest-rate risk through unrealized losses on its bond portfolio, and how much of that loss is hidden in held-to-maturity versus visible in available-for-sale? How concentrated is the portfolio in Treasuries versus agency mortgage-backed versus riskier structured products? How much of the portfolio is pledged as collateral and therefore encumbered?",
+      "key_items": [
+        {"item": "BHCK1754", "plain": "Total held-to-maturity (HTM) securities at amortized cost — the carrying value of bonds the firm intends to hold to maturity, which ties to the balance sheet."},
+        {"item": "BHCK1771", "plain": "Total HTM securities at fair value — a disclosure that, against amortized cost, reveals the unrealized gain or loss not recognized on the books."},
+        {"item": "BHCK1772", "plain": "Total available-for-sale (AFS) securities at amortized cost — the cost basis of the AFS book."},
+        {"item": "BHCT1773", "plain": "Total AFS securities at fair value — the carrying value of the AFS book, which ties to the balance sheet; its gap from cost flows into equity."},
+        {"item": "BHCK0211", "plain": "U.S. Treasury securities held to maturity at amortized cost — zero-credit-risk, highly liquid holdings."},
+        {"item": "BHCK1287", "plain": "U.S. Treasury securities available for sale at fair value."},
+        {"item": "BHCK0416", "plain": "Pledged securities — the portion of the portfolio encumbered as collateral for public deposits, repos, advances, or derivative margin."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it. The four columns are easy to misread: held-to-maturity is carried at amortized cost (column A) with fair value shown only as a disclosure (column B), while available-for-sale is carried at fair value (column D) with amortized cost as the cost basis (column C) — so the unrealized gain or loss is the difference between the cost and fair-value columns, and the held-to-maturity loss never touches reported equity. Code vintages and placement have shifted: agency obligations were recoded in 2018 (an older mapping mistakenly used asset-backed commercial-paper conduit codes), municipals sit at item 3 on the current form, and the equity-securities tie lives on the main balance sheet rather than as a numbered HC-B line. A brand-new memorandum carving out agency-guaranteed structured products takes effect in 2026 and is not yet present in historical data.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-B",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-C": {
+      "title": "Loans and Lease Financing Receivables",
+      "what_it_measures": "Schedule HC-C is the detailed map of a holding company's loan and lease book. It breaks total loans down by what they finance — real estate (construction, farmland, home mortgages, home-equity lines, multifamily, and commercial real estate), agricultural production, commercial and industrial (C&I) loans, consumer loans (credit cards, autos, other), loans to other financial institutions, foreign-government loans, and leases.\n\nIt reports two columns: Column A is the consolidated total for the whole holding company, and Column B is the 'domestic offices only' subset. The schedule stops at total loans net of unearned income; the allowance and the net-of-allowance figure live on the main balance sheet, not here.",
+      "why_it_exists": "Lending is the core banking business and its composition is the single biggest driver of credit risk, so regulators require this granular split. The categories map directly into risk-weighted-asset calculations for capital, and they let supervisors spot concentrations — in commercial real estate, construction, or credit cards — that have historically driven bank failures. The loan-modification memoranda track borrowers granted relief, a key stress indicator. Reporting has grown to add construction and nonfarm-nonresidential detail (2007), nondepository-financial-institution loans (2010), and a new breakout of those loans (Memorandum 10) effective in 2026.",
+      "what_you_can_answer": "How concentrated is a firm in commercial real estate, construction, or consumer credit, and how is its loan mix shifting? How much of its lending is booked domestically versus across the whole consolidated organization? How much of the book has been modified for troubled borrowers? The categories also let you reconstruct the risk profile that feeds capital requirements.",
+      "key_items": [
+        {"item": "BHCK2122", "plain": "Total loans and leases held for investment and for sale, net of unearned income (consolidated, Column A) — the headline loan total."},
+        {"item": "BHCK1410", "plain": "Total loans secured by real estate (consolidated) — usually the largest loan category and a key concentration measure."},
+        {"item": "BHDM1766", "plain": "Commercial and industrial (C&I) loans in domestic offices — a leading indicator of business borrowing."},
+        {"item": "BHCK1763", "plain": "C&I loans to U.S.-domiciled borrowers (consolidated)."},
+        {"item": "BHCKB538", "plain": "Credit-card loans (consolidated) — a high-yield, high-loss consumer category."},
+        {"item": "BHDM1975", "plain": "Total consumer loans to individuals in domestic offices."},
+        {"item": "BHCK2123", "plain": "LESS: unearned income on loans — deferred loan fees and discounts subtracted to reach the net total (NOT the loss allowance)."},
+        {"item": "BHCKHK25", "plain": "Total loan modifications in compliance with modified terms — the headline measure of borrowers granted relief."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it. The two-column structure is the main trap: Column A (prefix BHCK) is the consolidated total and Column B (prefix BHDM) is domestic offices only, and not every line is reported in both — some are consolidated-only, some domestic-only — so the prefix is load-bearing and the columns must not be summed together. The current form's numbering skips item 5 and item 8, places consumer loans at item 6 and foreign governments at item 7, and has no separate states-and-political-subdivisions line. Two common code confusions: item 11 is unearned income (BHCK2123), NOT the loss allowance, and the total at item 12 (BHCK2122) is net of unearned income only — it is a different figure from the balance sheet's net-of-allowance loans. The nondepository-financial-institution breakout (Memorandum 10) is new in 2026 and not yet in historical data.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-C",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-D": {
+      "title": "Trading Assets and Liabilities",
+      "what_it_measures": "Schedule HC-D breaks out the positions a holding company holds in its trading book: securities, loans, and derivatives bought or sold for short-term profit, market-making, or to facilitate customer trades. Everything here is carried at fair value (marked to market), so price swings flow straight through the income statement.\n\nThe asset side runs from Treasuries and agency securities through mortgage-backed securities, loans held for trading, and derivatives with a positive fair value; the liability side captures securities sold short and derivatives with a negative fair value. The two totals tie directly to the trading-asset and trading-liability lines on the main balance sheet.",
+      "why_it_exists": "Trading books concentrate market risk, and regulators need to see how large and how complex a firm's mark-to-market positions are. The schedule's detail (by instrument type, by short-position type, and by structured-product collateral) lets supervisors gauge exposure to interest rates, credit spreads, and illiquid assets. Reporting grew in stages: loan-trading detail was added in 2008, short-position and residential-MBS breakouts in 2009, commercial-MBS detail in 2011, and structured-product and finer loan detail in 2018.",
+      "what_you_can_answer": "You can measure a firm's trading intensity (trading assets plus liabilities relative to total assets), separating investment-bank-style balance sheets from plain commercial lenders. You can track how much of the trading book is derivatives versus cash instruments, and how exposure to mortgage-backed and structured products has shifted over time.",
+      "key_items": [
+        {"item": "BHCT3545", "plain": "Total trading assets, which must equal the trading-assets line on the main balance sheet (Schedule HC item 5)."},
+        {"item": "BHCT3548", "plain": "Total trading liabilities, which must equal the trading-liabilities line on the main balance sheet (Schedule HC item 15)."},
+        {"item": "BHCM3531", "plain": "U.S. Treasury securities held for trading, carrying interest-rate risk but no credit risk."},
+        {"item": "BHCM3543", "plain": "Derivatives with a positive fair value, representing revaluation gains on the firm's derivative contracts."},
+        {"item": "BHCK3547", "plain": "Derivatives with a negative fair value, representing revaluation losses owed on derivative contracts."},
+        {"item": "BHCKHT62", "plain": "Structured financial products held for trading, such as collateralized debt and loan obligations (CDOs and CLOs)."},
+        {"item": "BHCKG209", "plain": "The liability for equity securities sold short but not yet repurchased and delivered."},
+        {"item": "BHCKF614", "plain": "Commercial and industrial loans held in the trading book at fair value."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it, so trading detail reflects the whole organization. Many lines use a current code paired with a legacy code (for example BHCM3531 today versus the older BHCK3531), and several instrument breakouts only begin partway through history (loan detail in 2008, MBS and short positions in 2009–2011, structured products in 2018), creating vintage breaks. Earlier releases of this dictionary mis-mapped some mortgage codes: codes K199/K200 are end-dated consumer-loan codes and K201/K202 are life-insurance codes belonging to Schedule HC-F, not trading MBS. The memoranda (unpaid principal balances, pledged assets, structured-product collateral, itemized other) describe items already counted in the body lines and are not additive.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-D",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-E": {
+      "title": "Deposit Liabilities",
+      "what_it_measures": "Schedule HC-E disaggregates the holding company's domestic-office deposits along two dimensions. First by the type of depository subsidiary holding them, splitting commercial-bank subsidiaries from other depository institutions such as thrifts and savings banks. Second by deposit product, splitting each block into noninterest-bearing balances, interest-bearing transaction accounts (NOW and ATS), money-market and other savings accounts, and time deposits at or below versus above the $250,000 insurance threshold.\n\nA short memoranda section adds brokered-deposit detail and the remaining-maturity breakdown of large and foreign-office time deposits.",
+      "why_it_exists": "Deposits are the core funding source for banks, and their composition tells regulators how stable and how insured that funding is. Splitting time deposits at $250,000 (the FDIC standard maximum deposit insurance amount) lets analysts estimate insured versus uninsured deposit shares, and the brokered-deposit memoranda feed liquidity and resolution analysis. The schedule disaggregates the domestic-office deposits that flow into the main balance sheet's deposit line.",
+      "what_you_can_answer": "You can estimate a firm's reliance on uninsured (above-$250,000) deposits versus insured balances, and gauge funding stability by the mix of noninterest-bearing, savings, and time deposits. You can also measure brokered-deposit dependence and the share of deposits maturing within one year.",
+      "key_items": [
+        {"item": "BHCB2210", "plain": "Noninterest-bearing deposit balances held at commercial-bank subsidiaries' domestic offices."},
+        {"item": "BHCB2389", "plain": "Money-market deposit accounts and other savings accounts at commercial-bank subsidiaries."},
+        {"item": "BHCBJ474", "plain": "Time deposits of more than $250,000 at commercial-bank subsidiaries, a proxy for uninsured time funding."},
+        {"item": "BHCBHK29", "plain": "Time deposits of $250,000 or less at commercial-bank subsidiaries, generally within the insurance limit."},
+        {"item": "BHOD3189", "plain": "Noninterest-bearing deposit balances held at other depository-institution subsidiaries such as thrifts."},
+        {"item": "BHDMHK06", "plain": "Brokered deposits of $250,000 or less maturing within one year, a memorandum used in liquidity analysis."},
+        {"item": "BHFNA245", "plain": "Foreign-office time deposits maturing within one year, a memorandum relating to foreign-office deposits."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it; the item 1 versus item 2 split depends on which charter types sit inside the organization, so a company with no thrift subsidiary reports only item 1. The codeset prefix is load-bearing: items 1 and 2 reuse identical four-digit item numbers, and only the prefix (BHCB for commercial banks, BHOD for other depositories) tells them apart, so joining on the item number alone collapses the two blocks. The memoranda use yet another prefix (BHDM for domestic, BHFN for foreign), are informational overlays, and are not additive to items 1–2. Do not confuse this with the Call Report's Schedule RC-E, which splits deposits by depositor type rather than subsidiary charter. Finally, the $250,000-threshold codes only entered the form in 2017; earlier vintages used a $100,000 threshold with different codes.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-E",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-F": {
+      "title": "Other Assets",
+      "what_it_measures": "Schedule HC-F itemizes the assets that aggregate into the single 'Other assets' line on the main balance sheet. The current schedule is a compact seven-line list: accrued interest receivable, net deferred tax assets, interest-only strips receivable not held as a security, equity investments without readily determinable fair values, life insurance assets (split into general, separate, and hybrid accounts), and a residual 'other' line.\n\nThe seventh line is the total, which must equal the balance sheet's other-assets figure.",
+      "why_it_exists": "'Other assets' can be a meaningful slice of a balance sheet, and several of its components carry regulatory weight. Net deferred tax assets (DTAs) are subject to common-equity-tier-1 (CET1) threshold-deduction tests under Basel III, and the equity-investment line captures required holdings like Federal Home Loan Bank (FHLB) and Federal Reserve Bank stock. Breaking these out keeps the catch-all line transparent. The life-insurance lines moved to a three-way general/separate/hybrid split in 2011.",
+      "what_you_can_answer": "You can see how much of a firm's 'other assets' is deferred tax assets that may be capital-deductible, how much sits in bank-owned life insurance, and how much is accrued but uncollected interest. It also surfaces required-stock holdings in FHLB and Federal Reserve banks.",
+      "key_items": [
+        {"item": "BHCT2160", "plain": "Total other assets, which must equal the other-assets line on the main balance sheet (Schedule HC item 11)."},
+        {"item": "BHCKB556", "plain": "Accrued interest receivable: interest earned on loans, securities, and other earning assets but not yet collected."},
+        {"item": "BHCK2148", "plain": "Net deferred tax assets, which can be subject to capital (CET1) deduction tests under Basel III."},
+        {"item": "BHCK1752", "plain": "Equity investments without readily determinable fair values, including FHLB and Federal Reserve Bank stock."},
+        {"item": "BHCKK201", "plain": "General-account life insurance assets, the largest slice of bank-owned life insurance (BOLI)."},
+        {"item": "BHCKHT80", "plain": "Interest-only strips receivable that are not carried in the form of a security."},
+        {"item": "BHCK2168", "plain": "Residual other assets not captured elsewhere, such as prepaid expenses and accounts receivable."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it. The current schedule is much smaller than older versions: a pre-2009 layout embedded premises, other real estate owned (OREO), unconsolidated subsidiaries, goodwill, and other intangibles as HC-F items, but those concepts now live elsewhere on Schedule HC and are not part of the current HC-F. Some codes were renumbered: the interest-only-strips line uses BHCKHT80 (effective 2018), and an older code was end-dated in 2018 and should not be used. The life-insurance three-way split (general, separate, hybrid) only begins in 2011; before that a single cash-surrender-value code was used.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-F",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-G": {
+      "title": "Other Liabilities",
+      "what_it_measures": "Schedule HC-G breaks out the liabilities that aggregate into the 'Other liabilities' line on the main balance sheet. It is a short schedule: net deferred tax liabilities, the allowance for credit losses on off-balance-sheet credit exposures, and a residual 'other' line that sweeps up everything not reported elsewhere.\n\nThe total of these three must equal the balance sheet's other-liabilities figure. (Item 1 is marked 'not applicable' on the current form.)",
+      "why_it_exists": "The catch-all 'other liabilities' line needs enough detail to surface items with risk or accounting significance. The allowance for credit losses on off-balance-sheet exposures captures reserves against unfunded loan commitments, letters of credit, and guarantees, and under current expected credit loss (CECL) accounting it reflects lifetime expected losses. Net deferred tax liabilities arise when book income temporarily exceeds taxable income. The residual line absorbs accrued interest, accounts payable, dividends declared but unpaid, and operating-lease liabilities (under the lease accounting standard effective 2019).",
+      "what_you_can_answer": "You can gauge the adequacy of reserves a firm holds against its off-balance-sheet credit commitments, compare net deferred tax liabilities across firms, and size the residual 'other' liabilities relative to total assets (typically a small single-digit percentage).",
+      "key_items": [
+        {"item": "BHCT2750", "plain": "Total other liabilities, which must equal the other-liabilities line on the main balance sheet (Schedule HC item 20)."},
+        {"item": "BHCK3049", "plain": "Net deferred tax liabilities, reported per tax jurisdiction when the net result is a credit balance."},
+        {"item": "BHCKB557", "plain": "The allowance for credit losses on off-balance-sheet exposures such as unfunded commitments, letters of credit, and guarantees."},
+        {"item": "BHCKB984", "plain": "All other liabilities not reported elsewhere, including accrued interest, accounts payable, and operating-lease liabilities."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it. Deferred taxes split across two schedules: a net credit (liability) balance for a jurisdiction is reported here, while a net debit (asset) balance goes to Schedule HC-F, and a firm can show a deferred tax asset for one jurisdiction and a liability for another at the same time. The residual 'other' line has no separate codes for its components (accrued interest, lease liabilities, and the like are folded into one figure). A prior edition of this dictionary described a six-item HC-G with accrued-interest sub-items and a memoranda block that does not exist on the FR Y-9C; the schedule is in fact the four-line layout shown here.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-G",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-H": {
+      "title": "Interest Sensitivity",
+      "what_it_measures": "Schedule HC-H reports a small set of selected balance-sheet amounts that reprice or mature within one year, giving a partial view of a holding company's interest-rate sensitivity. Each of its five items is a single dollar amount (there is no maturity-bucket grid): earning assets repricing or maturing within a year, interest-bearing deposit liabilities doing the same, long-term debt that reprices within a year, variable-rate preferred stock, and long-term debt scheduled to mature within a year.\n\nAmounts are measured by remaining maturity for fixed-rate instruments and by repricing frequency for floating-rate instruments.",
+      "why_it_exists": "Interest-rate risk is a core supervisory concern, and this schedule provides a quick, coarse read on how much of the balance sheet would reprice within a year. It is deliberately narrow and is not intended to be a comprehensive interest-rate-sensitivity position. The schedule has been on the FR Y-9C since June 1986 and remains a current collection.",
+      "what_you_can_answer": "You can construct a coarse one-year repricing-gap measure by comparing assets that reprice or mature within a year against the rate-sensitive liabilities. This gives a first-order sense of whether a firm is asset- or liability-sensitive over a one-year horizon.",
+      "key_items": [
+        {"item": "BHCK3197", "plain": "Earning assets that reprice or mature within one year, excluding nonaccrual, trading-account, and equity positions."},
+        {"item": "BHCK3296", "plain": "Interest-bearing deposit liabilities that reprice or mature within one year, a subset of the balance sheet's interest-bearing deposits."},
+        {"item": "BHCK3298", "plain": "The portion of long-term debt whose interest rate reprices within one year."},
+        {"item": "BHCK3408", "plain": "Variable-rate preferred stock, including both limited-life and perpetual issues."},
+        {"item": "BHCK3409", "plain": "The portion of long-term debt scheduled to mature within one year."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it; firms with foreign offices may exclude their smallest foreign offices under defined size limits. Do not treat HC-H as a maturity-bucket grid: a prior edition of this dictionary described it as a multi-row by multi-bucket repricing grid with codes that could not be verified against the Federal Reserve Micro Data Reference Manual (MDRM), and that grid has been removed in favor of the five single-amount items the form actually contains. The items are selected subsets, not exhaustive totals, so they should never be summed into a balance-sheet total, and no HC-H item should exceed its corresponding Schedule HC balance. Item 1 explicitly excludes nonaccrual, trading, and equity positions.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-H",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-I": {
+      "title": "Insurance-Related Underwriting Activities (Including Reinsurance)",
+      "what_it_measures": "This schedule pulls the financials of a holding company's insurance- and reinsurance-underwriting subsidiaries out of the blended consolidated balance sheet and shows them on their own. It is split into two parts that match the two main insurance business models: Part I for property and casualty (P&C) underwriting, and Part II for life and health (L&H) underwriting.\n\nFor each part you get a short balance sheet of selected assets and liabilities, total equity, and net income, plus the insurance-specific liabilities that drive the business: claims reserves, unearned premiums, policyholder benefits, and separate-account balances.",
+      "why_it_exists": "Insurance underwriting carries a fundamentally different kind of risk than banking, so regulators isolate it to see how much of a holding company's results come from writing insurance policies rather than from lending. Reserves and unearned premiums reveal whether a subsidiary is adequately provisioned for future claims. Separate-account reporting flags variable products where the investment risk actually sits with the policyholder, not the company.",
+      "what_you_can_answer": "How large are a holding company's insurance-underwriting operations, and are they P&C-heavy or life/health-heavy? Are claims reserves and policyholder-benefit liabilities growing relative to assets? How much of consolidated net income comes from insurance underwriting versus the core banking business?",
+      "key_items": [
+        {"item": "BHCKC244", "plain": "Total assets of the property and casualty (P&C) underwriting subsidiaries."},
+        {"item": "BHCKB990", "plain": "P&C claims and claims-adjustment-expense reserves: the estimated cost of incurred-but-unpaid claims plus the cost of settling them."},
+        {"item": "BHCKC246", "plain": "Net income of the P&C underwriting subsidiaries."},
+        {"item": "BHCKB992", "plain": "Separate-account assets of the life and health (L&H) subsidiaries, where investment risk passes to the policyholder."},
+        {"item": "BHCKB994", "plain": "Policyholder benefits and contractholder funds: the L&H liability for future policy benefits and deposit-type contract balances."},
+        {"item": "BHCKC248", "plain": "Total assets of the life and health underwriting subsidiaries."},
+        {"item": "BHCKB988", "plain": "P&C reinsurance recoverables, reported only by filers with $10 million or more of such recoverables."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated view of a bank holding company, not a single insurance entity or bank, and only holding companies above the $3 billion total-asset filing threshold report it. The schedule has two parts that each restart item numbering at 1, so 'item 1' and 'Total assets' appear twice; always key on the part (P&C versus L&H) to avoid mixing codes. The reinsurance-recoverables line is conditional on a $10 million threshold, so a blank there is a valid filing, not missing data. 'Total assets' is the full subsidiary total and is deliberately larger than the few asset lines listed above it; there is no schedule-total row, and insured-bank Call Reports have no matching schedule.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-I",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-K": {
+      "title": "Quarterly Averages",
+      "what_it_measures": "This schedule reports quarterly average balances, rather than quarter-end snapshots, for selected assets, liabilities, and equity. Each figure is the average of the balances at the close of business on either every day of the quarter or every Wednesday of the quarter.\n\nAverages smooth out intra-quarter swings, which makes them the correct denominators for performance ratios like yield, cost of funds, net interest margin, and return on assets or equity.",
+      "why_it_exists": "A quarter-end balance can be distorted by a single large transaction on the last day, which would warp any ratio built on it. By collecting averages, the FR Y-9C lets analysts compute yields and margins against a balance that actually represents the quarter. This is why the schedule pairs naturally with the income statement to produce profitability metrics.",
+      "what_you_can_answer": "What yield was a holding company earning on its average securities and loans, and what did its funding cost on average? What were its return on average assets (ROAA) and return on average equity (ROAE)? Did average balances diverge sharply from period-end balances, hinting at acquisitions, divestitures, or large late-quarter transactions?",
+      "key_items": [
+        {"item": "BHCKB558", "plain": "Average holdings of U.S. Treasury and U.S. government agency securities, excluding mortgage-backed securities (amortized-cost basis)."},
+        {"item": "BHCKB559", "plain": "Average holdings of mortgage-backed securities."},
+        {"item": "BHCK3365", "plain": "Average federal funds sold and securities purchased under agreements to resell (reverse repos)."},
+        {"item": "BHCK3401", "plain": "Average trading assets, reported only when trading assets reached $10 million in any of the four preceding quarters."},
+        {"item": "BHCK3368", "plain": "Average total consolidated assets, used as the denominator for return on average assets; this is NOT the sum of the asset lines above."},
+        {"item": "BHCK3517", "plain": "Average domestic interest-bearing deposits, a core component of the cost of funds."},
+        {"item": "BHCK2635", "plain": "Average of all other borrowed money, including commercial paper regardless of maturity."},
+        {"item": "BHCK3519", "plain": "Average total equity capital, used as the denominator for return on average equity."}
+      ],
+      "pitfalls": "The FR Y-9C is the holding company's consolidated view, filed only by bank holding companies with $3 billion or more in total assets, so these are not single-bank figures. The defining trap is that every line is a QUARTERLY AVERAGE, not a period-end balance; mixing these with point-in-time balance-sheet items produces meaningless ratios. Average total consolidated assets is explicitly NOT the sum of the listed asset lines, and a Federal Reserve validity edit requires it to be greater than zero. Trading assets are conditional on a $10 million threshold. A 2011 form change split securities and loans into finer categories, so long time series must bridge across the older combined lines.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-K",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-L": {
+      "title": "Derivatives and Off-Balance-Sheet Items",
+      "what_it_measures": "This schedule is the main place a holding company reports its derivatives and other off-balance-sheet exposures. For derivatives it captures notional amounts (the face/principal size of the contracts) by product type and asset class, the positive and negative fair values, and counterparty credit exposure.\n\nIt also captures off-balance-sheet commitments that do not yet sit on the balance sheet: unused loan and credit-card commitments, standby and commercial letters of credit, and securities lending. Notional amounts dwarf fair values; fair value is typically a small fraction of notional.",
+      "why_it_exists": "Derivatives and unfunded commitments create real risk that a balance sheet alone does not show, so this schedule surfaces it. Notional amounts reveal the scale of a firm's derivatives activity, fair values reveal what those positions are currently worth, and the credit-derivative and counterparty-exposure lines reveal who bears default risk. The schedule was recently expanded (effective 2026) to break out new categories of commitments to nondepository financial institutions.",
+      "what_you_can_answer": "How large is a holding company's derivatives book by asset class, and how much of it is for trading versus hedging? Is the firm a net buyer or net seller of credit-default-swap protection? How much undrawn commitment and letter-of-credit exposure could move onto the balance sheet under stress?",
+      "key_items": [
+        {"item": "BHCK3450", "plain": "Notional amount of interest-rate swaps, usually the single largest derivatives category by notional."},
+        {"item": "BHCKC968", "plain": "Notional amount of credit-default-swap protection SOLD (the firm acts as guarantor)."},
+        {"item": "BHCKC969", "plain": "Notional amount of credit-default-swap protection BOUGHT (the firm is the beneficiary); bought minus sold gives the net CDS position."},
+        {"item": "BHCK8733", "plain": "Gross positive fair value of interest-rate trading derivatives (a derivative asset)."},
+        {"item": "BHCK8737", "plain": "Gross negative fair value of interest-rate trading derivatives (a derivative liability)."},
+        {"item": "BHCK3814", "plain": "Unused commitments on revolving home-equity lines of credit (HELOCs)."},
+        {"item": "BHCK6566", "plain": "Financial standby letters of credit and foreign-office guarantees."},
+        {"item": "BHCKPV11", "plain": "Unused commitments to nondepository financial institutions, a new breakout added in the first quarter of 2026."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, filed only by bank holding companies with $3 billion or more in total assets. The biggest misread is treating notional amounts as if they were money at risk: notional is the face size of the contract, NOT fair value and NOT credit exposure, and it is normally many times larger than either, so summing notionals overstates exposure dramatically. Keep trading and non-trading (hedging) derivatives separate, and keep positive (asset) and negative (liability) fair values separate. The first quarter of 2026 added new commitment-breakout codes, so series for those lines begin then. Some counterparty-exposure columns in the credit-exposure grid are confirmed via the codeset and warehouse rather than the form-image parse.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-L",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-M": {
+      "title": "Memoranda",
+      "what_it_measures": "This is the FR Y-9C's catch-all memoranda schedule. It does not roll up to a single total; instead it carries supporting detail for other balance-sheet lines (intangible assets, other borrowed money, other real estate owned), a set of Yes/No indicator questions (business combinations, restatements, regulatory-reporting flags), specialized balances (captive insurance and reinsurance subsidiaries, broker-dealer intercompany balances, secured liabilities, crisis-era TARP capital), and a few text fields.\n\nIn short, it is where the form keeps the breakdowns and supplementary facts that the main schedules reference but do not have room to itemize.",
+      "why_it_exists": "Several headline balance-sheet figures are aggregates, and HC-M provides the components behind them so analysts can see what is inside. It also collects gating questions and indicators that determine whether a firm must file other reports, and it preserves disclosures introduced for specific events, such as the TARP Capital Purchase Program issuances from the financial crisis.",
+      "what_you_can_answer": "How much of a holding company's intangible assets is goodwill versus mortgage-servicing assets versus other? What is the composition and maturity of its other borrowed money, including commercial paper? Does it run captive insurance, broker-dealer, or insurance-underwriting subsidiaries, and how large are they? Did it report a business combination or restatement during the year?",
+      "key_items": [
+        {"item": "BHCK3163", "plain": "Goodwill arising from business combinations."},
+        {"item": "BHCK3164", "plain": "Mortgage servicing assets (the value of rights to service mortgage loans)."},
+        {"item": "BHCT2143", "plain": "Total intangible assets, a Federal Reserve control total that must equal Schedule HC item 10."},
+        {"item": "BHCK2309", "plain": "Commercial paper, a component of other borrowed money."},
+        {"item": "BHCT3190", "plain": "Total other borrowed money, a control total that must equal Schedule HC item 16."},
+        {"item": "BHCT2150", "plain": "Other real estate owned (OREO), a component of Schedule HC item 7."},
+        {"item": "BHCKC252", "plain": "Net assets of broker-dealer subsidiaries, reported only by financial holding companies."},
+        {"item": "BHCKG234", "plain": "Senior perpetual preferred stock issued under the crisis-era TARP Capital Purchase Program."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, filed only by bank holding companies with $3 billion or more in total assets. HC-M deliberately mixes item kinds: dollar amounts, an unrounded integer share count, Yes/No indicators, and text fields, so treating an indicator or text code as a dollar amount will corrupt any aggregation. Many items are conditional or annual by design, blank for most filers (some apply only above $5 billion or $30 billion in assets; captive insurance/reinsurance is reported only in December; broker-dealer and insurance-underwriting lines apply only to financial holding companies), so a blank is a valid filing. Item numbering has a gap, item 10 is 'not applicable' and the form skips from 9 to 11. Total lines use a distinct prefix signalling a Federal-Reserve-computed control cell.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-M",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-N": {
+      "title": "Past Due and Nonaccrual Loans, Leases, and Other Assets",
+      "what_it_measures": "This schedule is a loan-quality matrix. It takes each loan category and splits it by how troubled the loans are, across three delinquency buckets: 30–89 days past due (column A), 90 or more days past due but still accruing interest (column B), and nonaccrual, where interest has stopped accruing (column C).\n\nIt covers real-estate loans, commercial and industrial loans, loans to individuals (credit cards, autos, other consumer), leases, and more, reporting only the impaired portion of each category rather than the whole balance.",
+      "why_it_exists": "Asset quality is one of the clearest early-warning signals for a bank, and this schedule makes deterioration visible by stage of delinquency. Watching loans migrate from 30–89 days to 90+ days to nonaccrual lets analysts anticipate future losses before they hit earnings. The bucket-by-category structure shows exactly which loan types are driving stress.",
+      "what_you_can_answer": "What is a holding company's nonperforming-loan ratio, and how is it trending? Which loan categories (commercial real estate, credit cards, autos, C&I) are deteriorating fastest? Is early-stage delinquency (30–89 days) rising in a way that points to future nonaccruals? How well are losses reserved for, via coverage and Texas-ratio style metrics?",
+      "key_items": [
+        {"item": "BHCK1406", "plain": "Total loans and leases 30–89 days past due and still accruing (the current early-stage delinquency total)."},
+        {"item": "BHCK1407", "plain": "Total loans and leases 90 or more days past due and still accruing."},
+        {"item": "BHCK1403", "plain": "Total nonaccrual loans and leases, where interest is no longer being recognized."},
+        {"item": "BHCKF176", "plain": "Nonaccrual 1–4 family residential construction loans."},
+        {"item": "BHCK1608", "plain": "Nonaccrual commercial and industrial (C&I) loans."},
+        {"item": "BHCKB575", "plain": "Credit-card loans 30–89 days past due."},
+        {"item": "BHCKB577", "plain": "Nonaccrual credit-card loans."},
+        {"item": "BHCKK213", "plain": "Automobile loans 30–89 days past due."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, filed only by bank holding companies with $3 billion or more in total assets, so these are not single-bank figures. The schedule reports past-due and nonaccrual amounts broken out by delinquency bucket (30–89 days, 90+ days still accruing, and nonaccrual), and these capture only the impaired portion of each category, so a category's columns should never exceed its full balance on Schedule HC-C. Forbearance and troubled-debt-restructuring treatment can mask true delinquency, as happened during 2020. Watch for vintage breaks: the current total-delinquency codes replaced earlier ones discontinued at the end of 2017, and the old real-estate total line was removed, so long series must be stitched across those code changes.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-N",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-P": {
+      "title": "Closed-End 1-4 Family Residential Mortgage Banking Activities",
+      "what_it_measures": "Schedule HC-P sizes a holding company's home-mortgage business: how many 1-4 family residential mortgages it originated, bought, sold, and was holding for resale during the quarter, plus the fee income it earned from selling, securitizing, and servicing those loans.\n\nIt also captures the downside of that business: loans the company was forced to buy back (repurchases and indemnifications) and the reserves it sets aside for the promises ('representations and warranties') it made to the buyers of those loans.",
+      "why_it_exists": "Mortgage banking is a fee-driven, sell-the-loan business with a distinctive risk: a bank that sells a mortgage can still be on the hook to repurchase it if the loan turns out to breach the representations made at sale. This schedule lets regulators and analysts measure both the income engine and that 'put-back' exposure separately from a firm's held-for-investment lending. It became prominent after the financial crisis, when repurchase demands from agencies and investors became a major source of loss.",
+      "what_you_can_answer": "How large is a firm's mortgage origination-for-sale pipeline, and how much of its noninterest income comes from selling and servicing mortgages? How much repurchase risk is it carrying, and has its representation-and-warranty reserve grown relative to its sale volume? You can compare gain-on-sale franchises across the largest bank holding companies over time.",
+      "key_items": [
+        {"item": "BHCKHT81", "plain": "Retail originations during the quarter of 1-4 family mortgages intended for sale (not held-for-investment lending)."},
+        {"item": "BHCKHT82", "plain": "Wholesale originations and purchases during the quarter of 1-4 family mortgages intended for sale."},
+        {"item": "BHCKFT04", "plain": "Total dollar amount of 1-4 family mortgages the firm sold during the quarter."},
+        {"item": "BHCKFT05", "plain": "1-4 family mortgages still held for sale or in trading at quarter-end (the unsold pipeline)."},
+        {"item": "BHCKHT85", "plain": "Noninterest income earned during the quarter from selling, securitizing, and servicing 1-4 family mortgages."},
+        {"item": "BHCKHT86", "plain": "Loans the firm had to repurchase or pay indemnifications on during the quarter."},
+        {"item": "BHCKM288", "plain": "Total reserve set aside for representation-and-warranty (buyback) obligations, the sum of the agency and other-party pieces."}
+      ],
+      "pitfalls": "FR Y-9C is the consolidated holding-company view, not a single bank, and this schedule is conditional: only holding companies with $5 billion or more in total assets that also cross a $10 million activity threshold for two consecutive quarters file it, so a blank schedule is a valid filing rather than an error. Scope is narrow on purpose: domestic-office, closed-end, 1-4 family mortgages only, so open-end home equity lines, multifamily, and commercial mortgages are excluded, and items 1–2 deliberately omit loans originated to hold for investment. The two counterparty breakouts of the reserve, to U.S. government agencies and GSEs and to other parties, are reported on the form but are not carried in the public bulk data; only their total (present from 2012) appears there, a known public-data gap validated against the public FR Y-9C bulk data.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-P",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    },
+    "HC-Q": {
+      "title": "Financial Assets and Liabilities Measured at Fair Value on a Recurring Basis",
+      "what_it_measures": "Schedule HC-Q takes the assets and liabilities a holding company carries at fair value (mark-to-market) and shows how reliable those valuations are. For each line it reports the total fair value and then splits it across the three-level 'fair value hierarchy': Level 1 (quoted prices in active markets), Level 2 (other observable inputs), and Level 3 (significant unobservable, model-based inputs).\n\nIt also reports a netting column, the amounts offset between counterparties and collateral when arriving at the total, so the levels and the total reconcile cleanly.",
+      "why_it_exists": "Implementing the accounting standard for fair value measurement, the schedule lets analysts and regulators judge valuation risk, not just valuation. Two firms can report the same fair value while one relies on transparent market prices and the other on internal models. The current five-column layout has been in effect since June 30, 2009, with a 2018 revision that moved certain equity securities to fair value through earnings.",
+      "what_you_can_answer": "How much of a firm's marked-to-market book depends on hard-to-verify model assumptions (its Level 3 share), and is that share growing, especially during market stress when positions can migrate from Level 2 into Level 3? You can compare valuation transparency across large holding companies and track shifts in trading-derivative and fair-value-option exposures over time.",
+      "key_items": [
+        {"item": "BHCYJA36", "plain": "Total fair value of available-for-sale debt and equity securities not held for trading (this column-A code switched in 2018 under the equity-securities accounting change)."},
+        {"item": "BHCKG483", "plain": "Total fair value of loans and leases held for sale carried at fair value."},
+        {"item": "BHCT3543", "plain": "Total fair value of trading derivative assets (a code intentionally shared with the related Schedule HC-D line)."},
+        {"item": "BHCKG502", "plain": "Total assets measured at fair value on a recurring basis, the per-column sum of all asset lines."},
+        {"item": "BHCT3547", "plain": "Total fair value of trading derivative liabilities (also an intentionally shared code)."},
+        {"item": "BHCKG531", "plain": "Total liabilities measured at fair value on a recurring basis, the per-column sum of all liability lines."},
+        {"item": "BHCKG477", "plain": "The Level 3 (model-based, unobservable-input) portion of available-for-sale securities, the least transparent slice of that line."}
+      ],
+      "pitfalls": "FR Y-9C reports the consolidated holding company, not a single bank, and only firms with $5 billion or more in total assets (or smaller firms with fair-value-option or trading activity) complete this schedule, so blanks are common and valid. The column math is easy to misread: the total fair value equals Level 1 plus Level 2 plus Level 3 minus the netting column, which is subtracted, not added. Codes also span several vintages within one schedule: item 1's column-A total changes code at the 2018 equity-securities break even though the line is continuous, deposits and some memoranda use older 2007–2008 codes, and the fair-value-option loan memoranda mix 2008 and 2018 codes. Finally, the trading-derivative total codes carry MDRM names that read like Schedule HC-D revaluation lines; this is intentional reuse, not a wrong-schedule error.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-Q",
+        "Federal Reserve MDRM"
+      ]
+    },
+    "HC-R": {
+      "title": "Regulatory Capital",
+      "what_it_measures": "Schedule HC-R is where a holding company shows whether it holds enough capital to absorb losses. Part I builds the regulatory capital stack from the highest-quality layer up: Common Equity Tier 1 (CET1), then Additional Tier 1 (AT1) to give Tier 1 capital, then Tier 2 to give total capital. Part II computes risk-weighted assets (RWA), the denominator that scales each exposure by how risky it is.\n\nDividing capital by RWA produces the headline solvency ratios (CET1, Tier 1, total capital) plus the leverage ratio, which compares Tier 1 capital to average total assets without risk-weighting.",
+      "why_it_exists": "This schedule operationalizes the Basel III capital framework: it is the supervisory backbone for judging whether a firm can survive losses and keep lending. The risk-weighting grid, capital buffers (a 2.5% conservation buffer, G-SIB surcharges, a countercyclical buffer), and the threshold-deduction rules for items like mortgage servicing assets and deferred tax assets all flow from the post-crisis Basel III standards reflected in the current form.",
+      "what_you_can_answer": "Is a firm well-capitalized, and how much cushion sits above its regulatory minimums and buffers? How risk-dense is its balance sheet (RWA divided by total assets), and how does its capital strength trend over time or compare to peers? You can study how capital ratios respond to stress, distributions, or balance-sheet growth.",
+      "key_items": [
+        {"item": "BHCAP840", "plain": "Common Equity Tier 1 (CET1) capital before adjustments and deductions, the starting common-equity base."},
+        {"item": "BHCAP859", "plain": "Final CET1 capital, the highest-quality loss-absorbing capital, after deductions."},
+        {"item": "BHCA8274", "plain": "Tier 1 capital, CET1 plus Additional Tier 1."},
+        {"item": "BHCA3792", "plain": "Total regulatory capital, Tier 1 plus Tier 2."},
+        {"item": "BHCKG641", "plain": "Total risk-weighted assets, the computed denominator for every risk-based capital ratio."},
+        {"item": "BHCAP793", "plain": "The CET1 capital ratio, CET1 divided by risk-weighted assets (4.5% minimum)."},
+        {"item": "BHCA7206", "plain": "The Tier 1 capital ratio, Tier 1 divided by risk-weighted assets (6.0% minimum)."},
+        {"item": "BHCA7204", "plain": "The leverage ratio, Tier 1 capital divided by average total assets, with no risk-weighting (4.0% minimum)."}
+      ],
+      "pitfalls": "FR Y-9C is the consolidated holding-company view, not a single subsidiary bank. Risk-weighted assets are not a simple figure but a complex regulatory computation: Part II spreads every on- and off-balance-sheet exposure across many risk-weight categories (0% to 1,250%, plus securitization and derivative treatments), so there is no single code per risk band and the codes shown are illustrative columns within a wider grid. Numbering and codes have shifted under Basel III, AOCI adjustments and threshold deductions were split into their own items, and some legacy codes (for example an AT1 line discontinued at the end of 2019) should not be confused with current totals. Many Part I items also split into a standardized column and an advanced-approaches column. The capital-stack ordering (CET1 less than or equal to Tier 1 less than or equal to total capital) holds across filers when validated against the public FR Y-9C bulk data.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-R",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    },
+    "HC-S": {
+      "title": "Servicing, Securitization, and Asset Sale Activities",
+      "what_it_measures": "Schedule HC-S documents how a holding company moves assets off its own balance sheet and what risk it keeps after doing so. The core securitization items report, by collateral type (seven columns from 1-4 family mortgages through credit cards, autos, and commercial loans), the outstanding balance of assets the firm sold and securitized while retaining servicing or recourse, the maximum credit exposure it kept, past-due amounts, and charge-offs and recoveries on those pools.\n\nIt also captures support the firm provides to other institutions' securitizations, assets sold with recourse but not securitized, and memoranda on loans serviced for others and asset-backed commercial paper (ABCP) conduit exposures.",
+      "why_it_exists": "Securitization can make a firm look smaller and safer than it is if the firm still bears credit risk on the loans it moved off-balance-sheet. This schedule makes that retained risk visible, supporting the post-crisis emphasis on 'skin in the game' (risk-retention rules) and letting supervisors track the asset quality of securitized pools. The current collateral-type grid replaced an older originator/investor/servicer layout that is no longer on the form.",
+      "what_you_can_answer": "How active is a firm as a securitizer, and in which asset classes? How much retained credit exposure does it keep relative to what it securitized (a retained-risk ratio), and how are the underlying pools performing (delinquency and net losses by collateral type)? You can also measure servicing scale and ABCP conduit support.",
+      "key_items": [
+        {"item": "BHCKB705", "plain": "Outstanding principal of 1-4 family mortgages the firm sold and securitized while keeping servicing or recourse."},
+        {"item": "BHCKHU09", "plain": "Maximum credit exposure the firm retained on its own 1-4 family securitization structures (its 'skin in the game')."},
+        {"item": "BHCKB726", "plain": "Unused commitments to provide liquidity to the firm's own securitizations (reported by the very largest, $100B+, filers)."},
+        {"item": "BHCKHU16", "plain": "Total ownership or seller's interest the firm carries as securities or loans from its own securitizations."},
+        {"item": "BHCKB776", "plain": "Maximum credit exposure from enhancements the firm provided to other institutions' securitizations."},
+        {"item": "BHCKB790", "plain": "Assets sold with recourse or seller-provided enhancements that were not securitized."},
+        {"item": "BHCKB804", "plain": "1-4 family mortgages serviced for others with recourse or servicer-provided enhancements."},
+        {"item": "BHCKB806", "plain": "ABCP credit-enhancement exposure for conduits the firm or its affiliates sponsor."}
+      ],
+      "pitfalls": "FR Y-9C reports the consolidated holding company, not a single bank, and many of these items have their own filing thresholds, the liquidity-commitment lines for a firm's own structures are limited to $100 billion-plus filers, several others to $10 billion-plus filers, so blank cells are often a scope rule rather than zero activity. Code vintages and structure have changed: item 2's current per-collateral codes (effective 2018) superseded an older single code, and the memoranda were renumbered, with items 7 and 8 marked 'Not applicable' on the current form. A key analytical caveat is population skew: a securitization edit that passes at roughly 98% across all filers passes at only about 45% among the population of active securitizers (about 3,493 firms) when validated against the public FR Y-9C bulk data, because the headline rate is dominated by the many institutions with zero securitization. Consolidated securitization vehicles themselves are reported separately on Schedule HC-V.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-S",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    },
+    "HC-V": {
+      "title": "Variable Interest Entities",
+      "what_it_measures": "Schedule HC-V isolates the part of a holding company's consolidated balance sheet that actually belongs to variable interest entities (VIEs), legal structures (often securitization vehicles) the firm must consolidate because it is the primary beneficiary. It reports the assets and liabilities of these consolidated VIEs in two columns, securitization vehicles versus other VIEs, broken into cash, securities, loans, other real estate owned, other assets, and the matching liabilities.\n\nIt also includes single-column memo totals for the assets and liabilities of asset-backed commercial paper (ABCP) conduit VIEs.",
+      "why_it_exists": "Accounting rules force a firm to pull VIEs it controls onto its own balance sheet, but the assets of a 'ring-fenced' VIE can usually be used only to settle that VIE's obligations, and its creditors have no claim on the firm's general credit. This schedule lets analysts separate those ring-fenced exposures from the firm's own resources. The VIE codes appear from 2010–2011, consistent with the consolidation standard adopted after the financial crisis.",
+      "what_you_can_answer": "How much of a firm's consolidated balance sheet is actually attributable to VIEs rather than to the firm directly, and how is that split between securitization vehicles and other VIEs? You can gauge how much of reported assets is ring-fenced and non-recourse, and size a firm's ABCP conduit footprint.",
+      "key_items": [
+        {"item": "BHCKJ981", "plain": "Cash held in consolidated securitization-vehicle VIEs (column A)."},
+        {"item": "BHCKHU22", "plain": "Loans and leases held by consolidated securitization VIEs, net of allowance, plus those held for sale."},
+        {"item": "BHCKJF84", "plain": "Cash held in consolidated 'other' (non-securitization) VIEs (column B), using a different code than the same caption in column A."},
+        {"item": "BHCKJF92", "plain": "Other borrowed money owed by consolidated securitization VIEs (a non-recourse liability)."},
+        {"item": "BHCKK030", "plain": "All other assets of consolidated VIEs not captured in the named asset categories."},
+        {"item": "BHCKK033", "plain": "All other liabilities of consolidated VIEs not captured in the named liability categories."},
+        {"item": "BHCKJF77", "plain": "Total assets of asset-backed commercial paper (ABCP) conduit VIEs (a single-column memo total)."},
+        {"item": "BHCKJF78", "plain": "Total liabilities of ABCP conduit VIEs (a single-column memo total)."}
+      ],
+      "pitfalls": "FR Y-9C is the consolidated holding-company view, and only firms with $5 billion or more in total assets complete HC-V, so many filers leave it blank. The defining nuance is consolidation: HC-V is a 'look-through' into Schedule HC, its lines are a subset of HC balances already consolidated there, so summing HC-V on top of HC double-counts; use it to attribute HC balances to VIEs, not to add to them. The two columns use distinct codes for the same caption (for example item 1.a is BHCKJ981 for securitization vehicles but BHCKJF84 for other VIEs), so collapsing on the caption loses the VIE-type split. Finally, the two ABCP conduit total lines are single-column, so there is no column-B value to expect.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HC-V",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    },
+    "HI": {
+      "title": "Consolidated Income Statement (Statement of Income)",
+      "what_it_measures": "Schedule HI is the income statement for a bank holding company. It walks from the top line down to the bottom line: interest earned on loans and securities, minus interest paid on deposits and borrowings, gives net interest income; then it adds fee-based (noninterest) income, subtracts the provision for credit losses and operating (noninterest) expenses, accounts for taxes, and arrives at net income. It also breaks out the major sources of fee income and operating expense so you can see where a holding company actually makes and spends its money.",
+      "why_it_exists": "Regulators and analysts need a standardized profit-and-loss view to judge a holding company's earnings power and how it earns — spread lending versus fees versus trading. The structure supports core profitability ratios (net interest margin, efficiency ratio, return on assets and equity) and stress-test inputs like pre-provision net revenue. Under the current expected credit loss (CECL) accounting standard, effective 2019, the provision line shifted to 'provision for credit losses', replacing the older provision-for-loan-losses concept.",
+      "what_you_can_answer": "How profitable is a holding company, and is its income driven by lending spreads or by fees and trading? How efficiently does it convert revenue into profit after operating costs? How have its credit costs (provisions) moved over time relative to its net interest income?",
+      "key_items": [
+        {"item": "BHCK4107", "plain": "Total interest income — everything earned on loans, leases, securities, and other interest-bearing assets."},
+        {"item": "BHCK4073", "plain": "Total interest expense — everything paid out on deposits, borrowings, and subordinated debt."},
+        {"item": "BHCK4074", "plain": "Net interest income, the core lending profit — confirmed as exactly total interest income minus total interest expense, validated against the public FR Y-9C bulk data in essentially 100% of filings."},
+        {"item": "BHCKJJ33", "plain": "Provision for credit losses — the amount set aside this period to cover expected loan and lease losses under CECL."},
+        {"item": "BHCK4079", "plain": "Total noninterest income — fee-based revenue from fiduciary services, deposit charges, trading, and other activities."},
+        {"item": "BHCK4093", "plain": "Total noninterest expense — operating costs including salaries, premises, and other overhead."},
+        {"item": "BHCKA220", "plain": "Trading revenue — net gains and losses from trading activities."},
+        {"item": "BHCK4340", "plain": "Net income attributable to the holding company — the bottom line after taxes and minority interests."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it. Every income figure on Schedule HI is reported year-to-date — cumulative from January 1, not a single-quarter flow; a third-quarter value covers January through September, so to isolate one quarter you subtract the prior quarter's year-to-date figure (the second-quarter flow equals the June year-to-date figure minus the March one). To compare flows across quarters they must be annualized by multiplying by 4/quarter, a documented convention. Note the current form has no 'net interest income after provision' subtotal and no extraordinary-items line (replaced by discontinued operations).",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HI",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    },
+    "HI-A": {
+      "title": "Changes in Holding Company Equity Capital",
+      "what_it_measures": "Schedule HI-A is the statement of changes in equity: a year-to-date roll-forward that reconciles the holding company's equity capital from the prior year-end to the end of the current period. Starting from last year's ending equity (as restated for any accounting changes), it adds the year's net income, capital raised from selling preferred and common stock, treasury-stock activity, business-combination effects, and other comprehensive income, and subtracts dividends paid and treasury-stock purchases, to arrive at total end-of-period equity.",
+      "why_it_exists": "It is the bridge between the income statement and the balance sheet's equity section: net income flows in at the top and the ending balance must equal the equity line on the balance sheet. This lets regulators trace exactly how capital changed — whether equity grew from retained earnings, new stock issuance, or unrealized gains, versus shrinking from dividends and buybacks. The full roll-forward arithmetic is a closed control and has been validated against the public FR Y-9C bulk data, holding in roughly 99.95% of filings.",
+      "what_you_can_answer": "Did a holding company build capital through earnings or by issuing stock, and how much did it return to shareholders through dividends and buybacks? How much did unrealized gains and losses (other comprehensive income) move equity? Does reported net income reconcile cleanly into the equity build-up?",
+      "key_items": [
+        {"item": "BHCK3217", "plain": "Prior calendar year-end equity capital — the starting point of the roll-forward."},
+        {"item": "BHCT4340", "plain": "Net income attributable to the holding company added during the year; this must equal the bottom line of the income statement."},
+        {"item": "BHCK3579", "plain": "Gross proceeds from the sale of common stock during the period."},
+        {"item": "BHCK4783", "plain": "Purchase of treasury stock (buybacks) — a 'LESS' line subtracted from equity."},
+        {"item": "BHCK4460", "plain": "Cash dividends declared on common stock — a 'LESS' line subtracted from equity."},
+        {"item": "BHCKB511", "plain": "Other comprehensive income — unrealized items like available-for-sale securities gains, hedge results, and pension adjustments."},
+        {"item": "BHCT3210", "plain": "Total end-of-period equity capital — the ending balance, which ties to the balance sheet's total equity line."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it. The figures are year-to-date, accumulating from the start of the calendar year, so first-quarter and fourth-quarter amounts are not comparable as standalone quarterly flows. The 'LESS' items — treasury-stock purchases and preferred and common dividends — are reported as positive numbers but are subtracted in the ending-balance formula; adding them overstates equity. The two total cells (net income and ending equity) use Federal Reserve-edited control codes, while the transaction lines use ordinary reported codes.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HI-A",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    },
+    "HI-B": {
+      "title": "Charge-Offs and Recoveries on Loans and Leases and Changes in Allowances for Credit Losses",
+      "what_it_measures": "Schedule HI-B has two parts. Part I reports, year-to-date, the loans and leases actually written off as uncollectible (charge-offs) and amounts later collected on previously written-off loans (recoveries), broken out by loan category. Part II is a roll-forward of the allowance for credit losses — the reserve cushion against expected losses — starting from the prior year-end balance and applying recoveries, charge-offs, write-downs, provisions, and adjustments to reach the ending balance, separately for loans/leases, held-to-maturity securities, and available-for-sale securities.",
+      "why_it_exists": "It connects the income statement's provision expense to the balance sheet's reserve: it shows where credit losses are actually occurring (by loan type) and how the loss-absorbing allowance is being built up and drawn down. This is central to monitoring asset quality and the adequacy of reserves. The held-to-maturity and available-for-sale allowance columns are CECL-era additions, appearing from around 2020–2021 consistent with the CECL standard.",
+      "what_you_can_answer": "Which loan categories are generating the most losses (for example credit cards versus commercial real estate), and how do net charge-offs trend? Is a holding company's allowance keeping pace with its charge-offs and provisions? How does the reported provision expense reconcile to the actual movement in reserves?",
+      "key_items": [
+        {"item": "BHCK4635", "plain": "Total charge-offs across all loan and lease categories (Part I, Column A)."},
+        {"item": "BHCK4605", "plain": "Total recoveries across all loan and lease categories (Part I, Column B)."},
+        {"item": "BHCKB514", "plain": "Credit-card charge-offs — typically the highest-loss consumer category (Part I)."},
+        {"item": "BHCKB522", "plain": "Beginning allowance balance on loans and leases held for investment (Part II, prior year-end)."},
+        {"item": "BHCK4230", "plain": "Provisions for credit losses on loans and leases added during the period (Part II)."},
+        {"item": "BHCT3123", "plain": "Ending allowance balance on loans and leases held for investment, which ties to the balance sheet's allowance line."},
+        {"item": "BHCKMG93", "plain": "Provisions for credit losses on off-balance-sheet credit exposures (CECL-era memorandum)."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it. Part I charge-offs and recoveries and Part II provisions and charge-offs are year-to-date, accumulating from the start of the calendar year. The columns mean different things across the two parts — in Part I the columns are charge-offs and recoveries, while in Part II they are loans, held-to-maturity securities, and available-for-sale securities — so always note which part you are reading. The 'LESS' lines (charge-offs and write-downs) are subtracted in the ending-allowance formula even though reported as positive amounts. Some lines are asset-size-conditional: filers under $5 billion report combined commercial-and-industrial and lease lines while larger filers split them, so blanks are by design, not gaps.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HI-B",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    },
+    "HI-C": {
+      "title": "Disaggregated Data on the Allowance for Credit Losses",
+      "what_it_measures": "Schedule HI-C breaks the allowance for credit losses down by where it sits across the portfolio. For loans and leases held for investment it shows, by segment (real estate, commercial, credit cards, other consumer), both the amortized cost of the loans and the allowance held against them; an unallocated line and a total complete the loan block. A second block shows the allowance held against held-to-maturity securities by security type. It is the disaggregated companion to the HI-B Part II roll-forward: HI-B shows how the allowance changed, HI-C shows where the ending allowance is concentrated.",
+      "why_it_exists": "Under the current expected credit loss (CECL) model, regulators want visibility into how reserves are distributed across portfolio segments, not just a single total. This reveals which parts of the loan book a holding company judges riskiest and lets the segment-level allowances be reconciled back to the balance-sheet total. Because all of these codes are CECL-era, the schedule has no pre-CECL history.",
+      "what_you_can_answer": "Which loan segments carry the heaviest reserves relative to their balances (for example credit cards versus residential real estate)? How is a holding company's allowance split between loans and held-to-maturity securities? Do the segment-level allowances reconcile to the total allowance on the balance sheet?",
+      "key_items": [
+        {"item": "BHCKJJ05", "plain": "Amortized cost of commercial real estate loans held for investment (Column A)."},
+        {"item": "BHCKJJ13", "plain": "Allowance held against commercial real estate loans (Column B)."},
+        {"item": "BHCKJJ16", "plain": "Allowance held against credit-card balances — typically a high-reserve segment."},
+        {"item": "BHCKJJ18", "plain": "Unallocated allowance, if any — reserves not assigned to a specific segment (allowance-only line)."},
+        {"item": "BHCKJJ19", "plain": "Total allowance across all loan segments, which ties to the balance sheet's allowance line."},
+        {"item": "BHCKJJ21", "plain": "Allowance held against held-to-maturity mortgage-backed securities."},
+        {"item": "BHCKJJ25", "plain": "Total held-to-maturity securities allowance, which ties to the HI-B allowance roll-forward."}
+      ],
+      "pitfalls": "The FR Y-9C is the consolidated holding-company view, not a single bank, and only bank holding companies with $3 billion or more in total assets file it. Beyond that, HI-C is a small-filer, semiannual schedule: items 1 through 11 are completed only by holding companies with less than $5 billion in total assets, and only in the June and December reports — so it is blank by design for larger filers and in March and September. Only the loan segments and the loan total carry a Column A (amortized cost); the unallocated line and every held-to-maturity security line are allowance-only, so expecting an amortized-cost figure there is an error. Item 2 'Commercial loans' is a catch-all residual for everything not classed as real estate, credit cards, or other consumer — do not read it as commercial-and-industrial only. All codes are CECL-era (effective around 2021), so there is no earlier history.",
+      "sources": [
+        "FR Y-9C Instructions (March 2026), Schedule HI-C",
+        "Federal Reserve MDRM",
+        "validated against the public FR Y-9C bulk data"
+      ]
+    }
+  }
+}

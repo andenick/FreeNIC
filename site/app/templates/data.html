@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block title %}Data — FreeNIC{% endblock %}
+{% block content %}
+
+<section class="prose">
+  <h1>Data</h1>
+  <p class="ark-badge-row">
+    <span class="ark-badge real-data">Real data</span>
+    <span class="ark-badge reproducible">Full release live</span>
+    <span class="ark-badge in-slice">Sample browsable now</span>
+  </p>
+  <p class="lead">Two layers: the <b>full {{ counts.version }} parquet release</b> ({{ counts.release_files }} files,
+     {{ counts.release_size_iec }}) served for remote DuckDB <code>httpfs</code> querying, and the small
+     <b>browsable sample</b> ({{ counts.slice_db_h }}) you can download right here as CSV / Parquet.</p>
+</section>
+
+<!-- ====================== FULL RELEASE CATALOG ====================== -->
+<section class="prose">
+  <h2>Full {{ counts.version }} parquet release</h2>
+  <p>The complete FreeNIC warehouse exported to Parquet — <b>{{ counts.release_files }} files,
+     {{ counts.release_size_iec }}</b> ({{ "{:,}".format(counts.release_bytes) }} bytes). Hosted read-only with
+     HTTP byte-range support at <a href="https://data.freenic.org/"><code>https://data.freenic.org/</code></a>
+     (<span class="ark-badge reproducible">live</span>). Query in place with DuckDB
+     <code>httpfs</code> — no full download needed — or fetch any file directly. Integrity:
+     <a href="https://data.freenic.org/SHA256SUMS.txt"><code>SHA256SUMS.txt</code></a>; provenance:
+     <a href="https://data.freenic.org/PROVENANCE.csv"><code>PROVENANCE.csv</code></a>; codebook:
+     <a href="https://data.freenic.org/CODEBOOK.md"><code>CODEBOOK.md</code></a> +
+     <a href="https://data.freenic.org/data_dictionary.csv"><code>data_dictionary.csv</code></a>
+     (per-table column codebooks under <code>codebook/&lt;table&gt;.csv</code>); changelog:
+     <a href="https://data.freenic.org/CHANGELOG.md"><code>CHANGELOG.md</code></a>; citation:
+     <a href="https://data.freenic.org/CITATION.cff"><code>CITATION.cff</code></a>; terms:
+     <a href="https://data.freenic.org/DATA_LICENSE.md"><code>DATA_LICENSE.md</code></a> — all co-hosted
+     at <code>data.freenic.org</code>.</p>
+
+  <div class="ark-code">
+    <div class="ark-code-head"><span class="ark-code-path">DuckDB · query the release in place</span>
+      <button class="ark-copy" type="button">Copy</button></div>
+    <pre><code>{% filter forceescape %}{% raw %}INSTALL httpfs; LOAD httpfs;
+SELECT * FROM 'https://data.freenic.org/occ_historical.parquet' LIMIT 100;{% endraw %}{% endfilter %}</code></pre>
+  </div>
+
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead>
+        <tr><th>File</th><th>Tier</th><th>Era</th><th>Provider</th><th>Size</th><th>URL</th><th>Codebook</th></tr>
+      </thead>
+      <tbody>
+        {% for f in release.files %}
+        <tr>
+          <td><code>{{ f.file }}</code>
+            {% if f.table == 'occ_historical' %} <span class="ark-badge in-slice" title="CC0 public domain — the finhist historical layer">CC0</span>{% endif %}
+            {% if f.citation_required == 'yes' %} <span class="ark-badge" title="Citation required — see DATA_LICENSE.md">cite</span>{% endif %}
+            <span class="note" style="display:block;font-weight:400;font-size:.8rem;">{{ f.notes }}</span>
+          </td>
+          <td class="mono">{{ f.tier or '—' }}</td>
+          <td class="mono" style="white-space:nowrap;">{{ f.era or '—' }}</td>
+          <td style="white-space:normal;max-width:22ch;font-size:.85rem;">{{ f.provider or '—' }}</td>
+          <td class="mono" style="white-space:nowrap;">{{ f.size_h }}</td>
+          <td style="white-space:nowrap;"><code style="font-size:.78rem;">{{ f.url }}</code></td>
+          <td style="white-space:nowrap;">
+            <a class="mono" style="font-size:.78rem;" href="https://data.freenic.org/codebook/{{ f.table }}.csv"
+               title="Per-column codebook for {{ f.table }}">codebook/{{ f.table }}.csv</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="src">Provenance tiers: <b>T1</b> Fed/FFIEC primary → <b>T2</b> FDIC/OCC →
+     <b>T3</b> Chicago Fed archive → <b>T4</b> academic/derived (cite). Full per-table provenance,
+     download URLs, and citation requirements are in <code>PROVENANCE.csv</code>; the
+     <span class="ark-badge in-slice">CC0</span> <code>occ_historical</code> layer (1863–1941) is
+     public domain (see <a href="#licensing">licensing</a>).</p>
+</section>
+
+<!-- ====================== ON-SITE BROWSABLE SLICE ====================== -->
+<section class="prose">
+  <h2>Browsable sample — download now</h2>
+  <p class="lead">Every table in the curated FreeNIC sample, downloadable as <b>CSV</b>
+     and <b>Parquet</b> with correct content-types. {{ n_items }} real tables,
+     {{ "{:,}".format(total_rows) }} rows in total — serialized verbatim from the real slice DuckDB;
+     nothing is invented or synthetically sampled.</p>
+  <p class="note">Includes the version-pinned <b>variable dictionary</b> taxonomy (schedule line-items,
+     UBPR concepts, the variable→view access map, and an edit-relationships summary) from the public
+     <a href="https://github.com/andenick/bank-data-dictionary">bank-data-dictionary</a> — searchable on
+     the <a href="/dictionary">Dictionary</a> page.</p>
+  <p>
+    <a class="ark-btn" href="/api/download/bulk/freenic_slice.zip">Download freenic_slice.zip (CSV + Parquet)</a>
+    <a class="ark-btn ark-btn-outline" href="/api/code/repro_bundle.zip">Site repro bundle (.zip)</a>
+  </p>
+</section>
+
+{% for group, items in groups.items() %}
+<section class="prose">
+  <h3>{{ group }}</h3>
+  <div class="ark-table-wrap">
+    <table class="ark-table">
+      <thead>
+        <tr><th>Table</th><th>Schema (columns · type)</th><th>Rows</th><th>Download</th></tr>
+      </thead>
+      <tbody>
+        {% for it in items %}
+        <tr>
+          <td style="font-weight:600;white-space:normal;max-width:24ch;">
+            {{ it.title }}<br>
+            <code>{{ it.table }}</code>
+            <span class="note" style="display:block;font-weight:400;">{{ it.desc }}</span>
+          </td>
+          <td style="white-space:normal;text-align:left;max-width:38ch;font-size:.85rem;">
+            {% for c in it.columns %}<code>{{ c.name }}</code>&nbsp;<span class="mono note">{{ c.type }}</span>{% if not loop.last %}, {% endif %}{% endfor %}
+          </td>
+          <td class="mono">{{ "{:,}".format(it.n_rows) }}</td>
+          <td style="white-space:nowrap;">
+            {# DNA DOWNLOAD_AND_FORMATS_STANDARD A3: CSV/Parquet only — JSON is never
+               offered as a user-facing dataset download. #}
+            {% for d in it.downloads if d.fmt != 'json' %}
+            <a class="ark-btn ark-btn-sm" href="{{ d.url }}">{{ d.fmt | upper }}</a>
+            {% endfor %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endfor %}
+
+<!-- ====================== LICENSING / DISCLAIMERS ====================== -->
+<section class="prose" id="licensing">
+  <h2>Licensing &amp; use</h2>
+  <div class="callout">
+    <h3>Data terms travel per source; the code is MIT</h3>
+    <ul>
+      <li><b>Code</b> — FreeNIC's source (ingestion pipeline, read packages, this site) is
+          <b>MIT-licensed</b>.</li>
+      <li><b>Most tables</b> — public US regulatory data (FFIEC, FDIC, Federal Reserve, OCC, FRED,
+          NCUA, SEC) carrying <b>no redistribution restriction</b>; source noted per table in
+          <code>PROVENANCE.csv</code>.</li>
+      <li><b><code>occ_historical</code> (1863–1941, the finhist layer)</b> — <b>CC0 1.0
+          (public domain)</b> via Harvard Dataverse (DOI <code>10.7910/DVN/Q22XR1</code>).
+          Redistribution, modification, and commercial use are unconditionally permitted; citation is
+          a courtesy, not a requirement.</li>
+      <li><b><code>luck_call_reports</code> (1959–1975 slice)</b> — NY Fed Terms of Use (permissive,
+          non-exclusive); redistribution of the derived subset is permitted <b>with attribution</b>
+          (Correia/Luck/Verner, "Failing Banks," QJE 2026).</li>
+      <li><b>Robin / Failing-Banks tables</b> — academic/derived; <b>cite the Failing Banks DB</b>.</li>
+    </ul>
+    <p class="src"><b>Educational / research use.</b> FreeNIC is provided "as is" for research and
+       educational purposes, with no warranty. It is not endorsed by or affiliated with any
+       regulator. If you redistribute FreeNIC further, carry these notices forward. The full terms
+       and required citations are in <code>DATA_LICENSE.md</code> (co-hosted at
+       <code>data.freenic.org</code>); see also <a href="/methodology">Methodology</a>.</p>
+  </div>
+</section>
+
+<section class="prose">
+  <p class="note">Tip: the browsable sample tables also power the interactive charts on
+     <a href="/explorer">Explore</a>; the <a href="/api-docs">API</a> page documents the
+     R/Python package and remote httpfs querying over the full release above.</p>
+</section>
+
+{% endblock %}

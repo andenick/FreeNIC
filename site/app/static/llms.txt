@@ -1,0 +1,17 @@
+# FreeNIC
+
+> https://freenic.org
+
+Bank-level U.S. financial-data explorer — failures, FRED series, and active institutions; full 13.2 GiB parquet release at data.freenic.org.
+
+Generated from ecosystem.json (kit v2.0).
+
+## Resources
+
+- Data: https://freenic.org/api/download/bulk/freenic_slice.zip — 20.8 MB; formats: csv, parquet; kind: bundle
+  - Data dictionary: https://freenic.org/dictionary
+- Code: https://freenic.org/api/code/repro_bundle.zip — languages: python, r; license: MIT; kind: bundle
+- Outputs: https://freenic.org/explorer — Explorer
+- Website source: https://github.com/andenick/FreeNIC
+- License: code MIT
+- Citation: Anderson, N. (2026). FreeNIC. https://freenic.org.

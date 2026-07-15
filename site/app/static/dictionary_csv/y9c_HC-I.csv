@@ -1,0 +1,14 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-I,LH.1,Life and Health Underwriting - Reinsurance recoverables,mdrm_code,BHCKC247,,2002-03-31,"Part II (Life & Health), Assets"
+y9c,HC-I,LH.2,Life and Health Underwriting - Separate account assets,mdrm_code,BHCKB992,,2001-03-31,"Part II, Assets - separate-account assets"
+y9c,HC-I,LH.3,Life and Health Underwriting - Total assets,mdrm_code,BHCKC248,,2002-03-31,"Part II, Assets - total"
+y9c,HC-I,LH.4,Life and Health Underwriting - Policyholder benefits and contractholder funds,mdrm_code,BHCKB994,,2001-03-31,"Part II, Liabilities - policy reserves and contractholder funds"
+y9c,HC-I,LH.5,Life and Health Underwriting - Separate account liabilities,mdrm_code,BHCKB996,,2001-03-31,"Part II, Liabilities - separate-account liabilities"
+y9c,HC-I,LH.6,Life and Health Underwriting - Total equity,mdrm_code,BHCKC249,,2002-03-31,Part II - total equity
+y9c,HC-I,LH.7,Life and Health Underwriting - Net income,mdrm_code,BHCKC250,,2002-03-31,Part II - net income
+y9c,HC-I,PCI.1,Property and Casualty Underwriting - Reinsurance recoverables,mdrm_code,BHCKB988,,2001-03-31,"Part I (Property & Casualty), Assets; completed by holding companies with $10M+ reinsurance recoverables"
+y9c,HC-I,PCI.2,Property and Casualty Underwriting - Total assets,mdrm_code,BHCKC244,,2002-03-31,"Part I, Assets - total assets of P&C underwriting subsidiaries"
+y9c,HC-I,PCI.3,Property and Casualty Underwriting - Claims and claims adjustment expense reserves,mdrm_code,BHCKB990,,2001-03-31,"Part I, Liabilities - loss and loss-adjustment-expense reserves"
+y9c,HC-I,PCI.4,Property and Casualty Underwriting - Unearned premiums,mdrm_code,BHCKB991,,2001-03-31,"Part I, Liabilities - unearned premium reserve"
+y9c,HC-I,PCI.5,Property and Casualty Underwriting - Total equity,mdrm_code,BHCKC245,,2002-03-31,Part I - total equity of P&C underwriting subsidiaries
+y9c,HC-I,PCI.6,Property and Casualty Underwriting - Net income,mdrm_code,BHCKC246,,2002-03-31,Part I - net income of P&C underwriting subsidiaries

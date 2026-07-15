@@ -1,0 +1,66 @@
+form_family,schedule,line_number,item_description,column_role,mdrm_code,forms,start_date,notes
+y9c,HC-D,1,U.S. Treasury securities,mdrm_legacy,BHCK3531,,2008-03-31,Domestic offices (BHCM); pre-2008 BHCK3531 domestic-only
+y9c,HC-D,1,U.S. Treasury securities,mdrm_current,BHCM3531,,2008-03-31,Domestic offices (BHCM); pre-2008 BHCK3531 domestic-only
+y9c,HC-D,2,U.S. government agency obligations (exclude MBS),mdrm_legacy,BHCK3532,,2008-03-31,Excludes mortgage-backed securities
+y9c,HC-D,2,U.S. government agency obligations (exclude MBS),mdrm_current,BHCM3532,,2008-03-31,Excludes mortgage-backed securities
+y9c,HC-D,3,Securities issued by states and political subdivisions in the U.S.,mdrm_legacy,BHCK3533,,2008-03-31,Municipal securities held for trading
+y9c,HC-D,3,Securities issued by states and political subdivisions in the U.S.,mdrm_current,BHCM3533,,2008-03-31,Municipal securities held for trading
+y9c,HC-D,9,Other trading assets,mdrm_legacy,BHCK3541,,2008-03-31,Residual trading assets (domestic offices)
+y9c,HC-D,9,Other trading assets,mdrm_current,BHCM3541,,2008-03-31,Residual trading assets (domestic offices)
+y9c,HC-D,11,Derivatives with a positive fair value,mdrm_legacy,BHCK3543,,2008-03-31,Revaluation gains; ties to HC-L item 14.a.(1) net
+y9c,HC-D,11,Derivatives with a positive fair value,mdrm_current,BHCM3543,,2008-03-31,Revaluation gains; ties to HC-L item 14.a.(1) net
+y9c,HC-D,12,Total trading assets (sum of items 1-11),mdrm_legacy,BHCK3545,,1994-03-31,Column A must equal Schedule HC item 5
+y9c,HC-D,12,Total trading assets (sum of items 1-11),mdrm_current,BHCT3545,,1994-03-31,Column A must equal Schedule HC item 5
+y9c,HC-D,14,Derivatives with a negative fair value,mdrm_current,BHCK3547,,1994-03-31,Revaluation losses; ties to HC-L item 14.a.(2) net
+y9c,HC-D,14,Derivatives with a negative fair value,mdrm_legacy,BHCT3547,,1994-03-31,Revaluation losses; ties to HC-L item 14.a.(2) net
+y9c,HC-D,15,Total trading liabilities (sum of items 13.a-14),mdrm_legacy,BHCK3548,,1994-03-31,Column A must equal Schedule HC item 15
+y9c,HC-D,15,Total trading liabilities (sum of items 13.a-14),mdrm_current,BHCT3548,,1994-03-31,Column A must equal Schedule HC item 15
+y9c,HC-D,13.a.(1),Liability for short positions - Equity securities,mdrm_current,BHCKG209,,2009-03-31,Short sales of equity
+y9c,HC-D,13.a.(2),Liability for short positions - Debt securities,mdrm_current,BHCKG210,,2009-03-31,Short sales of debt
+y9c,HC-D,13.a.(3),Liability for short positions - All other assets,mdrm_current,BHCKG211,,2009-03-31,Other short positions
+y9c,HC-D,13.b,All other trading liabilities,mdrm_current,BHCKF624,,2008-03-31,Residual trading liabilities
+y9c,HC-D,4.a,"Residential pass-through securities issued or guaranteed by FNMA, FHLMC, or GNMA",mdrm_current,BHCKG379,,2009-06-30,Agency residential pass-through MBS
+y9c,HC-D,4.b,"Other residential MBS issued or guaranteed by U.S. Govt agencies or sponsored agencies (incl. CMOs, REMICs, stripped MBS)",mdrm_current,BHCKG380,,2009-06-30,Agency-issued/guaranteed other residential MBS
+y9c,HC-D,4.c,All other residential MBS,mdrm_current,BHCKG381,,2009-06-30,Non-agency residential MBS
+y9c,HC-D,4.d,Commercial MBS issued or guaranteed by U.S. Govt agencies or sponsored agencies,mdrm_current,BHCKK197,,2011-03-31,Agency commercial MBS (added Q1 2011)
+y9c,HC-D,4.e,All other commercial MBS,mdrm_current,BHCKK198,,2011-03-31,Non-agency commercial MBS (added Q1 2011)
+y9c,HC-D,5.a,Structured financial products,mdrm_current,BHCKHT62,,2018-06-30,CDOs/CLOs/etc; breakout added 2018
+y9c,HC-D,5.b,All other debt securities,mdrm_current,BHCKG386,,2009-06-30,Includes ABS
+y9c,HC-D,6.a.(1),Loans secured by 1-4 family residential properties,mdrm_current,BHCKHT63,,2018-06-30,Loan breakout added 2018
+y9c,HC-D,6.a.(2),All other loans secured by real estate,mdrm_current,BHCKHT64,,2018-06-30,Loan breakout added 2018
+y9c,HC-D,6.b,Commercial and industrial loans,mdrm_current,BHCKF614,,2008-03-31,C&I loans held for trading
+y9c,HC-D,6.c,"Loans to individuals for household, family, and other personal expenditures (consumer loans)",mdrm_current,BHCKHT65,,2018-06-30,Consumer loans (incl. purchased paper)
+y9c,HC-D,6.d,Other loans,mdrm_current,BHCKF618,,2008-03-31,Other loans held for trading
+y9c,HC-D,M.1.a.(1),Loans secured by 1-4 family residential properties,mdrm_current,BHCKHT66,,2018-06-30,M1 = UPB of loans at FV (items 6.a.(1)-6.d)
+y9c,HC-D,M.1.a.(2),All other loans secured by real estate,mdrm_current,BHCKHT67,,2018-06-30,UPB of loans at FV
+y9c,HC-D,M.1.b,Commercial and industrial loans,mdrm_current,BHCKF632,,2008-03-31,UPB of loans at FV
+y9c,HC-D,M.1.c,Loans to individuals (consumer loans),mdrm_current,BHCKHT68,,2018-06-30,UPB of loans at FV
+y9c,HC-D,M.1.d,Other loans,mdrm_current,BHCKF636,,2008-03-31,UPB of loans at FV
+y9c,HC-D,M.10.a,Other trading liabilities itemized (>$1M & >25% of item 13.b) - Amount,mdrm_current,BHCKF658,,2008-03-31,Description in BHTXF658
+y9c,HC-D,M.10.b,Other trading liabilities itemized - Amount,mdrm_current,BHCKF659,,2008-03-31,Description in BHTXF659
+y9c,HC-D,M.10.c,Other trading liabilities itemized - Amount,mdrm_current,BHCKF660,,2008-03-31,Description in BHTXF660
+y9c,HC-D,M.2.a,Loans measured at FV past due 90+ days - Fair value,mdrm_current,BHCKF639,,2008-03-31,Fair value
+y9c,HC-D,M.2.b,Loans measured at FV past due 90+ days - Unpaid principal balance,mdrm_current,BHCKF640,,2008-03-31,Unpaid principal balance
+y9c,HC-D,M.3.a,Structured fin. products - Trust preferred securities issued by financial institutions,mdrm_current,BHCKG299,,2009-06-30,Sum M.3.a-g = item 5.a
+y9c,HC-D,M.3.b,Structured fin. products - Trust preferred securities issued by REITs,mdrm_current,BHCKG332,,2009-06-30,
+y9c,HC-D,M.3.c,Structured fin. products - Corporate and similar loans,mdrm_current,BHCKG333,,2009-06-30,
+y9c,HC-D,M.3.d,Structured fin. products - 1-4 family residential MBS issued/guaranteed by GSEs,mdrm_current,BHCKG334,,2009-06-30,
+y9c,HC-D,M.3.e,Structured fin. products - 1-4 family residential MBS not issued/guaranteed by GSEs,mdrm_current,BHCKG335,,2009-06-30,
+y9c,HC-D,M.3.f,Structured fin. products - Diversified (mixed) pools of structured financial products,mdrm_current,BHCKG651,,2009-06-30,
+y9c,HC-D,M.3.g,Structured fin. products - Other collateral or reference assets,mdrm_current,BHCKG652,,2009-06-30,
+y9c,HC-D,M.4.a,Pledged trading assets - Pledged securities,mdrm_current,BHCKG387,,2009-06-30,
+y9c,HC-D,M.4.b,Pledged trading assets - Pledged loans,mdrm_current,BHCKG388,,2009-06-30,
+y9c,HC-D,M.5.a,Asset-backed securities - Credit card receivables,mdrm_current,BHCKF643,,2008-03-31,
+y9c,HC-D,M.5.b,Asset-backed securities - Home equity lines,mdrm_current,BHCKF644,,2008-03-31,
+y9c,HC-D,M.5.c,Asset-backed securities - Automobile loans,mdrm_current,BHCKF645,,2008-03-31,
+y9c,HC-D,M.5.d,Asset-backed securities - Other consumer loans,mdrm_current,BHCKF646,,2008-03-31,
+y9c,HC-D,M.5.e,Asset-backed securities - Commercial and industrial loans,mdrm_current,BHCKF647,,2008-03-31,
+y9c,HC-D,M.5.f,Asset-backed securities - Other,mdrm_current,BHCKF648,,2008-03-31,
+y9c,HC-D,M.7.a,Equity securities - Readily determinable fair values,mdrm_current,BHCKF652,,2008-03-31,
+y9c,HC-D,M.7.b,Equity securities - Other,mdrm_current,BHCKF653,,2008-03-31,
+y9c,HC-D,M.8,Loans pending securitization,mdrm_current,BHCKF654,,2008-03-31,
+y9c,HC-D,M.9.a.(1),Gross fair value of commodity contracts,mdrm_current,BHCKG212,,2009-06-30,
+y9c,HC-D,M.9.a.(2),Gross fair value of physical commodities held in inventory,mdrm_current,BHCKG213,,2009-06-30,Exclude equity securities
+y9c,HC-D,M.9.b.(1),Other trading assets itemized (>$1M & >25% of item 9) - Amount,mdrm_current,BHCKF655,,2008-03-31,Description in BHTXF655
+y9c,HC-D,M.9.b.(2),Other trading assets itemized - Amount,mdrm_current,BHCKF656,,2008-03-31,Description in BHTXF656
+y9c,HC-D,M.9.b.(3),Other trading assets itemized - Amount,mdrm_current,BHCKF657,,2008-03-31,Description in BHTXF657
