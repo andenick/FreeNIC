@@ -1,77 +1,42 @@
-# Raw data files (large, re-downloadable)
-Inputs/Robin/
-Inputs/ffiec_bulk_bhcf/
-Inputs/bhcf_csv_pre2000/
-Inputs/NIC_Structure/
-Inputs/fdic_history/
-Inputs/fdic_sod/
-Inputs/fdic_financials/
-Inputs/fdic_failures_api.json
-Inputs/crsp_frb_link/
-Inputs/fred_h8/
-Inputs/dfast/
-Inputs/luck_database/
-Inputs/filing_instructions/
-Inputs/occ/
-Inputs/chicago_fed_call_reports/
-Inputs/newfilings*/
-Inputs/nic_attributes/
-
-# Keep Inputs/README.md
-!Inputs/README.md
-
-# Generated output data (large, regenerable from scripts)
-Outputs/parquet/
-Outputs/*.duckdb
-Outputs/*.duckdb.tmp/
-Outputs/freenic.duckdb.tmp/
-*.parquet
+# --- Data artifacts (served from data.freenic.org, never committed) ---
 *.duckdb
-*.duckdb.tmp/
+*.duckdb.tmp
+*.duckdb.wal
+*.parquet
+*.zip
 
-# Additional large raw-data acquisition dirs (re-downloadable from source)
-Inputs/cdr_call_bulk/
-Inputs/clv_historical_call/
-Inputs/*.bak_*
-Inputs/fdic_failures_api.json.bak_pre_ws2b
-*.dta
-*.bak_pre_ws2b
+# The build-host warehouse / raw acquisition dirs
+Outputs/
+Inputs/
 
-# PDF-extraction processing intermediates and catalog (large/internal, regenerable)
-Technical/HDARP_Processing/
-Technical/HDARP_Integration/
-Technical/HDARP_MASTER_CATALOG.csv
-
-# Python caches
+# --- Python ---
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
 .pytest_cache/
-
-# Environment
-.env
-*.env
+.mypy_cache/
+.ruff_cache/
 .venv/
 venv/
+env/
 
-# OS files
-.DS_Store
-Thumbs.db
-desktop.ini
+# --- Secrets / local config ---
+.env
+.env.*
+!.env.example
+keys.env
+*.key
 
-# IDE
+# --- Editor / OS ---
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
 
-# --- Internal/process docs (not for publication) ---
-# Internal session/process/agent docs
-**/Handoffs/
-**/HANDOFF_*.md
-**/PROGRESS_LOG.md
-.claude/
-CLAUDE.md
-AGENTS.md
-.cursor/
-# Internal planning docs (reference internal paths/workflow)
-**/*_PLAN.md
-Technical/FREENIC_EXPORT_AND_REFERENTIAL_FIX_PLAN.md
+# --- Backups / snapshots ---
+*.bak
+*.bak-*
+.snapshots/

@@ -1,6 +1,0 @@
-Table Number,Description,Regulation Reference,RSF Factor,PID,Encumbrance Period,Key Conditions
-110,Gross NSFR derivative asset amount,SS.107(f)(1),Varies,S.DC.1,N/A,Sub-Product2 excludes Agent
-111,Variation margin received eligible for netting,SS.107(f)(1)(i),Varies,S.DC.10,N/A,"Sub-Product = Rehypothecatable/Non-Segregated Cash; Collateral Class = Level 1 HQLA; Collateral Level = Not Overcollateralized; Netting Eligible = Y"
-112,NSFR derivative liability amount,SS.107(f)(2),Varies,S.DC.2,N/A,Sub-Product2 excludes Agent
-113,Variation margin provided excl overcollateralized,SS.107(f)(2),Varies,"S.DC.8, 9",N/A,Collateral Level = Not Overcollateralized; Sub-Product2 excludes Agent
-114,Deduction of non-transferrable excess subsidiary stable funding,SS.109,ASF Deduction,S.L.7,N/A,Rules for Consolidation

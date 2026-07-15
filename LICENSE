@@ -19,3 +19,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---------------------------------------------------------------------------
+
+DATA LICENSE (separate from the code above)
+
+The MIT license above covers the FreeNIC *source code* (the pipeline, site, and
+release tools in this repository).
+
+The FreeNIC *data compilation* — the Parquet release and the 163-year
+bank-aggregate spine listed in release-tools/release_v1.0.0/release_manifest.json,
+served from https://data.freenic.org — is released under the Creative Commons
+Attribution 4.0 International License (CC-BY-4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+E-3 PROVISIONAL NOTE. The CC-BY-4.0 grant applies to FreeNIC's own compilation,
+curation, derivation, and metadata. Individual upstream sources carry their own
+terms — most are US Government / regulatory public-domain works (FFIEC, FDIC,
+Federal Reserve, OCC, FRED, NCUA, SEC), but a few academic/derived sources
+require citation and are governed by their source terms for the source data
+itself. Where upstream terms and CC-BY-4.0 could appear to conflict, the
+upstream terms govern that source's data only. This licensing note is
+PROVISIONAL pending final per-source clearance review. See
+release-tools/release_v1.0.0/LICENSE for the full data-license text.

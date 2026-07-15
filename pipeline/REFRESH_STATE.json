@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Per-quarter FreeNIC refresh ledger. One entry per FFIEC reporting quarter. Each stage is one of: pending | done | na | undocumented, with an ISO ts and a notes string. Maintained by the freenic-refresh skill; canonical on-disk state so a refresh run survives a session/turn boundary (orchestration-cadence rule).",
+  "protocol": "pipeline/REFRESH.md",
+  "stage_order": [
+    "acquire",
+    "ingest",
+    "validate",
+    "dictionary_refresh",
+    "views_regen",
+    "coverage_audit",
+    "site_republish"
+  ],
+  "lag_rule": "A quarter (period-end YYYY-06-30 etc.) publishes ~75 days after quarter-end. Y-9C/BHCF (bhcf_filings) and some FDIC products trail the Call/UBPR/SDI core by ~1 quarter; acquire whatever is published, record the trailing product as 'pending', and pick it up next run.",
+  "quarters": {
+    "2026Q1": {
+      "period_end": "2026-03-31",
+      "run_via_skill": false,
+      "backfill_note": "Reconstructed honestly from PROGRESS_LOG.md + FREENIC_MASTER_STATE.json + the CDF baseline (FREENIC_10_BASELINE_20260714.md). The 2026Q1 data was loaded 2026-06-01 by the Definitive-Build campaign, BEFORE the freenic-refresh skill existed (skill created 2026-06-12). So this is a retro-attribution, not a skill-driven run.",
+      "stages": {
+        "acquire": {
+          "status": "done",
+          "ts": "2026-06-01T00:00:00",
+          "notes": "Q1 bulk ZIPs on disk: Inputs/cdr_call_bulk/call_single_20260331.zip (5.48 MB, 2026-06-01), Inputs/ubpr_bulk/ubpr_single_20260331.zip (104.5 MB, 2026-06-09). DRY-RUN 2026-07-14: 07d/07g with arg 20260331 both report '[done] nothing to fetch (all present)' -> quarter-detection confirms Q1 already acquired without touching the network."
+        },
+        "ingest": {
+          "status": "done",
+          "ts": "2026-06-01T00:00:00",
+          "notes": "call_report_filings 144->201 quarters (1976Q1-2026Q1), +3,207,071 rows non-destructive (07e). ubpr_ratios / ubpr_peer_stats / fdic_financials all at 2026Q1 per baseline. Loaders idempotent (07e skips existing periods; 39_ingest_ubpr.already_loaded() skips loaded period)."
+        },
+        "validate": {
+          "status": "done",
+          "ts": "2026-06-17T00:00:00",
+          "notes": "13_validate.py (728 lines, opens get_db(read_only=True)) is the gate; last recorded green run v1.4 2026-06-17 = 477 passed / 0 failed against the live DB. Not re-run in this dry-run (read-only confirmed; full run scans ~4.97B rows)."
+        },
+        "dictionary_refresh": {
+          "status": "done",
+          "ts": "2026-06-11T00:00:00",
+          "notes": "bank-data-dictionary v10.0 released 2026-06-12 (415c21a); _rebuild/quarterly_refresh.py present with a --dry-run mode; V10_STATE.json phase F 'quarterly_refresh.py dry-run green'. This was the v10 build cycle, not a discrete Q1-triggered refresh; treated as satisfying the Q1 taxonomy side. FreeNIC dict tables pinned to v10.0."
+        },
+        "views_regen": {
+          "status": "done",
+          "ts": "2026-06-12T00:00:00",
+          "notes": "14_import_dictionary -> 15_generate_schedule_views (39 views) all present and last regenerated in the 2026-06-12 dict-sync campaign; dict.* = 7 tables pinned to v10.0, 39 generated views."
+        },
+        "coverage_audit": {
+          "status": "done",
+          "ts": "2026-06-12T00:00:00",
+          "notes": "16_coverage_audit.py PASS: 15,435/15,435 raw variables reachable via >=1 view (dict_variable_access_map). Confirmed in baseline."
+        },
+        "site_republish": {
+          "status": "undocumented",
+          "ts": null,
+          "notes": "NOT confirmed for Q1 via the skill. deploy/freenic/build_slice.py exists; hosted push to data.freenic.org is operator-gated (box creds absent on build host) and STAGED per FREENIC_MASTER_STATE.json gate 7. Release label still 'v1.0' while warehouse is v1.4 -> whether the served host reflects the Q1/v1.4 data is UNVERIFIED (baseline gap #3). Mark done only after the operator sync is confirmed."
+        }
+      }
+    },
+    "2026Q2": {
+      "period_end": "2026-06-30",
+      "expected_publish": "2026-09-13",
+      "run_via_skill": null,
+      "stages": {
+        "acquire": {"status": "pending", "ts": null, "notes": "Run 07d/07g with 8-digit arg 20260630 (NOT year '2026' -- 07d QENDS is hardcoded range(2012,2026) and will not expand 2026). Q2 publishes ~2026-09-13. Y-9C/BHCF likely still trailing at 2026Q1."},
+        "ingest": {"status": "pending", "ts": null, "notes": ""},
+        "validate": {"status": "pending", "ts": null, "notes": ""},
+        "dictionary_refresh": {"status": "pending", "ts": null, "notes": "cycle 06302026 (quarterly_refresh.py --dry-run already targets it; registry-delta cycle constant in _rebuild/empirical/build_registry_v9.py = 03312026 -> 06302026)."},
+        "views_regen": {"status": "pending", "ts": null, "notes": ""},
+        "coverage_audit": {"status": "pending", "ts": null, "notes": ""},
+        "site_republish": {"status": "pending", "ts": null, "notes": "operator-gated"}
+      }
+    }
+  }
+}

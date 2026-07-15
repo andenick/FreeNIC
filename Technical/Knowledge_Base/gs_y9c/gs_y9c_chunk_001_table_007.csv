@@ -1,8 +1,0 @@
-Schedule,Item,Description,MDRM_Chargeoffs,Chargeoffs_Thousands,MDRM_Recoveries,Recoveries_Thousands
-HI-B-I,8.a.,Leases to individuals for household family and other personal expenditures,BHCK F185,0,BHCK F187,0
-HI-B-I,8.b.,All other leases,BHCK C880,0,BHCK F188,0
-HI-B-I,9.,Total (sum of items 1 through 8.b),BHCK 4635,1225000,BHCK 4605,152000
-HI-B-I-Memo,M.1.,Loans to finance commercial real estate construction and land development activities (not secured by real estate),BHCK 5409,0,BHCK 5410,0
-HI-B-I-Memo,M.2.,Loans secured by real estate to non-U.S. addressees (domicile),BHCK 4652,0,BHCK 4662,0
-Schedule,Item,Description,MDRM,Amount_Thousands
-HI-B-I-Memo,M.3.,Uncollectible retail credit card fees and finance charges reversed against income (year-to-date),BHCK C388,128000

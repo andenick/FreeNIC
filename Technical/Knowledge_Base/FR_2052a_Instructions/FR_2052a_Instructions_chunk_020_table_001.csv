@@ -1,8 +1,0 @@
-wSTWF Table,Table Name,Schedule G Item,PID,Product Type,Counterparty Filter,Collateral Class Filter,Key Notes
-18,O.D. PIDs for item 3.c,Item 3.c (Unsecured financial sector),"O.D.5,6,8,9,10,11,13,14,15",Outflows-Deposits,Financial Sector Entities (excl Central Bank),NULL or Other,4-column maturity buckets
-19,O.W. PIDs for item 3.c,Item 3.c (Unsecured financial sector),O.W.1-19,Outflows-Wholesale,"O.W.1-8/11-16: #; O.W.9/10/17/18/19: Financial entities or NULL",NULL or Other,Forward Start=NULL
-20,O.S. PIDs for item 3.c,Item 3.c (Unsecured financial sector),"O.S.1,2,3,7,11",Outflows-Secured,Financial Sector Entities (excl Central Bank),Other,O.S.7 excl Unsettled sub-products
-21,I.S. PIDs for item 3.c,Item 3.c (Unsecured financial sector),I.S.4,Inflows-Secured,Financial Sector Entities (excl Central Bank),#,"Sub-Product=No Collateral Pledged, Collateral Value=*"
-22,O.D. PIDs for item 4,Item 4 (All other STWF),"O.D.5,6,8,9,10,11,13,14,15",Outflows-Deposits,Not Retail or Small Business,Non-HQLA,4-column maturity buckets
-23,O.S. PIDs for item 4,Item 4 (All other STWF),"O.S.1,2,5,6,7,11",Outflows-Secured,Not Retail or Small Business,Non-HQLA,O.S.7 excl Unsettled sub-products
-24,O.W. PIDs for item 4,Item 4 (All other STWF),O.W.1-7,Outflows-Wholesale,#,Non-HQLA,Forward Start=NULL
