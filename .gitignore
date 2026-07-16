@@ -8,6 +8,10 @@
 # The build-host warehouse / raw acquisition dirs
 Outputs/
 Inputs/
+# Build-host input fallback root (DATA_ROOT): bulk FFIEC ZIPs + the unused
+# freenic.duckdb.STUB_UNUSED scaffolding stub + its operational README.
+# Never part of the public repo. (Added 2026-07-16, FIN-1.)
+data/
 
 # Internal operational workspace — NEVER part of the public repo.
 # Holds review reports, handoffs, state files, HDARP processing, the MCP
