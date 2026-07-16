@@ -7,8 +7,14 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-# Project paths
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+# Project paths.
+# This file lives at <repo>/pipeline/scripts/utils.py, so the repo root is THREE parents up
+# (scripts -> pipeline -> <repo>). The pre-restructure location was
+# <repo>/Technical/freenic_ingestion/scripts/ (four parents up); the public-layout restructure
+# (2026-07 v1.0.0) moved the file up one directory but left the old 4-parent walk, which
+# silently resolved PROJECT_ROOT to <repo>/.. and pointed DB_PATH at a non-existent
+# Projects/Outputs/freenic.duckdb. Corrected to 3 parents during the 2026-07-16 F2 reconcile.
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 INPUTS_DIR = PROJECT_ROOT / "Inputs"
 TECHNICAL_DIR = PROJECT_ROOT / "Technical"
 OUTPUTS_DIR = PROJECT_ROOT / "Outputs"
