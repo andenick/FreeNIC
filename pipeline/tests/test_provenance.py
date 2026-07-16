@@ -22,7 +22,12 @@ EXEMPTIONS = OUTPUTS_DIR / "PROVENANCE_EXEMPTIONS.csv"
 
 EXPECTED_COLS = {"table", "era", "provenance_tier", "provider", "download_url",
                  "self_serve", "citation_required", "notes"}
-VALID_TIERS = {"T1", "T2", "T3", "T3.5", "T4", "derived"}
+# v1.1.0 added a verified reconstruction tier: the Luck/finhist panels (luck_core_panel,
+# luck_equivalent_panel) are reconstructed from Fed-direct + CLV sources and validated against
+# CLV, so PROVENANCE.csv legitimately carries this long-form tier label (see
+# pipeline/reconstruction/ + release_v1.1.0). Added to the controlled vocabulary 2026-07-16.
+VALID_TIERS = {"T1", "T2", "T3", "T3.5", "T4", "derived",
+               "derived - FreeNIC reconstruction, verified vs CLV"}
 
 # Key published tables that MUST carry a provenance row.
 REQUIRED_TABLES = {

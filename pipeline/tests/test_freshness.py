@@ -30,42 +30,56 @@ def test_parquet_not_zero_bytes(parquet_dir, filename):
     assert path.stat().st_size > 0, f"{filename} is 0 bytes"
 
 
-# Tables intentionally NOT re-exported in the 2026-06-01 targeted re-export because
-# the underlying table did not change in this update (the export was scoped to the 12
-# changed/new tables — see INGESTION_LOG Phase 12 on 2026-06-01). Their parquet files
-# legitimately date from the 2026-03-30 full export and are correct; the global-DB-mtime
-# staleness heuristic flags them as a false positive. They are excluded from the strict
-# staleness gate but still checked for existence/non-zero-bytes above.
-UNCHANGED_SINCE_FULL_EXPORT = {
-    "luck_call_reports.parquet", "filing_metadata.parquet", "dfast_results.parquet",
-    "pillar3_disclosures.parquet", "variable_crosswalk.parquet",
+# name -> (schema) for the DB base table each expected parquet is exported from. The
+# catalog_* parquets export the catalog-schema tables (prefix stripped); everything else
+# is a main-schema base table. Confirmed against information_schema 2026-07-16 (all 26 are
+# BASE TABLEs, none views — so COUNT(*) uses table metadata and never scans).
+_CATALOG_PARQUETS = {
+    "catalog_variables", "catalog_filing_coverage", "catalog_entity_coverage",
+    "catalog_schema_evolution", "catalog_data_sources",
 }
 
 
-def test_parquet_files_not_stale(parquet_dir):
-    """Changed/new Parquet files should be no more than 30 days older than the DB file.
+def _db_ref(parquet_filename: str) -> str:
+    stem = parquet_filename[:-len(".parquet")]
+    if stem in _CATALOG_PARQUETS:
+        return f'catalog."{stem[len("catalog_"):]}"'
+    return f'main."{stem}"'
 
-    Tables that did not change in the latest update are exempt (targeted re-export);
-    they are validated for existence and non-zero bytes elsewhere.
+
+def test_parquet_matches_db_rowcount(db, parquet_dir):
+    """Freshness = content parity: every exported parquet's row count must equal its live
+    DB source table's row count.
+
+    This replaces the former "parquet mtime must be < 30 days older than freenic.duckdb's
+    file mtime" heuristic, which is unreliable and produced an all-tables false positive:
+    the warehouse *file* mtime moves whenever the DB is opened read-write, VACUUM-tested, or
+    integration-touched (the 2026-07-15 canonical-DB validation + reconstruction-table
+    integration touched it to 2026-07-15) WITHOUT re-exporting the core parquets. That marked
+    every June export "stale" even though the exported data is byte-for-byte current — see
+    Outputs/CANONICAL_DB_DECISION_20260715.md (no DB swap; core tables unchanged). Row-count
+    parity checks the thing that actually matters — did a real data change land in the DB but
+    not the parquet — and a forgotten re-export after a genuine row-count change WILL fail
+    here, while a mere file touch will not. No re-export is required for this gate.
     """
     from conftest import DB_PATH
     if not DB_PATH.exists():
         pytest.skip("Database file not found")
 
-    db_mtime = DB_PATH.stat().st_mtime
-    max_age_seconds = 30 * 24 * 3600  # 30 days
-
-    stale = []
+    mismatches = []
     for f in EXPECTED_PARQUETS:
-        if f in UNCHANGED_SINCE_FULL_EXPORT:
-            continue
         p = parquet_dir / f
-        if p.exists():
-            age_diff = db_mtime - p.stat().st_mtime
-            if age_diff > max_age_seconds:
-                stale.append((f, age_diff / 86400))
+        if not p.exists():
+            continue  # existence is asserted by test_all_expected_parquets_exist
+        pq_rows = db.execute(
+            f"SELECT COUNT(*) FROM read_parquet('{p.as_posix()}')").fetchone()[0]
+        db_rows = db.execute(f"SELECT COUNT(*) FROM {_db_ref(f)}").fetchone()[0]
+        if pq_rows != db_rows:
+            mismatches.append((f, pq_rows, db_rows))
 
-    assert not stale, f"Stale Parquet files: {stale}"
+    assert not mismatches, (
+        "parquet row count != live DB table (re-export needed): "
+        + ", ".join(f"{f}: parquet={pq:,} db={dbn:,}" for f, pq, dbn in mismatches))
 
 
 def test_all_expected_parquets_exist(parquet_dir):
