@@ -6,11 +6,12 @@ Summary of Deposits, historical), the Federal Reserve (FR Y-9C/BHCF, H.8, FRED),
 SEC EDGAR, and derived academic panels — into a single, provenance-tracked warehouse with a
 harmonized variable dictionary, then exports a clean, citable public release.
 
-- **Warehouse:** 58 base tables · **4.97 billion rows** (4,965,894,572) · coverage span **1782–2026**
-  across 21 source families (warehouse build 1.4, data vintage 2026Q1).
-- **Public release (v1.0.0):** **61 files / 13.2 GiB** — 60 base-table Parquet exports plus the
-  163-year (1863–2026) bank-aggregate spine `long_bank_aggregates_1863_2026.parquet`. Every
-  served Parquet's row count equals its warehouse source table's (row-parity gate: 61/61).
+- **Warehouse:** 62 base tables (49 main + 6 catalog + 7 dict) · 52 shaped views · **4.97 billion
+  rows** (4,968,889,667) · coverage span **1782–2026** across 21 source families (data vintage
+  2026Q1; v1.1.0 adds the verified Luck/finhist reconstruction panels — see below).
+- **Public release (v1.0.0):** **61 files / 13.2 GiB** — 60 Parquet tables (base-table exports)
+  plus the 163-year (1863–2026) bank-aggregate spine `long_bank_aggregates_1863_2026.parquet`.
+  Every served Parquet's row count equals its warehouse source table's (row-parity gate: 61/61).
 - **Explorer site:** [freenic.org](https://freenic.org) · **Data host:** [data.freenic.org](https://data.freenic.org)
 
 Code is MIT; the data compilation is CC-BY-4.0 (E-3 provisional — see [LICENSE](LICENSE) and
@@ -73,6 +74,9 @@ python scripts/00_setup.py           # then run the numbered phases in order
 python scripts/13_validate.py        # the read-only validation gate
 pytest tests/ -q
 ```
+
+The warehouse is built by a 74-script phase pipeline (`pipeline/scripts/`) and guarded by
+21 test suites (`pipeline/tests/`, run read-only against the live warehouse).
 
 ## Run the explorer site
 
