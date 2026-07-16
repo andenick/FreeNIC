@@ -1,0 +1,109 @@
+variable,era,source_kind,source_ref,formula_id,dofile_cite,confidence,scope_v11
+assets,1976-2026,mdrm_fed_direct,"cf(RCFD2170/RCON2170)",F_assets_mod,"30_build AGG_SQL; variable_map_extract.csv:26",exact,TRUE
+assets,1959-1975,dta_column,"luck_wide.assets",F_assets_dta,"45_build pivot_modl L188",exact,TRUE
+assets,1863-1941,occ_line_item,"occ_historical variable_id=assets",F_assets_hist,"45_build pivot_hist L156",exact,TRUE
+deposits,1976-2026,mdrm_fed_direct,"cf(RCFD2200/RCON2200)",F_dep_mod,"30_build AGG_SQL; variable_map_extract.csv:31",exact,TRUE
+deposits,1959-1975,dta_column,"luck_wide.deposits",F_dep_dta,"45_build pivot_modl L188",exact,TRUE
+deposits,1863-1941,reconstructed_agg,"era-override: demand+time (1915-28); individual (1905-14)",F_dep_hist,"04_create-historical-dataset.do L98-106",probable,TRUE
+domestic_dep,1976-2026,mdrm_fed_direct,"MAX(RCON2200)",F_domdep,"30_build AGG_SQL",exact,TRUE
+foreign_dep,1976-2026,mdrm_fed_direct,"RCFN2200",F_fordep,"20_build LUCK crosswalk; 45_build pivot_modc L221",probable,TRUE
+demand_deposits,1976-2026,mdrm_fed_direct,"cf(RCFD2210/RCON2210)",F_demdep_mod,"30_build AGG_SQL; variable_map_extract.csv:27",exact,TRUE
+demand_deposits,1863-1941,occ_line_item,"raw occ_historical variable_id=demand_deposits (NOT reconstructed; 04 L100-102 CONSUME it to override deposits)",F_demdep_hist,"45_build pivot_hist L160; 04 L137 keep-list",probable,TRUE
+time_deposits,1976-2026,mdrm_fed_direct,"CASE <1984: cf(2514) ELSE cf(2604)+cf(6648); ADD post-2010 J473+J474+6648",F_timedep_mod,"30_build AGG_SQL; variable_map_extract.csv:28-30",probable,TRUE
+time_deposits,1959-1975,dta_column,"luck_wide.time_deposits",F_timedep_dta,"45_build pivot_modl L188",probable,TRUE
+time_deposits,pre-1994,not_derivable,"distributed deposits_time bulk-vintage (RCON6648 only filed 1984+)",F_timedep_pre94,"CONSTRUCTION_NOTES.md §4.3",inferred,TRUE
+securities,1976-2026,mdrm_fed_direct,"CASE <1994: cf(0390) ELSE cf(1754)+cf(1773)",F_sec_mod,"30_build AGG_SQL; variable_map_extract.csv:3-6",probable,TRUE
+securities,1959-1969,mdrm_fed_direct,"RCON 0400+0600+0900+0950",F_sec_59,"variable_map_extract.csv:3",probable,TRUE
+securities,1969-1994,mdrm_fed_direct,"RCFD 0400+0600+0900+0950 (alt RCFD0390 from 1983Q3)",F_sec_69,"variable_map_extract.csv:4-5",probable,TRUE
+securities,1959-1975,dta_column,"luck_wide.securities",F_sec_dta,"45_build pivot_modl L188",probable,TRUE
+securities,1863-1941,occ_line_item,"occ_historical variable_id=securities",F_sec_hist,"45_build pivot_hist L169",exact,TRUE
+securities,pre-1994,not_derivable,"raw-MDRM build in un-shipped 3-create-variables.do; ~86.8% pre-1994 ceiling",F_sec_ceiling,"30_build header; CONSTRUCTION_NOTES.md §5",inferred,TRUE
+cash,1976-2026,mdrm_fed_direct,"cf(0010); ADD post-1984 RCFD 0081+0071",F_cash,"30_build AGG_SQL; variable_map_extract.csv:1-2",exact,TRUE
+cash,1959-1975,dta_column,"luck_wide/.dta cash",F_cash_dta,"20_build LUCK crosswalk RCFD0010",exact,TRUE
+ln_tot,1976-2026,mdrm_fed_direct,"cf(2122) (net of unearned income)",F_lntot_mod,"30_build AGG_SQL; variable_map_extract.csv:9; 45_build pivot_modc L222",exact,TRUE
+ln_tot,1959-1975,dta_column,"luck_wide.ln_tot -> loans",F_lntot_dta,"45_build pivot_modl L188",exact,TRUE
+ln_tot,1863-1941,occ_line_item,"occ_historical variable_id=loans",F_loans_hist,"45_build pivot_hist L157",exact,TRUE
+ln_tot_gross,1959-1976,mdrm_fed_direct,"RCFD1400",F_lntotg_pre76,"variable_map_extract.csv:7",exact,FALSE
+ln_tot_gross,1976-2026,mdrm_fed_direct,"RCFD 2122+2123",F_lntotg_mod,"variable_map_extract.csv:8",exact,FALSE
+ln_re,1976-2026,mdrm_fed_direct,"cf(1410)",F_lnre,"30_build AGG_SQL; variable_map_extract.csv:70",exact,TRUE
+ln_ci,1976-2026,mdrm_fed_direct,"CASE <1984: RCFD1600 ELSE cf(1766) (fallback 1763+1764)",F_lnci,"30_build AGG_SQL; variable_map_extract.csv:89-91",exact,TRUE
+ln_cons,1976-2026,mdrm_fed_direct,"cf(1975) [dict] vs RCFDB538 [crosswalk] METHOD-CHOICE",F_lncons,"30_build AGG_SQL; variable_map_extract.csv:92; 20_build LUCK",probable,TRUE
+ln_agr,1976-2026,mdrm_fed_direct,"cf(1590)",F_lnagr,"30_build AGG_SQL; variable_map_extract.csv:100",probable,TRUE
+ln_cc,1976-2026,mdrm_fed_direct,"RCON2008 (1967-2000) -> RCONB538 (2001+) [RESOLVED appendix Table C.1 p.112]",F_lncc,"arXiv 2506.06082 Table C.1 p.112; 07 L125-127",probable,TRUE
+ln_fi,1976-2026,mdrm_fed_direct,"RCON1495 (1959-83) -> RCON 1505+1510+1517+1756+1757 (1976-2000) -> RCON B531+B534+B535 (2001+) [RESOLVED Table C.1 p.112]",F_lnfi,"arXiv 2506.06082 Table C.1 p.112; 07 L125-127",probable,TRUE
+ln_oth,1976-2026,dta_column,"modern .dta ln_oth loan bucket; NO published 'Other Loans' row in Table C.1 -> residual/dta-column, honest",F_lnoth,"05 keep-list L121; 07 L125-127",inferred,TRUE
+oreo,1976-2026,mdrm_fed_direct,"cf(2150)",F_oreo_mod,"30_build AGG_SQL; variable_map_extract.csv:21",exact,TRUE
+oreo,1863-1941,occ_line_item,"rename oreo_and_mortgages -> oreo",F_oreo_hist,"04 L61; 45_build pivot_hist L170",exact,TRUE
+llres,1976-2026,mdrm_fed_direct,"cf(3123); ADD pre-1976 RCFD3120",F_llres,"30_build AGG_SQL; variable_map_extract.csv:10-11",exact,TRUE
+equity,1976-2026,mdrm_fed_direct,"cf(3210)",F_eq_mod,"30_build AGG_SQL; variable_map_extract.csv:69; 45_build pivot_modc L220",exact,TRUE
+equity,1959-1975,dta_column,"luck_wide.equity",F_eq_dta,"45_build pivot_modl L188",exact,TRUE
+equity,1863-1941,reconstructed_agg,"rowtotal(capital,surplus,undivided_profits,surplus_and_undivided_profits); freeNIC COALESCE-guard METHOD-CHOICE",F_eq_hist,"04 L84-85; 45_build build_panel L267-269",probable,TRUE
+surplus,1976-2026,mdrm_fed_direct,"cf(3839); ADD pre-1990 RCFD3240; crosswalk-collision 3230 METHOD-CHOICE",F_surp_mod,"30_build AGG_SQL; variable_map_extract.csv:64-65; 20_build LUCK",exact,TRUE
+surplus,1959-1975,dta_column,"luck_wide.surplus",F_surp_dta,"45_build pivot_modl L188",exact,TRUE
+undivided_profits,1863-1941,occ_line_item,"occ undivided_profits",F_undiv,"45_build pivot_hist L166; 07 L74",exact,TRUE
+surplus_profit,1863-1941,reconstructed_agg,"rowtotal(surplus,undivided_profits); =surplus_and_undivided_profits for 1905-07,1918-28",F_surpprofit,"04 L87-90",exact,TRUE
+capital,1863-1941,occ_line_item,"occ paid-in capital",F_cap_hist,"04 L84; 07 L68",exact,TRUE
+subdebt,1976-2026,mdrm_fed_direct,"cf(3200)",F_subdebt,"30_build AGG_SQL; 20_build LUCK RCFD3200",exact,TRUE
+liab_tot,1976-2026,mdrm_fed_direct,"cf(2948)",F_liabtot,"30_build AGG_SQL; 20_build LUCK RCFD2948",exact,TRUE
+otherbor_liab,1976-2026,mdrm_fed_direct,"cf(3190)",F_othbor_mod,"45_build pivot_modc L223",exact,TRUE
+otherbor_liab,1959-1975,dta_column,"luck_wide.othbor_liab",F_othbor_dta,"45_build pivot_modl L188",probable,TRUE
+ffsold,1976-2026,mdrm_fed_direct,"cf(0276) PURE ffunds; NOT RCFD1350 (=combined ffrepo_ass) METHOD-CHOICE",F_ffsold,"30_build AGG_SQL item4; variable_map_extract.csv:16",exact,TRUE
+ffpurch,1976-2026,mdrm_fed_direct,"cf(0278) PURE ffunds; NOT RCFD2800 (=combined ffrepo_liab)",F_ffpurch,"30_build AGG_SQL item4; variable_map_extract.csv",exact,TRUE
+brokered_dep,1976-2026,mdrm_fed_direct,"RCON2365",F_broker,"variable_map_extract.csv:94; 20_build CDR",exact,TRUE
+insured_deposits,1976-2026,mdrm_fed_direct,"RCON2702 (Q2-only 1983-90) then F049+F045 (2006+)",F_insured,"variable_map_extract.csv:95-96",exact,TRUE
+interbank,1863-1941,reconstructed_agg,"rowtotal(due_to_nb,due_to_other_nb,due_to_sb,due_to_tc_and_sb,due_to_banks,due_to_banks_and_other_liabs); 1905-20 pooled (fn9)",F_interbank,"04 L68; 04 L63-67",exact,TRUE
+liquid,1863-1941,reconstructed_agg,"rowtotal(15 cash/specie/due-from items); overridden 1905-1935 to cash_and_exchange+frb_reserve+cash_exchange_and_reserve",F_liquid_hist,"04 L72-82",exact,TRUE
+liquid,1976-2026,reconstructed_agg,"rowtotal(cash,securities,ffpurch); PUBLISHED def (Table C.1 note p.81) = currency+reserves+balances+cash-items+securities, EXCLUDES fed funds -> ffpurch is an unremarked do-file inclusion (METHOD-CHOICE/quirk); reproduce 05 L108 verbatim for cell-match",F_liquid_mod,"05 L108; arXiv 2506.06082 fig-note p.81",probable,TRUE
+total_deposits,1863-1941,reconstructed_agg,"rowtotal(us_deposits,usdo_deposits,individual_deposits,demand_deposits,time_deposits,deposits)",F_totdep_hist,"04 L98",exact,TRUE
+emergency,1863-1941,reconstructed_agg,"rowtotal(bills_payable,rediscounts)",F_emergency,"04 L94-95",exact,TRUE
+bills_payable,1863-1941,occ_line_item,"occ bills_payable",F_billspay,"04 L94; 07 L28",exact,TRUE
+rediscounts,1863-1941,occ_line_item,"occ rediscounts",F_redisc,"04 L94; 07 L28",exact,TRUE
+bonds_circ,1863-1941,reconstructed_agg,"approx = lawful_money (if bonds_circ null) else securities_usgov",F_bonds_circ,"04 L111-112",probable,TRUE
+notes_nb,1863-1941,occ_line_item,"occ national-bank notes outstanding",F_notes_nb,"04 L116; 06 L107",exact,TRUE
+res_funding,1863-1941,reconstructed_agg,"assets - rowtotal(equity,total_deposits,interbank,notes_nb); floored at 0",F_res_funding,"04 L116-122; 45_build build_panel L294",exact,TRUE
+ytdnetinc,1976-2026,mdrm_fed_direct,"RIAD4340 (IADX5106 pre-1969)",F_netinc,"30_build AGG_SQL; variable_map_extract.csv:305-306",exact,TRUE
+ytdnetinc,1959-1975,dta_column,"luck_wide.ytdnetinc",F_netinc_dta,"45_build pivot_modl L188",exact,TRUE
+ytdint_inc,1976-2026,mdrm_fed_direct,"RIAD4107",F_intinc,"30_build AGG_SQL; 20_build LUCK",exact,TRUE
+ytdint_exp,1976-2026,mdrm_fed_direct,"RIAD4073",F_intexp,"30_build AGG_SQL; 20_build LUCK",exact,TRUE
+ytdint_inc_ln,1976-2026,mdrm_fed_direct,"IADX5006 (1960-68) -> RIAD4010 (1969+)",F_intincln,"variable_map_extract.csv:229-230",exact,TRUE
+ytdint_exp_dep,1976-2026,mdrm_fed_direct,"IADX5032 -> RIAD4170 -> (alt 4174+4176+4172) -> (2017+ 4508+0093+HK03+HK04+4172)",F_intexpdep,"variable_map_extract.csv:259-262",exact,TRUE
+ytdllprov,1976-2026,mdrm_fed_direct,"RIAD4230",F_llprov,"30_build AGG_SQL; variable_map_extract.csv:270",exact,TRUE
+npl_tot,1976-2026,mdrm_fed_direct,"cf(1403)+cf(1407) (1982+)",F_npl,"30_build AGG_SQL; variable_map_extract.csv:93",exact,TRUE
+npl_tot,1959-1975,dta_column,"luck_wide.npl_tot (sparse pre-1982)",F_npl_dta,"45_build pivot_modl L188",inferred,TRUE
+num_employees,1976-2026,mdrm_fed_direct,"RIAD4150 (Number of Full-Time Employees) [RESOLVED appendix Table C.1 p.112]",F_numemp,"arXiv 2506.06082 Table C.1 p.112; 05 keep-list L123",probable,TRUE
+leverage,combined,derived_ratio,"equity/assets",R_leverage,"07 L66",exact,TRUE
+leverage_capital,combined,derived_ratio,"capital/assets",R_levcap,"07 L68",exact,TRUE
+surplus_ratio,1863-1941,derived_ratio,"surplus_profit/equity",R_surpratio,"07 L71",exact,TRUE
+profit_shortfall,1863-1941,derived_ratio,"(undivided_profits/equity)<0.01",R_profshort,"07 L74-75",exact,TRUE
+noncore_ratio,combined,derived_ratio,"res_funding/assets; year>1941 -> (deposits_time+otherbor_liab)/assets",R_noncore,"07 L88-92",exact,TRUE
+emergency_borrowing,1863-1941,derived_ratio,"emergency/assets; missing 1905-1928",R_emergb,"07 L96-97",exact,TRUE
+liquid_ratio,combined,derived_ratio,"liquid/assets (liquid set missing if 0)",R_liqratio,"07 L61-62",exact,TRUE
+loan_ratio,combined,derived_ratio,"loans/assets",R_loanratio,"07 L82",exact,TRUE
+deposit_ratio,combined,derived_ratio,"deposits/assets (alt: total_deposits/assets)",R_depratio,"07 L83-84",exact,TRUE
+oreo_ratio,combined,derived_ratio,"oreo/(loans+oreo)",R_oreoratio,"07 L79",exact,TRUE
+interbank_ratio,1863-1941,derived_ratio,"interbank/assets",R_ibratio,"07 L100",exact,TRUE
+time_ratio,combined,derived_ratio,"time_deposits/assets; deposits_time/assets for year>1945",R_timeratio,"07 L102-105",exact,TRUE
+demand_ratio,combined,derived_ratio,"demand_deposits/assets (missing if 0)",R_demratio,"07 L107-108",exact,TRUE
+income_ratio,1976-2026,derived_ratio,"ytdnetinc/assets (Q4 only; clip [-0.5,0.5])",R_incratio,"07 L113,120-122,138",exact,TRUE
+npl_ratio,1976-2026,derived_ratio,"npl_tot/loans",R_nplratio,"07 L114",exact,TRUE
+prov_ratio,1976-2026,derived_ratio,"ytdllprov/loans (Q4 only)",R_provratio,"07 L115,120-122",exact,TRUE
+nim,1976-2026,derived_ratio,"(ytdint_inc_ln-ytdint_exp_dep)/assets (clip [-0.5,0.5])",R_nim,"07 L118,139",exact,TRUE
+int_exp_ratio,1976-2026,derived_ratio,"ytdint_exp_dep/assets (Q4; clip [0,1])",R_intexpr,"07 L116,140",exact,TRUE
+int_inc_ratio,1976-2026,derived_ratio,"ytdint_inc_ln/assets (Q4; clip [0,1])",R_intincr,"07 L117,141",exact,TRUE
+size,combined,derived_ratio,"log(assets) on deflated assets",R_size,"07 L47",exact,TRUE
+log_age,combined,derived_ratio,"log(age); age=year-charter_year",R_logage,"07 L44; 04 L129-130; 05 L125-129",exact,TRUE
+size_cat,combined,derived_ratio,"xtile(assets,4) by year",R_sizecat,"07 L49",exact,TRUE
+crisisBVX,combined,derived_ratio,"1 if year in {1873,1884,1890,1893,1907,1930,1984,1990,2007}",R_crisis,"07 L52-55",exact,TRUE
+cpi_deflator,combined,deflator,"cpi_gfd (GFD US CPI, Dec-31 annual); var/cpi_gfd; paper states NO base year (only 'deflated by the CPI', p.81) -> GFD-native index, reproduce division bit-for-bit; freeNIC re-base 1990=100 METHOD-CHOICE",D_cpi,"02_import_GFD_CPI.do; 07 L25-34; 45_build build_cpi; arXiv 2506.06082 p.81",exact,TRUE
+entity_spine_hist,1863-1941,entity_rule,"04 L18 id=10*bank_id+version (version=cumulative end_date changes); BUT id is DROPPED (not in 04 L133-139 keep-list), panel keys on bank_id (charter) -> receiver-restart versions POOLED under one entity downstream (06/07 xtset bank_id)",E_hist,"04 L10-20,L133-139; 07 L111",exact,TRUE
+entity_spine_modern,1959-2026,entity_rule,"key id_fdic_cert (fill -id_rssd if missing); bank_id=id_fdic_cert*10+post-failure bumps; *1e5 to avoid OCC-charter clash",E_modern,"05 L53-81",exact,TRUE
+entity_spine_freenic,1959-2026,entity_rule,"freeNIC keys rssd_id not FDIC-cert; validate on (id_rssd,period_end) METHOD-CHOICE",E_freenic,"45_build add_growth L495-498",exact,TRUE
+failure_hist,1863-1941,entity_rule,"receivership_date=end_date if end_has_receivership; failed_bank=max by bank_id",FL_hist,"04 L22-33",exact,TRUE
+failure_modern,1959-2026,entity_rule,"failed_bank=!mi(fail_day) from FDIC; exclude OBAM/TARP; drop thrifts SL/SA",FL_modern,"05 L18-23,L93",exact,TRUE
+time_to_fail,combined,entity_rule,"-ceil(days_to_failure/365) (negative sign)",FL_ttf,"04 L47; 05 L98",exact,TRUE
+run,combined,entity_rule,"deposits_growth<-7.5% (alts -5/-10/-12.5); clip(-1,1)",FL_run,"06 L110-128,L193",exact,TRUE
+dedup_hist,1863-1941,entity_rule,"drop in_vl==1; drop bs_merge==1; drop days_to_failure<=0",DD_hist,"04 L37-54",exact,TRUE
+dedup_modern,1959-2026,entity_rule,"drop missing id_fdic_cert; drop days_to_failure<0; isid bank_id quarter",DD_modern,"05 L59,L104,L135",exact,TRUE
+annualize_freenic,1959-2026,entity_rule,"one row/entity-year: prefer Dec(Q4) call else latest quarter",DD_annual,"45_build pivot_modl L191-195; pivot_modc L208-213",exact,TRUE
+dedup_luck_feddirect,1976-2026,entity_rule,"KEEP pre-1976 + 1976+ absent from call_report_filings; DROP 1976+ present (99.88% redundant); idempotent",DD_slim,"08b_slim_luck.py; CONSTRUCTION_NOTES.md §5",exact,TRUE
+sample_filter_analysis,combined,entity_rule,"keep time_to_fail in [-10,-1]; last quarter per year; era windows",SF_analysis,"08 L14-17,L49-115",exact,FALSE
