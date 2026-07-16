@@ -28,6 +28,17 @@ PARQUET_DIR = OUTPUTS_DIR / "parquet"
 collect_ignore = []
 try:
     from pydantic import TypeAdapter  # noqa: F401  (present only on pydantic v2 / mcp env)
+    # Also require the MCP server module itself to import: it needs the `mcp` package AND the
+    # operational Technical/freenic_mcp/server.py (deliberately untracked in the public layout,
+    # rebuilt/run under the dedicated MCP venv per ENV-DEBT-001). On a clone/interpreter where
+    # the MCP stack isn't set up, SKIP test_mcp rather than hard-erroring at collection — it is
+    # an ENVIRONMENT test, not part of the warehouse-data gate. (Widened from a pydantic-only
+    # probe on 2026-07-16 after the public-layout restructure left server.py operational-only.)
+    import sys as _sys
+
+    _mcp_dir = Path(__file__).parent.parent.parent / "Technical" / "freenic_mcp"
+    _sys.path.insert(0, str(_mcp_dir))
+    import server  # noqa: F401
 except Exception:
     collect_ignore.append("test_mcp.py")
 

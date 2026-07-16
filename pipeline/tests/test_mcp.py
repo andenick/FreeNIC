@@ -6,8 +6,13 @@ from pathlib import Path
 
 import pytest
 
-# Add MCP server to path
-MCP_DIR = Path(__file__).parent.parent.parent / "freenic_mcp"
+# Add MCP server to path. The MCP layer lives at Technical/freenic_mcp/ (operational, its
+# own dedicated venv per ENV-DEBT-001). Pre-restructure this test sat at
+# Technical/freenic_ingestion/tests/, so parent.parent.parent == Technical/ and the bare
+# "freenic_mcp" hop resolved; the public-layout move to pipeline/tests/ made
+# parent.parent.parent == repo-root, so the Technical/ segment must be explicit.
+# Corrected 2026-07-16.
+MCP_DIR = Path(__file__).parent.parent.parent / "Technical" / "freenic_mcp"
 sys.path.insert(0, str(MCP_DIR))
 
 from server import (

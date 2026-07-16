@@ -10,7 +10,10 @@ from pathlib import Path
 
 import duckdb
 
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
+# Repo root is TWO parents up from pipeline/tests/ (was parents[3] pre-restructure when
+# the test lived at Technical/freenic_ingestion/tests/; the public-layout move to
+# pipeline/tests/ made parents[3] overshoot to Projects/. Corrected 2026-07-16.)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TOOLS_DIR = PROJECT_ROOT / "tools"
 sys.path.insert(0, str(TOOLS_DIR))
 

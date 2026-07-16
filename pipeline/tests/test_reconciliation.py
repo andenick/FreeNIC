@@ -62,7 +62,15 @@ def test_reconciliation_report_headline_thresholds():
     on the public trust report). Regenerate with coverage_analysis/reconcile_all.py."""
     import json
     from pathlib import Path
-    rj = Path(__file__).parent.parent.parent / "coverage_analysis" / "reconciliation.json"
+    # Canonical location per the shipped generator: reconcile_all.py writes
+    # CA = ROOT/"Technical"/"coverage_analysis"/"reconciliation.json" (see
+    # Technical/coverage_analysis/reconcile_all.py). The pre-restructure test lived at
+    # Technical/freenic_ingestion/tests/ (parent.parent.parent == Technical/), so the old
+    # "coverage_analysis" hop resolved correctly; the public-layout move to pipeline/tests/
+    # made parent.parent.parent == repo-root, pointing at a non-existent
+    # repo-root/coverage_analysis. Repointed to the canonical Technical/ path 2026-07-16.
+    rj = (Path(__file__).parent.parent.parent
+          / "Technical" / "coverage_analysis" / "reconciliation.json")
     assert rj.is_file(), f"missing {rj} — run reconcile_all.py"
     r = json.loads(rj.read_text())
     assert r["assets_call_vs_fdic"]["agree_pct"] >= 99.0, "assets agreement regressed"
