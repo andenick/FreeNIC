@@ -1,0 +1,30 @@
+{
+  "attempted_cells": 7468256,
+  "campaign": "FREENIC11_RECONSTRUCTION_20260715",
+  "class_counts": {
+    "EXACT": 7468243,
+    "METHOD-CHOICE": 0,
+    "NOT-DERIVABLE": 0,
+    "ROUNDING": 0,
+    "TOLERANCE": 0,
+    "UNEXPLAINED": 1844,
+    "VINTAGE": 0
+  },
+  "derivable_cells": 7470087,
+  "era": "1959_1975",
+  "era_group": "MODL",
+  "gate_threshold": 0.999,
+  "match_share": 0.9997531487919753,
+  "matched_cells": 7468243,
+  "not_derivable_cells": 0,
+  "published_cells": 7470074,
+  "total_cells": 7470087,
+  "unexplained_cells": 1844,
+  "unexplained_floor": 0.001,
+  "unexplained_share": 0.0002468512080247526,
+  "validation_key": [
+    "id_rssd",
+    "period_end"
+  ],
+  "verdict": "PASS"
+}

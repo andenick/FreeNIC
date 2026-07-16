@@ -1,0 +1,32 @@
+{
+  "artifact_kind": "INTERNAL_CONSISTENCY_NOT_PUBLISHED_GATE",
+  "artifact_note": "new builder (luck_equivalent_1976_2026) vs our own 30_build public_luck_panel; both ours. NOT the published-data gate. Real gate = luck_equivalent vs CLV sources/call-reports-modern.dta -> gate_result_1976_2026.json",
+  "attempted_cells": 43088564,
+  "campaign": "FREENIC11_RECONSTRUCTION_20260715",
+  "class_counts": {
+    "EXACT": 41277693,
+    "METHOD-CHOICE": 1810872,
+    "NOT-DERIVABLE": 0,
+    "ROUNDING": 0,
+    "TOLERANCE": 0,
+    "UNEXPLAINED": 0,
+    "VINTAGE": 0
+  },
+  "derivable_cells": 43088565,
+  "era": "1976_2026",
+  "era_group": "MODC",
+  "gate_threshold": 0.995,
+  "match_share": 0.9579732581022367,
+  "matched_cells": 41277693,
+  "not_derivable_cells": 0,
+  "published_cells": 41277694,
+  "total_cells": 43088565,
+  "unexplained_cells": 0,
+  "unexplained_floor": 0.001,
+  "unexplained_share": 0.0,
+  "validation_key": [
+    "id_rssd",
+    "period_end"
+  ],
+  "verdict": "FAIL"
+}

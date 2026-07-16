@@ -1,0 +1,30 @@
+{
+  "attempted_cells": 2624703,
+  "campaign": "FREENIC11_RECONSTRUCTION_20260715",
+  "class_counts": {
+    "EXACT": 2624703,
+    "METHOD-CHOICE": 7284,
+    "NOT-DERIVABLE": 0,
+    "ROUNDING": 0,
+    "TOLERANCE": 0,
+    "UNEXPLAINED": 453,
+    "VINTAGE": 0
+  },
+  "derivable_cells": 2632440,
+  "era": "finhist",
+  "era_group": "HIST",
+  "gate_threshold": 0.995,
+  "match_share": 0.9970609016729726,
+  "matched_cells": 2624703,
+  "not_derivable_cells": 0,
+  "published_cells": 2632440,
+  "total_cells": 2632440,
+  "unexplained_cells": 453,
+  "unexplained_floor": 0.001,
+  "unexplained_share": 0.00017208369421525276,
+  "validation_key": [
+    "bank_id",
+    "year"
+  ],
+  "verdict": "PASS"
+}
