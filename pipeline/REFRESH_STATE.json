@@ -12,6 +12,7 @@
     "site_republish"
   ],
   "lag_rule": "A quarter (period-end YYYY-06-30 etc.) publishes ~75 days after quarter-end. Y-9C/BHCF (bhcf_filings) and some FDIC products trail the Call/UBPR/SDI core by ~1 quarter; acquire whatever is published, record the trailing product as 'pending', and pick it up next run.",
+  "reconstruction_tables_rule": "B3 addendum (FREENIC11_RECONSTRUCTION_20260715): the reconstruction tables luck_equivalent_panel / luck_core_panel / clean_bank_panel_clv_derived REBUILD after each quarterly refresh via pipeline/scripts/50_reconstruct_luck.py --rebuild (MODC re-derives from the refreshed call_report_filings; MODL is input-static) and pipeline/scripts/51_reconstruct_finhist.py (input-static; --rebuild only if the CLV .dta updates), then gate with pipeline/scripts/52_validate_reconstruction.py. Run AFTER ingest+validate, alongside views_regen. (Ported into this tracked ledger 2026-07-16 by the F2 reconcile; paths updated to the post-restructure pipeline/scripts/ layout.)",
   "quarters": {
     "2026Q1": {
       "period_end": "2026-03-31",
@@ -60,7 +61,7 @@
       "expected_publish": "2026-09-13",
       "run_via_skill": null,
       "stages": {
-        "acquire": {"status": "pending", "ts": null, "notes": "Run 07d/07g with 8-digit arg 20260630 (NOT year '2026' -- 07d QENDS is hardcoded range(2012,2026) and will not expand 2026). Q2 publishes ~2026-09-13. Y-9C/BHCF likely still trailing at 2026Q1."},
+        "acquire": {"status": "pending", "ts": null, "notes": "Run 07d/07g (in pipeline/scripts/) with 8-digit arg 20260630. FIXED 2026-07-16 (F2 reconcile, C5 fix re-applied post-restructure): 07d QENDS was hardcoded range(2012,2026) (silently no-op'd for 2026+); both 07d & 07g now self-extend to (current year+2, floor 2035) and VALIDATE args via parse_targets() -- a malformed token or out-of-range year ERRORS instead of fetching nothing. Year-arg '2026' now works too, but 8-digit remains the convention. Q2 publishes ~2026-09-13. Y-9C/BHCF likely still trailing at 2026Q1."},
         "ingest": {"status": "pending", "ts": null, "notes": ""},
         "validate": {"status": "pending", "ts": null, "notes": ""},
         "dictionary_refresh": {"status": "pending", "ts": null, "notes": "cycle 06302026 (quarterly_refresh.py --dry-run already targets it; registry-delta cycle constant in _rebuild/empirical/build_registry_v9.py = 03312026 -> 06302026)."},
