@@ -12,6 +12,7 @@ Usage:
 """
 import sys
 import time
+import datetime as _dt
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -29,9 +30,60 @@ PRODUCT = "PerformanceReportingSeriesSinglePeriod"  # 'UBPR Ratio -- Single Peri
 # per-bank XML files in the ZIP) downloads reliably and is parsed by 39_ingest_ubpr.py.
 USE_TSV = False
 
-# 2026-06-09 (A1, Definitive Build): widened from range(2015,2026) to range(2002,2027) so year-args
-# auto-expand the full CDR UBPR offering (94 periods, 2002Q1-2026Q1) for the full-extent back-history pull.
-QENDS = [f"{yr}{mmdd}" for yr in range(2002, 2027) for mmdd in ("0331", "0630", "0930", "1231")]
+# 2026-06-09 (A1, Definitive Build): widened from range(2015,2026) to range(2002,2027) for the
+# full-extent back-history pull. 2026-07-15 (C5): upper bound is now PROGRAMMATIC (current UTC year
+# + 2, floor 2035) so year-args keep resolving for future cycles instead of silently capping at a
+# hardcoded upper year -- the same class of bug that bit 07d at 2026. Start stays 2002 (full history).
+_QSTART_YEAR = 2002
+_QEND_YEAR = max(2035, _dt.date.today().year + 2)
+_QMMDD = ("0331", "0630", "0930", "1231")
+_VALID_MMDD = set(_QMMDD)
+QENDS = [f"{yr}{mmdd}" for yr in range(_QSTART_YEAR, _QEND_YEAR + 1) for mmdd in _QMMDD]
+
+
+def parse_targets(args):
+    """Resolve CLI args -> sorted list of YYYYMMDD quarter-ends, or ABORT loudly.
+
+    Guards (each ERRORS via sys.exit -- never a silent no-op):
+      * 8-digit YYYYMMDD whose MMDD is NOT a quarter-end (e.g. 20260615) -> error.
+      * 4-digit year outside the producible QENDS range -> error.
+      * any other token (e.g. '2026Q2', 'Q2', 3/5/6-digit) -> error.
+      * args resolving to zero target periods -> error.
+    No args -> full QENDS default scope (self-extending).
+    """
+    if not args:
+        return list(QENDS)
+    want = []
+    for a in args:
+        if len(a) == 8 and a.isdigit():
+            if a[4:] not in _VALID_MMDD:
+                sys.exit(
+                    f"[error] '{a}': not a quarter-end date. MMDD must be one of "
+                    f"{sorted(_VALID_MMDD)} (got '{a[4:]}'). Pass an 8-digit "
+                    f"YYYYMMDD quarter-end, e.g. 20260630."
+                )
+            want.append(a)
+        elif len(a) == 4 and a.isdigit():
+            yr_q = [q for q in QENDS if q[:4] == a]
+            if not yr_q:
+                sys.exit(
+                    f"[error] year '{a}': outside the producible range "
+                    f"{_QSTART_YEAR}..{_QEND_YEAR}. Extend QENDS or pass an 8-digit "
+                    f"YYYYMMDD. (Refusing to fetch nothing silently.)"
+                )
+            want += yr_q
+        else:
+            sys.exit(
+                f"[error] '{a}': not a valid period argument. Pass an 8-digit YYYYMMDD "
+                f"quarter-end (e.g. 20260630) or a 4-digit year (e.g. 2026)."
+            )
+    targets = sorted(set(want))
+    if not targets:
+        sys.exit(
+            "[error] arguments produced zero target periods -- refusing to run "
+            "(would silently fetch nothing). Check your arguments."
+        )
+    return targets
 
 
 def to_ymd(text: str) -> str | None:
@@ -84,17 +136,7 @@ def download_period(pg, internal_value: str, ymd: str) -> int:
 
 
 def main() -> int:
-    args = sys.argv[1:]
-    if args:
-        want = []
-        for a in args:
-            if len(a) == 8 and a.isdigit():
-                want.append(a)
-            elif len(a) == 4 and a.isdigit():
-                want += [q for q in QENDS if q[:4] == a]
-        targets = sorted(set(want))
-    else:
-        targets = list(QENDS)
+    targets = parse_targets(sys.argv[1:])  # validates args; ABORTS on bad/empty input
     targets = [q for q in targets if not (RAW / f"ubpr_single_{q}.zip").exists()
                or (RAW / f"ubpr_single_{q}.zip").stat().st_size < 1000]
     print(f"[plan] {len(targets)} UBPR period(s) -> {RAW}")

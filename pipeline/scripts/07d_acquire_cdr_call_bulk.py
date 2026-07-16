@@ -2,8 +2,12 @@
 ZIP per reporting period) via Playwright, generalized from 32_acquire_cdr_unrealized.py.
 
 Drives cdr.ffiec.gov Bulk Data -> 'Call Reports -- Single Period' -> Tab Delimited,
-iterating reporting periods 2012Q1..2025Q4 (the post-2011 gap in call_report_filings).
-One ZIP per period saved to Inputs/cdr_call_bulk/call_single_<YYYYMMDD>.zip.
+iterating reporting periods 2012Q1..(current year + 2) -- the period list self-extends
+(see QENDS) so it never silently caps at a hardcoded upper year. One ZIP per period
+saved to Inputs/cdr_call_bulk/call_single_<YYYYMMDD>.zip.
+
+Args are validated (parse_targets): a malformed token or an out-of-range year ABORTS
+with an error rather than silently fetching nothing. Always prefer the 8-digit form.
 
 NO values fabricated. The Telerik RadAjax partial-postback flow is driven in a real
 headless Chromium (the requests-only route is not single-shot replicable). Robust to
@@ -19,6 +23,7 @@ Usage:
 import re
 import sys
 import time
+import datetime as _dt
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -33,11 +38,62 @@ RAW.mkdir(parents=True, exist_ok=True)
 DD = "select[name='ctl00$MainContentHolder$DatesDropDownList']"
 PRODUCT = "ReportingSeriesSinglePeriod"  # 'Call Reports -- Single Period'
 
-# All quarter-ends 2012Q1..2025Q4 (the gap to close).
-QENDS = []
-for yr in range(2012, 2026):
-    for mmdd in ("0331", "0630", "0930", "1231"):
-        QENDS.append(f"{yr}{mmdd}")
+# Quarter-ends 2012Q1..(current UTC year + 2). Generated PROGRAMMATICALLY and extended
+# well past 2030 so a bare-year arg keeps resolving for future cycles. The old hardcode
+# (`range(2012, 2026)`, i.e. <=2025Q4) silently produced ZERO periods for any 2026+ year
+# arg AND capped the no-arg default scope at 2025 -- a silent no-op. Now self-extends.
+_QSTART_YEAR = 2012
+_QEND_YEAR = max(2035, _dt.date.today().year + 2)  # never goes stale; floor 2035
+_QMMDD = ("0331", "0630", "0930", "1231")
+_VALID_MMDD = set(_QMMDD)
+QENDS = [f"{yr}{mmdd}" for yr in range(_QSTART_YEAR, _QEND_YEAR + 1) for mmdd in _QMMDD]
+
+
+def parse_targets(args):
+    """Resolve CLI args -> sorted list of YYYYMMDD quarter-ends, or ABORT loudly.
+
+    Guards (each ERRORS via sys.exit -- never a silent no-op):
+      * 8-digit YYYYMMDD whose MMDD is NOT a real quarter-end (e.g. 20260615) -> error.
+      * 4-digit year outside the producible QENDS range -> error (the silent-no-op bug).
+      * any other token (bare 'Q2', '2026Q2', 'june', 3/5/6-digit) -> error.
+      * args that resolve to zero target periods -> error (belt-and-suspenders).
+    No args -> full QENDS default scope (now self-extending, so it includes 2026+).
+    """
+    if not args:
+        return list(QENDS)
+    want = []
+    for a in args:
+        if len(a) == 8 and a.isdigit():
+            if a[4:] not in _VALID_MMDD:
+                sys.exit(
+                    f"[error] '{a}': not a quarter-end date. The MMDD part must be one "
+                    f"of {sorted(_VALID_MMDD)} (got '{a[4:]}'). Pass an 8-digit "
+                    f"YYYYMMDD quarter-end, e.g. 20260630."
+                )
+            want.append(a)
+        elif len(a) == 4 and a.isdigit():
+            yr_q = [q for q in QENDS if q[:4] == a]
+            if not yr_q:
+                sys.exit(
+                    f"[error] year '{a}': outside the producible range "
+                    f"{_QSTART_YEAR}..{_QEND_YEAR}. Extend QENDS or pass an 8-digit "
+                    f"YYYYMMDD. (Refusing to fetch nothing silently.)"
+                )
+            want += yr_q
+        else:
+            sys.exit(
+                f"[error] '{a}': not a valid period argument. Pass an 8-digit YYYYMMDD "
+                f"quarter-end (e.g. 20260630) or a 4-digit year (e.g. 2026). A bare year "
+                f"like '2026' is accepted but a malformed token is NOT -- refusing to "
+                f"silently fetch nothing."
+            )
+    targets = sorted(set(want))
+    if not targets:
+        sys.exit(
+            "[error] arguments produced zero target periods -- refusing to run "
+            "(would silently fetch nothing). Check your arguments."
+        )
+    return targets
 
 
 def to_ymd(text: str) -> str | None:
@@ -99,17 +155,7 @@ def download_period(pg, internal_value: str, ymd: str) -> int:
 
 
 def main() -> int:
-    args = sys.argv[1:]
-    if args:
-        want = []
-        for a in args:
-            if len(a) == 8 and a.isdigit():
-                want.append(a)
-            elif len(a) == 4 and a.isdigit():  # whole year
-                want += [q for q in QENDS if q[:4] == a]
-        targets = sorted(set(want))
-    else:
-        targets = list(QENDS)
+    targets = parse_targets(sys.argv[1:])  # validates args; ABORTS on bad/empty input
 
     # Skip ZIPs already on disk (idempotent acquisition).
     targets = [
