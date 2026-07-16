@@ -9,6 +9,13 @@
 Outputs/
 Inputs/
 
+# Internal operational workspace — NEVER part of the public repo.
+# Holds review reports, handoffs, state files, HDARP processing, the MCP
+# stack, snapshots, and internal (Council/*) references. Public deliverables
+# live under pipeline/, site/, tools/, release-tools/. (Added 2026-07-16 to
+# stop the 915 untracked Technical/ items from ever being accidentally staged.)
+Technical/
+
 # --- Python ---
 __pycache__/
 *.py[cod]
