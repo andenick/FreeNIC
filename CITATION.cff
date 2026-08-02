@@ -1,0 +1,34 @@
+# Target path: repo ROOT (promote from release-tools/release_v1.0.0/CITATION.cff).
+cff-version: 1.2.0
+title: "FreeNIC: Free National Information Center"
+message: "If you use this data, please cite it using the metadata from this file."
+type: dataset
+authors:
+  - family-names: Anderson
+    given-names: Nicholas
+    email: nickawebbox@gmail.com
+    affiliation: "The New School for Social Research"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"  # Nick to fill
+repository-code: "https://github.com/andenick/FreeNIC"
+url: "https://freenic.org"
+abstract: >-
+  FreeNIC is a research-grade, openly published U.S. banking data warehouse that
+  harmonizes the major public regulatory sources - FFIEC Call Reports & UBPR,
+  FDIC (BankFind, SDI, Summary of Deposits, historical), the Federal Reserve
+  (FR Y-9C/BHCF, H.8, FRED), OCC, NCUA, SEC EDGAR, and derived academic panels -
+  into a single provenance-tracked warehouse with a harmonized variable
+  dictionary. The public data release (v1.0.0) ships 61 files (60 base Parquet
+  tables plus the 1863-2026 bank-aggregate spine); totals are approximately
+  4.97 billion rows across 21 source families, spanning 1782-2026, covering
+  217,210 institutions and 87,351 MDRM variables. Code is MIT; the data
+  compilation is CC-BY-4.0.
+keywords:
+  - banking
+  - regulatory-data
+  - ffiec
+  - fdic
+  - federal-reserve
+  - open-data
+version: "1.0.0"
+date-released: "2026-07-14"
+license: CC-BY-4.0
