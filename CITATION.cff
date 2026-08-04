@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: "FreeNIC: Free National Information Center"
+message: "If you use FreeNIC, please cite it using the metadata from this file."
+type: software
+authors:
+  - family-names: Anderson
+    given-names: Nicholas
+repository-code: "https://github.com/andenick/FreeNIC"
+url: "https://data.freenic.org"
+abstract: >-
+  An openly published US banking data warehouse and the ingestion pipeline that
+  builds it. FreeNIC harmonizes the major public regulatory sources — FFIEC Call
+  Reports and UBPR, FDIC, Federal Reserve, OCC, NCUA and SEC EDGAR — into a
+  single provenance-tracked warehouse with a harmonized variable dictionary, and
+  exports a citable public Parquet release. The pipeline code in this repository
+  is MIT-licensed; the published data release is CC-BY-4.0 (see DATA_LICENSE.md).
+keywords:
+  - banking
+  - regulatory-data
+  - call-report
+  - ffiec
+  - fdic
+  - open-data
+version: "1.1.1"
+date-released: "2026-07-16"
+license: MIT
