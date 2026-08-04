@@ -221,7 +221,7 @@ def build_filing_coverage(con):
 
         UNION ALL
 
-        -- Robin panel (wide-format, 156 columns as "variables")
+        -- Failing Banks panel (wide-format, 156 columns as "variables")
         SELECT 'robin', MAKE_DATE(year, 12, 31),
                COUNT(*), 156, COUNT(*)
         FROM robin_panel
@@ -545,27 +545,27 @@ def build_data_sources(con):
 
         UNION ALL
 
-        SELECT 'robin_panel', 'Volcker/Inputs/Robin/FAILING_BANKS/', 'robin_csv',
-            'Robin Failing Banks annual panel (1863-2024)', '28_ingest_robin_panel.py'
+        SELECT 'robin_panel', 'Inputs/failing_banks/FAILING_BANKS/', 'failing_banks_csv',
+            'Failing Banks annual panel (1863-2024)', '28_ingest_robin_panel.py'
 
         UNION ALL
 
-        SELECT 'robin_deposits', 'Volcker/Inputs/Robin/FAILING_BANKS/', 'robin_csv',
-            'Robin deposit dynamics (historical + modern)', '28_ingest_robin_panel.py'
+        SELECT 'robin_deposits', 'Inputs/failing_banks/FAILING_BANKS/', 'failing_banks_csv',
+            'Failing Banks deposit dynamics (historical + modern)', '28_ingest_robin_panel.py'
 
         UNION ALL
 
-        SELECT 'robin_crosswalk', 'Volcker/Technical/Catalogs/bank_identifier_crosswalk.csv', 'csv',
-            'Robin bank_id to RSSD/FDIC cert crosswalk', '29_ingest_volcker_catalogs.py'
+        SELECT 'robin_crosswalk', 'Inputs/catalogs/bank_identifier_crosswalk.csv', 'csv',
+            'Failing Banks bank_id to RSSD/FDIC cert crosswalk', '29_ingest_volcker_catalogs.py'
 
         UNION ALL
 
-        SELECT 'bhc_ownership', 'Volcker/Technical/Catalogs/bhc_hierarchy.csv', 'csv',
+        SELECT 'bhc_ownership', 'Inputs/catalogs/bhc_hierarchy.csv', 'csv',
             'BHC parent-child ownership hierarchy', '29_ingest_volcker_catalogs.py'
 
         UNION ALL
 
-        SELECT 'sector_groupings', 'Volcker/Technical/Catalogs/sec_filings_catalog.csv', 'csv',
+        SELECT 'sector_groupings', 'Inputs/catalogs/sec_filings_catalog.csv', 'csv',
             'CIK to SIC to sector classifications', '29_ingest_volcker_catalogs.py'
 
         UNION ALL

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "purpose": "Per-quarter FreeNIC refresh ledger. One entry per FFIEC reporting quarter. Each stage is one of: pending | done | na | undocumented, with an ISO ts and a notes string. Maintained by the freenic-refresh skill; canonical on-disk state so a refresh run survives a session/turn boundary (orchestration-cadence rule).",
+  "purpose": "Per-quarter FreeNIC refresh ledger. One entry per FFIEC reporting quarter. Each stage is one of: pending | done | na | undocumented, with an ISO ts and a notes string. This file is the machine-readable companion to pipeline/REFRESH.md, so a refresh that spans several sittings can be resumed from a known state.",
   "protocol": "pipeline/REFRESH.md",
   "stage_order": [
     "acquire",
@@ -12,12 +12,12 @@
     "site_republish"
   ],
   "lag_rule": "A quarter (period-end YYYY-06-30 etc.) publishes ~75 days after quarter-end. Y-9C/BHCF (bhcf_filings) and some FDIC products trail the Call/UBPR/SDI core by ~1 quarter; acquire whatever is published, record the trailing product as 'pending', and pick it up next run.",
-  "reconstruction_tables_rule": "B3 addendum (FREENIC11_RECONSTRUCTION_20260715): the reconstruction tables luck_equivalent_panel / luck_core_panel / clean_bank_panel_clv_derived REBUILD after each quarterly refresh via pipeline/scripts/50_reconstruct_luck.py --rebuild (MODC re-derives from the refreshed call_report_filings; MODL is input-static) and pipeline/scripts/51_reconstruct_finhist.py (input-static; --rebuild only if the CLV .dta updates), then gate with pipeline/scripts/52_validate_reconstruction.py. Run AFTER ingest+validate, alongside views_regen. (Ported into this tracked ledger 2026-07-16 by the F2 reconcile; paths updated to the post-restructure pipeline/scripts/ layout.)",
+  "reconstruction_tables_rule": "The reconstruction tables luck_equivalent_panel / luck_core_panel / clean_bank_panel_clv_derived REBUILD after each quarterly refresh via pipeline/scripts/50_reconstruct_luck.py --rebuild (MODC re-derives from the refreshed call_report_filings; MODL is input-static) and pipeline/scripts/51_reconstruct_finhist.py (input-static; --rebuild only if the CLV .dta updates), then gate with pipeline/scripts/52_validate_reconstruction.py. Run AFTER ingest+validate, alongside views_regen.",
   "quarters": {
     "2026Q1": {
       "period_end": "2026-03-31",
-      "run_via_skill": false,
-      "backfill_note": "Reconstructed honestly from PROGRESS_LOG.md + FREENIC_MASTER_STATE.json + the CDF baseline (FREENIC_10_BASELINE_20260714.md). The 2026Q1 data was loaded 2026-06-01 by the Definitive-Build campaign, BEFORE the freenic-refresh skill existed (skill created 2026-06-12). So this is a retro-attribution, not a skill-driven run.",
+      "automated_run": false,
+      "backfill_note": "Reconstructed from the build records of the 2026-06-01 warehouse build, which predates this ledger. The 2026Q1 data was loaded on 2026-06-01, before the refresh protocol was written (2026-06-12), so these entries are a retrospective attribution rather than the record of a protocol-driven run.",
       "stages": {
         "acquire": {
           "status": "done",
@@ -37,7 +37,7 @@
         "dictionary_refresh": {
           "status": "done",
           "ts": "2026-06-11T00:00:00",
-          "notes": "bank-data-dictionary v10.0 released 2026-06-12 (415c21a); _rebuild/quarterly_refresh.py present with a --dry-run mode; V10_STATE.json phase F 'quarterly_refresh.py dry-run green'. This was the v10 build cycle, not a discrete Q1-triggered refresh; treated as satisfying the Q1 taxonomy side. FreeNIC dict tables pinned to v10.0."
+          "notes": "bank-data-dictionary v10.0 released 2026-06-12 (415c21a); its quarterly_refresh.py was exercised in --dry-run mode as part of that build. This was the v10 build cycle rather than a discrete Q1-triggered refresh; treated as satisfying the Q1 taxonomy side. FreeNIC dict tables are pinned to v10.0."
         },
         "views_regen": {
           "status": "done",
@@ -52,22 +52,50 @@
         "site_republish": {
           "status": "undocumented",
           "ts": null,
-          "notes": "NOT confirmed for Q1 via the skill. deploy/freenic/build_slice.py exists; hosted push to data.freenic.org is operator-gated (box creds absent on build host) and STAGED per FREENIC_MASTER_STATE.json gate 7. Release label still 'v1.0' while warehouse is v1.4 -> whether the served host reflects the Q1/v1.4 data is UNVERIFIED (baseline gap #3). Mark done only after the operator sync is confirmed."
+          "notes": "Not confirmed for Q1. release-tools/build_slice.py exists; the hosted push to data.freenic.org needs credentials the build host does not hold, so it is operator-gated and currently staged. The published release label is still v1.0 while the warehouse is at v1.4, so whether the served host reflects the Q1/v1.4 data is UNVERIFIED. Mark done only after the operator sync is confirmed."
         }
       }
     },
     "2026Q2": {
       "period_end": "2026-06-30",
       "expected_publish": "2026-09-13",
-      "run_via_skill": null,
+      "automated_run": null,
       "stages": {
-        "acquire": {"status": "pending", "ts": null, "notes": "Run 07d/07g (in pipeline/scripts/) with 8-digit arg 20260630. FIXED 2026-07-16 (F2 reconcile, C5 fix re-applied post-restructure): 07d QENDS was hardcoded range(2012,2026) (silently no-op'd for 2026+); both 07d & 07g now self-extend to (current year+2, floor 2035) and VALIDATE args via parse_targets() -- a malformed token or out-of-range year ERRORS instead of fetching nothing. Year-arg '2026' now works too, but 8-digit remains the convention. Q2 publishes ~2026-09-13. Y-9C/BHCF likely still trailing at 2026Q1."},
-        "ingest": {"status": "pending", "ts": null, "notes": ""},
-        "validate": {"status": "pending", "ts": null, "notes": ""},
-        "dictionary_refresh": {"status": "pending", "ts": null, "notes": "cycle 06302026 (quarterly_refresh.py --dry-run already targets it; registry-delta cycle constant in _rebuild/empirical/build_registry_v9.py = 03312026 -> 06302026)."},
-        "views_regen": {"status": "pending", "ts": null, "notes": ""},
-        "coverage_audit": {"status": "pending", "ts": null, "notes": ""},
-        "site_republish": {"status": "pending", "ts": null, "notes": "operator-gated"}
+        "acquire": {
+          "status": "pending",
+          "ts": null,
+          "notes": "Run 07d/07g (in pipeline/scripts/) with the 8-digit argument 20260630. Fixed 2026-07-16: 07d's QENDS was a hardcoded range(2012,2026) and silently did nothing for 2026 and later; both 07d and 07g now self-extend to (current year + 2, floor 2035) and validate their arguments via parse_targets() -- a malformed token or an out-of-range year now errors instead of fetching nothing. A bare year argument works too, but the 8-digit form remains the convention. Q2 publishes ~2026-09-13. FR Y-9C/BHCF will likely still be trailing at 2026Q1."
+        },
+        "ingest": {
+          "status": "pending",
+          "ts": null,
+          "notes": ""
+        },
+        "validate": {
+          "status": "pending",
+          "ts": null,
+          "notes": ""
+        },
+        "dictionary_refresh": {
+          "status": "pending",
+          "ts": null,
+          "notes": "cycle 06302026 (quarterly_refresh.py --dry-run already targets it; registry-delta cycle constant in _rebuild/empirical/build_registry_v9.py = 03312026 -> 06302026)."
+        },
+        "views_regen": {
+          "status": "pending",
+          "ts": null,
+          "notes": ""
+        },
+        "coverage_audit": {
+          "status": "pending",
+          "ts": null,
+          "notes": ""
+        },
+        "site_republish": {
+          "status": "pending",
+          "ts": null,
+          "notes": "operator-gated"
+        }
       }
     }
   }

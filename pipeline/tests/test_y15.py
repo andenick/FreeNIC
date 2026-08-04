@@ -1,4 +1,4 @@
-"""FR Y-15 systemic-risk indicators tests (added W19 — B2 of the non-HDARP plan)."""
+"""FR Y-15 systemic-risk indicators tests."""
 
 
 def test_y15_row_floor(db):

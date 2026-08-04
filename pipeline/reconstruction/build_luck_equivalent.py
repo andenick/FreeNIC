@@ -68,7 +68,8 @@ except ImportError:  # pragma: no cover - direct-script fallback
     from pipeline.reconstruction import variable_map as vm  # type: ignore
 
 # ---------------------------------------------------------------------------
-# Paths (forward-slash, per .claude/rules/filepath-safety.md). Warehouse READ-ONLY.
+# Paths are always forward-slash so they work on Windows and POSIX alike.
+# The warehouse is opened READ-ONLY.
 # ---------------------------------------------------------------------------
 WAREHOUSE = Path(os.environ.get("FREENIC_OUTPUTS", "Outputs") + "/freenic.duckdb")
 PUBLIC_LUCK_PANEL = Path(os.environ.get("FREENIC_OUTPUTS", "Outputs") + "/public_luck_panel.parquet")

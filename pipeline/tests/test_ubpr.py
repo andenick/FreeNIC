@@ -1,4 +1,4 @@
-"""UBPR ratios table tests (added W19 — A1 of the non-HDARP plan)."""
+"""UBPR ratios table tests."""
 
 
 def test_ubpr_row_floor(db):

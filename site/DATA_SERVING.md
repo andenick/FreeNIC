@@ -99,19 +99,19 @@ Both services sit on the external `homelab_default` network. Add the public host
 mkdir -p ~/freenic-data   # (original plan: sudo mkdir -p /srv/freenic-data + chown)
 ```
 
-**b. rsync the ~13 GB release from the build host** (`D:\Arcanum\Projects\freenic\Outputs\`).
+**b. rsync the ~13 GB release from the build host** (the export directory `$FREENIC_OUTPUTS` points at).
 From a shell that can reach both (adjust host/paths):
 ```bash
 # parquet payload (~13 GB)
 rsync -avh --progress \
-  /mnt/d/Arcanum/Projects/freenic/Outputs/parquet/*.parquet \
+  "$FREENIC_OUTPUTS"/parquet/*.parquet \
   user@minipc:/srv/freenic-data/
 
 # integrity + provenance + license (co-host alongside the data)
 rsync -avh \
-  /mnt/d/Arcanum/Projects/freenic/Outputs/SHA256SUMS.txt \
-  /mnt/d/Arcanum/Projects/freenic/Outputs/PROVENANCE.csv \
-  /mnt/d/Arcanum/Projects/freenic/DATA_LICENSE.md \
+  "$FREENIC_OUTPUTS"/SHA256SUMS.txt \
+  "$FREENIC_OUTPUTS"/PROVENANCE.csv \
+  DATA_LICENSE.md \
   user@minipc:/srv/freenic-data/
 ```
 Windows alternative (PowerShell, from the build host): `scp` the same files, or `robocopy` to a share
