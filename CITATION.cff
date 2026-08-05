@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: Anderson
     given-names: Nicholas
+    website: "https://www.nickanderson.us/"
 repository-code: "https://github.com/andenick/FreeNIC"
 url: "https://data.freenic.org"
 abstract: >-
