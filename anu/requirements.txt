@@ -1,0 +1,15 @@
+# FreeNIC Anu replication package — Python dependencies.
+# Mirrors pipeline/requirements.txt plus `requests` for the keyless fetchers.
+
+duckdb>=0.10          # warehouse engine + httpfs validation against served data
+pandas>=2.0
+numpy>=1.24
+requests>=2.31        # keyless API fetchers (L01/L05)
+
+# Ingestion-only (P## phases):
+pyreadstat>=1.2       # SAS XPT call-report files
+playwright>=1.40      # FFIEC CDR bulk download flow; run `playwright install chromium`
+PyYAML>=6.0           # OCC label-map parsing
+
+# Optional:
+pytest>=7.0           # canonical test suite (pipeline/tests/)

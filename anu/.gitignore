@@ -1,0 +1,7 @@
+# Produced data never ships - served from https://data.freenic.org
+data/
+*.duckdb
+*.duckdb.wal
+*.parquet
+*.zip
+__pycache__/

@@ -1,0 +1,2437 @@
+{
+  "schema_version": "1.0",
+  "project": "FreeNIC",
+  "generated_at": "2026-08-31",
+  "_meta": {
+    "registry_unit": "served data table / table family (not individual series)",
+    "release_version": "1.1.0",
+    "release_date": "2026-07-15",
+    "data_vintage": "2026Q1",
+    "served_root": "https://data.freenic.org/",
+    "reconstruction_root": "https://data.freenic.org/reconstruction/",
+    "row_counts_from": "authoritative release manifest (remote when reachable, else committed v1.0.0 manifest + reconstruction counts)",
+    "table_count": 67,
+    "pipeline_of_record": "pipeline/scripts/ (74 phase scripts); this package wraps, documents, and validates it"
+  },
+  "series": [
+    {
+      "series_id": "FDIC_FAILURES",
+      "table_family": "FDIC BankFind Suite",
+      "title": "Bank Failures 1934-2026",
+      "description": "Every FDIC-insured bank failure on record: failing institution, failure date, estimated loss to the Deposit Insurance Fund, and total assets where reported. 4,115 failure events.",
+      "output_file": "bank_failures.parquet",
+      "source": {
+        "name": "FDIC BankFind Suite API - failures endpoint",
+        "url": "https://api.fdic.gov/banks/failures",
+        "retrieved": "2026-05-27",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Full API pull (paginated JSON), flattened to one row per failure event.",
+        "scripts": [
+          "16_ingest_fdic_failures.py"
+        ],
+        "transformations": [
+          "json_flatten"
+        ]
+      },
+      "units": "failure events; estimated loss and total assets in USD",
+      "frequency": "event",
+      "coverage": {
+        "start": "1934",
+        "end": "2026"
+      },
+      "rows": 4115,
+      "tier": "T2",
+      "quality": {
+        "status": "verified",
+        "notes": "Includes the 2023 failure wave (SVB, Signature, First Republic)."
+      }
+    },
+    {
+      "series_id": "FDIC_FINANCIALS",
+      "table_family": "FDIC BankFind Suite",
+      "title": "FDIC SDI Financials 1984-2026",
+      "description": "Quarterly financial statements for every FDIC-insured institution from the Statistics on Depository Institutions (SDI): 69.5M institution-quarter-variable observations, wide-to-long.",
+      "output_file": "fdic_financials.parquet",
+      "source": {
+        "name": "FDIC BankFind Suite API - financials endpoint (Statistics on Depository Institutions)",
+        "url": "https://api.fdic.gov/banks/financials",
+        "retrieved": "2026-04-30",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "168 paginated JSON pages concatenated, loaded via DuckDB JSON reader, SQL-unpivoted wide-to-long.",
+        "scripts": [
+          "17_ingest_fdic_financials.py"
+        ],
+        "transformations": [
+          "json_concat",
+          "wide_to_long"
+        ]
+      },
+      "units": "USD in SDI reporting units (see FDIC SDI codebook per variable)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1984Q1",
+        "end": "2026Q1"
+      },
+      "rows": 69455560,
+      "tier": "T2",
+      "quality": {
+        "status": "verified",
+        "notes": "Long format: one row per (institution, quarter, variable)."
+      }
+    },
+    {
+      "series_id": "FDIC_HISTORY",
+      "table_family": "FDIC BankFind Suite",
+      "title": "FDIC Institution History 1782-2026",
+      "description": "Institution event history: mergers, acquisitions, name changes, charter conversions, closings - 582K events back to 1782.",
+      "output_file": "fdic_history.parquet",
+      "source": {
+        "name": "FDIC BankFind Suite API - history endpoint",
+        "url": "https://api.fdic.gov/banks/history",
+        "retrieved": "2026-05-27",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Paginated API pull, flattened to one row per event.",
+        "scripts": [
+          "25_ingest_fdic_history.py"
+        ],
+        "transformations": [
+          "json_flatten"
+        ]
+      },
+      "units": "event records (dates, event codes)",
+      "frequency": "event",
+      "coverage": {
+        "start": "1782",
+        "end": "2026"
+      },
+      "rows": 582628,
+      "tier": "T2",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "FDIC_SOD",
+      "table_family": "FDIC Summary of Deposits",
+      "title": "FDIC Summary of Deposits 1994-2025",
+      "description": "Branch-level deposit records from the annual Summary of Deposits survey: 2.8M branch-year records with deposit amounts.",
+      "output_file": "fdic_sod.parquet",
+      "source": {
+        "name": "FDIC BankFind Suite API - SOD endpoint",
+        "url": "https://banks.data.fdic.gov/api/sod",
+        "retrieved": "2025-10-31",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Paginated API download (limit=10000) cached as JSON pages, then flattened.",
+        "scripts": [
+          "18_download_fdic_sod.py",
+          "19_ingest_fdic_sod.py"
+        ],
+        "transformations": [
+          "paginated_download",
+          "json_flatten"
+        ]
+      },
+      "units": "USD deposit amounts; count of branches",
+      "frequency": "annual",
+      "coverage": {
+        "start": "1994",
+        "end": "2025"
+      },
+      "rows": 2815984,
+      "tier": "T2",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "FDIC_SDI_FEATURES",
+      "table_family": "FDIC BankFind Suite",
+      "title": "SDI-Derived Bank Feature Panel 1984-2025",
+      "description": "Annual institution-level feature panel derived from fdic_financials: asset ratios, NIM/ROA, log age, and F1/F3/F5 forward failure flags used in failure-prediction research. 413K institution-years.",
+      "output_file": "fdic_sdi_features.parquet",
+      "source": {
+        "name": "FreeNIC derived (from FDIC SDI financials)",
+        "url": "https://api.fdic.gov/banks/financials",
+        "retrieved": "2026-07-15",
+        "license": "MIT (FreeNIC build)",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Deterministic SQL feature build over fdic_financials.",
+        "scripts": [
+          "31_build_sdi_feature_panel.py"
+        ],
+        "transformations": [
+          "ratio_features",
+          "forward_failure_flags",
+          "log_age"
+        ]
+      },
+      "units": "ratios (dimensionless), percent, log-years",
+      "frequency": "annual",
+      "coverage": {
+        "start": "1984",
+        "end": "2025"
+      },
+      "rows": 413130,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": "Derived table - the public API is the upstream source."
+      }
+    },
+    {
+      "series_id": "CALL_REPORTS",
+      "table_family": "FFIEC Call Reports",
+      "title": "Consolidated Call Reports 1976-2026",
+      "description": "The unified Call Report long table: 1.92 billion (institution, quarter, MDRM item) observations across 50 years, harmonized from three vintages: Chicago Fed Commercial Bank Data (1976-2002), FFIEC CDR public bulk (2012+), and gap-fill from CDR. This single table carries the modern regulatory balance-sheet and income-statement core of the warehouse.",
+      "output_file": "call_report_filings.parquet",
+      "source": {
+        "name": "FFIEC Central Data Repository (public bulk) + Chicago Fed Commercial Bank Data (historical vintage)",
+        "url": "https://cdr.ffiec.gov/public/pws/downloadbulkdata.aspx",
+        "retrieved": "2026-03-31",
+        "license": "US federal government work (public domain)",
+        "access": "public-browser"
+      },
+      "construction": {
+        "method": "Three-track ingest: SAS XPT files 1976-2002 (146 quarterly files, wide-to-long over 2,800+ variable columns); FFIEC CDR bulk ZIPs 2012+ via the bulk download flow; CDR gap-fill for missing quarters. All tracks unpivot to (rssd, period_end, mdrm_item, value).",
+        "scripts": [
+          "07_ingest_call_reports.py",
+          "07d_acquire_cdr_call_bulk.py",
+          "07e_ingest_call_reports_cdr.py",
+          "07f_recover_gap_from_cdr.py"
+        ],
+        "transformations": [
+          "xpt_read",
+          "wide_to_long",
+          "zip_extract",
+          "period_keyed_merge"
+        ]
+      },
+      "units": "varies by MDRM item (USD thousands for $ items, counts, ratios - see MDRM definitions)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1976Q1",
+        "end": "2026Q1"
+      },
+      "rows": 1917025977,
+      "tier": "T1,T3",
+      "quality": {
+        "status": "verified",
+        "notes": "The 1976-2002 XPT vintage is the Chicago Fed Commercial Bank Data product, distributed under its own license (institutional/subscription distribution); public keyless coverage starts 2001+ at FFIEC CDR. See D03 for the honest reproduction ladder."
+      }
+    },
+    {
+      "series_id": "UBPR_RATIOS",
+      "table_family": "FFIEC UBPR",
+      "title": "Uniform Bank Performance Report Ratios 2002-2026",
+      "description": "UBPR per-institution ratio data: 1.25 billion (institution, quarter, ratio) observations.",
+      "output_file": "ubpr_ratios.parquet",
+      "source": {
+        "name": "FFIEC CDR public bulk - UBPR Ratio, Single Period (tab-delimited ZIPs)",
+        "url": "https://cdr.ffiec.gov/public/pws/downloadbulkdata.aspx",
+        "retrieved": "2026-03-31",
+        "license": "US federal government work (public domain)",
+        "access": "public-browser"
+      },
+      "construction": {
+        "method": "Per-quarter tab-delimited ZIPs acquired from the CDR bulk download flow and ingested long.",
+        "scripts": [
+          "07g_acquire_ubpr.py",
+          "39_ingest_ubpr.py"
+        ],
+        "transformations": [
+          "zip_extract",
+          "wide_to_long"
+        ]
+      },
+      "units": "ratios (percent, dimensionless - see UBPR definitions)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "2002Q4",
+        "end": "2026Q1"
+      },
+      "rows": 1251149050,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "UBPR_PEER_STATS",
+      "table_family": "FFIEC UBPR",
+      "title": "UBPR Peer Group Statistics 2002-2026",
+      "description": "Peer-group percentile statistics for UBPR ratios (22.1M rows).",
+      "output_file": "ubpr_peer_stats.parquet",
+      "source": {
+        "name": "FFIEC CDR public bulk - UBPR Peer Stats (Four Periods, XBRL ZIPs)",
+        "url": "https://cdr.ffiec.gov/public/pws/downloadbulkdata.aspx",
+        "retrieved": "2026-03-31",
+        "license": "US federal government work (public domain)",
+        "access": "public-browser"
+      },
+      "construction": {
+        "method": "Year-bucketed XBRL ZIPs acquired via the CDR bulk flow and parsed.",
+        "scripts": [
+          "07i_acquire_ubpr_peer.py",
+          "42_ingest_ubpr_peer.py"
+        ],
+        "transformations": [
+          "xbrl_parse",
+          "percentile_stats"
+        ]
+      },
+      "units": "ratios (percentiles)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "2002Q4",
+        "end": "2026Q1"
+      },
+      "rows": 22067752,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "UBPR_PEER_RANK",
+      "table_family": "FFIEC UBPR",
+      "title": "UBPR Peer Ranks 2002-2026",
+      "description": "Per-bank percentile ranks within UBPR peer groups (250M rows).",
+      "output_file": "ubpr_peer_rank.parquet",
+      "source": {
+        "name": "FFIEC CDR public bulk - UBPR Rank (Four Periods, XBRL ZIPs)",
+        "url": "https://cdr.ffiec.gov/public/pws/downloadbulkdata.aspx",
+        "retrieved": "2026-03-31",
+        "license": "US federal government work (public domain)",
+        "access": "public-browser"
+      },
+      "construction": {
+        "method": "Year-bucketed XBRL ZIPs acquired via the CDR bulk flow and parsed.",
+        "scripts": [
+          "07i_acquire_ubpr_peer.py",
+          "42_ingest_ubpr_peer.py"
+        ],
+        "transformations": [
+          "xbrl_parse",
+          "rank_computation"
+        ]
+      },
+      "units": "percentile ranks",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "2002Q4",
+        "end": "2026Q1"
+      },
+      "rows": 250012503,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "CDR_UNREALIZED",
+      "table_family": "FFIEC UBPR",
+      "title": "AFS/HTM Unrealized Losses 2019-2026",
+      "description": "Available-for-sale / held-to-maturity fair values, unrealized gains and losses, AOCI, and brokered deposits from Call Report schedules RC-B, RC, RC-E (46.9K institution-quarter rows). Built for the 2023 failure-wave securities-exposure analysis.",
+      "output_file": "cdr_unrealized_losses.parquet",
+      "source": {
+        "name": "FFIEC CDR public bulk - Call Report schedules",
+        "url": "https://cdr.ffiec.gov/public/pws/downloadbulkdata.aspx",
+        "retrieved": "2026-03-31",
+        "license": "US federal government work (public domain)",
+        "access": "public-browser"
+      },
+      "construction": {
+        "method": "CDR bulk ZIPs acquired via the public bulk download flow; schedule line-items parsed to a focused layer.",
+        "scripts": [
+          "32_acquire_cdr_unrealized.py",
+          "33_parse_cdr_unrealized.py"
+        ],
+        "transformations": [
+          "zip_extract",
+          "schedule_parse"
+        ]
+      },
+      "units": "USD fair values and unrealized gains/losses",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "2019Q4",
+        "end": "2025Q4"
+      },
+      "rows": 46929,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "BHCF_FILINGS",
+      "table_family": "Federal Reserve Y-9C",
+      "title": "Bank Holding Company Financials (FR Y-9C / BHCF) 1986-2026",
+      "description": "FR Y-9C consolidated financial statements for bank holding companies: 208M (BHC, quarter, item) observations, 1986-2025 from caret-delimited TXT (2000+) and pre-2000 CSV vintages.",
+      "output_file": "bhcf_filings.parquet",
+      "source": {
+        "name": "FFIEC NIC / CDR - FR Y-9C bulk data (BHCF)",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/ReturnY9C",
+        "retrieved": "2026-01-26",
+        "license": "US federal government work (public domain)",
+        "access": "public-browser"
+      },
+      "construction": {
+        "method": "104 caret-delimited TXT files (2000-2025) + pre-2000 CSV vintage, unpivoted wide-to-long.",
+        "scripts": [
+          "04_ingest_bhcf_txt.py",
+          "05_ingest_bhcf_csv.py"
+        ],
+        "transformations": [
+          "delimited_read",
+          "wide_to_long"
+        ]
+      },
+      "units": "USD thousands for $ items; counts (see FR Y-9C item definitions)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1986Q3",
+        "end": "2025Q4"
+      },
+      "rows": 208147772,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": "Trailing product in the quarterly refresh (lags Call Reports ~1 quarter)."
+      }
+    },
+    {
+      "series_id": "INSTITUTIONS",
+      "table_family": "FFIEC NIC",
+      "title": "List of Insured Depository Institutions (NIC universe)",
+      "description": "Every regulated depository institution (active + closed) from the FFIEC National Information Center: 217K entities with regulator, charter, dates, and status.",
+      "output_file": "institutions.parquet",
+      "source": {
+        "name": "FFIEC National Information Center - institution attributes download",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/DataDownload",
+        "retrieved": "2026-05-29",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "NIC attribute CSVs (active + closed) loaded via DuckDB native reader.",
+        "scripts": [
+          "02_ingest_attributes.py"
+        ],
+        "transformations": [
+          "csv_load",
+          "active_closed_union"
+        ]
+      },
+      "units": "entity records (identifiers, dates, status codes)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1782",
+        "end": "2026"
+      },
+      "rows": 217210,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": "Coverage start reflects the earliest charter dates of closed entities carried in the history; the NIC attribute set itself is a current snapshot plus closed-institution history."
+      }
+    },
+    {
+      "series_id": "INSTITUTION_ATTRIBUTES",
+      "table_family": "FFIEC NIC",
+      "title": "Institution Attributes",
+      "description": "NIC attribute records per institution (charter class, regulator codes, dates, identifiers) - the core entity dimension (217K rows).",
+      "output_file": "institution_attributes.parquet",
+      "source": {
+        "name": "FFIEC National Information Center - CSV_ATTRIBUTES_ACTIVE / CLOSED",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/DataDownload",
+        "retrieved": "2026-05-29",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Native CSV load of the NIC attribute files.",
+        "scripts": [
+          "02_ingest_attributes.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "attribute records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1782",
+        "end": "2026"
+      },
+      "rows": 217210,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "BRANCHES",
+      "table_family": "FFIEC NIC",
+      "title": "Branch Locations",
+      "description": "Branch records from NIC attribute tables: 173K branch locations.",
+      "output_file": "branches.parquet",
+      "source": {
+        "name": "FFIEC National Information Center - CSV_ATTRIBUTES_BRANCHES",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/DataDownload",
+        "retrieved": "2026-05-29",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Native CSV load.",
+        "scripts": [
+          "02_ingest_attributes.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "branch records (locations)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 173250,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "RELATIONSHIPS",
+      "table_family": "FFIEC NIC",
+      "title": "Entity Relationships",
+      "description": "NIC entity-to-entity relationships (parent/child, affiliations): 286K rows.",
+      "output_file": "relationships.parquet",
+      "source": {
+        "name": "FFIEC National Information Center - CSV_RELATIONSHIPS",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/DataDownload",
+        "retrieved": "2026-05-29",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Native CSV load.",
+        "scripts": [
+          "02_ingest_attributes.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "relationship records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 286223,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "TRANSFORMATIONS",
+      "table_family": "FFIEC NIC",
+      "title": "Entity Transformations",
+      "description": "NIC-recorded entity transformation events (mergers, conversions, absorptions): 58.9K rows.",
+      "output_file": "transformations.parquet",
+      "source": {
+        "name": "FFIEC National Information Center - CSV_TRANSFORMATIONS",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/DataDownload",
+        "retrieved": "2026-05-29",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Native CSV load.",
+        "scripts": [
+          "02_ingest_attributes.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "transformation event records",
+      "frequency": "event",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 58935,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "NIC_ENTITY_IDS",
+      "table_family": "FFIEC NIC",
+      "title": "NIC Authoritative Identifier Crosswalk",
+      "description": "The authoritative Fed multi-regulator identifier crosswalk per RSSD: LEI, CUSIP, thrift IDs, ABA, FDIC cert, NCUA, OCC, tax ID (103K rows).",
+      "output_file": "nic_entity_identifiers.parquet",
+      "source": {
+        "name": "FFIEC NIC attribute CSVs (74-column vintage)",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/DataDownload",
+        "retrieved": "2026-05-29",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Harvested from the full 74-column NIC attribute set into a canonical identifier table.",
+        "scripts": [
+          "37_ingest_nic_identifiers.py"
+        ],
+        "transformations": [
+          "column_harvest"
+        ]
+      },
+      "units": "identifiers",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 102932,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "NIC_ATTRS_EXT",
+      "table_family": "FFIEC NIC",
+      "title": "NIC Attribute Extension (Geography, Charter Codes)",
+      "description": "Fed-direct geography (street/zip/county/url), charter/regulator codes, status and type per RSSD (220K rows) - the remainder of the 74-column NIC attribute set beyond the core 13 columns.",
+      "output_file": "nic_attributes_ext.parquet",
+      "source": {
+        "name": "FFIEC NIC attribute CSVs (74-column vintage)",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/DataDownload",
+        "retrieved": "2026-05-29",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Additive harvest of the remaining NIC attribute columns.",
+        "scripts": [
+          "37b_ingest_nic_attributes_ext.py"
+        ],
+        "transformations": [
+          "column_harvest"
+        ]
+      },
+      "units": "attribute records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 220092,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "Y15_INDICATORS",
+      "table_family": "Federal Reserve Y-15",
+      "title": "FR Y-15 Systemic Indicators 2020-2024",
+      "description": "FR Y-15 G-SIB systemic-risk indicator snapshots: 22.5K rows.",
+      "output_file": "y15_systemic_indicators.parquet",
+      "source": {
+        "name": "FFIEC NIC - FR Y-15 Snapshots",
+        "url": "https://www.ffiec.gov/npw/FinancialReport/FRY15Reports",
+        "retrieved": "2025-12-31",
+        "license": "US federal government work (public domain)",
+        "access": "public-browser"
+      },
+      "construction": {
+        "method": "Per-year snapshot CSVs acquired from the FR Y-15 reports page (the listing is JS-gated; the static CSV assets download directly) and loaded.",
+        "scripts": [
+          "07h_acquire_y15.py",
+          "41_ingest_y15.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "USD billions and indicator scores (see FR Y-15 instructions)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "2020Q4",
+        "end": "2024Q4"
+      },
+      "rows": 22481,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": "FR Y-9LP has no bulk product and is intentionally not included."
+      }
+    },
+    {
+      "series_id": "BHC_OWNERSHIP",
+      "table_family": "Failing Banks catalogs",
+      "title": "BHC Hierarchy / Ownership",
+      "description": "Bank holding company parent-child hierarchy with ownership percentages: 36.7K relationships.",
+      "output_file": "bhc_ownership.parquet",
+      "source": {
+        "name": "Failing Banks database catalogs (derived from NIC)",
+        "url": "https://github.com/andenick/failing-banks",
+        "retrieved": "2026-05-19",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Catalog CSV ingested and normalized.",
+        "scripts": [
+          "29_ingest_volcker_catalogs.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "ownership percentages",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 36668,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "MDRM",
+      "table_family": "Federal Reserve MDRM",
+      "title": "MDRM Variable Dictionary",
+      "description": "The Fed Micro Data Reference Manual: 87K reporting-item definitions (codes, titles, descriptions) that key every Call Report variable.",
+      "output_file": "mdrm.parquet",
+      "source": {
+        "name": "Federal Reserve MDRM (via FFIEC bulk distribution)",
+        "url": "https://www.federalreserve.gov/apps/mdrm/",
+        "retrieved": "2026-01-26",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "MDRM_CSV.csv parsed (HTML entities cleaned, PUBLIC header handled).",
+        "scripts": [
+          "01_ingest_mdrm.py"
+        ],
+        "transformations": [
+          "csv_clean"
+        ]
+      },
+      "units": "definitions (text)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 87351,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "FRED_SERIES",
+      "table_family": "FRED Banking & Macro Series",
+      "title": "FRED Banking Series (H.8 + macro context) 1954-2026",
+      "description": "Federal Reserve H.8 aggregate banking series (bank credit, loans, securities, deposits), key rates, and macro context (GDP, unemployment, CPI, industrial production): 1.35M observations. The 15 aggregate series are keyless; the full disaggregated H.8 release (~1,938 series by bank size/type) requires a free FRED API key.",
+      "output_file": "fred_series.parquet",
+      "source": {
+        "name": "FRED (St. Louis Fed) - fredgraph.csv (keyless) + FRED API release 22 (full H.8)",
+        "url": "https://fred.stlouisfed.org/",
+        "retrieved": "2026-05-31",
+        "license": "US federal government work (public domain)",
+        "access": "public-key"
+      },
+      "construction": {
+        "method": "Keyless CSV download per series for the 15 aggregates; API-paged JSON for the full H.8 release; both appended to one long table.",
+        "scripts": [
+          "27_ingest_fed_h8.py",
+          "27b_ingest_fed_h8_disagg.py"
+        ],
+        "transformations": [
+          "csv_download",
+          "api_pagination",
+          "append_long"
+        ]
+      },
+      "units": "varies by series (USD billions, percent, index) - series_id keys to FRED",
+      "frequency": "mixed (weekly/monthly/quarterly by series)",
+      "coverage": {
+        "start": "1954",
+        "end": "2026"
+      },
+      "rows": 1345207,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": "Full H.8 layer needs FRED_API_KEY (free). Frequency varies by series; per-series metadata lives in the table itself."
+      }
+    },
+    {
+      "series_id": "OCC_HISTORICAL",
+      "table_family": "OCC Annual Reports",
+      "title": "OCC Historical Condition Statements 1863-1941",
+      "description": "Digitized OCC Annual Report national-bank condition statements: 17.8M (bank, report date, item) observations across the national banking era.",
+      "output_file": "occ_historical.parquet",
+      "source": {
+        "name": "OCC Annual Reports, digitized (Luck historical database distribution)",
+        "url": "https://www.occ.gov/about/what-we-do/hist-publications/hist-publications-index.html",
+        "retrieved": "2026-03-11",
+        "license": "US federal government work (public domain)",
+        "access": "bundled"
+      },
+      "construction": {
+        "method": "Wide TSV (111K rows x 116 cols) loaded with DuckDB native reader and unpivoted long; variable labels mapped from the accompanying YAML documentation; year mapped to actual report dates.",
+        "scripts": [
+          "09_ingest_occ.py"
+        ],
+        "transformations": [
+          "tsv_load",
+          "wide_to_long",
+          "label_map",
+          "date_map"
+        ]
+      },
+      "units": "USD (era units as digitized - see variable_labels)",
+      "frequency": "quarterly to annual (report dates)",
+      "coverage": {
+        "start": "1863",
+        "end": "1941"
+      },
+      "rows": 17775763,
+      "tier": "T2,T4",
+      "quality": {
+        "status": "verified",
+        "notes": "Distributed inside the Luck historical database files; the same OCC source is also published standalone in the finhist public vintage."
+      }
+    },
+    {
+      "series_id": "OCC_HIST_CLV",
+      "table_family": "finhist / CLV",
+      "title": "finhist Historical Call Reports 1863-1941 (CLV vintage)",
+      "description": "The Correia-Luck-Verner public historical-call file: 371K bank-report rows, wide, full 1863-1941 span - penny-exact verified against the Luck TSV vintage of the same OCC source.",
+      "output_file": "occ_historical_clv.parquet",
+      "source": {
+        "name": "finhist.com / Harvard Dataverse historical-call (Correia-Luck-Verner)",
+        "url": "https://doi.org/10.7910/DVN/Q22XR1",
+        "retrieved": "2026-03-11",
+        "license": "CC BY 4.0",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Stata DTA loaded wide, kept as the CLV-published schema.",
+        "scripts": [
+          "09b_ingest_occ_finhist.py"
+        ],
+        "transformations": [
+          "dta_load"
+        ]
+      },
+      "units": "USD (as published by the authors)",
+      "frequency": "quarterly to annual",
+      "coverage": {
+        "start": "1863",
+        "end": "1941"
+      },
+      "rows": 7986823,
+      "tier": "T4",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "LUCK_CALL",
+      "table_family": "Luck historical database",
+      "title": "Luck Historical Call Reports 1959-1975 (core)",
+      "description": "The pre-1976 call-report core from the Luck historical database: 37.8M rows after dedup to the 1959Q4-1975Q4 core plus Fed-absent gap-fill (from 311.8M raw source rows).",
+      "output_file": "luck_call_reports.parquet",
+      "source": {
+        "name": "Luck historical call reports (Correia-Luck-Verner public dataset, FRBNY distribution)",
+        "url": "https://www.newyorkfed.org/research/banking_research/datasets.html",
+        "retrieved": "2026-03-11",
+        "license": "CC BY 4.0 (author replication license)",
+        "access": "bundled"
+      },
+      "construction": {
+        "method": "Stata DTA (balance sheets + income statements) loaded, quarter-start dates converted to quarter-end, then deduplicated to the core span.",
+        "scripts": [
+          "08_ingest_luck.py",
+          "08b_slim_luck.py"
+        ],
+        "transformations": [
+          "dta_load",
+          "quarter_end_conversion",
+          "dedup_core"
+        ]
+      },
+      "units": "USD (as published)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1959Q4",
+        "end": "1975Q4"
+      },
+      "rows": 37753719,
+      "tier": "T3.5",
+      "quality": {
+        "status": "verified",
+        "notes": "Sourced span extends to 2023Q1; the served table is the slimmed core. The raw DTA files are the authors' public replication files."
+      }
+    },
+    {
+      "series_id": "FB_PANEL",
+      "table_family": "Failing Banks panel",
+      "title": "Failing Banks Annual Panel 1863-2024",
+      "description": "Annual panel of ALL US banks (failed + surviving) from the Correia-Luck-Verner Failing Banks database repackaging: 2.87M bank-year observations, 156 variables - financial data, failure indicators, macro context, computed ratios. Partially fills the 1905-1958 coverage gap.",
+      "output_file": "robin_panel_base.parquet",
+      "source": {
+        "name": "Failing Banks database (Correia-Luck-Verner panel, andenick/failing-banks)",
+        "url": "https://github.com/andenick/failing-banks",
+        "retrieved": "2026-05-19",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Processed panel CSVs loaded verbatim (no recomputation).",
+        "scripts": [
+          "28_ingest_robin_panel.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "USD and ratios as published (see the source repo codebook)",
+      "frequency": "annual",
+      "coverage": {
+        "start": "1863",
+        "end": "2024"
+      },
+      "rows": 2867936,
+      "tier": "T4",
+      "quality": {
+        "status": "verified",
+        "notes": "Panel v3.3 export; regenerators can rebuild the CSVs with the conversion scripts in the public source repo."
+      }
+    },
+    {
+      "series_id": "FB_DEPOSITS_HIST",
+      "table_family": "Failing Banks panel",
+      "title": "Deposits Before Failure - Historical Era 1864-1935",
+      "description": "Pre-FDIC-era deposit dynamics for failing banks: 2,961 rows.",
+      "output_file": "robin_deposits_historical.parquet",
+      "source": {
+        "name": "Failing Banks database",
+        "url": "https://github.com/andenick/failing-banks",
+        "retrieved": "2026-05-19",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "CSV loaded verbatim.",
+        "scripts": [
+          "28_ingest_robin_panel.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "USD deposits",
+      "frequency": "event",
+      "coverage": {
+        "start": "1864",
+        "end": "1935"
+      },
+      "rows": 2961,
+      "tier": "T4",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "FB_DEPOSITS_MODERN",
+      "table_family": "Failing Banks panel",
+      "title": "Deposits Before Failure - Modern Era 1993-2023",
+      "description": "Modern-era deposit run-up dynamics with run indicators: 547 rows.",
+      "output_file": "robin_deposits_modern.parquet",
+      "source": {
+        "name": "Failing Banks database",
+        "url": "https://github.com/andenick/failing-banks",
+        "retrieved": "2026-05-19",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "CSV loaded verbatim.",
+        "scripts": [
+          "28_ingest_robin_panel.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "USD deposits",
+      "frequency": "event",
+      "coverage": {
+        "start": "1993",
+        "end": "2023"
+      },
+      "rows": 547,
+      "tier": "T4",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "FB_CROSSWALK",
+      "table_family": "Failing Banks catalogs",
+      "title": "Bank Identifier Crosswalk (Failing Banks bank_id <-> RSSD <-> FDIC cert)",
+      "description": "14,287 bank_id-to-RSSD-to-FDIC-cert mappings linking the Failing Banks panel identifiers to the regulatory universes.",
+      "output_file": "robin_crosswalk.parquet",
+      "source": {
+        "name": "Failing Banks database catalogs",
+        "url": "https://github.com/andenick/failing-banks",
+        "retrieved": "2026-05-19",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Catalog CSV ingested.",
+        "scripts": [
+          "29_ingest_volcker_catalogs.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "identifiers",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 14286,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "SECTOR_GROUPINGS",
+      "table_family": "Failing Banks catalogs",
+      "title": "Sector Groupings (CIK -> SIC -> sector)",
+      "description": "16,548 CIK-to-SIC-to-sector classifications used for industry grouping.",
+      "output_file": "sector_groupings.parquet",
+      "source": {
+        "name": "Failing Banks database catalogs (SEC SIC basis)",
+        "url": "https://github.com/andenick/failing-banks",
+        "retrieved": "2026-05-19",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Catalog CSV ingested.",
+        "scripts": [
+          "29_ingest_volcker_catalogs.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "classifications",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 16548,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "NCUA_5300",
+      "table_family": "NCUA",
+      "title": "NCUA 5300 Credit Union Call Reports 1994-2025",
+      "description": "Credit-union call reports (Form 5300): 1.18 billion (CU, quarter, item) observations. A distinct institution universe keyed by NCUA CU_NUMBER - additive to the bank core, never unioned on bank identifiers.",
+      "output_file": "ncua_5300.parquet",
+      "source": {
+        "name": "NCUA credit union call report data (quarterly bulk ZIPs)",
+        "url": "https://www.ncua.gov/analysis/credit-union-corporate-call-report-data",
+        "retrieved": "2026-04-30",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Quarterly bulk ZIPs parsed to long format.",
+        "scripts": [
+          "26_ingest_ncua.py"
+        ],
+        "transformations": [
+          "zip_extract",
+          "wide_to_long"
+        ]
+      },
+      "units": "USD and counts per 5300 acct code",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1994Q1",
+        "end": "2025Q4"
+      },
+      "rows": 1180127221,
+      "tier": "T2",
+      "quality": {
+        "status": "verified",
+        "notes": "SCOPE EXPANSION beyond FDIC-insured depositories/BHCs: credit unions."
+      }
+    },
+    {
+      "series_id": "NCUA_DIRECTORY",
+      "table_family": "NCUA",
+      "title": "NCUA Credit Union Directory",
+      "description": "Credit-union directory records (names, charters, fields of membership): 851K rows.",
+      "output_file": "ncua_cu_directory.parquet",
+      "source": {
+        "name": "NCUA credit union call report data",
+        "url": "https://www.ncua.gov/analysis/credit-union-corporate-call-report-data",
+        "retrieved": "2026-04-30",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Directory layer parsed from the 5300 bulk distribution.",
+        "scripts": [
+          "26_ingest_ncua.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "entity records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1994",
+        "end": "2025"
+      },
+      "rows": 851288,
+      "tier": "T2",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "DFAST_RESULTS",
+      "table_family": "Federal Reserve stress tests",
+      "title": "DFAST Stress Test Results 2013-2025",
+      "description": "Comprehensive capital-analysis results for the 22-43 largest BHCs per exercise: capital ratios, loan losses, revenue and income projections under stress (28K observations across 14 annual exercises).",
+      "output_file": "dfast_results.parquet",
+      "source": {
+        "name": "Federal Reserve DFAST published results",
+        "url": "https://www.federalreserve.gov/supervisionreg/dfast-archive.htm",
+        "retrieved": "2025-06-30",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Published results CSVs loaded.",
+        "scripts": [
+          "23_ingest_dfast.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "capital ratios (percent), losses/revenue (USD)",
+      "frequency": "annual",
+      "coverage": {
+        "start": "2013",
+        "end": "2025"
+      },
+      "rows": 28231,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "STRESS_SCENARIOS",
+      "table_family": "Federal Reserve stress tests",
+      "title": "Supervisory Stress Scenarios",
+      "description": "DFAST/CCAR supervisory scenario definitions (historical actuals, baseline, severely adverse): 200 rows of macro paths.",
+      "output_file": "stress_scenarios.parquet",
+      "source": {
+        "name": "Federal Reserve supervisory scenarios",
+        "url": "https://www.federalreserve.gov/supervisionreg/dfa-stress-tests.htm",
+        "retrieved": "2025-02-28",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Six published scenario CSVs harmonized into one table.",
+        "scripts": [
+          "30_ingest_stress_scenarios.py"
+        ],
+        "transformations": [
+          "csv_load",
+          "harmonize"
+        ]
+      },
+      "units": "macro variables (percent, index, USD as defined per scenario)",
+      "frequency": "quarterly projection paths",
+      "coverage": {
+        "start": "2024",
+        "end": "2026"
+      },
+      "rows": 200,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "STRESS_SCENARIOS_DOM",
+      "table_family": "Federal Reserve stress tests",
+      "title": "Stress Scenarios - Domestic",
+      "description": "Domestic scenario block (226 rows).",
+      "output_file": "stress_scenarios_domestic.parquet",
+      "source": {
+        "name": "Federal Reserve supervisory scenarios",
+        "url": "https://www.federalreserve.gov/supervisionreg/dfa-stress-tests.htm",
+        "retrieved": "2025-02-28",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Published CSVs loaded.",
+        "scripts": [
+          "30_ingest_stress_scenarios.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "macro variables",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "2024",
+        "end": "2026"
+      },
+      "rows": 226,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "STRESS_SCENARIOS_INTL",
+      "table_family": "Federal Reserve stress tests",
+      "title": "Stress Scenarios - International",
+      "description": "International scenario block (226 rows).",
+      "output_file": "stress_scenarios_international.parquet",
+      "source": {
+        "name": "Federal Reserve supervisory scenarios",
+        "url": "https://www.federalreserve.gov/supervisionreg/dfa-stress-tests.htm",
+        "retrieved": "2025-02-28",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Published CSVs loaded.",
+        "scripts": [
+          "30_ingest_stress_scenarios.py"
+        ],
+        "transformations": [
+          "csv_load"
+        ]
+      },
+      "units": "macro variables",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "2024",
+        "end": "2026"
+      },
+      "rows": 226,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "PILLAR3",
+      "table_family": "G-SIB Pillar 3 disclosures",
+      "title": "Pillar 3 Disclosures (5 G-SIBs) 2024-2025",
+      "description": "Quarterly Basel III Pillar 3 disclosures (capital, RWA, ratios, SLR, TLAC) transcribed from the investor-relations pages of JPM, BAC, WFC, C, MS: 8.7K rows.",
+      "output_file": "pillar3_disclosures.parquet",
+      "source": {
+        "name": "G-SIB Pillar 3 disclosure documents (bank investor-relations pages)",
+        "url": "https://www.bis.org/bcbs/pillar3.htm",
+        "retrieved": "2025-11-30",
+        "license": "bank-published disclosures (public documents; see DPR D12)",
+        "access": "manual"
+      },
+      "construction": {
+        "method": "Tables transcribed from the published disclosure PDFs/pages into CSV, then parsed - a hand-collected layer, not a bulk download.",
+        "scripts": [
+          "24_ingest_pillar3.py"
+        ],
+        "transformations": [
+          "manual_transcription",
+          "csv_parse"
+        ]
+      },
+      "units": "USD and regulatory ratios",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "2024Q1",
+        "end": "2025Q3"
+      },
+      "rows": 8653,
+      "tier": "T2",
+      "quality": {
+        "status": "verified",
+        "notes": "Hand-collected from 5 banks' public disclosures; no single bulk source exists. See D12 for the honest reproduction path."
+      }
+    },
+    {
+      "series_id": "CRSP_MAPPING",
+      "table_family": "Market crosswalks",
+      "title": "CRSP-FRB PERMCO Mapping 1971-2024",
+      "description": "PERMCO-to-RSSD linking table from the NY Fed's CRSP-FRB link: 18.9K entries enabling market-data joins to the regulatory universe.",
+      "output_file": "crsp_mapping.parquet",
+      "source": {
+        "name": "NY Fed CRSP-FRB link table",
+        "url": "https://www.newyorkfed.org/research/banking_research/datasets.html",
+        "retrieved": "2026-03-11",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "16 mapping CSVs loaded, notice/copyright rows dropped.",
+        "scripts": [
+          "03_ingest_crsp.py"
+        ],
+        "transformations": [
+          "csv_load",
+          "row_filter"
+        ]
+      },
+      "units": "identifiers",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1971",
+        "end": "2024"
+      },
+      "rows": 18908,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": "Ships the public LINK TABLE only - CRSP market data itself is proprietary and is NOT in FreeNIC."
+      }
+    },
+    {
+      "series_id": "SEC_CIK",
+      "table_family": "Market crosswalks",
+      "title": "SEC EDGAR CIK Crosswalk",
+      "description": "SEC CIK identity for bank/BHC filers (ticker, SIC, size hint): 371 rows - an identity crosswalk, not a financials table.",
+      "output_file": "sec_cik_crosswalk.parquet",
+      "source": {
+        "name": "SEC EDGAR structured data (submissions + XBRL frames, data.sec.gov)",
+        "url": "https://data.sec.gov/",
+        "retrieved": "2026-06-30",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "SIC-filtered submissions + XBRL frames API queried for bank/BHC filers; assembled into a crosswalk.",
+        "scripts": [
+          "34_ingest_sec_edgar.py"
+        ],
+        "transformations": [
+          "api_query",
+          "sic_filter"
+        ]
+      },
+      "units": "identifiers; Assets as coarse size hint (USD)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 371,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "HMDA_SUMMARY",
+      "table_family": "Market crosswalks",
+      "title": "HMDA Mortgage-Lending Summary 2022-2023",
+      "description": "CFPB HMDA institution-by-year mortgage summary keyed by LEI at (lei, activity_year, loan_purpose): loan counts and amounts. A SUMMARY aggregated from the Data Browser API - not the full LAR.",
+      "output_file": "hmda_summary.parquet",
+      "source": {
+        "name": "CFPB HMDA Data Browser API",
+        "url": "https://ffiec.cfpb.gov/data-browser/",
+        "retrieved": "2026-06-30",
+        "license": "US federal government work (public domain)",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Filers list + per-LEI loan-purpose aggregations pulled from the Data Browser API and transcribed verbatim.",
+        "scripts": [
+          "35_ingest_hmda.py"
+        ],
+        "transformations": [
+          "api_aggregation"
+        ]
+      },
+      "units": "loan counts; loan amount in USD thousands",
+      "frequency": "annual",
+      "coverage": {
+        "start": "2022",
+        "end": "2023"
+      },
+      "rows": 208302,
+      "tier": "T2",
+      "quality": {
+        "status": "verified",
+        "notes": "Adjacent dataset (mortgage lending), not the call-report core."
+      }
+    },
+    {
+      "series_id": "DICT_META",
+      "table_family": "Variable dictionary",
+      "title": "Dictionary Meta",
+      "description": "Release metadata for the pinned bank-data-dictionary build (3 rows).",
+      "output_file": "dict_meta.parquet",
+      "source": {
+        "name": "bank-data-dictionary (harmonized variable taxonomy, pinned release)",
+        "url": "https://github.com/andenick/bank-data-dictionary",
+        "retrieved": "2026-07-01",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Pinned dictionary release imported and re-pinned each quarterly refresh.",
+        "scripts": [
+          "14_import_dictionary.py"
+        ],
+        "transformations": [
+          "import"
+        ]
+      },
+      "units": "definitions (text)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 3,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "DICT_CROSSWALK",
+      "table_family": "Variable dictionary",
+      "title": "Dictionary Crosswalk",
+      "description": "Cross-dictionary variable mappings (2,057 rows).",
+      "output_file": "dict_crosswalk.parquet",
+      "source": {
+        "name": "bank-data-dictionary (harmonized variable taxonomy, pinned release)",
+        "url": "https://github.com/andenick/bank-data-dictionary",
+        "retrieved": "2026-07-01",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Pinned dictionary release imported and re-pinned each quarterly refresh.",
+        "scripts": [
+          "14_import_dictionary.py"
+        ],
+        "transformations": [
+          "import"
+        ]
+      },
+      "units": "definitions (text)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 2057,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "DICT_EDIT_HISTORY",
+      "table_family": "Variable dictionary",
+      "title": "Dictionary Edit History",
+      "description": "Taxonomy edit log (15.6K rows).",
+      "output_file": "dict_edit_history.parquet",
+      "source": {
+        "name": "bank-data-dictionary (harmonized variable taxonomy, pinned release)",
+        "url": "https://github.com/andenick/bank-data-dictionary",
+        "retrieved": "2026-07-01",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Pinned dictionary release imported and re-pinned each quarterly refresh.",
+        "scripts": [
+          "14_import_dictionary.py"
+        ],
+        "transformations": [
+          "import"
+        ]
+      },
+      "units": "definitions (text)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 15622,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "DICT_RELATIONSHIPS",
+      "table_family": "Variable dictionary",
+      "title": "Dictionary Relationships",
+      "description": "Variable-to-variable relationships (7,539 rows).",
+      "output_file": "dict_relationships.parquet",
+      "source": {
+        "name": "bank-data-dictionary (harmonized variable taxonomy, pinned release)",
+        "url": "https://github.com/andenick/bank-data-dictionary",
+        "retrieved": "2026-07-01",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Pinned dictionary release imported and re-pinned each quarterly refresh.",
+        "scripts": [
+          "14_import_dictionary.py"
+        ],
+        "transformations": [
+          "import"
+        ]
+      },
+      "units": "definitions (text)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 7539,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "DICT_SCHEDULE_LINEITEMS",
+      "table_family": "Variable dictionary",
+      "title": "Schedule Line-Items",
+      "description": "Call Report schedule line-item definitions (3,198 rows).",
+      "output_file": "dict_schedule_lineitems.parquet",
+      "source": {
+        "name": "bank-data-dictionary (harmonized variable taxonomy, pinned release)",
+        "url": "https://github.com/andenick/bank-data-dictionary",
+        "retrieved": "2026-07-01",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Pinned dictionary release imported and re-pinned each quarterly refresh.",
+        "scripts": [
+          "14_import_dictionary.py"
+        ],
+        "transformations": [
+          "import"
+        ]
+      },
+      "units": "definitions (text)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 3198,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "DICT_UBPR_CONCEPTS",
+      "table_family": "Variable dictionary",
+      "title": "UBPR Concepts",
+      "description": "UBPR concept definitions (4,099 rows).",
+      "output_file": "dict_ubpr_concepts.parquet",
+      "source": {
+        "name": "bank-data-dictionary (harmonized variable taxonomy, pinned release)",
+        "url": "https://github.com/andenick/bank-data-dictionary",
+        "retrieved": "2026-07-01",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Pinned dictionary release imported and re-pinned each quarterly refresh.",
+        "scripts": [
+          "14_import_dictionary.py"
+        ],
+        "transformations": [
+          "import"
+        ]
+      },
+      "units": "definitions (text)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 4099,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "DICT_ACCESS_MAP",
+      "table_family": "Variable dictionary",
+      "title": "Variable Access Map",
+      "description": "Which warehouse view exposes each variable (14.4K rows).",
+      "output_file": "dict_variable_access_map.parquet",
+      "source": {
+        "name": "bank-data-dictionary (harmonized variable taxonomy, pinned release)",
+        "url": "https://github.com/andenick/bank-data-dictionary",
+        "retrieved": "2026-07-01",
+        "license": "MIT",
+        "access": "public"
+      },
+      "construction": {
+        "method": "Pinned dictionary release imported and re-pinned each quarterly refresh.",
+        "scripts": [
+          "14_import_dictionary.py"
+        ],
+        "transformations": [
+          "import"
+        ]
+      },
+      "units": "definitions (text)",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 15435,
+      "tier": "T1",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "CATALOG_DATA_SOURCES",
+      "table_family": "Warehouse catalogs",
+      "title": "Data Source Catalog",
+      "description": "One row per registered source family with provenance (779 rows).",
+      "output_file": "catalog_data_sources.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 779,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "CATALOG_ENTITY_COVERAGE",
+      "table_family": "Warehouse catalogs",
+      "title": "Entity Coverage Catalog",
+      "description": "Per-source entity coverage (141K rows).",
+      "output_file": "catalog_entity_coverage.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1782",
+        "end": "2026"
+      },
+      "rows": 141333,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "CATALOG_FILING_COVERAGE",
+      "table_family": "Warehouse catalogs",
+      "title": "Filing Coverage Catalog",
+      "description": "Per-source period coverage (53.6K rows).",
+      "output_file": "catalog_filing_coverage.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1782",
+        "end": "2026"
+      },
+      "rows": 53580,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "CATALOG_NAMESPACE_VARIABLES",
+      "table_family": "Warehouse catalogs",
+      "title": "Namespace Variable Catalog",
+      "description": "Variables per reporting namespace (6,754 rows).",
+      "output_file": "catalog_namespace_variables.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 6754,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "CATALOG_SCHEMA_EVOLUTION",
+      "table_family": "Warehouse catalogs",
+      "title": "Schema Evolution Catalog",
+      "description": "How reporting schemas changed over time (13.4K rows).",
+      "output_file": "catalog_schema_evolution.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1976",
+        "end": "2026"
+      },
+      "rows": 13446,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "CATALOG_VARIABLES",
+      "table_family": "Warehouse catalogs",
+      "title": "Variable Catalog",
+      "description": "Every warehouse variable with namespace and lineage (13.4K rows).",
+      "output_file": "catalog_variables.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 13446,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "FREENIC_MANIFEST",
+      "table_family": "Warehouse catalogs",
+      "title": "Warehouse Self-Manifest",
+      "description": "The warehouse's own table manifest (110 rows).",
+      "output_file": "freenic_manifest.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 110,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "FILING_METADATA",
+      "table_family": "Warehouse catalogs",
+      "title": "Filing Metadata",
+      "description": "Ingestion-log metadata per filing batch (359 rows).",
+      "output_file": "filing_metadata.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1976",
+        "end": "2026"
+      },
+      "rows": 359,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "REPORTING_FORMS",
+      "table_family": "Warehouse catalogs",
+      "title": "Reporting Forms",
+      "description": "Reporting-form definitions (180 rows).",
+      "output_file": "reporting_forms.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Built by the catalog/coverage/self-describing phases over the completed warehouse.",
+        "scripts": [
+          "10_build_catalog.py",
+          "49_coverage_matrix.py",
+          "47_self_describing.py"
+        ],
+        "transformations": [
+          "catalog_build"
+        ]
+      },
+      "units": "metadata records",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 180,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "CLEAN_BANK_PANEL",
+      "table_family": "Derived panels",
+      "title": "Clean Bank Panel 1863-2026",
+      "description": "The canonical clean annual bank panel: 1.11M bank-year rows across three strata (OCC era 1863-1941, Luck era 1959-1975, Call Report era 1976-2026) with nominal and real (1990=100) USD levels - the fix for uncalibrated absolute-$ panels.",
+      "output_file": "clean_bank_panel.parquet",
+      "source": {
+        "name": "FreeNIC derived (from public regulatory sources)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "From-raw rebuild over occ_historical_clv + Luck + scheduled call items; deterministic and byte-stable; unit-gate verified against published anchors (JPM-2008, SVB-2023, OCC-1929).",
+        "scripts": [
+          "45_build_clean_bank_panel.py"
+        ],
+        "transformations": [
+          "real_deflation_1990_100",
+          "strata_union",
+          "unit_gate"
+        ]
+      },
+      "units": "USD nominal and real levels (1990=100)",
+      "frequency": "annual",
+      "coverage": {
+        "start": "1863",
+        "end": "2026"
+      },
+      "rows": 1114822,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": "finhist historical-call v2.10.0 basis."
+      }
+    },
+    {
+      "series_id": "LONG_AGGREGATES",
+      "table_family": "Derived panels",
+      "title": "Bank Aggregate Spine 1863-2026 (163 years)",
+      "description": "The replicated 163-year year-by-metric spine (810 rows): num_banks, total_assets, total_deposits, total_loans, with definition toggles, source-series provenance, and junction flags at the 1896/1914/1934 regime joins.",
+      "output_file": "long_bank_aggregates_1863_2026.parquet",
+      "source": {
+        "name": "FreeNIC derived (from public regulatory sources)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Aggregate build over OCC condition statements, FDIC HSOB, and modern Call Report aggregates, staged by the release slice tooling.",
+        "scripts": [
+          "release-tools/build_slice.py"
+        ],
+        "transformations": [
+          "aggregation",
+          "regime_join_annotation"
+        ]
+      },
+      "units": "count of banks; USD (assets/deposits/loans)",
+      "frequency": "annual",
+      "coverage": {
+        "start": "1863",
+        "end": "2026"
+      },
+      "rows": 810,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "ENTITY_XREF",
+      "table_family": "Derived panels",
+      "title": "Entity Cross-Reference",
+      "description": "Cross-source entity resolution across NIC/FDIC/NCUA/SEC identifiers (234K rows).",
+      "output_file": "entity_xref.parquet",
+      "source": {
+        "name": "FreeNIC derived (from public regulatory sources)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Entity-resolution build over the identifier tables.",
+        "scripts": [
+          "20b_build_entity_xref.py"
+        ],
+        "transformations": [
+          "entity_resolution"
+        ]
+      },
+      "units": "identifiers",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1782",
+        "end": "2026"
+      },
+      "rows": 234462,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "ID_CROSSWALK",
+      "table_family": "Derived panels",
+      "title": "Identifier Crosswalk (RSSD <-> LEI <-> FDIC cert <-> ...)",
+      "description": "The unified identifier crosswalk (103K rows), with LEIs gap-filled from the GLEIF golden copy by normalized-name match.",
+      "output_file": "id_crosswalk.parquet",
+      "source": {
+        "name": "FreeNIC derived + GLEIF Level-1 golden copy",
+        "url": "https://www.gleif.org/en/lei-data/gleif-golden-copy",
+        "retrieved": "2026-07-15",
+        "license": "MIT + GLEIF data (CC BY 4.0)",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Identifier tables merged, then LEI filled from GLEIF US/ACTIVE by unambiguous normalized-name match (source-tagged, never overwriting).",
+        "scripts": [
+          "36_build_id_crosswalk.py",
+          "36b_gleif_lei.py"
+        ],
+        "transformations": [
+          "merge",
+          "name_match_fill"
+        ]
+      },
+      "units": "identifiers",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "2026",
+        "end": "2026"
+      },
+      "rows": 103037,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "VARIABLE_CROSSWALK",
+      "table_family": "Warehouse catalogs",
+      "title": "Variable Crosswalk",
+      "description": "Cross-vintage variable mappings (Chicago Fed vs CDR vs MDRM vs dictionary): 76 rows.",
+      "output_file": "variable_crosswalk.parquet",
+      "source": {
+        "name": "FreeNIC warehouse catalog (self-describing build artifacts)",
+        "url": "https://github.com/andenick/FreeNIC",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Curated cross-vintage variable mapping build.",
+        "scripts": [
+          "20_build_crosswalks.py"
+        ],
+        "transformations": [
+          "crosswalk_build"
+        ]
+      },
+      "units": "variable-code mappings",
+      "frequency": "snapshot",
+      "coverage": {
+        "start": "1976",
+        "end": "2026"
+      },
+      "rows": 76,
+      "tier": "derived",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "RECON_LUCK_CORE",
+      "table_family": "Reconstruction layer",
+      "title": "Reconstructed Luck Core 1959-1975",
+      "description": "The Luck-era core rebuilt from raw public sources with the verified reconstruction engine (601K rows); validated cell-by-cell against the published Luck numbers (gate: PASS).",
+      "output_file": "luck_core_1959_1975.parquet",
+      "source": {
+        "name": "FreeNIC reconstruction from FFIEC/FDIC public raw sources",
+        "url": "https://github.com/andenick/FreeNIC/tree/master/pipeline/reconstruction",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Rebuild via the pipeline/reconstruction module (entity spine + variable map + gmatch), then cell-level reconciliation.",
+        "scripts": [
+          "50_reconstruct_luck.py",
+          "pipeline/reconstruction/build_luck_core.py"
+        ],
+        "transformations": [
+          "entity_spine",
+          "variable_map",
+          "gmatch",
+          "cell_reconciliation"
+        ]
+      },
+      "units": "USD (as reconstructed; reconciliation deltas in partner table)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1959Q4",
+        "end": "1975Q4"
+      },
+      "rows": 601566,
+      "tier": "derived - FreeNIC reconstruction",
+      "quality": {
+        "status": "verified",
+        "notes": "Served under reconstruction/. Gate JSON + report alongside."
+      }
+    },
+    {
+      "series_id": "RECON_LUCK_EQUIV",
+      "table_family": "Reconstruction layer",
+      "title": "Reconstructed Luck-Equivalent Panel 1976-2026",
+      "description": "The modern-era Luck-equivalent panel rebuilt from CDR Call Reports (2.03M rows); pre-registered verdict: FAIL against the published Luck reference at the strictest tier (documented divergence - the honest record of what the public sources can and cannot reproduce).",
+      "output_file": "luck_equivalent_1976_2026.parquet",
+      "source": {
+        "name": "FreeNIC reconstruction from FFIEC CDR public raw sources",
+        "url": "https://github.com/andenick/FreeNIC/tree/master/pipeline/reconstruction",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Rebuild + cell-by-cell reconciliation against published Luck values.",
+        "scripts": [
+          "50_reconstruct_luck.py",
+          "pipeline/reconstruction/build_luck_equivalent.py"
+        ],
+        "transformations": [
+          "entity_spine",
+          "variable_map",
+          "gmatch",
+          "cell_reconciliation"
+        ]
+      },
+      "units": "USD (as reconstructed)",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1976Q1",
+        "end": "2026Q1"
+      },
+      "rows": 2026104,
+      "tier": "derived - FreeNIC reconstruction",
+      "quality": {
+        "status": "known_issues",
+        "notes": "Pre-registered reconstruction FAIL is documented, not hidden - see pipeline/reconstruction/reports/ and D15."
+      }
+    },
+    {
+      "series_id": "RECON_FINHIST",
+      "table_family": "Reconstruction layer",
+      "title": "Reconstructed finhist Panel 1863-1941",
+      "description": "The OCC-era finhist-equivalent rebuilt from digitized OCC condition statements (367K rows); gate: PASS.",
+      "output_file": "finhist_equivalent_1863_1941.parquet",
+      "source": {
+        "name": "FreeNIC reconstruction from OCC Annual Report digitizations",
+        "url": "https://github.com/andenick/FreeNIC/tree/master/pipeline/reconstruction",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Rebuild + cell-by-cell reconciliation against finhist published values.",
+        "scripts": [
+          "51_reconstruct_finhist.py",
+          "pipeline/reconstruction/build_finhist_equivalent.py"
+        ],
+        "transformations": [
+          "entity_spine",
+          "variable_map",
+          "reconciliation"
+        ]
+      },
+      "units": "USD (as reconstructed)",
+      "frequency": "annual",
+      "coverage": {
+        "start": "1863",
+        "end": "1941"
+      },
+      "rows": 367312,
+      "tier": "derived - FreeNIC reconstruction",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "RECON_REC_MODERN",
+      "table_family": "Reconstruction layer",
+      "title": "Cell-Level Reconciliation - Modern Era 1976-2026",
+      "description": "Every reconstructed-vs-published comparison cell for the modern era: 40.3M rows of deltas with reasons.",
+      "output_file": "reconciliation_1976_2026.parquet",
+      "source": {
+        "name": "FreeNIC reconstruction validation artifacts",
+        "url": "https://github.com/andenick/FreeNIC/tree/master/pipeline/reconstruction",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Emitted by the reconstruction validation engine.",
+        "scripts": [
+          "50_reconstruct_luck.py",
+          "pipeline/reconstruction/validate_reconstruction.py"
+        ],
+        "transformations": [
+          "cell_reconciliation"
+        ]
+      },
+      "units": "value deltas and match flags",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1976Q1",
+        "end": "2026Q1"
+      },
+      "rows": 40261405,
+      "tier": "derived - FreeNIC reconstruction (reconciliation)",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "RECON_REC_LUCK",
+      "table_family": "Reconstruction layer",
+      "title": "Cell-Level Reconciliation - Luck Era 1959-1975",
+      "description": "Reconstructed-vs-published comparison cells for the Luck era: 7.5M rows.",
+      "output_file": "reconciliation_1959_1975.parquet",
+      "source": {
+        "name": "FreeNIC reconstruction validation artifacts",
+        "url": "https://github.com/andenick/FreeNIC/tree/master/pipeline/reconstruction",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Emitted by the reconstruction validation engine.",
+        "scripts": [
+          "50_reconstruct_luck.py",
+          "pipeline/reconstruction/validate_reconstruction.py"
+        ],
+        "transformations": [
+          "cell_reconciliation"
+        ]
+      },
+      "units": "value deltas and match flags",
+      "frequency": "quarterly",
+      "coverage": {
+        "start": "1959Q4",
+        "end": "1975Q4"
+      },
+      "rows": 7470087,
+      "tier": "derived - FreeNIC reconstruction (reconciliation)",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    },
+    {
+      "series_id": "RECON_REC_FINHIST",
+      "table_family": "Reconstruction layer",
+      "title": "Cell-Level Reconciliation - finhist Era 1863-1941",
+      "description": "Reconstructed-vs-published comparison cells for the OCC era: 2.6M rows.",
+      "output_file": "reconciliation_finhist.parquet",
+      "source": {
+        "name": "FreeNIC reconstruction validation artifacts",
+        "url": "https://github.com/andenick/FreeNIC/tree/master/pipeline/reconstruction",
+        "retrieved": "2026-07-15",
+        "license": "MIT",
+        "access": "internal-derived"
+      },
+      "construction": {
+        "method": "Emitted by the reconstruction validation engine.",
+        "scripts": [
+          "51_reconstruct_finhist.py",
+          "pipeline/reconstruction/validate_reconstruction.py"
+        ],
+        "transformations": [
+          "cell_reconciliation"
+        ]
+      },
+      "units": "value deltas and match flags",
+      "frequency": "annual",
+      "coverage": {
+        "start": "1863",
+        "end": "1941"
+      },
+      "rows": 2632440,
+      "tier": "derived - FreeNIC reconstruction (reconciliation)",
+      "quality": {
+        "status": "verified",
+        "notes": ""
+      }
+    }
+  ]
+}
