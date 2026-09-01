@@ -243,3 +243,7 @@ If you use FreeNIC, please cite it — see [`CITATION.cff`](release-tools/releas
 Individual upstream sources carry their own terms and required citations; most are US
 Government / regulatory public-domain works, a few academic sources require citation. See
 `release-tools/release_v1.0.0/LICENSE` and the per-table provenance for details.
+
+## Anu replication package
+
+The [`anu/`](anu/) directory contains a complete data-replication package: `series_registry.json` (the canonical data contract), fetch/process/validate scripts, and Data Provenance Records. See [`anu/README.md`](anu/README.md) to reproduce the data.
