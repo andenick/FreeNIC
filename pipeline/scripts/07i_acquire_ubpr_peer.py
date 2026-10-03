@@ -8,6 +8,9 @@ Usage:
   python 07i_acquire_ubpr_peer.py rank 2024            # one product, one year (probe)
   python 07i_acquire_ubpr_peer.py stats 2024 2023      # one product, several years
   python 07i_acquire_ubpr_peer.py both                 # both products, all 25 offered years
+  python 07i_acquire_ubpr_peer.py stats 2026 --refresh # re-download even if on disk (cumulative year-ZIPs:
+                                                       # CDR refreshes the same <year>.zip as quarters publish,
+                                                       # so a Q1-vintage file masks the Q2 update)
 """
 import sys
 import time
@@ -66,7 +69,7 @@ def download_year(pg, internal_value: str, prod_key: str, year: str) -> int:
     return dest.stat().st_size
 
 
-def acquire(prod_keys, years_wanted):
+def acquire(prod_keys, years_wanted, refresh=False):
     got, failed = [], []
     with sync_playwright() as p:
         br = p.chromium.launch(headless=True, args=[
@@ -81,9 +84,11 @@ def acquire(prod_keys, years_wanted):
             pm = read_year_map(pg)
             years = years_wanted or sorted(pm)
             years = [y for y in years if y in pm]
-            # skip already-downloaded
+            # skip already-downloaded (unless --refresh: cumulative year-ZIPs get re-published
+            # as quarters are added, so a stale file must be overwritten to pick up new quarters)
             years = [y for y in years
-                     if not (raw_dir(pk) / f"ubpr_{pk}_{y}.zip").exists()
+                     if refresh
+                     or not (raw_dir(pk) / f"ubpr_{pk}_{y}.zip").exists()
                      or (raw_dir(pk) / f"ubpr_{pk}_{y}.zip").stat().st_size < 1000]
             print(f"[plan] {pk}: {len(years)} year(s) of {len(pm)} offered -> {raw_dir(pk)}")
             for y in years:
@@ -115,6 +120,8 @@ def acquire(prod_keys, years_wanted):
 
 def main() -> int:
     args = sys.argv[1:]
+    refresh = "--refresh" in args
+    args = [a for a in args if a != "--refresh"]
     if not args:
         print(__doc__)
         return 1
@@ -125,7 +132,7 @@ def main() -> int:
     else:
         print(f"unknown product '{args[0]}' (use rank|stats|both)")
         return 1
-    got, failed = acquire(prod_keys, years)
+    got, failed = acquire(prod_keys, years, refresh=refresh)
     return 0 if got else 2
 
 

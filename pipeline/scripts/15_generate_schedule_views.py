@@ -18,7 +18,7 @@ import re
 import duckdb
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DB = os.path.normpath(os.path.join(HERE, "..", "..", "..", "Outputs", "freenic.duckdb"))
+DB = os.path.normpath(os.path.join(HERE, "..", "..", "Outputs", "freenic.duckdb"))  # pipeline/scripts -> freenic/Outputs (2 parents, cf. utils.PROJECT_ROOT)
 
 BASE = {"y9c": "bhcf_filings", "call": "call_report_filings"}
 RAW_TABLES = [

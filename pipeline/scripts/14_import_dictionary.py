@@ -19,7 +19,7 @@ import sys
 import duckdb
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DB = os.path.normpath(os.path.join(HERE, "..", "..", "..", "Outputs", "freenic.duckdb"))
+DB = os.path.normpath(os.path.join(HERE, "..", "..", "Outputs", "freenic.duckdb"))  # pipeline/scripts -> freenic/Outputs (2 parents, cf. utils.PROJECT_ROOT)
 # Path to a local checkout of the public bank-data-dictionary repo. Set via env var.
 DICT_REPO = os.environ.get("BANK_DATA_DICTIONARY_REPO", "")
 

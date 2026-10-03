@@ -80,7 +80,23 @@ OUT_META = OUT_DIR / "luck_equivalent_1976_2026_BUILD_META.json"
 #: MODC era window (SPEC §0 / §5). Inclusive of both quarter-ends. call_report_filings
 #: itself spans exactly 1976-03-31 .. 2026-03-31 (verified from the manifest).
 MODC_LO = date(1976, 3, 31)
-MODC_HI = date(2026, 3, 31)
+# MODC_HI: upper bound of the reconstruction window. Historically hardcoded (2026-03-31 at
+# v1.1); now derived from the live warehouse at connect time so each quarterly refresh
+# extends the panel without editing this file. The static date silently EXCLUDED new
+# quarters (found 2026-10-02: the 2026Q2 refresh rebuilt nothing -- chunks were skipped
+# AND the window capped at Q1).
+MODC_HI = None  # resolved lazily via _resolve_modc_hi(con) on first use
+
+
+def _resolve_modc_hi(con) -> date:
+    """MODC_HI = latest quarter actually present in call_report_filings (capped at the last
+    SCAN_CHUNKS bound). Keeps the panel current through whatever the warehouse holds."""
+    global MODC_HI
+    if MODC_HI is None:
+        db_max = con.execute("SELECT MAX(period_end) FROM call_report_filings").fetchone()[0]
+        hard_cap = SCAN_CHUNKS[-1][1]
+        MODC_HI = min(db_max, hard_cap) if db_max is not None else hard_cap
+    return MODC_HI
 
 #: Scan chunks (inclusive period_end windows). Each chunk is one DuckDB COPY -> parquet;
 #: completed chunks are skipped on re-run (stage-resume). Sized so each scan stays well
@@ -90,7 +106,10 @@ SCAN_CHUNKS = [
     (date(1986, 1, 1), date(1995, 12, 31)),
     (date(1996, 1, 1), date(2005, 12, 31)),
     (date(2006, 1, 1), date(2015, 12, 31)),
-    (date(2016, 1, 1), date(2026, 12, 31)),
+    # last chunk self-extends: hi year grows with the calendar so a new year means a new
+    # chunk FILENAME (_bb_luck_equivalent_2016_<hiyear>.parquet) and hence a fresh scan,
+    # never a silently-stale skip (was hardcoded 2026-12-31 at v1.1)
+    (date(2016, 1, 1), date(max(2026, date.today().year + 1), 12, 31)),
 ]
 
 
@@ -696,11 +715,30 @@ def stage_scan() -> float:
     ids_sql = ",".join(f"'{c}'" for c in inlist)
     t_scan = time.time()
     con = _connect_readonly()
+    _resolve_modc_hi(con)   # window follows the live warehouse (was hardcoded 2026-03-31)
     for lo, hi in SCAN_CHUNKS:
         dest = _chunk_path(lo, hi)
         if dest.exists():
-            print(f"[scan] SKIP {dest.name} (already written)", flush=True)
-            continue
+            # staleness check (added 2026-10-02): a chunk written by an earlier build is
+            # stale when the warehouse now holds quarters BEYOND the chunk's max period
+            # inside this window. Without this, '--rebuild' after a quarterly ingest
+            # silently rebuilt NOTHING (chunk skip beat the refresh).
+            try:
+                chunk_max = con.execute(
+                    f"SELECT MAX(period_end) FROM read_parquet('{dest.as_posix()}')"
+                ).fetchone()[0]
+                db_max = con.execute(
+                    "SELECT MAX(period_end) FROM call_report_filings "
+                    f"WHERE period_end BETWEEN DATE '{max(lo, MODC_LO)}' AND DATE '{hi}'"
+                ).fetchone()[0]
+            except Exception:
+                chunk_max = db_max = None
+            if db_max is None or (chunk_max is not None and db_max <= chunk_max):
+                print(f"[scan] SKIP {dest.name} (already written, current through {chunk_max})",
+                      flush=True)
+                continue
+            print(f"[scan] STALE {dest.name} (chunk through {chunk_max}; warehouse through "
+                  f"{db_max}) -> re-deriving", flush=True)
         tmp = dest.with_suffix(".parquet.tmp")   # write-then-rename: no half-written chunk survives
         t_c = time.time()
         print(f"[scan] chunk {lo.year}-{hi.year}: COPY ... ({len(inlist)} MDRM ids)", flush=True)

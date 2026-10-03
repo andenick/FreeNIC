@@ -59,42 +59,42 @@
     "2026Q2": {
       "period_end": "2026-06-30",
       "expected_publish": "2026-09-13",
-      "automated_run": null,
+      "automated_run": true,
       "stages": {
         "acquire": {
-          "status": "pending",
-          "ts": null,
-          "notes": "Run 07d/07g (in pipeline/scripts/) with the 8-digit argument 20260630. Fixed 2026-07-16: 07d's QENDS was a hardcoded range(2012,2026) and silently did nothing for 2026 and later; both 07d and 07g now self-extend to (current year + 2, floor 2035) and validate their arguments via parse_targets() -- a malformed token or an out-of-range year now errors instead of fetching nothing. A bare year argument works too, but the 8-digit form remains the convention. Q2 publishes ~2026-09-13. FR Y-9C/BHCF will likely still be trailing at 2026Q1."
+          "status": "done",
+          "ts": "2026-10-02T19:13:33",
+          "notes": "07d 20260630 -> call_single_20260630.zip 5,980,988 B (attempt 1); 07g 20260630 -> ubpr_single_20260630.zip 111,743,245 B. CDR offered 20260630 as newest for both. Trailing: bhcf_filings (lags Call cycle; last 2025Q4, bulk-folder sourced), fdic_financials (SDI cache-based, no quarterly fetcher), NCUA/SOD annual cadence. Y-9LP/SP blocked (Cloudflare)."
         },
         "ingest": {
-          "status": "pending",
-          "ts": null,
-          "notes": ""
+          "status": "done",
+          "ts": "2026-10-02T20:15:48",
+          "notes": "07e: call_report_filings 201->202 quarters (1976Q1-2026Q2), +4,189,551 rows -> 1,921,215,528; non-destructive check OK. 39: ubpr_ratios +20260630 (8,088,998 facts / 4,297 banks) -> 1,259,238,048 rows, parquet parity OK. 07i --refresh (new flag, cumulative year-ZIP) + 42 stats 2026: ubpr_peer_stats now through 2026-06-30 (235,620 rows/qtr, Q1 re-inserted clean). Trailing: bhcf_filings (2025Q4), fdic_financials (2026Q1, cache-based), ncua_5300, fdic_sod (annual)."
         },
         "validate": {
-          "status": "pending",
-          "ts": null,
-          "notes": ""
+          "status": "done",
+          "ts": "2026-10-02T21:08:42",
+          "notes": "13_validate 12/12 PASS after UBPRQN03 registered (44_build_variable_dictionary re-run: 6,755 namespace codes; UBPR 3,113 codes 0 orphans). GRAND TOTAL 4,978,131,438 rows. pytest pipeline/tests first pass: 469 passed/5 failed/4 skipped - all 5 failures are pending refresh steps (parquet parity x3 for call_report_filings/filing_metadata/ubpr_peer_stats, freshness, doc counts); full-suite re-run from repo root after export parity."
         },
         "dictionary_refresh": {
-          "status": "pending",
-          "ts": null,
-          "notes": "cycle 06302026 (quarterly_refresh.py --dry-run already targets it; registry-delta cycle constant in _rebuild/empirical/build_registry_v9.py = 03312026 -> 06302026)."
+          "status": "done",
+          "ts": "2026-10-02T20:38:58",
+          "notes": "quarterly_refresh real run: MDRM 75,268 codes; acquire pulled 09302026 taxonomy packages (FFIEC already published Q3 taxonomy; cumulative superset of Q2 edits) and parsed newest cycle 09302026. Registry delta via build_registry_v9 (constant 03312026->09302026): +25 rels, 4 newly testable. Empirical suites all run (call 4 new, y9c 2720, conditionals 2+8 deferred, intraseries none pending, cross-source CONFIRMED); 4 new rows adjudicated zero-unexplained (7562/7563 CONFIRMED 1.0000 - footnote-asterisk artifact; 7579/7580 DATA_GAP allcomp 1.0000). UBPRQN03 orphan resolved: added to UBPR_CONCEPTS.csv (+ci gz incl UBPSQN03) from official CDR Liquidity-and-Funding schedule caption. gen_data_pages + mkdocs --strict + ci_audit + audit_codes + gitleaks green. Committed locally 557b24b on bank-data-dictionary main; version-bump/tag/push deferred to closeout (user-gated)."
         },
         "views_regen": {
-          "status": "pending",
-          "ts": null,
-          "notes": ""
+          "status": "done",
+          "ts": "2026-10-02T21:08:42",
+          "notes": "14 (dict v10.0-4-g557b24b; needed BANK_DATA_DICTIONARY_REPO env + 3->2 parent-walk fix in 14/15/16), 15 (39 views + raw_* views of record), 44 (namespace_variables 6,755), 17 (7 dict parquet + SHA256SUMS + PROVENANCE rows). Reconstruction per rule: 50 --rebuild MODC now spans 1976Q1-2026Q2 (2,030,401 rows, smoke 6/6) after fixing two refresh-blocking bugs (MODC_HI hardcoded 2026-03-31; chunk skip beat --rebuild - now staleness-checked + self-extending last chunk); 51 finhist input-static (367,312 rows, spine 100.0%); 52 gate: 1959_1975 PASS 99.9753, finhist PASS 99.7061, 1976_2026 pre-registered FAIL 96.4338 - IDENTICAL to v1.1 campaign-complete record (reference input-static; Q2 adds no compared cells)."
         },
         "coverage_audit": {
-          "status": "pending",
-          "ts": null,
-          "notes": ""
+          "status": "done",
+          "ts": "2026-10-02T21:08:42",
+          "notes": "16_coverage_audit PASS: 15,436 variables, shaped 2,931 (19.0%), all reachable via raw views; UNMAPPED_VARIABLES.csv 12,499 rows. NOTE: 16 is a catalog WRITER (known follow-up from H2)."
         },
         "site_republish": {
           "status": "pending",
-          "ts": null,
-          "notes": "operator-gated"
+          "ts": "2026-10-02T21:21:03",
+          "notes": "IN PROGRESS at session boundary. 12_export_parquet.py run ABORTED mid-call_report_filings (132/202 period-chunk tmp parts on disk; cleanup_stale_tmp auto-cleans on re-run; final parquet untouched = Q1-vintage stale). REMAINING: re-run 12 to completion (call_report_filings, ubpr_ratios 1.26B rows, ubpr_peer_stats, filing_metadata, luck_equivalent_panel, dict_*, catalog tables), refresh SHA256SUMS/PROVENANCE for re-exported, re-run full pytest FROM REPO ROOT (pytest pipeline) expecting green (5 known failures were parity/freshness/doc-counts), fix README/doc counts (4,978,131,438 rows now), long_bank_aggregates spine re-derive if its builder keys off call data, then build_slice.py + operator-gated container/rsync per deploy/freenic/."
         }
       }
     }

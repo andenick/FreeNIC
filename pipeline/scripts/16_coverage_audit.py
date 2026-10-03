@@ -14,7 +14,7 @@ import sys
 import duckdb
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.normpath(os.path.join(HERE, "..", "..", "..", "Outputs"))
+OUT = os.path.normpath(os.path.join(HERE, "..", "..", "Outputs"))  # pipeline/scripts -> freenic/Outputs (2 parents, cf. utils.PROJECT_ROOT)
 DB = os.path.join(OUT, "freenic.duckdb")
 
 TABLES = {
