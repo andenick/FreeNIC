@@ -28,7 +28,7 @@ from pathlib import Path
 import duckdb
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE.parent.parent.parent / "Outputs"
+OUT = HERE.parent.parent / "Outputs"  # pipeline/scripts -> freenic/Outputs (2 parents, cf. utils.PROJECT_ROOT; was 3 pre-2026-10-04, same bug class as the b2d3427 14/15/16 fix)
 DB = OUT / "freenic.duckdb"
 PROV = OUT / "PROVENANCE.csv"
 CSV_OUT = OUT / "coverage_matrix.csv"
