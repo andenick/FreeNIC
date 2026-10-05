@@ -1,0 +1,51 @@
+name: CI
+
+# FreeNIC's data (parquet/duckdb, ~6 GB) is gitignored and not shippable to CI, so this
+# workflow runs the checks that do NOT need the warehouse: package/MCP imports, recipe-module
+# parse, and the file-only provenance tests (PROVENANCE.csv schema/coverage/tiers). The
+# data-dependent suite (13_validate.py + the db-fixture tests) runs locally against the built
+# warehouse — see Outputs/QUICK_START.md and Technical/freenic_ingestion/README.md.
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ "3.11", "3.12", "3.13" ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e Outputs/freenic_py
+          pip install pytest
+
+      - name: Import smoke test (package + MCP server + ingestion utils)
+        run: |
+          python -c "import freenic; print('freenic', getattr(freenic,'__version__','ok'))"
+          python -c "import ast; ast.parse(open('Technical/freenic_mcp/server.py').read()); print('mcp server parses')"
+          python -c "import ast; ast.parse(open('Technical/freenic_ingestion/scripts/30_build_public_luck_panel.py').read()); print('recipe parses')"
+          python -c "import ast; ast.parse(open('Technical/freenic_ingestion/scripts/08b_slim_luck.py').read()); print('08b parses')"
+
+      - name: Provenance manifest tests (no warehouse required)
+        run: |
+          pytest Technical/freenic_ingestion/tests/test_provenance.py \
+            -k "file_exists or required_tables or tiers" -q
+
+      - name: PROVENANCE.csv present & non-empty
+        run: |
+          test -s Outputs/PROVENANCE.csv && echo "PROVENANCE.csv OK"
+          test -s DATA_LICENSE.md && echo "DATA_LICENSE.md OK"
