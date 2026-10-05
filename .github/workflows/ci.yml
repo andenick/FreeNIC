@@ -1,10 +1,13 @@
 name: CI
 
-# FreeNIC's data (parquet/duckdb, ~6 GB) is gitignored and not shippable to CI, so this
-# workflow runs the checks that do NOT need the warehouse: package/MCP imports, recipe-module
-# parse, and the file-only provenance tests (PROVENANCE.csv schema/coverage/tiers). The
-# data-dependent suite (13_validate.py + the db-fixture tests) runs locally against the built
-# warehouse — see Outputs/QUICK_START.md and Technical/freenic_ingestion/README.md.
+# FreeNIC's warehouse and Outputs/ artifacts (parquet/duckdb, PROVENANCE.csv, freenic_py
+# package, Technical/ trees) are gitignored and absent in a checkout, so this workflow
+# runs only the checks that operate on TRACKED files: dependency install from
+# pipeline/requirements.txt, a syntax/compile pass over the tracked pipeline + site +
+# release-tools code, and targeted AST smoke parses. The data-dependent suite
+# (13_validate.py + the warehouse tests) runs locally against the built warehouse —
+# see Outputs/QUICK_START.md. (2026-10-04: first run failed on Install dependencies —
+# the original steps referenced this repo's gitignored paths; rewritten file-only.)
 
 on:
   push:
@@ -29,23 +32,37 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install -e Outputs/freenic_py
+          pip install -r pipeline/requirements.txt
           pip install pytest
 
-      - name: Import smoke test (package + MCP server + ingestion utils)
+      - name: Compile pass (tracked pipeline + site + release-tools code)
         run: |
-          python -c "import freenic; print('freenic', getattr(freenic,'__version__','ok'))"
-          python -c "import ast; ast.parse(open('Technical/freenic_mcp/server.py').read()); print('mcp server parses')"
-          python -c "import ast; ast.parse(open('Technical/freenic_ingestion/scripts/30_build_public_luck_panel.py').read()); print('recipe parses')"
-          python -c "import ast; ast.parse(open('Technical/freenic_ingestion/scripts/08b_slim_luck.py').read()); print('08b parses')"
+          python -m compileall -q pipeline/scripts site/app release-tools
 
-      - name: Provenance manifest tests (no warehouse required)
+      - name: AST smoke parses (tracked entry points)
         run: |
-          pytest Technical/freenic_ingestion/tests/test_provenance.py \
-            -k "file_exists or required_tables or tiers" -q
+          python - <<'EOF'
+          import ast, sys
+          from pathlib import Path
+          targets = [
+              "pipeline/scripts/12_export_parquet.py",
+              "pipeline/scripts/13_validate.py",
+              "pipeline/scripts/45_build_clean_bank_panel.py",
+              "pipeline/scripts/49_coverage_matrix.py",
+              "pipeline/scripts/50_reconstruct_luck.py",
+              "pipeline/scripts/52_validate_reconstruction.py",
+              "pipeline/scripts/export_helpers.py",
+              "site/app/main.py",
+              "release-tools/build_slice.py",
+          ]
+          missing = [t for t in targets if not Path(t).is_file()]
+          if missing:
+              sys.exit("missing tracked files: %s" % missing)
+          for t in targets:
+              ast.parse(Path(t).read_text(encoding="utf-8"))
+              print("parses:", t)
+          EOF
 
-      - name: PROVENANCE.csv present & non-empty
+      - name: Utils import (needs only duckdb/pandas from requirements)
         run: |
-          test -s Outputs/PROVENANCE.csv && echo "PROVENANCE.csv OK"
-          test -s DATA_LICENSE.md && echo "DATA_LICENSE.md OK"
+          python -c "import duckdb, pandas, yaml; print('query deps import ok')"
