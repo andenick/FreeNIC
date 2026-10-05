@@ -9,10 +9,26 @@ harmonized variable dictionary, then exports a clean, citable public release.
 - **Warehouse:** 62 base tables (49 main + 6 catalog + 7 dict) · 52 shaped views · **4.97 billion
   rows** (4,968,889,667) · coverage span **1782–2026** across 21 source families (data vintage
   2026Q1; v1.1.0 adds the verified Luck/finhist reconstruction panels — see below).
-- **Public release (v1.0.0):** **61 files / 13.2 GiB** — 60 Parquet tables (base-table exports)
-  plus the 163-year (1863–2026) bank-aggregate spine `long_bank_aggregates_1863_2026.parquet`.
-  Every served Parquet's row count equals its warehouse source table's (row-parity gate: 61/61).
+- **Public release (v1.1.0):** **67 Parquet files / 13.9 GiB** (14,955,118,561 bytes), made up of
+  **61 files at the served root** — 60 base-table exports plus the 163-year (1863–2026)
+  bank-aggregate spine `long_bank_aggregates_1863_2026.parquet` — and the **6-file reconstruction
+  layer** under [`reconstruction/`](https://data.freenic.org/reconstruction/) (3 reconstructed
+  panels + 3 cell-level reconciliation panels). Every served base-table Parquet's row count equals
+  its warehouse source table's (row-parity gate: 61/61 at the root). `SHA256SUMS.txt` carries
+  **75** entries — those 67 Parquet plus 8 reconstruction reports / gate JSONs; that is checksum
+  coverage, not the file count.
 - **Explorer site:** [freenic.org](https://freenic.org) · **Data host:** [data.freenic.org](https://data.freenic.org)
+
+**Living status (verified live 2026-07-28):** **active and public**. The served data package is the
+manifest-backed **v1.1.0** release (2026-07-15; warehouse build 1.4 / data vintage 2026Q1) —
+confirmed against `https://data.freenic.org/release_manifest.json` (`version 1.1.0`,
+`file_count 67`) and the served directory listings (61 Parquet at the root, 6 under
+`reconstruction/`). v1.1.0 adds the reconstruction capability and its validation record; it does
+**not** convert the modern 1976–2026 reconstruction's pre-registered FAIL into a PASS. FreeNIC has
+no RobertDB layer. For dated release and quarterly-refresh events, see the
+[generated project timeline](../../Council/Druck/Technical/History/views/PROJECT_TIMELINE_INDEX.md)
+and [workspace chronology](../../Council/Druck/Technical/History/views/WORKSPACE_TIMELINE.md);
+the release manifest remains authoritative for served files.
 
 Code is MIT; the data compilation is CC-BY-4.0 (E-3 provisional — see [LICENSE](LICENSE) and
 `release-tools/release_v1.0.0/LICENSE`).
@@ -58,6 +74,16 @@ This is one repository with three top-level parts:
 | [`pipeline/`](pipeline/) | The ingestion + validation suite that builds the warehouse: `scripts/` (phase scripts, incl. `13_validate.py`, `47_self_describing.py`, `49_coverage_matrix.py`, and the `50–52_*` reconstruction wrappers), the verified [`reconstruction/`](pipeline/reconstruction/) module (rebuild Luck/finhist from raw + cell-by-cell validation — see below), the `tests/` pytest suite, `requirements.txt`, and the quarterly refresh protocol (`REFRESH.md` + `REFRESH_STATE.json`). |
 | [`site/`](site/) | The `freenic.org` explorer application (FastAPI + Jinja): both the data explorer and the variable-dictionary explorer, the counts mechanism, templates, static assets, the curated slice serving, `Dockerfile`/compose, and `DATA_SERVING.md` (self-hosting the httpfs data host). |
 | [`release-tools/`](release-tools/) | Release-packaging tools (`build_slice.py`, `build_content.py`, `make_freenic_counts.py`) and the v1.0.0 release metadata (`release_v1.0.0/`: manifest, changelog, citation, license, codebook, croissant, checksums). |
+
+> **The bundled `site/` and `release-tools/` are a v1.0.0-vintage snapshot.** Run them as-is and
+> they render the **v1.0.0** figures — 61 files / 13.2 GiB — from the committed
+> `site/app/data/freenic_counts.json` and `release_manifest.json`, because
+> `make_freenic_counts.py` as committed enumerates the served root only and does not walk the
+> v1.1.0 `reconstruction/` layer. That is a **stale snapshot, not a rival measure**: the live
+> release is **v1.1.0, 67 files, 13.9 GiB**, and the manifest published at
+> [`data.freenic.org/release_manifest.json`](https://data.freenic.org/release_manifest.json)
+> (`version 1.1.0`, `file_count 67`) is the arbiter. Never reconcile the two by editing the
+> figures above downward.
 
 Large data artifacts (the warehouse DuckDB, the full Parquet release, the curated
 `freenic_slice.duckdb`, zips) are **not** committed — they are served from

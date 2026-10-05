@@ -2,7 +2,7 @@
 
 > https://freenic.org
 
-Bank-level U.S. financial-data explorer — failures, FRED series, and active institutions; full 13.2 GiB parquet release at data.freenic.org.
+Bank-level U.S. financial-data explorer — failures, FRED series, and active institutions; full 67-file, 13.9 GiB parquet release at data.freenic.org.
 
 Generated from ecosystem.json (kit v2.0).
 

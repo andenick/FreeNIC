@@ -1,7 +1,7 @@
 """FreeNIC — public data explorer (FastAPI + DuckDB + Plotly).
 
 A thin explorer over a SMALL REAL CURATED SLICE of the FreeNIC open banking dataset.
-The full FreeNIC data is the ~13.2 GiB / 61-file v1.0.0 parquet release (~4.97B rows,
+The full FreeNIC data is the ~13.9 GiB / 67-file v1.1.0 parquet release (~4.97B rows,
 58 base tables, 217,210 institutions, 20 sources, 1863-2026) and is reachable via the R/Python
 packages + API over the published parquet release. This site ships ONLY a ~5 MB
 curated sample of real, published tables (FDIC bank failures, FRED banking series,

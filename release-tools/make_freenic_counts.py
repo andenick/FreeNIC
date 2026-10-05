@@ -10,24 +10,41 @@ DATA_SERVING.md, the catalog, or a triad sublabel again (the FN-3 lesson):
 
   1. the SERVED parquet release  -- enumerated from the build-host export dir
      (``<OUTPUTS>/parquet/*.parquet`` + the 163-year spine
-     ``long_bank_aggregates_1863_2026.parquet``), byte sizes read off disk,
-     sha256 + per-file metadata (era/tier/provider/citation/notes) read from
-     ``SHA256SUMS.txt`` + ``PROVENANCE.csv``. Each occ_historical* era is
-     OVERRIDDEN with the real min/max report_date read from the parquet
-     (the arbiter -- prose and the old catalog are both wrong).
+     ``long_bank_aggregates_1863_2026.parquet`` + the 6 FREENIC11 reconstruction
+     parquet under ``reconstruction/``), byte sizes taken from the FROZEN
+     PUBLISHED release manifest (``<OUTPUTS>/release_<RELEASE_VERSION>/
+     release_manifest.json``) whenever it exists, sha256 + per-file metadata
+     (era/tier/provider/citation/notes) read from ``SHA256SUMS.txt`` +
+     ``PROVENANCE.csv``. Each occ_historical* era is OVERRIDDEN with the real
+     min/max report_date read from the parquet (the arbiter -- prose and the old
+     catalog are both wrong).
   2. the shipped curated slice ``app/data/freenic_slice.duckdb`` -- row counts
      for the five headline figures + the bulk-zip byte size (built live).
 
 Run on the build host (needs the Outputs export dir + duckdb):
-    python make_freenic_counts.py [--outputs <dir>]
+    python make_freenic_counts.py [--outputs <dir>] [--dry-run]
+
+FND-2 (ported from the Carson deploy-tree copy, 2026-07-29 / item N3.2b)
+-----------------------------------------------------------------------
+The FROZEN release manifest is the ARBITER of served bytes, not the warehouse
+export dir. The warehouse keeps moving after a release is cut -- e.g.
+``freenic_manifest.parquet`` was regenerated to 7,352 B on 2026-07-15 while the
+file actually served at data.freenic.org is the frozen 6,832 B version. Sizing
+from ``p.stat()`` therefore made the site publish a release byte-total 520 B
+larger than the release the host serves: exactly the "state a number nobody can
+reproduce" defect. Any warehouse/release size divergence is now printed LOUDLY
+rather than silently absorbed. The release identity is the module constant
+``RELEASE_VERSION`` (previously hardcoded ``"v1.0.0"`` in two places).
 """
 from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import importlib.util
 import json
 import os
+import re
 from pathlib import Path
 
 import duckdb
@@ -41,6 +58,71 @@ SLICE_DB = DATA / "freenic_slice.duckdb"
 
 # The 163-year replicated spine featured on /explorer: served as the 61st file.
 SPINE = "long_bank_aggregates_1863_2026.parquet"
+
+# The published release identity. Also names the frozen metadata dir the served byte
+# sizes are read back from: <outputs>/release_<RELEASE_VERSION>/release_manifest.json.
+RELEASE_VERSION = "v1.1.0"
+
+
+def _sha_file(p: Path) -> str:
+    """sha256 of a file's bytes (streamed) -- for the reconstruction catalog rows."""
+    h = hashlib.sha256()
+    with p.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _scrub_notes(note: str) -> str:
+    """Sanitize a per-file provenance note for the PUBLIC /data catalog.
+
+    FIX-AT-SOURCE (FNQA-1): the warehouse-side ``Outputs/PROVENANCE.csv`` ``notes``
+    column carries internal build detail that must never surface on the served
+    catalog -- the extraction-framework name ("DARP"), wave/workpackage IDs
+    (W4/W18), and the numbered monorepo ingest-script filenames (``NN[x]_*.py``).
+    None of these are public referents and the numbered scripts are not
+    demonstrably shipped in this public tree, so naming them is not verifiable
+    reproducibility detail. We scrub here, at the render/counts layer, so that
+    EVERY regeneration of ``release_manifest.json`` re-scrubs and the leak can
+    never reappear on the public page -- WITHOUT mutating the read-only warehouse
+    copy. Public notes keep what-it-is + source + coverage; pipeline mechanics
+    become neutral phrasing ("agent-assisted", "the ingestion pipeline").
+    """
+    if not note:
+        return note
+    s = note
+    # 1) DARP extraction-framework name -> neutral.
+    s = re.sub(r"\bAgent/DARP\b", "agent-assisted", s)
+    s = re.sub(r"\bDARP\b", "agent-assisted", s)
+    # 2) Wave / workpackage IDs.
+    s = re.sub(r",\s*W\d+\s+upgrade", "", s)          # ", W18 upgrade"
+    s = re.sub(r"\s*\(\s*W\d+\b[^)]*\)", "", s)       # " (W4 dollar-column guard)"
+    s = re.sub(r"\s*\bW\d+\b", "", s)                 # any stray W-number
+    # 3) Numbered / internal ingest-script filenames -> "the ingestion pipeline".
+    #    3a. resumable-extension internal shorthand "(07i rank <yrs> + 42 rank)".
+    s = re.sub(r"\s*\(07[a-z]? rank[^)]*\)", "", s)
+    #    3b. "<verb> by <script>.py".
+    s = re.sub(r"\bby\s+[\w.\-/]*\.py", "by the ingestion pipeline", s)
+    #    3c. parenthetical acquisition-script tag "(07g_acquire_ubpr.py; ...)".
+    s = re.sub(r"\(\s*[\w.\-/]*\.py\s*;", "(ingestion pipeline;", s)
+    s = re.sub(r"\(\s*[\w.\-/]*\.py\s*\)", "(ingestion pipeline)", s)
+    #    3d. "(reuse of Bev Testing r2_build_clv_panel.py, " internal build ref.
+    s = re.sub(r"\(reuse of [\w ]+ [\w.\-]+\.py, ", "(", s)
+    #    3e. possessive script stems, with or without .py.
+    s = re.sub(r"\b\d{2}[a-z]?_[a-z][\w]*\.py\b", "the ingestion pipeline", s)
+    s = re.sub(r"\b\d{2}[a-z]?_[a-z][\w]*\b", "the ingestion pipeline", s)
+    #    3f. any residual *.py filename token.
+    s = re.sub(r"\b[\w][\w.\-/]*\.py\b", "the ingestion pipeline", s)
+    # 4) Grammar tidy for doubled articles the substitutions can produce.
+    s = re.sub(r"\bThe simplified the ingestion pipeline load\b",
+               "The simplified ingestion-pipeline load", s)
+    s = re.sub(r"the ~13-col the ingestion pipeline load",
+               "the ~13-col ingestion-pipeline load", s)
+    s = re.sub(r"\bThe the ingestion pipeline\b", "The ingestion pipeline", s)
+    # 5) whitespace / punctuation cleanup.
+    s = re.sub(r"\s{2,}", " ", s)
+    s = re.sub(r"\s+([;,.)])", r"\1", s)
+    return s.strip()
 
 
 def _human_iec(n: int) -> str:
@@ -96,7 +178,21 @@ def _load_sha(outputs: Path) -> dict[str, str]:
 
 
 def _parquet_year_range(con, path: Path) -> tuple[int, int] | None:
-    """min/max 4-digit year of report_date (the era arbiter). None if no such col."""
+    """min/max 4-digit year of report_date (the era arbiter). None if no such col.
+
+    FN-2 DIRECTION LOCK -- read before "fixing" any occ_historical era.
+    The correct era of BOTH ``occ_historical.parquet`` and ``occ_historical_clv.parquet``
+    is **1863-1941**, measured here from the parquet itself. ``1867-1904`` is the span of
+    only ONE COMPONENT inside occ_historical.parquet (``source='occ_historical'``, the
+    OCC-direct digitization, 9,788,940 of its 17,775,763 rows); the other component is
+    ``source='occ_historical_clv'`` (Correia-Luck finhist, 7,986,823 rows, 1863-1941).
+    9,788,940 + 7,986,823 = 17,775,763 -- the whole file, spanning 1863-1941.
+
+    The 2026-07-14 estate review recorded this BACKWARDS (as "occ_historical.parquet is
+    1867-1904"); that finding was inverted and was corrected on 2026-07-28. Do NOT
+    "restore" 1867-1904 as a file-level era. If you believe the era is wrong, re-measure
+    the parquet -- this function is the arbiter, PROVENANCE.csv and prose are not.
+    """
     try:
         cols = [r[0].lower() for r in con.execute(
             "DESCRIBE SELECT * FROM '%s'" % path.as_posix()).fetchall()]
@@ -116,27 +212,116 @@ def _parquet_year_range(con, path: Path) -> tuple[int, int] | None:
     return None
 
 
+# The reconstruction layer (FREENIC11) is served under reconstruction/ on the
+# data host. These 6 parquet join the flat release catalog at v1.1.0 (61 -> 67);
+# their per-file catalog metadata (era/tier/provider/citation/notes) is keyed here
+# so the /data flat catalog renders them honestly (still no hand-typed quantity --
+# bytes/rows are read from the frozen release manifest / off disk).
+RECON_SERVED: list[tuple[str, str]] = [
+    ("reconstruction/finhist_equivalent_1863_1941.parquet", "finhist_equivalent_1863_1941"),
+    ("reconstruction/luck_core_1959_1975.parquet", "luck_core_1959_1975"),
+    ("reconstruction/luck_equivalent_1976_2026.parquet", "luck_equivalent_1976_2026"),
+    ("reconstruction/validation/reconciliation_finhist.parquet", "reconciliation_finhist"),
+    ("reconstruction/validation/reconciliation_1959_1975.parquet", "reconciliation_1959_1975"),
+    ("reconstruction/validation/reconciliation_1976_2026.parquet", "reconciliation_1976_2026"),
+]
+_NYF = "FreeNIC reconstruction (NY Fed Terms of Use — attribution + share-alike)"
+_CC0 = "FreeNIC reconstruction (finhist/OCC historical layer, CC0 1.0)"
+RECON_MANIFEST_META: dict[str, dict] = {
+    "finhist_equivalent_1863_1941": dict(era="1863-1941", tier="derived — FreeNIC reconstruction",
+        provider=_CC0, cite="no", notes="Reconstructed HIST panel (from-raw derivation, verified cell-by-cell; PASS)."),
+    "luck_core_1959_1975": dict(era="1959-1975", tier="derived — FreeNIC reconstruction",
+        provider=_NYF, cite="yes", notes="Reconstructed MODL panel (their formula on their input; PASS)."),
+    "luck_equivalent_1976_2026": dict(era="1976-2026", tier="derived — FreeNIC reconstruction",
+        provider=_NYF, cite="yes", notes="Reconstructed MODC panel (independent Fed-direct re-derivation; gate FAIL, reported honestly)."),
+    "reconciliation_finhist": dict(era="1863-1941", tier="derived — FreeNIC reconstruction (reconciliation)",
+        provider=_CC0, cite="no", notes="Cell-level published↔rebuilt reconciliation, 1863-1941."),
+    "reconciliation_1959_1975": dict(era="1959-1975", tier="derived — FreeNIC reconstruction (reconciliation)",
+        provider=_NYF, cite="yes", notes="Cell-level published↔rebuilt reconciliation, 1959-1975."),
+    "reconciliation_1976_2026": dict(era="1976-2026", tier="derived — FreeNIC reconstruction (reconciliation)",
+        provider=_NYF, cite="yes", notes="Cell-level published↔rebuilt reconciliation, 1976-2026."),
+}
+
+
 def _served_files(outputs: Path) -> list[Path]:
-    """The served release set: the 60 parquet in <outputs>/parquet + the spine (=61)."""
+    """The served release set: 60 parquet in <outputs>/parquet + the spine (=61),
+    plus the 6 FREENIC11 reconstruction parquet under reconstruction/ (=67 at v1.1.0)."""
     files = sorted((outputs / "parquet").glob("*.parquet"))
     spine = outputs / SPINE
     if spine.exists():
         files.append(spine)
+    for rel, _stem in RECON_SERVED:
+        p = outputs / rel
+        if p.exists():
+            files.append(p)
     return files
+
+
+def _frozen_release_sizes(outputs: Path) -> dict[str, int]:
+    """Byte sizes recorded in the FROZEN, PUBLISHED release manifest, keyed by basename.
+
+    FND-2 root-cause guard. `_served_files()` enumerates the *warehouse* export dir, but
+    the warehouse keeps moving after a release is cut: `freenic_manifest.parquet` was
+    regenerated to 7,352 B on 2026-07-15, while the file actually served at
+    data.freenic.org is the frozen 6,832 B version. Sizing from `p.stat()` therefore made
+    the site publish a release byte-total 520 B larger than the release the host serves --
+    the same "state a number nobody can reproduce" defect FND-2 is about.
+
+    So: when the frozen release manifest is present, IT is the arbiter of served bytes.
+    Falls back to on-disk stat when it is absent (e.g. cutting a brand-new release).
+    """
+    mf = outputs / ("release_" + RELEASE_VERSION) / "release_manifest.json"
+    if not mf.exists():
+        return {}
+    try:
+        frozen = json.loads(mf.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:      # unreadable/corrupt -> fall back to stat
+        print("  ! frozen release manifest unreadable (%s); sizing from disk" % exc)
+        return {}
+    sizes: dict[str, int] = {}
+    for entry in frozen.get("files", []):
+        path = entry.get("path") or entry.get("name") or entry.get("file") or ""
+        nbytes = entry.get("bytes")
+        if path and isinstance(nbytes, int):
+            sizes[Path(path).name] = nbytes
+    return sizes
 
 
 def build_manifest(outputs: Path) -> dict:
     """Regenerate the per-file release catalog from the served set (single source)."""
     prov = _load_provenance(outputs)
     sha = _load_sha(outputs)
+    frozen_sizes = _frozen_release_sizes(outputs)
     con = duckdb.connect()
     files_meta: list[dict] = []
     total = 0
     for p in _served_files(outputs):
         name = p.name
         stem = p.stem
-        size = p.stat().st_size
+        disk_size = p.stat().st_size
+        size = frozen_sizes.get(name, disk_size)
+        if size != disk_size:
+            # Loud, not silent: the warehouse copy has drifted from the published one.
+            print("  ! %s: warehouse %d B != released %d B — publishing the RELEASED size"
+                  % (name, disk_size, size))
         total += size
+        # Reconstruction-layer files live under reconstruction/ and are keyed
+        # separately (not in PROVENANCE.csv); they render as reconstruction/<name>
+        # so the /data catalog URL + codebook link resolve on the data host.
+        rmeta = RECON_MANIFEST_META.get(stem)
+        if rmeta is not None:
+            files_meta.append({
+                "file": "reconstruction/" + name,
+                "table": stem,
+                "bytes": size,
+                "sha256": _sha_file(p),
+                "era": rmeta["era"],
+                "tier": rmeta["tier"],
+                "provider": rmeta["provider"],
+                "citation_required": rmeta["cite"],
+                "notes": rmeta["notes"],
+            })
+            continue
         pr = prov.get(stem, {})
         # Era: for occ_historical* the parquet min/max report_date is the arbiter.
         era = (pr.get("era") or "").strip()
@@ -153,14 +338,17 @@ def build_manifest(outputs: Path) -> dict:
             "tier": (pr.get("provenance_tier") or "").strip() or "derived",
             "provider": (pr.get("provider") or "").strip() or "FreeNIC",
             "citation_required": (pr.get("citation_required") or "no").strip(),
-            "notes": (pr.get("notes") or "").strip(),
+            # Public catalog note: scrub internal pipeline identifiers at the
+            # render/counts layer so regeneration can't reintroduce the leak
+            # (FNQA-1); the warehouse PROVENANCE.csv copy is left untouched.
+            "notes": _scrub_notes((pr.get("notes") or "").strip()),
         })
     con.close()
     return {
         "generated": "make_freenic_counts.py",
         "n_files": len(files_meta),
         "total_bytes": total,
-        "release": "v1.0.0",
+        "release": RELEASE_VERSION,
         "files": files_meta,
     }
 
@@ -225,7 +413,17 @@ def slice_counts() -> dict:
 
 
 def slice_zip_bytes() -> int:
-    """Live byte size of the served bulk slice zip (built from the real slice)."""
+    """Byte size of the bulk slice zip as built HERE (the build host).
+
+    IMPORTANT (FNQA-2): the container serves this zip by running ``bulk_zip()``
+    itself at request time, using its OWN pinned libraries. Parquet/CSV
+    serialization differs between the build host and the container even for a
+    byte-identical slice DB, so this build-host figure can be ~hundreds of KB off
+    from the served ``Content-Length``. The only authoritative slice-zip size is
+    the SERVING environment's -- pass it in via ``FREENIC_SLICE_ZIP_BYTES``
+    (measured in-container at deploy). When that env var is set, ``main()`` uses
+    it and skips this build-host estimate entirely.
+    """
     spec = importlib.util.spec_from_file_location("fn_downloads", APP / "downloads.py")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)  # type: ignore[union-attr]
@@ -277,12 +475,35 @@ def main(argv=None) -> int:
     ap.add_argument("--outputs", default=os.environ.get("FREENIC_OUTPUTS", "Outputs"),
                     help="build-host parquet export dir (has parquet/, SHA256SUMS.txt, PROVENANCE.csv); "
                          "defaults to $FREENIC_OUTPUTS or ./Outputs")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="compute and print every figure but WRITE NOTHING; also skips the "
+                         "curated-slice stage when app/data/freenic_slice.duckdb is absent. "
+                         "Use to verify the release figures before regenerating site data.")
     args = ap.parse_args(argv)
     outputs = Path(args.outputs)
+    dry = args.dry_run
 
     manifest = build_manifest(outputs)
-    (DATA / "release_manifest.json").write_text(
-        json.dumps(manifest, indent=1, ensure_ascii=False), encoding="utf-8", newline="\n")
+    if dry:
+        print("[dry-run] would write %s" % (DATA / "release_manifest.json"))
+    else:
+        (DATA / "release_manifest.json").write_text(
+            json.dumps(manifest, indent=1, ensure_ascii=False), encoding="utf-8", newline="\n")
+
+    if dry and not SLICE_DB.exists():
+        # The curated slice is not part of this repo's checked-in tree; the release
+        # figures above do not depend on it, so report them and stop rather than
+        # crash. NEVER substitute a guessed slice figure.
+        print("[dry-run] curated slice %s absent — release figures only" % SLICE_DB.name)
+        print("release_manifest.json: %d files / %d bytes (%s / %s), release %s"
+              % (manifest["n_files"], manifest["total_bytes"],
+                 _human_iec(manifest["total_bytes"]), _human_si(manifest["total_bytes"]),
+                 manifest["release"]))
+        occ_dry = {f["table"]: f["era"] for f in manifest["files"]
+                   if f["table"].startswith("occ_historical")}
+        for k, v in occ_dry.items():
+            print("  %-22s %s" % (k + "_era", v))
+        return 0
 
     sc = slice_counts()
     datasets, directory, external = count_sources()
@@ -293,8 +514,8 @@ def main(argv=None) -> int:
     counts = {
         "release_files": manifest["n_files"],
         "release_bytes": manifest["total_bytes"],
-        "release_size_iec": _human_iec(manifest["total_bytes"]),   # "13.2 GiB" (canonical)
-        "release_size_si": _human_si(manifest["total_bytes"]),     # "14.1 GB"
+        "release_size_iec": _human_iec(manifest["total_bytes"]),   # "13.9 GiB" (canonical)
+        "release_size_si": _human_si(manifest["total_bytes"]),     # "15.0 GB"
         "slice_db_bytes": sc["slice_db_bytes"],
         "slice_db_h": _human_slice(sc["slice_db_bytes"]),          # "15.5 MB"
         "slice_zip_bytes": 0,   # filled below (2-phase: README reads release numbers first)
@@ -343,16 +564,25 @@ def main(argv=None) -> int:
     # reads these). Phase 2: build the zip (README now numerically correct) and
     # patch in the deterministic slice-zip size. One invocation, idempotent.
     out_path = DATA / "freenic_counts.json"
-    out_path.write_text(json.dumps(counts, indent=1, ensure_ascii=False),
-                        encoding="utf-8", newline="\n")
-    zip_b = slice_zip_bytes()
+    if not dry:
+        out_path.write_text(json.dumps(counts, indent=1, ensure_ascii=False),
+                            encoding="utf-8", newline="\n")
+    # Prefer the serving-environment measurement (the container's own bulk_zip
+    # Content-Length) when the deploy provides it -- the build-host build diverges
+    # by parquet serialization (FNQA-2). Fall back to the build-host estimate.
+    env_zip = os.environ.get("FREENIC_SLICE_ZIP_BYTES", "").strip()
+    zip_b = int(env_zip) if env_zip.isdigit() else slice_zip_bytes()
     counts["slice_zip_bytes"] = zip_b
-    counts["slice_zip_h"] = _human_slice(zip_b)                    # "20.8 MB"
-    out_path.write_text(json.dumps(counts, indent=1, ensure_ascii=False),
-                        encoding="utf-8", newline="\n")
+    counts["slice_zip_h"] = _human_slice(zip_b)                    # e.g. "20.6 MB"
+    if dry:
+        print("[dry-run] would write %s and %s" % (DATA / "release_manifest.json", out_path))
+    else:
+        out_path.write_text(json.dumps(counts, indent=1, ensure_ascii=False),
+                            encoding="utf-8", newline="\n")
 
-    print("release_manifest.json: %d files / %d bytes (%s)"
-          % (manifest["n_files"], manifest["total_bytes"], counts["release_size_iec"]))
+    print("release_manifest.json: %d files / %d bytes (%s / %s), release %s"
+          % (manifest["n_files"], manifest["total_bytes"], counts["release_size_iec"],
+             counts["release_size_si"], manifest["release"]))
     print("freenic_counts.json written:")
     for k in ("release_files", "release_size_iec", "slice_zip_h", "slice_db_h",
               "fred_series", "failure_end_year", "source_datasets",

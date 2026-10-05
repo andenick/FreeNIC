@@ -656,7 +656,17 @@ def summary_statistics(con):
     print(f"    {'GRAND TOTAL':<30} {grand_total:>15,}")
 
     print(f"\n    --- Temporal Coverage ---")
-    print(f"    OCC Historical: 1867-1904 (annual)")
+    # FN-2 DIRECTION LOCK: the occ_historical TABLE spans 1863-1941. `1867-1904` is only
+    # the source='occ_historical' (OCC-direct) component; source='occ_historical_clv'
+    # (Correia-Luck finhist) supplies 1863-1941. Never print an unqualified 1867-1904 for
+    # the table -- that hardcoded line is what seeded the inverted 2026-07-14 FN-2 finding.
+    occ_range = con.execute(
+        "SELECT MIN(report_date), MAX(report_date) FROM occ_historical").fetchone()
+    occ_direct = con.execute(
+        "SELECT MIN(report_date), MAX(report_date) FROM occ_historical "
+        "WHERE source='occ_historical'").fetchone()
+    print(f"    OCC Historical: {occ_range[0]} to {occ_range[1]} (annual; "
+          f"OCC-direct component {occ_direct[0]} to {occ_direct[1]})")
     luck_range = con.execute("SELECT MIN(period_end), MAX(period_end), COUNT(DISTINCT period_end) FROM luck_call_reports").fetchone()
     print(f"    Luck Database:  {luck_range[0]} to {luck_range[1]} ({luck_range[2]} quarters)")
     call_range = con.execute("SELECT MIN(period_end), MAX(period_end), COUNT(DISTINCT period_end) FROM call_report_filings").fetchone()
