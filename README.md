@@ -6,9 +6,9 @@ Summary of Deposits, historical), the Federal Reserve (FR Y-9C/BHCF, H.8, FRED),
 SEC EDGAR, and derived academic panels — into a single, provenance-tracked warehouse with a
 harmonized variable dictionary, then exports a clean, citable public release.
 
-- **Warehouse:** 62 base tables (49 main + 6 catalog + 7 dict) · 52 shaped views · **4.97 billion
-  rows** (4,968,889,667) · coverage span **1782–2026** across 21 source families (data vintage
-  2026Q1; v1.1.0 adds the verified Luck/finhist reconstruction panels — see below).
+- **Warehouse:** 62 base tables (49 main + 6 catalog + 7 dict) · 52 shaped views · **4.98 billion
+  rows** (4,981,408,355) · coverage span **1782–2026** across 21 source families (data vintage
+  2026Q2; v1.1.0 adds the verified Luck/finhist reconstruction panels — see below) · 60 Parquet tables at the local export root.
 - **Public release (v1.1.0):** **67 Parquet files / 13.9 GiB** (14,955,118,561 bytes), made up of
   **61 files at the served root** — 60 base-table exports plus the 163-year (1863–2026)
   bank-aggregate spine `long_bank_aggregates_1863_2026.parquet` — and the **6-file reconstruction
