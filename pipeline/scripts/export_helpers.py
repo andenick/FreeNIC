@@ -189,7 +189,18 @@ def is_current(con, table: str, out_path: Path, markers: dict) -> bool:
         signals.append(float(marker["last_write_ts"]))
 
     if not signals:
-        return True  # no freshness signal at all -> existence == current
+        # No table-specific signal exists (writer not mapped in filing_metadata,
+        # and the marker was recorded before any signal existed). 2026-10-04 bug:
+        # this used to `return True` (existence == current), which silently
+        # under-exported ubpr_peer_stats (+235,807 rows) and clean_bank_panel
+        # (+6) after their 2026Q2 writers touched the warehouse. Fall back to
+        # the warehouse file's mtime as a conservative upper bound on ANY
+        # write: a parquet older than the DB file is stale, never "current".
+        try:
+            from utils import DB_PATH  # local import: avoid cycle at module load
+            signals.append(DB_PATH.stat().st_mtime)
+        except Exception:
+            return True  # genuinely unknowable -> existence == current (legacy)
     return parquet_mtime > max(signals)
 
 
